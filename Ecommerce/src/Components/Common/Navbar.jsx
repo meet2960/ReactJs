@@ -42,7 +42,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-light w-100">
-        <div className="container-fluid">
+        <div className="container-fluid ">
           <div>
             <NavLink className="navbar-brand me-0" to="/">
               <img

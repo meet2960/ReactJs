@@ -28,7 +28,7 @@ const BackToTop = () => {
       <div>
         <button
           onClick={() => toTop()}
-          className="btn btn-secondary btt"
+          className="btn btn-secondary backtopbtn"
           id="back-to-top"
         >
           <i className="bi bi-arrow-up-short fs-24"></i>
