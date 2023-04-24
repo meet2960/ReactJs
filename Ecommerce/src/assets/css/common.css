@@ -1,0 +1,319 @@
+:root {
+    --bs-success-rgb: 69, 201, 165 !important;
+    --bs-secondary-rgb: 55, 71, 133 !important;
+    --swiper-navigation-size: 25px !important;
+    --white: #fff
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    /* outline: 2px solid red; */
+}
+
+.fw-14 {
+    font-size: 14px !important;
+}
+
+.fw-16 {
+    font-size: 16px;
+}
+
+.bs {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.bs1 {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.offcanvas.offcanvas-end {
+    width: 500px !important;
+}
+
+.bt {
+    border-top: 1px solid black;
+}
+
+.brd {
+    border-bottom: 1px solid black !important;
+}
+
+.cart-len {
+    position: absolute;
+    bottom: -2%;
+    right: 6%;
+    font-size: 18px;
+}
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-form-control-bg);
+    border-color: #212529 !important;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(33 37 41 / 5%) !important;
+}
+
+.list-unstyled li {
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+.hov {
+    transition: 0.5s all ease-out;
+}
+
+.hov:hover {
+    transform: scale(1.10);
+    transition: 0.5s all ease-in;
+}
+
+/* * Loader*/
+.loader {
+    border: 7px solid #eaf0f6;
+    border-top: 7px solid rgb(var(--bs-success-rgb));
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.nav-toggle {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    animation: translateHeader .8s;
+    /* box-shadow: 0 3px 4px rgba(0, 0, 0, .07); */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: 0.9s all ease-in;
+}
+
+@keyframes translateHeader {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+.z-100 {
+    z-index: 100;
+}
+
+.text-success {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-success-rgb), var(--bs-text-opacity)) !important;
+}
+
+.btn-secondary {
+    background-color: rgb(var(--bs-secondary-rgb)) !important;
+    border: 1px solid rgb(var(--bs-secondary-rgb)) !important;
+}
+
+.btn-secondary:hover {
+    background-color: rgb(53, 83, 201) !important;
+    border: 1px solid rgb(53, 83, 201) !important;
+}
+
+.btn-success {
+    color: white !important;
+    border: 1px solid rgb(var(--bs-success-rgb)) !important;
+    background-color: rgb(var(--bs-success-rgb)) !important;
+}
+
+.btn-success:hover {
+    background-color: rgb(50, 220, 175) !important;
+    border: 1px solid rgb(var(--bs-success-rgb)) !important;
+}
+
+.btn-outline-success {
+    outline: rgb(var(--bs-success-rgb)) !important;
+    color: rgb(var(--bs-success-rgb)) !important;
+    border: 1px solid rgb(var(--bs-success-rgb)) !important;
+
+}
+
+.btn-outline-success:hover {
+    background-color: rgb(var(--bs-success-rgb)) !important;
+    color: #fff !important;
+}
+
+.h-250 {
+    height: 200px !important;
+}
+
+.h-400 {
+    /* padding: 50px 0; */
+    height: 400px !important;
+}
+
+.back-bg-1 {
+    background: url("../images/back-bg-5.webp") no-repeat center;
+    background-size: cover;
+    width: 100%;
+}
+
+
+.back-bg-2 {
+    background: url("../images/back-bg-2.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+.back-bg-3 {
+    background: url("../images/back-bg-3.jpg") no-repeat center center;
+    background-size: cover;
+
+}
+
+.back-bg-4 {
+    background: url("../images/back-bg-1.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+.back-bg-5 {
+    background: url("../images/back-bg-4.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+
+.mtm {
+    position: relative;
+    margin-top: -100px;
+    z-index: 1000;
+}
+
+@media screen and (max-width:426px) {
+    .mtm {
+        margin-top: 0;
+    }
+}
+
+.tg {
+    top: 30%;
+    right: 20px;
+}
+
+.head::before {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    border-radius: 10px;
+    width: 100%;
+    height: 3px;
+    background: rgb(var(--bs-secondary-rgb));
+}
+
+.dialogue {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    color: 1px solid #ccc;
+    max-width: 500px;
+    box-shadow: 0 0.5rem 1rem rgba(33, 37, 41, 0.15);
+}
+
+
+.swiper-button-prev,
+.swiper-button-next {
+    width: calc(var(--swiper-navigation-size) / 44 * 27) !important;
+    height: var(--swiper-navigation-size) !important;
+    margin-top: calc(0px - (var(--swiper-navigation-size) / 2)) !important;
+    color: rgb(var(--bs-secondary-rgb)) !important;
+}
+
+
+.page-link {
+    color: rgb(var(--bs-secondary-rgb)) !important;
+    cursor: pointer !important;
+}
+
+.active>.page-link,
+.page-link.active {
+    z-index: 3;
+    color: var(--white) !important;
+    background-color: rgb(var(--bs-secondary-rgb)) !important;
+    border-color: rgb(var(--bs-secondary-rgb)) !important;
+}
+
+
+.mainimg img {
+    height: 250px;
+    object-fit: cover;
+}
+
+.bg-cat {
+    background-color: rgb(171, 171, 171);
+}
+
+.btn-secondory-outline:hover {
+    background-color: rgb(var(--bs-secondary-rgb)) !important;
+    color: white !important;
+}
+
+.img-sm a>img {
+    height: 150px;
+}
+
+.btn-secondory-outline .active {
+    text-decoration: underline;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    /* background-color: rgba(0, 0, 0, .6); */
+    background-color: rgb(var(--bs-secondary-rgb));
+}
+
+.avatar-lg {
+    height: 6rem;
+    width: 6rem;
+    object-fit: contain;
+}
+
+.navbar {
+    z-index: 9999;
+}
+
+.btt {
+    position: fixed;
+    bottom: 5%;
+    right: 2%;
+}
+
+.navtop {
+    top: 10px;
+}
