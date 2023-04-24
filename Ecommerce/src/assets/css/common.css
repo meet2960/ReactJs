@@ -262,7 +262,7 @@ input::-webkit-inner-spin-button {
 
 
 .mainimg img {
-    height: 250px;
+    height: 200px;
     object-fit: cover;
 }
 
@@ -272,6 +272,11 @@ input::-webkit-inner-spin-button {
 
 .btn-secondory-outline:hover {
     background-color: rgb(var(--bs-secondary-rgb)) !important;
+    color: white !important;
+}
+
+.btn-secondory-outline.active {
+    background-color: rgba(55, 71, 133) !important;
     color: white !important;
 }
 

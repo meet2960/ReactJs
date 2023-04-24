@@ -25,7 +25,7 @@ const NewLogin = () => {
     password: "admin",
   };
   // * For the Custom Alert
-  const showAlert = () => {
+  const userLoggedIn = () => {
     Swal.fire({
       position: "center",
       icon: "success",
@@ -41,7 +41,7 @@ const NewLogin = () => {
       values.password === demoUser.password
     ) {
       dispatch(loggedIn());
-      showAlert();
+      userLoggedIn();
       navigate("/");
     } else {
       alert("Please Enter Again");

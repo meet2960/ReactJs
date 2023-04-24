@@ -14,6 +14,10 @@ const Category = () => {
     ];
     setCategory(uniqueCategory);
   }, [productData, categoryProducts]);
+  const [activeIndex, setActiveIndex] = useState(null);
+  const handleItemClick = (index) => {
+    setActiveIndex(index);
+  };
   const handleCategory = (item) => {
     const allCategory = productData.filter((items, index) => {
       return item === items.category;
@@ -21,7 +25,7 @@ const Category = () => {
     setCategoryProducts(allCategory);
   };
   return (
-    <section>
+    <section className="h-100 overflow-hidden">
       <div className="container-fluid h-100 overflow-hidden">
         <div className="row h-100 justify-content-around">
           <div className="col-lg-2 h-100 overflow-y-auto">
@@ -33,8 +37,13 @@ const Category = () => {
                       <div key={index} className="col-12">
                         <button
                           type="button"
-                          className="btn btn-secondory-outline"
-                          onClick={() => handleCategory(items)}
+                          className={`${
+                            index === activeIndex ? "active" : ""
+                          } btn btn-secondory-outline`}
+                          onClick={() => {
+                            handleCategory(items);
+                            handleItemClick(index);
+                          }}
                         >
                           {items.toUpperCase()}
                         </button>
@@ -55,7 +64,7 @@ const Category = () => {
                 categoryProducts.map((items, index) => {
                   return (
                     <div className="col-6 col-md-3 col-lg-4" key={index}>
-                      <div className="mainimg d-flex justify-content-center flex-column align-items-center">
+                      <div className="mainimg d-flex justify-content-center flex-column align-items-center p-3  rounded-3">
                         <NavLink to={`/showproduct/${items.id}`}>
                           <img
                             src={items.thumbnail}
@@ -63,7 +72,7 @@ const Category = () => {
                             className="img-fluid"
                           />
                         </NavLink>
-                        <p className="mb-0">{items.title}</p>
+                        <h6 className="mt-2 mb-0">{items.title}</h6>
                       </div>
                     </div>
                   );

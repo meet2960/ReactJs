@@ -4,16 +4,14 @@ import { ProductContext } from "../../context/ProductContext";
 import logo from "../../assets/images/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { loggedOut } from "../../Redux/cartSlice";
+import Swal from "sweetalert2";
 const Navbar = () => {
+  const productData = useContext(ProductContext);
+  const dispatch = useDispatch();
   const allData = useSelector((state) => state);
   const cart = allData.cart;
   const login = allData.isLoggedIn;
-  const dispatch = useDispatch();
-  useEffect(() => {
-    console.log("Inside Navbar with login", login);
-  }, [allData]);
   // * For Searching Products
-  const productData = useContext(ProductContext);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredResult, setFilterResult] = useState([]);
 
@@ -32,9 +30,18 @@ const Navbar = () => {
       );
     }
   };
+  const userLogout = () => {
+    Swal.fire({
+      position: "center",
+      icon: "error",
+      title: "Logged Out Successfully",
+      timer: 1500,
+      showConfirmButton: false,
+    });
+  };
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-light position-sticky  w-100">
+      <nav className="navbar navbar-expand-lg bg-light w-100">
         <div className="container-fluid">
           <div>
             <NavLink className="navbar-brand me-0" to="/">
@@ -92,7 +99,10 @@ const Navbar = () => {
                     <button
                       type="button"
                       className="btn btn-secondary btn-sm"
-                      onClick={(e) => dispatch(loggedOut())}
+                      onClick={(e) => {
+                        // dispatch(loggedOut());
+                        userLogout();
+                      }}
                     >
                       Logout
                     </button>
