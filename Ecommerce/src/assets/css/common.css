@@ -310,7 +310,7 @@ input::-webkit-inner-spin-button {
 }
 
 .navbar {
-    z-index: 9999;
+    /* z-index: 9999;    */
 }
 
 .btt {

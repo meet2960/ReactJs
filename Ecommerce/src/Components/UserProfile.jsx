@@ -3,7 +3,7 @@ import userImg from "../assets/images/user.png";
 const UserProfile = () => {
   return (
     <div className="container mt-3">
-      <h2 className="text-center">Welcome Admin</h2>
+      <h2 className="text-center mb-3">Welcome back Admin</h2>
       <div className="row shadow p-4 rounded-3 justify-content-evenly">
         <div className="col-lg-2">
           <div>

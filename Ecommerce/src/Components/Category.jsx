@@ -64,7 +64,7 @@ const Category = () => {
                 categoryProducts.map((items, index) => {
                   return (
                     <div className="col-6 col-md-3 col-lg-4" key={index}>
-                      <div className="mainimg d-flex justify-content-center flex-column align-items-center p-3  rounded-3">
+                      <div className="mainimg d-flex justify-content-center flex-column align-items-center p-3 shadow-sm rounded-3">
                         <NavLink to={`/showproduct/${items.id}`}>
                           <img
                             src={items.thumbnail}

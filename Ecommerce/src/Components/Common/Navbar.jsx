@@ -98,7 +98,7 @@ const Navbar = () => {
                   <NavLink to="/login">
                     <button
                       type="button"
-                      className="btn btn-secondary btn-sm"
+                      className="btn btn-secondary btn-sm me-3"
                       onClick={(e) => {
                         // dispatch(loggedOut());
                         userLogout();
@@ -161,9 +161,7 @@ const Navbar = () => {
                         />
                       </NavLink>
                     </div>
-                    <div>
-                      <p className="mb-0">{items.title}</p>
-                    </div>
+                    <h6 className="mt-2 mb-0">{items.title}</h6>
                   </div>
                 </div>
               );

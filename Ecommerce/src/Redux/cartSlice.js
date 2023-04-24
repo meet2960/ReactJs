@@ -2,7 +2,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialStateValues = {
   cart: [],
-  isLoggedIn: true,
+  isLoggedIn: false,
 };
 const cartSlice = createSlice({
   name: "cart",
