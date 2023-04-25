@@ -101,14 +101,6 @@ const DropDown = ({ items, index }) => {
             </label>
             <div>
               <DeleteFeildButton index={index} />
-              {/* <Button
-                type="button"
-                color="danger"
-                outline={true}
-                onClick={() => dispatch(handleDeleteFeilds({ index: index }))}
-              >
-                X
-              </Button> */}
             </div>
           </Col>
         </Row>
