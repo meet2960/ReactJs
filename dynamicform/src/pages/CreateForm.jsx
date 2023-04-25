@@ -50,6 +50,9 @@ const CreateForm = () => {
               Radio Button
             </Button>
           </Col>
+          <Col className="d-flex justify-content-center">
+            <Button color="success">Submit</Button>
+          </Col>
         </Row>
       </Container>
       <Container className="mt-3">
