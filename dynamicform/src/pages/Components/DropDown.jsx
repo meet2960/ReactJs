@@ -7,6 +7,7 @@ import {
 } from "../../Redux/formSlice";
 import { useDispatch } from "react-redux";
 import { Row, Col, Label, Button } from "reactstrap";
+import DeleteFeildButton from "./DeleteFeildButton";
 const DropDown = ({ items, index }) => {
   const dispatch = useDispatch();
   return (
@@ -99,14 +100,15 @@ const DropDown = ({ items, index }) => {
               Delete
             </label>
             <div>
-              <Button
+              <DeleteFeildButton index={index} />
+              {/* <Button
                 type="button"
                 color="danger"
                 outline={true}
                 onClick={() => dispatch(handleDeleteFeilds({ index: index }))}
               >
                 X
-              </Button>
+              </Button> */}
             </div>
           </Col>
         </Row>

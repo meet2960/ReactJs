@@ -5,6 +5,7 @@ import {
   handleDeleteFeilds,
 } from "../../Redux/formSlice";
 import { Row, Col, Label, Button } from "reactstrap";
+import DeleteFeildButton from "./DeleteFeildButton";
 const TextField = ({ items, index }) => {
   const inputTypesList = [
     "text",
@@ -115,14 +116,15 @@ const TextField = ({ items, index }) => {
               Delete
             </label>
             <div>
-              <Button
+              <DeleteFeildButton index={index} />
+              {/* <Button
                 type="button"
                 color="danger"
                 outline={true}
                 onClick={() => dispatch(handleDeleteFeilds({ index: index }))}
               >
                 X
-              </Button>
+              </Button> */}
             </div>
           </Col>
         </Row>

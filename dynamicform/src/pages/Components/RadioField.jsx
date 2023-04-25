@@ -1,7 +1,11 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { handleInputFieldsChange } from "../../Redux/formSlice";
+import {
+  handleInputFieldsChange,
+  handleAddRadioOptionField,
+} from "../../Redux/formSlice";
 import { Row, Col, Label, Button } from "reactstrap";
+import DeleteFeildButton from "./DeleteFeildButton";
 const RadioField = ({ items, index }) => {
   const dispatch = useDispatch();
   return (
@@ -75,13 +79,17 @@ const RadioField = ({ items, index }) => {
               className="form-control"
               type="text"
               placeholder="Enter Option"
-              /* onBlur={(e) => {
-                if (e.target.value === "") {
-                } else {
-                  handleAddRadioOptionField(index, e.target.value);
-                  e.target.value = "";
+              onBlur={(e) => {
+                if (e.target.value !== "") {
+                  dispatch(
+                    handleAddRadioOptionField({
+                      index: index,
+                      value: e.target.value,
+                    })
+                  );
                 }
-              }} */
+                e.target.value = "";
+              }}
             />
           </Col>
           {/* <Col lg={"auto"} className="d-flex flex-column">
@@ -115,14 +123,7 @@ const RadioField = ({ items, index }) => {
               Delete
             </label>
             <div>
-              <Button
-                type="button"
-                outline={true}
-                color="danger"
-                // onClick={handleDeleteFields}
-              >
-                X
-              </Button>
+              <DeleteFeildButton index={index} />
             </div>
           </Col>
         </Row>

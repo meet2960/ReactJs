@@ -53,7 +53,12 @@ const formSlice = createSlice({
         options: [],
       });
     },
-    handleAddRadioOptionField: (state, action) => {},
+    handleAddRadioOptionField: (state, action) => {
+      state.formFields[action.payload.index].options = [
+        ...state.formFields[action.payload.index].options,
+        action.payload.value,
+      ];
+    },
     // !To Delete Field based on its Index
     handleDeleteFeilds: (state, action) => {
       state.formFields.splice(action.payload.index, 1);
@@ -69,4 +74,5 @@ export const {
   handleAddSelectedOptionField,
   handleDeleteSelectedOptionField,
   handleAddRadioField,
+  handleAddRadioOptionField,
 } = formSlice.actions;
