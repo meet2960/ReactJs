@@ -1,23 +1,33 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useDispatch } from "react-redux";
 import {
   handleInputFieldsChange,
   handleDeleteFeilds,
 } from "../../Redux/formSlice";
-import { Row, Col } from "reactstrap";
+import { Row, Col, Label } from "reactstrap";
 const TextField = ({ items, index }) => {
+  const inputTypesList = [
+    "text",
+    "number",
+    "password",
+    "email",
+    "date",
+    "time",
+    "color",
+    "image",
+  ];
   const dispatch = useDispatch();
 
   return (
     <Row className="border mt-3 align-items-center b-shadow p-3" key={index}>
       <Col lg={4}>
         <h5 className="text-center">Input Field</h5>
-        <label
+        <Label
           className="form-label fw-600"
           htmlFor={`${items.category}-${index}`}
         >
           {items.label ? items.label : "Label"}
-        </label>
+        </Label>
         <Row className="align-items-end">
           <Col lg={6}>
             <input
