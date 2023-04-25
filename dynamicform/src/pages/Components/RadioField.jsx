@@ -27,7 +27,7 @@ const RadioField = ({ items, index }) => {
       </Col>
       <Col lg={8}>
         <h5>Options Here</h5>
-        <Row>
+        <Row className="justify-content-between">
           <Col lg={2}>
             <label className="form-label">Label:</label>
             <input
@@ -84,41 +84,47 @@ const RadioField = ({ items, index }) => {
               }} */
             />
           </Col>
-          <Col lg={"auto"} className="col-auto d-flex flex-column">
+          {/* <Col lg={"auto"} className="d-flex flex-column">
             <label htmlFor="" className="form-label">
               Add
             </label>
-            <button
-              className="btn btn-outline-success"
+            <Button
+              type="button"
+              outline={true}
+              color="success"
               //   onClick={handleButtonAddRadioOption}
             >
               +
-            </button>
-          </Col>
-          <div className="col-auto d-flex flex-column">
+            </Button>
+          </Col> */}
+          <Col lg={"auto"} className="d-flex flex-column">
             <label htmlFor="" className="form-label">
               Del
             </label>
-            <button
-              className="btn btn-outline-secondary"
+            <Button
+              type="button"
+              outline={true}
+              color="secondary"
               //   onClick={(e) => handleDeleteSelectOptionField(index)}
             >
               -
-            </button>
-          </div>
-          <div className="col-auto d-flex flex-column align-items-center">
+            </Button>
+          </Col>
+          <Col lg={"auto"} className="d-flex flex-column align-items-center">
             <label htmlFor="" className="form-label">
               Delete
             </label>
-            <div className="">
-              <button
-                className="btn btn-outline-danger"
+            <div>
+              <Button
+                type="button"
+                outline={true}
+                color="danger"
                 // onClick={handleDeleteFields}
               >
                 X
-              </button>
+              </Button>
             </div>
-          </div>
+          </Col>
         </Row>
       </Col>
     </Row>
