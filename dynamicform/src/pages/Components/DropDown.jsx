@@ -100,7 +100,7 @@ const DropDown = ({ items, index }) => {
               Delete
             </label>
             <div>
-              <DeleteFeildButton index={index} />
+              <DeleteFeildButton index={index} />~
             </div>
           </Col>
         </Row>
