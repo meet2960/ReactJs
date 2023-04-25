@@ -3,9 +3,10 @@ import {
   handleInputFieldsChange,
   handleAddSelectedOptionField,
   handleDeleteSelectedOptionField,
+  handleDeleteFeilds,
 } from "../../Redux/formSlice";
 import { useDispatch } from "react-redux";
-import { Row, Col, Label } from "reactstrap";
+import { Row, Col, Label, Button } from "reactstrap";
 const DropDown = ({ items, index }) => {
   const dispatch = useDispatch();
   return (
@@ -89,7 +90,6 @@ const DropDown = ({ items, index }) => {
               onClick={() =>
                 dispatch(handleDeleteSelectedOptionField({ index: index }))
               }
-              //   onClick={(e) => handleDeleteSelectOptionField(index)}
             >
               -
             </button>
@@ -99,13 +99,14 @@ const DropDown = ({ items, index }) => {
               Delete
             </label>
             <div>
-              <button
+              <Button
                 type="button"
-                className="btn btn-outline-danger"
-                // onClick={(e) => handleDeleteFields(index, e)}
+                color="danger"
+                outline={true}
+                onClick={() => dispatch(handleDeleteFeilds({ index: index }))}
               >
                 X
-              </button>
+              </Button>
             </div>
           </Col>
         </Row>

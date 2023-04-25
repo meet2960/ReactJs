@@ -4,7 +4,7 @@ import {
   handleInputFieldsChange,
   handleDeleteFeilds,
 } from "../../Redux/formSlice";
-import { Row, Col, Label } from "reactstrap";
+import { Row, Col, Label, Button } from "reactstrap";
 const TextField = ({ items, index }) => {
   const inputTypesList = [
     "text",
@@ -96,6 +96,14 @@ const TextField = ({ items, index }) => {
                 )
               }
             >
+              {inputTypesList &&
+                inputTypesList.map((items, index) => {
+                  return (
+                    <>
+                      <option value={items}>{items.toUpperCase()}</option>
+                    </>
+                  );
+                })}
               <option value="text">Text</option>
               <option value="email">Email</option>
               <option value="password">Pass</option>
@@ -107,13 +115,14 @@ const TextField = ({ items, index }) => {
               Delete
             </label>
             <div>
-              <button
-                className="btn btn-outline-danger"
+              <Button
                 type="button"
+                color="danger"
+                outline={true}
                 onClick={() => dispatch(handleDeleteFeilds({ index: index }))}
               >
                 X
-              </button>
+              </Button>
             </div>
           </Col>
         </Row>
