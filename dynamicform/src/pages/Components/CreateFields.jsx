@@ -7,10 +7,10 @@ import RadioField from "./RadioField";
 const CreateFields = () => {
   const formField = useSelector((state) => state.formFields);
   return (
-    <Container className="mt-3">
+    <Container className="my-4">
       {formField &&
         formField.map((items, index) => {
-          if (items.category === "inputfield") {
+          if (items.category === "inputField") {
             return <TextField key={index} items={items} index={index} />;
           } else if (items.category === "selectField") {
             return <DropDown key={index} items={items} index={index} />;

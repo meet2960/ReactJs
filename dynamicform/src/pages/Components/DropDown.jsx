@@ -5,7 +5,7 @@ import {
   handleAddInputOptionField,
 } from "../../Redux/formSlice";
 import { useDispatch } from "react-redux";
-import { Row, Col, Label, Button } from "reactstrap";
+import { Row, Col, Button } from "reactstrap";
 import DeleteFeildButton from "./DeleteFeildButton";
 const DropDown = ({ items, index }) => {
   const dispatch = useDispatch();
@@ -84,15 +84,16 @@ const DropDown = ({ items, index }) => {
           </Col> */}
           <Col lg={1} className="d-flex flex-column">
             <label className="form-label">Del</label>
-            <button
-              className="btn btn-outline-secondary"
+            <Button
               type="button"
+              outline={true}
+              color="secondary"
               onClick={() =>
                 dispatch(handleDeleteSelectedOptionField({ index: index }))
               }
             >
               -
-            </button>
+            </Button>
           </Col>
           <Col lg={1} className="d-flex flex-column align-items-center">
             <label htmlFor="" className="form-label">

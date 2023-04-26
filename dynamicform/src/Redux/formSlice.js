@@ -10,7 +10,7 @@ const formSlice = createSlice({
     // ! For InputField
     handleAddInputField: (state, action) => {
       state.formFields.push({
-        category: "inputfield",
+        category: "inputField",
         type: "text",
         data: "",
         label: "",

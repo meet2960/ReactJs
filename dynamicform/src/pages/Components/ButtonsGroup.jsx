@@ -7,6 +7,7 @@ import {
 } from "../../Redux/formSlice";
 import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
+import { NavLink } from "react-router-dom";
 const ButtonsGroup = () => {
   const dispatch = useDispatch();
   const Toast = Swal.mixin({
@@ -70,7 +71,11 @@ const ButtonsGroup = () => {
           </Button>
         </Col>
         <Col className="d-flex justify-content-center">
-          <Button color="success">Submit</Button>
+          <NavLink to="newform">
+            <Button type="button" color="success">
+              Submit
+            </Button>
+          </NavLink>
         </Col>
       </Row>
     </Container>
