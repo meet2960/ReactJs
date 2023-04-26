@@ -19,11 +19,7 @@ const formSlice = createSlice({
         required: true,
       });
     },
-    handleInputFieldsChange: (state, action) => {
-      // console.log(action.payload);
-      state.formFields[action.payload.index][action.payload.name] =
-        action.payload.value;
-    },
+
     // ! For DropDown Button
     handleAddSelectField: (state, action) => {
       state.formFields.push({
@@ -33,15 +29,6 @@ const formSlice = createSlice({
         label: "",
         options: [],
       });
-    },
-    handleAddSelectedOptionField: (state, action) => {
-      state.formFields[action.payload.index].options = [
-        ...state.formFields[action.payload.index].options,
-        action.payload.value,
-      ];
-    },
-    handleDeleteSelectedOptionField: (state, action) => {
-      state.formFields[action.payload.index].options.pop();
     },
     // ! For RadioButton Fields
     handleAddRadioField: (state, action) => {
@@ -53,11 +40,23 @@ const formSlice = createSlice({
         options: [],
       });
     },
-    handleAddRadioOptionField: (state, action) => {
+    // ? Common Functions
+    // ! Input for all the input based fields
+    handleInputFieldsChange: (state, action) => {
+      // console.log(action.payload);
+      state.formFields[action.payload.index][action.payload.name] =
+        action.payload.value;
+    },
+    // ! Add Options in DropDown and Radiobutton
+    handleAddInputOptionField: (state, action) => {
       state.formFields[action.payload.index].options = [
         ...state.formFields[action.payload.index].options,
         action.payload.value,
       ];
+    },
+    // ! Delete Options from DropDown and RadioButton
+    handleDeleteSelectedOptionField: (state, action) => {
+      state.formFields[action.payload.index].options.pop();
     },
     // !To Delete Field based on its Index
     handleDeleteFeilds: (state, action) => {
@@ -71,8 +70,7 @@ export const {
   handleInputFieldsChange,
   handleDeleteFeilds,
   handleAddSelectField,
-  handleAddSelectedOptionField,
   handleDeleteSelectedOptionField,
   handleAddRadioField,
-  handleAddRadioOptionField,
+  handleAddInputOptionField,
 } = formSlice.actions;

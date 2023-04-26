@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import {
   handleInputFieldsChange,
-  handleAddRadioOptionField,
+  handleAddInputOptionField,
   handleDeleteSelectedOptionField,
 } from "../../Redux/formSlice";
 import { Row, Col, Label, Button } from "reactstrap";
@@ -84,7 +84,7 @@ const RadioField = ({ items, index }) => {
               onBlur={(e) => {
                 if (e.target.value !== "") {
                   dispatch(
-                    handleAddRadioOptionField({
+                    handleAddInputOptionField({
                       index: index,
                       value: e.target.value,
                     })

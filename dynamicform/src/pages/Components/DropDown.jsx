@@ -1,8 +1,8 @@
 import React from "react";
 import {
   handleInputFieldsChange,
-  handleAddSelectedOptionField,
   handleDeleteSelectedOptionField,
+  handleAddInputOptionField,
 } from "../../Redux/formSlice";
 import { useDispatch } from "react-redux";
 import { Row, Col, Label, Button } from "reactstrap";
@@ -66,7 +66,7 @@ const DropDown = ({ items, index }) => {
               onBlur={(e) => {
                 if (e.target.value !== "") {
                   dispatch(
-                    handleAddSelectedOptionField({
+                    handleAddInputOptionField({
                       index: index,
                       value: e.target.value,
                     })
@@ -99,7 +99,7 @@ const DropDown = ({ items, index }) => {
               Delete
             </label>
             <div>
-              <DeleteFeildButton index={index} />~
+              <DeleteFeildButton index={index} />
             </div>
           </Col>
         </Row>
