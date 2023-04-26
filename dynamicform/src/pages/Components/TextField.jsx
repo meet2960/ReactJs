@@ -1,9 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import {
-  handleInputFieldsChange,
-  handleDeleteFeilds,
-} from "../../Redux/formSlice";
+import { handleInputFieldsChange } from "../../Redux/formSlice";
 import { Row, Col, Label, Button } from "reactstrap";
 import DeleteFeildButton from "./DeleteFeildButton";
 const TextField = ({ items, index }) => {
@@ -105,10 +102,6 @@ const TextField = ({ items, index }) => {
                     </>
                   );
                 })}
-              <option value="text">Text</option>
-              <option value="email">Email</option>
-              <option value="password">Pass</option>
-              <option value="number">Number</option>
             </select>
           </Col>
           <Col lg={2} className="d-flex flex-column align-items-center">

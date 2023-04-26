@@ -3,13 +3,15 @@ import { useDispatch } from "react-redux";
 import {
   handleInputFieldsChange,
   handleAddRadioOptionField,
+  handleDeleteSelectedOptionField,
 } from "../../Redux/formSlice";
 import { Row, Col, Label, Button } from "reactstrap";
 import DeleteFeildButton from "./DeleteFeildButton";
 const RadioField = ({ items, index }) => {
   const dispatch = useDispatch();
+
   return (
-    <Row className="border b-shadow mt-2 align-items-center p-3" key={index}>
+    <Row className="border mt-3 align-items-center b-shadow p-3" key={index}>
       <Col lg={4}>
         <h5 className="text-center">Radio Button</h5>
         <label htmlFor="" className="form-label fw-600 w-100">
@@ -113,7 +115,9 @@ const RadioField = ({ items, index }) => {
               type="button"
               outline={true}
               color="secondary"
-              //   onClick={(e) => handleDeleteSelectOptionField(index)}
+              onClick={() => {
+                dispatch(handleDeleteSelectedOptionField({ index: index }));
+              }}
             >
               -
             </Button>

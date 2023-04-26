@@ -3,7 +3,6 @@ import {
   handleInputFieldsChange,
   handleAddSelectedOptionField,
   handleDeleteSelectedOptionField,
-  handleDeleteFeilds,
 } from "../../Redux/formSlice";
 import { useDispatch } from "react-redux";
 import { Row, Col, Label, Button } from "reactstrap";
@@ -11,7 +10,7 @@ import DeleteFeildButton from "./DeleteFeildButton";
 const DropDown = ({ items, index }) => {
   const dispatch = useDispatch();
   return (
-    <Row className="border mt-2 b-shadow align-items-center p-3" key={index}>
+    <Row className="border mt-3 align-items-center b-shadow p-3" key={index}>
       <Col lg={4}>
         <h5 className="text-center">DropDown Field</h5>
         <Row>
