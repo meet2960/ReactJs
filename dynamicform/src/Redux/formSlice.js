@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialStateValues = {
   formFields: [],
+  formData: {},
 };
 
 const formSlice = createSlice({
@@ -62,6 +63,10 @@ const formSlice = createSlice({
     handleDeleteFeilds: (state, action) => {
       state.formFields.splice(action.payload.index, 1);
     },
+    // ! Take Generated Form Data
+    handleFormDataChange: (state, action) => {
+      console.log("Inside Form Data Change");
+    },
   },
 });
 export const formReducer = formSlice.reducer;
@@ -73,4 +78,5 @@ export const {
   handleDeleteSelectedOptionField,
   handleAddRadioField,
   handleAddInputOptionField,
+  handleFormDataChange,
 } = formSlice.actions;

@@ -1,10 +1,12 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { handleFormDataChange } from "../Redux/formSlice";
 import { Container, Row, Col, Button, Form } from "reactstrap";
 const GeneratedForm = () => {
   const formField = useSelector((state) => state.formFields);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   return (
     <Container fluid={true}>
       <Form action="" name="generatedForm">
@@ -26,6 +28,7 @@ const GeneratedForm = () => {
                               className="form-control"
                               type={items.type}
                               placeholder={items.placeholder}
+                              onChange={(e) => dispatch(handleFormDataChange())}
                               // value={items.data}
                               // onChange={(e) => handleFormData(e, index)}
                             />
@@ -41,7 +44,7 @@ const GeneratedForm = () => {
                               name={`${items.name}-${index}`}
                               id={`customdropdown-${index}`}
                               className="form-select"
-                              // onChange={(e) => handleFormData(e, index)}
+                              onChange={(e) => dispatch(handleFormDataChange())}
                             >
                               <option>Select</option>
                               {items.options.map((option, index) => (
@@ -66,7 +69,9 @@ const GeneratedForm = () => {
                                     type={items.type}
                                     name={items.name}
                                     value={option}
-                                    // onChange={(e) => handleFormData(e, index)}
+                                    onChange={(e) =>
+                                      dispatch(handleFormDataChange())
+                                    }
                                   />
                                   {option}
                                 </Col>

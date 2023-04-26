@@ -7,9 +7,10 @@ import {
 } from "../../Redux/formSlice";
 import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 const ButtonsGroup = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const Toast = Swal.mixin({
     toast: true,
     position: "top-end",
@@ -26,6 +27,15 @@ const ButtonsGroup = () => {
       icon: "success",
       title: "Field Added successfully",
     });
+  };
+  const submitAlert = () => {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Form Created Successfully",
+      showConfirmButton: false,
+      timer: 1500,
+    }).then(() => navigate("/newform"));
   };
   return (
     <Container className="shadow p-4 rounded-3 mt-3">
@@ -71,11 +81,11 @@ const ButtonsGroup = () => {
           </Button>
         </Col>
         <Col className="d-flex justify-content-center">
-          <NavLink to="newform">
-            <Button type="button" color="success">
-              Submit
-            </Button>
-          </NavLink>
+          {/* <NavLink to="newform"> */}
+          <Button type="button" color="success" onClick={() => submitAlert()}>
+            Submit
+          </Button>
+          {/* </NavLink> */}
         </Col>
       </Row>
     </Container>
