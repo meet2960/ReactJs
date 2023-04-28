@@ -22,7 +22,8 @@ const DropDown = ({ items, index }) => {
               {items.label ? items.label : "Label"}
             </label>
             <select
-              name={`${items.name}-${index}`}
+              name={`${items.label ? items.label : items.name + "-" + index}`}
+              // name={`${items.name}-${index}`}
               id={`${items.category}-${index}`}
               className="form-select"
             >

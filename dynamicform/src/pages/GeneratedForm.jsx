@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { handleFormDataChange } from "../Redux/formSlice";
 import { Container, Row, Col, Button, Form } from "reactstrap";
 const GeneratedForm = () => {
   const formField = useSelector((state) => state.formFields);
+  const formData = useSelector((state) => state.formData);
+  useEffect(() => {
+    console.log("Form Data is : ", formData);
+  }, [formData]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   return (
@@ -28,9 +32,17 @@ const GeneratedForm = () => {
                               className="form-control"
                               type={items.type}
                               placeholder={items.placeholder}
-                              onChange={(e) => dispatch(handleFormDataChange())}
+                              name={items.name}
+                              onChange={(e) =>
+                                dispatch(
+                                  handleFormDataChange({
+                                    index: index,
+                                    value: e.target.value,
+                                    name: e.target.name,
+                                  })
+                                )
+                              }
                               // value={items.data}
-                              // onChange={(e) => handleFormData(e, index)}
                             />
                           </Col>
                         );

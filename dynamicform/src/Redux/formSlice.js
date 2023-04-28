@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialStateValues = {
   formFields: [],
-  formData: {},
+  formData: [],
 };
 
 const formSlice = createSlice({
@@ -16,7 +16,7 @@ const formSlice = createSlice({
         data: "",
         label: "",
         placeholder: "",
-        name: "textBox",
+        name: "",
         required: true,
       });
     },
@@ -44,9 +44,12 @@ const formSlice = createSlice({
     // ? Common Functions
     // ! Input for all the input based fields
     handleInputFieldsChange: (state, action) => {
-      // console.log(action.payload);
       state.formFields[action.payload.index][action.payload.name] =
         action.payload.value;
+      if (state.formFields.label !== "") {
+        state.formFields[action.payload.index].name =
+          state.formFields[action.payload.index].label;
+      }
     },
     // ! Add Options in DropDown and Radiobutton
     handleAddInputOptionField: (state, action) => {
@@ -65,7 +68,11 @@ const formSlice = createSlice({
     },
     // ! Take Generated Form Data
     handleFormDataChange: (state, action) => {
-      console.log("Inside Form Data Change");
+      state.formData[action.payload.index] = {
+        [action.payload.name]: action.payload.value,
+      };
+      // state.formData.push();
+      console.log("Inside Form Data Change", state.formData);
     },
   },
 });

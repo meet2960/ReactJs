@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { handleInputFieldsChange } from "../../Redux/formSlice";
-import { Row, Col, Label, Button } from "reactstrap";
+import { Row, Col, Label } from "reactstrap";
 import DeleteFeildButton from "./DeleteFeildButton";
 const TextField = ({ items, index }) => {
   const inputTypesList = [
@@ -15,7 +15,6 @@ const TextField = ({ items, index }) => {
     "image",
   ];
   const dispatch = useDispatch();
-
   return (
     <Row className="border mt-3 align-items-center b-shadow p-3" key={index}>
       <Col lg={4}>
@@ -30,7 +29,9 @@ const TextField = ({ items, index }) => {
           <Col lg={6}>
             <input
               className="form-control"
-              name={`${items.name}-${index}`}
+              name={items.name}
+              // name={`${items.label ? items.label : items.name}`}
+              // name={`${items.name}-${index}`}
               id={`${items.category}-${index}`}
               type={items.type}
               placeholder={items.placeholder}

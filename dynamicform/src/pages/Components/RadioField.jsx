@@ -23,7 +23,8 @@ const RadioField = ({ items, index }) => {
               <input
                 className="form-check-input me-2"
                 type={items.type}
-                name={items.name}
+                name={`${items.label ? items.label : items.name + "-" + index}`}
+                // name={items.name}
                 value={option}
               />
               {option}
