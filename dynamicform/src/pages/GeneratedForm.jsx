@@ -36,9 +36,9 @@ const GeneratedForm = () => {
                               onChange={(e) =>
                                 dispatch(
                                   handleFormDataChange({
-                                    index: index,
+                                    // index: index,
                                     value: e.target.value,
-                                    name: e.target.name,
+                                    names: e.target.name,
                                   })
                                 )
                               }
@@ -53,10 +53,19 @@ const GeneratedForm = () => {
                               {items.label ? `${items.label}` : "Select"}
                             </label>
                             <select
-                              name={`${items.name}-${index}`}
+                              // name={`${items.name}-${index}`}
+                              name={items.name}
                               id={`customdropdown-${index}`}
                               className="form-select"
-                              onChange={(e) => dispatch(handleFormDataChange())}
+                              onChange={(e) =>
+                                dispatch(
+                                  handleFormDataChange({
+                                    // index: index,
+                                    value: e.target.value,
+                                    names: e.target.name,
+                                  })
+                                )
+                              }
                             >
                               <option>Select</option>
                               {items.options.map((option, index) => (
@@ -82,7 +91,13 @@ const GeneratedForm = () => {
                                     name={items.name}
                                     value={option}
                                     onChange={(e) =>
-                                      dispatch(handleFormDataChange())
+                                      dispatch(
+                                        handleFormDataChange({
+                                          // index: index,
+                                          value: e.target.value,
+                                          names: e.target.name,
+                                        })
+                                      )
                                     }
                                   />
                                   {option}

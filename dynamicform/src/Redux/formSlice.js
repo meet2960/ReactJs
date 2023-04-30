@@ -1,7 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialStateValues = {
-  formFields: [],
-  formData: [],
+  formFields: [
+    {
+      category: "inputField",
+      type: "text",
+      data: "",
+      label: "First Name",
+      placeholder: "",
+      name: "firstname",
+      required: true,
+    },
+    {
+      category: "selectField",
+      name: "sports",
+      type: "dropdown",
+      label: "Sports",
+      options: ["Cricket", "Football", "Basketball"],
+    },
+    {
+      category: "radioField",
+      type: "radio",
+      label: "Gender",
+      name: "gender",
+      options: ["Male", "Female"],
+    },
+  ],
+  formData: null,
 };
 
 const formSlice = createSlice({
@@ -47,8 +71,10 @@ const formSlice = createSlice({
       state.formFields[action.payload.index][action.payload.name] =
         action.payload.value;
       if (state.formFields.label !== "") {
-        state.formFields[action.payload.index].name =
-          state.formFields[action.payload.index].label;
+        let newName = state.formFields[action.payload.index].label
+          .replace(" ", "")
+          .toLowerCase();
+        state.formFields[action.payload.index].name = newName;
       }
     },
     // ! Add Options in DropDown and Radiobutton
@@ -67,12 +93,19 @@ const formSlice = createSlice({
       state.formFields.splice(action.payload.index, 1);
     },
     // ! Take Generated Form Data
+    handleSubmitForm: (state, action) => {
+      let obj = state.formFields.reduce((result, current) => {
+        result[current.name] = "";
+        return result;
+      }, {});
+      console.log("New Obj", obj);
+      if (state.formData === null) {
+        state.formData = obj;
+      }
+    },
     handleFormDataChange: (state, action) => {
-      state.formData[action.payload.index] = {
-        [action.payload.name]: action.payload.value,
-      };
-      // state.formData.push();
       console.log("Inside Form Data Change", state.formData);
+      state.formData[action.payload.names] = action.payload.value;
     },
   },
 });
@@ -86,4 +119,5 @@ export const {
   handleAddRadioField,
   handleAddInputOptionField,
   handleFormDataChange,
+  handleSubmitForm,
 } = formSlice.actions;

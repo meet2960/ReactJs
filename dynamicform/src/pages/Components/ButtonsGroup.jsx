@@ -4,10 +4,11 @@ import {
   handleAddInputField,
   handleAddSelectField,
   handleAddRadioField,
+  handleSubmitForm,
 } from "../../Redux/formSlice";
 import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const ButtonsGroup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -34,8 +35,11 @@ const ButtonsGroup = () => {
       icon: "success",
       title: "Form Created Successfully",
       showConfirmButton: false,
-      timer: 1500,
-    }).then(() => navigate("/newform"));
+      timer: 150,
+    }).then(() => {
+      navigate("/newform");
+      dispatch(handleSubmitForm());
+    });
   };
   return (
     <Container className="shadow p-4 rounded-3 mt-3">
