@@ -10,7 +10,10 @@ import DeleteFeildButton from "./DeleteFeildButton";
 const DropDown = ({ items, index }) => {
   const dispatch = useDispatch();
   return (
-    <Row className="border mt-3 align-items-center b-shadow p-3" key={index}>
+    <Row
+      className="border mt-3 align-items-center shadow p-4 rounded-3"
+      key={index}
+    >
       <Col lg={4}>
         <h5 className="text-center">DropDown Field</h5>
         <Row>

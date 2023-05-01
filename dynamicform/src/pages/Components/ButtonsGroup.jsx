@@ -6,12 +6,13 @@ import {
   handleAddRadioField,
   handleSubmitForm,
 } from "../../Redux/formSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 const ButtonsGroup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const formField = useSelector((state) => state.formFields);
   const Toast = Swal.mixin({
     toast: true,
     position: "top-end",
@@ -31,19 +32,29 @@ const ButtonsGroup = () => {
   };
 
   const submitAlert = () => {
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Form Created Successfully",
-      showConfirmButton: false,
-      timer: 1500,
-    }).then(() => {
-      navigate("/newform");
-      dispatch(handleSubmitForm());
-    });
+    if (formField.length !== 0) {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Form Created Successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      }).then(() => {
+        navigate("/newform");
+        dispatch(handleSubmitForm());
+      });
+    } else {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Please Add Fields",
+        showConfirmButton: true,
+        // timer: 1000,
+      });
+    }
   };
   return (
-    <Container className="shadow p-4 rounded-3 mt-3">
+    <Container className="shadow p-4 rounded-3">
       <div className="text-center mb-4">
         <h2>Generate Dynamic Form Here</h2>
         <p>Click on any button to create field based on that</p>

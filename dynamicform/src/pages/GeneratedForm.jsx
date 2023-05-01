@@ -39,13 +39,13 @@ const GeneratedForm = () => {
   return (
     <Container fluid={true} className="back-bg">
       <Form action="" name="generatedForm">
-        {formField ? (
+        {formField.length !== 0 ? (
           <div className="d-flex justify-content-center align-items-center vh-100">
             <Container>
               <Row className="justify-content-center">
-                <Col lg={6} className=" bg-light-subtle back-bs p-5 rounded-3">
+                <Col lg={5} className=" bg-light-subtle back-bs p-5 rounded-3">
                   <h2 className="text-center">Registration Form</h2>
-                  <Row className="g-3">
+                  <Row className="g-4">
                     {formField.map((items, index) => {
                       if (items.category === "inputField") {
                         return (
@@ -144,6 +144,15 @@ const GeneratedForm = () => {
                     <Col lg={12} className="d-flex justify-content-center">
                       <Button
                         type="button"
+                        outline={true}
+                        color="secondary"
+                        className="me-3"
+                        onClick={() => navigate("/")}
+                      >
+                        Back
+                      </Button>
+                      <Button
+                        type="button"
                         outline={false}
                         color="success"
                         onClick={(e) => {
@@ -151,15 +160,6 @@ const GeneratedForm = () => {
                         }}
                       >
                         Submit Data
-                      </Button>
-                      <Button
-                        type="button"
-                        outline={true}
-                        color="secondary"
-                        className="ms-3"
-                        onClick={() => navigate("/")}
-                      >
-                        Back
                       </Button>
                     </Col>
                   </Row>
