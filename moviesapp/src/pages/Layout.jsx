@@ -5,15 +5,19 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import Navbar from "./Components/Navbar";
+import Header from "./Components/Common/Header";
+import Footer from "./Components/Common/Footer";
+import ErrorPage from "./Components/Common/ErrorPage";
 import ShowMovies from "./ShowMovies";
 const Layout = () => {
   return (
     <Router>
-      <Navbar />
+      <Header />
       <Routes>
         <Route path="/" element={<ShowMovies />}></Route>
+        <Route path="*" element={<ErrorPage />}></Route>
       </Routes>
+      <Footer />
     </Router>
   );
 };
