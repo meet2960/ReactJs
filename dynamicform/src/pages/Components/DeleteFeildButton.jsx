@@ -6,14 +6,19 @@ const DeleteFeildButton = ({ index }) => {
   const dispatch = useDispatch();
   return (
     <>
-      <Button
-        type="button"
-        outline={true}
-        color="danger"
-        onClick={() => dispatch(handleDeleteFeilds({ index: index }))}
-      >
-        X
-      </Button>
+      <label htmlFor="delete-button" className="form-label">
+        Delete
+      </label>
+      <div>
+        <Button
+          type="button"
+          outline={true}
+          color="danger"
+          onClick={() => dispatch(handleDeleteFeilds({ index: index }))}
+        >
+          X
+        </Button>
+      </div>
     </>
   );
 };

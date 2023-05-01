@@ -35,7 +35,7 @@ const ButtonsGroup = () => {
       icon: "success",
       title: "Form Created Successfully",
       showConfirmButton: false,
-      timer: 150,
+      timer: 1500,
     }).then(() => {
       navigate("/newform");
       dispatch(handleSubmitForm());

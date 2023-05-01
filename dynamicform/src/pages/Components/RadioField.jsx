@@ -23,8 +23,7 @@ const RadioField = ({ items, index }) => {
               <input
                 className="form-check-input me-2"
                 type={items.type}
-                name={`${items.label ? items.label : items.name + "-" + index}`}
-                // name={items.name}
+                name={items.name}
                 value={option}
               />
               {option}
@@ -35,7 +34,7 @@ const RadioField = ({ items, index }) => {
       <Col lg={8}>
         <h5>Options Here</h5>
         <Row className="justify-content-between">
-          <Col lg={2}>
+          <Col lg={3}>
             <label className="form-label">Label:</label>
             <input
               className="form-control"
@@ -53,7 +52,7 @@ const RadioField = ({ items, index }) => {
               }
             />
           </Col>
-          <Col lg={3}>
+          {/* <Col lg={3}>
             <label htmlFor="" className="form-label">
               Enter Radio Name
             </label>
@@ -73,7 +72,7 @@ const RadioField = ({ items, index }) => {
                 )
               }
             />
-          </Col>
+          </Col> */}
           <Col lg={3}>
             <label htmlFor="" className="form-label">
               Enter Options
@@ -82,7 +81,18 @@ const RadioField = ({ items, index }) => {
               className="form-control"
               type="text"
               placeholder="Enter Option"
-              onBlur={(e) => {
+              onKeyDownCapture={(e) => {
+                if (e.key === "Enter") {
+                  dispatch(
+                    handleAddInputOptionField({
+                      index: index,
+                      value: e.target.value,
+                    })
+                  );
+                  e.target.value = "";
+                }
+              }}
+              /* onBlur={(e) => {
                 if (e.target.value !== "") {
                   dispatch(
                     handleAddInputOptionField({
@@ -92,7 +102,7 @@ const RadioField = ({ items, index }) => {
                   );
                 }
                 e.target.value = "";
-              }}
+              }} */
             />
           </Col>
           {/* <Col lg={"auto"} className="d-flex flex-column">
@@ -124,12 +134,7 @@ const RadioField = ({ items, index }) => {
             </Button>
           </Col>
           <Col lg={"auto"} className="d-flex flex-column align-items-center">
-            <label htmlFor="" className="form-label">
-              Delete
-            </label>
-            <div>
-              <DeleteFeildButton index={index} />
-            </div>
+            <DeleteFeildButton index={index} />
           </Col>
         </Row>
       </Col>

@@ -30,8 +30,6 @@ const TextField = ({ items, index }) => {
             <input
               className="form-control"
               name={items.name}
-              // name={`${items.label ? items.label : items.name}`}
-              // name={`${items.name}-${index}`}
               id={`${items.category}-${index}`}
               type={items.type}
               placeholder={items.placeholder}
@@ -106,12 +104,7 @@ const TextField = ({ items, index }) => {
             </select>
           </Col>
           <Col lg={2} className="d-flex flex-column align-items-center">
-            <label htmlFor="" className="form-label">
-              Delete
-            </label>
-            <div>
-              <DeleteFeildButton index={index} />
-            </div>
+            <DeleteFeildButton index={index} />
           </Col>
         </Row>
       </Col>

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialStateValues = {
   formFields: [
-    {
+    /*    {
       category: "inputField",
       type: "text",
       data: "",
@@ -23,9 +23,10 @@ const initialStateValues = {
       label: "Gender",
       name: "gender",
       options: ["Male", "Female"],
-    },
+    }, */
   ],
   formData: null,
+  userData: [],
 };
 
 const formSlice = createSlice({
@@ -98,14 +99,15 @@ const formSlice = createSlice({
         result[current.name] = "";
         return result;
       }, {});
-      console.log("New Obj", obj);
-      if (state.formData === null) {
-        state.formData = obj;
-      }
+      state.formData = obj;
     },
     handleFormDataChange: (state, action) => {
-      console.log("Inside Form Data Change", state.formData);
       state.formData[action.payload.names] = action.payload.value;
+    },
+    handleGeneratedFormData: (state, action) => {
+      state.userData.push(state.formData);
+      state.formFields = [];
+      state.formData = null;
     },
   },
 });
@@ -120,4 +122,5 @@ export const {
   handleAddInputOptionField,
   handleFormDataChange,
   handleSubmitForm,
+  handleGeneratedFormData,
 } = formSlice.actions;

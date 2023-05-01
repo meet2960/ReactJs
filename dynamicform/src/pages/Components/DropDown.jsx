@@ -22,7 +22,7 @@ const DropDown = ({ items, index }) => {
               {items.label ? items.label : "Label"}
             </label>
             <select
-              name={`${items.label ? items.label : items.name + "-" + index}`}
+              name={items.name}
               // name={`${items.name}-${index}`}
               id={`${items.category}-${index}`}
               className="form-select"
@@ -64,8 +64,8 @@ const DropDown = ({ items, index }) => {
               className="form-control"
               type="text"
               placeholder="Enter an Option"
-              onBlur={(e) => {
-                if (e.target.value !== "") {
+              onKeyDownCapture={(e) => {
+                if (e.key === "Enter") {
                   dispatch(
                     handleAddInputOptionField({
                       index: index,
@@ -75,6 +75,17 @@ const DropDown = ({ items, index }) => {
                   e.target.value = "";
                 }
               }}
+              /* onBlur={(e) => {
+                if (e.target.value !== "") {
+                  dispatch(
+                    handleAddInputOptionField({
+                      index: index,
+                      value: e.target.value,
+                    })
+                  );
+                  e.target.value = "";
+                }
+              }} */
             />
           </Col>
           {/* <Col lg={1} className="d-flex flex-column">
@@ -97,12 +108,7 @@ const DropDown = ({ items, index }) => {
             </Button>
           </Col>
           <Col lg={1} className="d-flex flex-column align-items-center">
-            <label htmlFor="" className="form-label">
-              Delete
-            </label>
-            <div>
-              <DeleteFeildButton index={index} />
-            </div>
+            <DeleteFeildButton index={index} />
           </Col>
         </Row>
       </Col>
