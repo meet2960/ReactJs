@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Container } from "reactstrap";
+import userImg from "../../../assets/images/userimage.png";
 const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -31,10 +32,10 @@ const Header = () => {
                 Trending
               </NavLink>
             </li>
-            <li></li>
           </ul>
+
           <div className="d-flex align-items-center">
-            <div className="form-check form-switch">
+            <div className="form-check form-switch me-3">
               <input
                 className="form-check-input"
                 type="checkbox"
@@ -42,7 +43,14 @@ const Header = () => {
                 id="flexSwitchCheckChecked"
               />
             </div>
-            <form className="d-flex" role="search">
+            <div>
+              <img
+                src={userImg}
+                alt="user-img"
+                className="img-fluid avatar-xs"
+              />
+            </div>
+            {/* <form className="d-flex" role="search">
               <input
                 className="form-control me-2"
                 type="search"
@@ -52,7 +60,7 @@ const Header = () => {
               <button className="btn btn-outline-success" type="button">
                 Search
               </button>
-            </form>
+            </form> */}
           </div>
         </div>
       </Container>

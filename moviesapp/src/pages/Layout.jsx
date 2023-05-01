@@ -9,7 +9,7 @@ const Layout = () => {
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route path="/" exact element={<Home />}></Route>
         <Route path="*" element={<ErrorPage />}></Route>
       </Routes>
       <Footer />
