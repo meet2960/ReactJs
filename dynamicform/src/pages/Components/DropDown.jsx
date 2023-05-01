@@ -5,7 +5,7 @@ import {
   handleAddInputOptionField,
 } from "../../Redux/formSlice";
 import { useDispatch } from "react-redux";
-import { Row, Col, Button } from "reactstrap";
+import { Row, Col, Button, Label, Input } from "reactstrap";
 import DeleteFeildButton from "./DeleteFeildButton";
 const DropDown = ({ items, index }) => {
   const dispatch = useDispatch();
@@ -15,12 +15,12 @@ const DropDown = ({ items, index }) => {
         <h5 className="text-center">DropDown Field</h5>
         <Row>
           <Col lg={7}>
-            <label
+            <Label
               htmlFor={`${items.category}-${index}`}
               className="form-label fw-600"
             >
               {items.label ? items.label : "Label"}
-            </label>
+            </Label>
             <select
               name={items.name}
               // name={`${items.name}-${index}`}
@@ -41,8 +41,8 @@ const DropDown = ({ items, index }) => {
         <h5>Options Here</h5>
         <Row className="align-items-center justify-content-between">
           <Col lg={3}>
-            <label className="form-label">Label:</label>
-            <input
+            <Label className="form-label">Label:</Label>
+            <Input
               className="form-control"
               type="text"
               name="label"
@@ -59,8 +59,8 @@ const DropDown = ({ items, index }) => {
             />
           </Col>
           <Col lg={5}>
-            <label className="form-label">Enter Options:</label>
-            <input
+            <Label className="form-label">Enter Options:</Label>
+            <Input
               className="form-control"
               type="text"
               placeholder="Enter an Option"
@@ -88,14 +88,8 @@ const DropDown = ({ items, index }) => {
               }} */
             />
           </Col>
-          {/* <Col lg={1} className="d-flex flex-column">
-            <label htmlFor="" className="form-label">
-              Add
-            </label>
-            <button className="btn btn-outline-success">+</button>
-          </Col> */}
           <Col lg={1} className="d-flex flex-column">
-            <label className="form-label">Del</label>
+            <Label className="form-label">Del</Label>
             <Button
               type="button"
               outline={true}

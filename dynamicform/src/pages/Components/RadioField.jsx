@@ -5,7 +5,7 @@ import {
   handleAddInputOptionField,
   handleDeleteSelectedOptionField,
 } from "../../Redux/formSlice";
-import { Row, Col, Button } from "reactstrap";
+import { Row, Col, Button, Input, Label } from "reactstrap";
 import DeleteFeildButton from "./DeleteFeildButton";
 const RadioField = ({ items, index }) => {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const RadioField = ({ items, index }) => {
         <Row className="g-2">
           {items.options.map((option, index) => (
             <Col lg={4} key={index}>
-              <input
+              <Input
                 className="form-check-input me-2"
                 type={items.type}
                 name={items.name}
@@ -36,7 +36,7 @@ const RadioField = ({ items, index }) => {
         <Row className="justify-content-between">
           <Col lg={3}>
             <label className="form-label">Label:</label>
-            <input
+            <Input
               className="form-control"
               type="text"
               name="label"
@@ -74,10 +74,8 @@ const RadioField = ({ items, index }) => {
             />
           </Col> */}
           <Col lg={5}>
-            <label htmlFor="" className="form-label">
-              Enter Options
-            </label>
-            <input
+            <Label className="form-label">Enter Options:</Label>
+            <Input
               className="form-control"
               type="text"
               placeholder="Enter Option"
@@ -119,9 +117,9 @@ const RadioField = ({ items, index }) => {
             </Button>
           </Col> */}
           <Col lg={1} className="d-flex flex-column">
-            <label htmlFor="" className="form-label">
+            <Label htmlFor="" className="form-label">
               Del
-            </label>
+            </Label>
             <Button
               type="button"
               outline={true}

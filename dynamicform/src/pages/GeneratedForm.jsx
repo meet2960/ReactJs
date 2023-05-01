@@ -5,7 +5,7 @@ import {
   handleFormDataChange,
   handleGeneratedFormData,
 } from "../Redux/formSlice";
-import { Container, Row, Col, Button, Form } from "reactstrap";
+import { Container, Row, Col, Button, Form, Label, Input } from "reactstrap";
 import Swal from "sweetalert2";
 const GeneratedForm = () => {
   const formField = useSelector((state) => state.formFields);
@@ -50,13 +50,13 @@ const GeneratedForm = () => {
                       if (items.category === "inputField") {
                         return (
                           <Col lg={12} key={index}>
-                            <label
+                            <Label
                               className="form-label fw-600"
                               htmlFor={`customTextbox-${index}`}
                             >
                               {items.label ? `${items.label}` : "Label"}
-                            </label>
-                            <input
+                            </Label>
+                            <Input
                               className="form-control"
                               type={items.type}
                               placeholder={items.placeholder}
@@ -70,19 +70,18 @@ const GeneratedForm = () => {
                                   })
                                 )
                               }
-                              // value={items.data}
                             />
                           </Col>
                         );
                       } else if (items.category === "selectField") {
                         return (
                           <Col lg={12} key={index}>
-                            <label
+                            <Label
                               htmlFor={`customdropdown-${index}`}
                               className="form-label fw-600"
                             >
                               {items.label ? `${items.label}` : "Select"}
-                            </label>
+                            </Label>
                             <select
                               name={items.name}
                               id={`customdropdown-${index}`}
@@ -108,16 +107,16 @@ const GeneratedForm = () => {
                       } else if (items.category === "radioField") {
                         return (
                           <Col lg={12} key={index}>
-                            <label
+                            <Label
                               htmlFor={`customRadio-${index}`}
                               className="form-label fw-600"
                             >
                               {items.label ? `${items.label}` : "Radio Button"}
-                            </label>
+                            </Label>
                             <Row className="g-2">
                               {items.options.map((option, index) => (
                                 <Col lg={4} key={index}>
-                                  <input
+                                  <Input
                                     className="form-check-input me-2"
                                     type={items.type}
                                     name={items.name}

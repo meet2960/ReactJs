@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { handleInputFieldsChange } from "../../Redux/formSlice";
-import { Row, Col, Label } from "reactstrap";
+import { Row, Col, Label, Input } from "reactstrap";
 import DeleteFeildButton from "./DeleteFeildButton";
 const TextField = ({ items, index }) => {
   const inputTypesList = [
@@ -27,7 +27,7 @@ const TextField = ({ items, index }) => {
         </Label>
         <Row className="align-items-end">
           <Col lg={6}>
-            <input
+            <Input
               className="form-control"
               name={items.name}
               id={`${items.category}-${index}`}
@@ -42,8 +42,8 @@ const TextField = ({ items, index }) => {
         <h5>Options Here</h5>
         <Row className="align-items-center justify-content-between">
           <Col lg={3}>
-            <label className="form-label">Label:</label>
-            <input
+            <Label className="form-label">Label:</Label>
+            <Input
               className="form-control"
               type="text"
               name="label"
@@ -60,8 +60,8 @@ const TextField = ({ items, index }) => {
             />
           </Col>
           <Col lg={3}>
-            <label className="form-label">Placeholder:</label>
-            <input
+            <Label className="form-label">Placeholder:</Label>
+            <Input
               className="form-control"
               type="text"
               name="placeholder"
@@ -78,7 +78,7 @@ const TextField = ({ items, index }) => {
             />
           </Col>
           <Col lg={3}>
-            <label className="form-label">Type:</label>
+            <Label className="form-label">Type:</Label>
             <select
               className="form-select"
               name="type"
@@ -95,11 +95,7 @@ const TextField = ({ items, index }) => {
             >
               {inputTypesList &&
                 inputTypesList.map((items, index) => {
-                  return (
-                    <>
-                      <option value={items}>{items.toUpperCase()}</option>
-                    </>
-                  );
+                  return <option value={items}>{items.toUpperCase()}</option>;
                 })}
             </select>
           </Col>

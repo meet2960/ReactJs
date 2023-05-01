@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "reactstrap";
+import { Button, Label } from "reactstrap";
 import { useDispatch } from "react-redux";
 import { handleDeleteFeilds } from "../../Redux/formSlice";
 import Swal from "sweetalert2";
@@ -24,9 +24,9 @@ const DeleteFeildButton = ({ index }) => {
   };
   return (
     <>
-      <label htmlFor="delete-button" className="form-label">
+      <Label htmlFor="delete-button" className="form-label">
         Delete
-      </label>
+      </Label>
       <div>
         <Button
           type="button"
