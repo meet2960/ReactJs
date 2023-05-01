@@ -16,19 +16,20 @@ const ButtonsGroup = () => {
     toast: true,
     position: "top-end",
     showConfirmButton: false,
-    timer: 1000,
+    timer: 500,
     timerProgressBar: true,
     didOpen: (toast) => {
       toast.addEventListener("mouseenter", Swal.stopTimer);
       toast.addEventListener("mouseleave", Swal.resumeTimer);
     },
   });
-  const callToast = () => {
+  const successToast = () => {
     Toast.fire({
       icon: "success",
       title: "Field Added successfully",
     });
   };
+
   const submitAlert = () => {
     Swal.fire({
       position: "center",
@@ -54,7 +55,7 @@ const ButtonsGroup = () => {
             outline={true}
             onClick={() => {
               dispatch(handleAddInputField());
-              callToast();
+              successToast();
             }}
           >
             Text Field
@@ -66,7 +67,7 @@ const ButtonsGroup = () => {
             outline={true}
             onClick={() => {
               dispatch(handleAddSelectField());
-              callToast();
+              successToast();
             }}
           >
             Drop Down
@@ -78,18 +79,16 @@ const ButtonsGroup = () => {
             outline={true}
             onClick={() => {
               dispatch(handleAddRadioField());
-              callToast();
+              successToast();
             }}
           >
             Radio Button
           </Button>
         </Col>
         <Col className="d-flex justify-content-center">
-          {/* <NavLink to="newform"> */}
           <Button type="button" color="success" onClick={() => submitAlert()}>
             Submit
           </Button>
-          {/* </NavLink> */}
         </Col>
       </Row>
     </Container>

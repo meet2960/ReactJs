@@ -37,20 +37,23 @@ const GeneratedForm = () => {
   const dispatch = useDispatch();
 
   return (
-    <Container fluid={true}>
+    <Container fluid={true} className="back-bg">
       <Form action="" name="generatedForm">
         {formField ? (
           <div className="d-flex justify-content-center align-items-center vh-100">
             <Container>
               <Row className="justify-content-center">
-                <Col lg={6} className="bg-light back-bs p-5 rounded-3">
+                <Col lg={6} className=" bg-light-subtle back-bs p-5 rounded-3">
                   <h2 className="text-center">Registration Form</h2>
                   <Row className="g-3">
                     {formField.map((items, index) => {
                       if (items.category === "inputField") {
                         return (
                           <Col lg={12} key={index}>
-                            <label className="form-label fw-600" htmlFor="">
+                            <label
+                              className="form-label fw-600"
+                              htmlFor={`customTextbox-${index}`}
+                            >
                               {items.label ? `${items.label}` : "Label"}
                             </label>
                             <input
@@ -58,10 +61,10 @@ const GeneratedForm = () => {
                               type={items.type}
                               placeholder={items.placeholder}
                               name={items.name}
+                              id={`customTextbox-${index}`}
                               onChange={(e) =>
                                 dispatch(
                                   handleFormDataChange({
-                                    // index: index,
                                     value: e.target.value,
                                     names: e.target.name,
                                   })
@@ -74,18 +77,19 @@ const GeneratedForm = () => {
                       } else if (items.category === "selectField") {
                         return (
                           <Col lg={12} key={index}>
-                            <label htmlFor="" className="form-label fw-600">
+                            <label
+                              htmlFor={`customdropdown-${index}`}
+                              className="form-label fw-600"
+                            >
                               {items.label ? `${items.label}` : "Select"}
                             </label>
                             <select
-                              // name={`${items.name}-${index}`}
                               name={items.name}
                               id={`customdropdown-${index}`}
                               className="form-select"
                               onChange={(e) =>
                                 dispatch(
                                   handleFormDataChange({
-                                    // index: index,
                                     value: e.target.value,
                                     names: e.target.name,
                                   })
@@ -104,7 +108,10 @@ const GeneratedForm = () => {
                       } else if (items.category === "radioField") {
                         return (
                           <Col lg={12} key={index}>
-                            <label htmlFor="" className="form-label fw-600">
+                            <label
+                              htmlFor={`customRadio-${index}`}
+                              className="form-label fw-600"
+                            >
                               {items.label ? `${items.label}` : "Radio Button"}
                             </label>
                             <Row className="g-2">
@@ -115,10 +122,10 @@ const GeneratedForm = () => {
                                     type={items.type}
                                     name={items.name}
                                     value={option}
+                                    id={`customRadio-${index}`}
                                     onChange={(e) =>
                                       dispatch(
                                         handleFormDataChange({
-                                          // index: index,
                                           value: e.target.value,
                                           names: e.target.name,
                                         })

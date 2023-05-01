@@ -7,5 +7,9 @@
 }
 
 .back-bs {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px 0px;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px 0px; */
+}
+
+.back-bg {
+    background-color: rgb(40, 39, 39);
 }

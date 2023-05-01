@@ -73,7 +73,7 @@ const RadioField = ({ items, index }) => {
               }
             />
           </Col> */}
-          <Col lg={3}>
+          <Col lg={5}>
             <label htmlFor="" className="form-label">
               Enter Options
             </label>
@@ -118,7 +118,7 @@ const RadioField = ({ items, index }) => {
               +
             </Button>
           </Col> */}
-          <Col lg={"auto"} className="d-flex flex-column">
+          <Col lg={1} className="d-flex flex-column">
             <label htmlFor="" className="form-label">
               Del
             </label>
@@ -133,7 +133,7 @@ const RadioField = ({ items, index }) => {
               -
             </Button>
           </Col>
-          <Col lg={"auto"} className="d-flex flex-column align-items-center">
+          <Col lg={1} className="d-flex flex-column align-items-center">
             <DeleteFeildButton index={index} />
           </Col>
         </Row>
