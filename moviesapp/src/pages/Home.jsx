@@ -12,7 +12,7 @@ const Home = () => {
     dispatch(fetchAsyncShows(defaultShowTerm));
   }, [dispatch]);
   return (
-    <Container fluid={true}>
+    <Container fluid={true} className="flex-grow-1 d-flex">
       <MovieListing />
     </Container>
   );
