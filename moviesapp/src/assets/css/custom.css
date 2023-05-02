@@ -77,3 +77,20 @@
 .min-vh-100 {
     min-height: 100vh;
 }
+
+.animate-card {
+    transition: all 0.5s
+}
+
+.animate-card:hover {
+    scale: 1.1;
+    transition: all 0.5s;
+}
+
+.error-page {
+    font-size: 100px !important;
+}
+
+.text-justify {
+    text-align: justify;
+}
