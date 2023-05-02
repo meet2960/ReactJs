@@ -3,6 +3,7 @@
     --secondary-color: #1a242f;
     --font-primary: #ffffff;
     --font-secondary: #8bb5dc;
+    --loader-primary: #40719f;
 }
 
 * {
@@ -101,4 +102,24 @@
     font-weight: 600;
     /* width: 120px; */
     display: inline-block;
+}
+
+/* * Loader*/
+.loader {
+    border: 7px solid #eaf0f6;
+    border-top: 7px solid var(--loader-primary);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
