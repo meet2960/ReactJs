@@ -31,7 +31,7 @@ const MovieListing = () => {
     <Container>
       <div>
         <h2 className="secondary-text my-3">Movies</h2>
-        <Row className="g-3 ">{renderMovies}</Row>
+        <Row className="g-3">{renderMovies}</Row>
       </div>
       <div>
         <h2 className="secondary-text my-3">Latest Shows</h2>

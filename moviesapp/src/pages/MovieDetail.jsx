@@ -39,31 +39,31 @@ const MovieDetail = () => {
                 </div>
               </Col>
               <Col lg={9}>
-                <div>
+                <div className="my-3 my-lg-0">
                   <h3 className="primary-text">{selectedData.Title}</h3>
-                  <Row className="my-3">
-                    <Col lg={"auto"}>
+                  <Row className="g-3justify-content-between">
+                    <Col xs={12} md={6} lg={3} xl={3}>
                       IMDB Rating <i className="fa fa-star text-warning"></i> :
                       {selectedData.imdbRating}
                     </Col>
-                    <Col lg={"auto"}>
+                    <Col xs={12} md={6} lg={3} xl={3}>
                       IMDB Votes <i className="fa fa-thumbs-up text-info"></i> :
                       {selectedData.imdbVotes}
                     </Col>
-                    <Col lg={"auto"}>
+                    <Col xs={12} md={6} lg={3} xl={3}>
                       Runtime <i className="fa fa-film text-white"></i> :{" "}
                       {selectedData.Runtime}
                     </Col>
-                    <Col lg={"auto"}>
+                    <Col xs={12} md={6} lg={3} xl={3}>
                       Year <i className="fa-regular fa-calendar text-white"></i>{" "}
                       : {selectedData.Year}
                     </Col>
                   </Row>
-                  <p className="text-justify primary-text">
+                  <p className="text-justify primary-text mt-3">
                     {selectedData.Plot}
                   </p>
                   <div className="movie-info">
-                    <Row className="g-1">
+                    <Row className="g-3 g-lg-4">
                       <Col xs={6} md={4} lg={2}>
                         <span>Director</span>
                       </Col>

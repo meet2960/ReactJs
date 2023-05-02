@@ -98,9 +98,7 @@
 
 .movie-info .col-lg-2 span {
     color: var(--font-primary);
-    padding: 10px 0px;
     font-weight: 600;
-    /* width: 120px; */
     display: inline-block;
 }
 

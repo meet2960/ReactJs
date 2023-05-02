@@ -5,12 +5,14 @@ import MovieListing from "./Components/MovieListing";
 import { fetchAsyncMovies, fetchAsyncShows } from "../Redux/movieSlice";
 const Home = () => {
   const dispatch = useDispatch();
+  const defaultMovieTerm = "mission";
+  const defaultShowTerm = "game";
   useEffect(() => {
-    dispatch(fetchAsyncMovies());
-    dispatch(fetchAsyncShows());
+    dispatch(fetchAsyncMovies(defaultMovieTerm));
+    dispatch(fetchAsyncShows(defaultShowTerm));
   }, [dispatch]);
   return (
-    <Container fluid={true} className="">
+    <Container fluid={true}>
       <MovieListing />
     </Container>
   );

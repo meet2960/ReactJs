@@ -1,12 +1,22 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Container } from "reactstrap";
+import { useDispatch } from "react-redux";
+import { fetchAsyncMovies, fetchAsyncShows } from "../../../Redux/movieSlice";
 import userImg from "../../../assets/images/userimage.png";
 const Header = () => {
+  const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("Search Term", searchTerm);
+    if (searchTerm === "") {
+      alert("Please enter Search term");
+    } else {
+      console.log("Search Term", searchTerm);
+      dispatch(fetchAsyncMovies(searchTerm));
+      dispatch(fetchAsyncShows(searchTerm));
+      setSearchTerm("");
+    }
   };
   return (
     <nav className="navbar navbar-expand-lg secondary-bg">
