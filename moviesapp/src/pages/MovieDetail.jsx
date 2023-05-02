@@ -17,7 +17,7 @@ const MovieDetail = () => {
   return (
     <Container fluid={true} className="flex-grow-1 secondary-text">
       <Container>
-        <Row className="mt-5">
+        <Row className="mt-3">
           <Col lg={3}>
             <div>
               <img
@@ -51,7 +51,39 @@ const MovieDetail = () => {
               <p className="text-justify primary-text">{selectedData.Plot}</p>
 
               <div className="movie-info">
-                <div>
+                <Row className="g-1">
+                  <Col xs={6} md={4} lg={2}>
+                    <span>Director</span>
+                  </Col>
+                  <Col xs={6} md={8} lg={9}>
+                    <span>{selectedData.Director}</span>
+                  </Col>
+                  <Col xs={6} md={4} lg={2}>
+                    <span>Stars</span>
+                  </Col>
+                  <Col xs={6} md={8} lg={9}>
+                    <span>{selectedData.Actors}</span>
+                  </Col>
+                  <Col xs={6} md={4} lg={2}>
+                    <span>Generes</span>
+                  </Col>
+                  <Col xs={6} md={8} lg={9}>
+                    <span>{selectedData.Genre}</span>
+                  </Col>
+                  <Col xs={6} md={4} lg={2}>
+                    <span>Languages</span>
+                  </Col>
+                  <Col xs={6} md={8} lg={9}>
+                    <span>{selectedData.Language}</span>
+                  </Col>
+                  <Col xs={6} md={4} lg={2}>
+                    <span>Awards</span>
+                  </Col>
+                  <Col xs={6} md={8} lg={9}>
+                    <span>{selectedData.Awards}</span>
+                  </Col>
+                </Row>
+                {/* <div>
                   <span>Director</span>
                   <span>{selectedData.Director}</span>
                 </div>
@@ -70,7 +102,7 @@ const MovieDetail = () => {
                 <div>
                   <span>Awards</span>
                   <span>{selectedData.Awards}</span>
-                </div>
+                </div> */}
               </div>
             </div>
           </Col>
