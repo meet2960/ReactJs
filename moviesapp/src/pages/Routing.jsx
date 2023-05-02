@@ -5,7 +5,7 @@ import Footer from "./Components/Common/Footer";
 import ErrorPage from "./Components/Common/ErrorPage";
 import Home from "./Home";
 import MovieDetail from "./MovieDetail";
-const Layout = () => {
+const Routing = () => {
   return (
     <Router>
       <Header />
@@ -19,4 +19,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default Routing;
