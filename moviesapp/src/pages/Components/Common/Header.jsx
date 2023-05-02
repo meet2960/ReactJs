@@ -4,9 +4,9 @@ import { Container } from "reactstrap";
 import userImg from "../../../assets/images/userimage.png";
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg secondary-bg">
       <Container fluid={true}>
-        <NavLink className="navbar-brand" href="#">
+        <NavLink to={"/"} className="navbar-brand" href="#">
           Movies Zone
         </NavLink>
         <button
