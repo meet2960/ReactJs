@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Container } from "reactstrap";
 import userImg from "../../../assets/images/userimage.png";
 const Header = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log("Search Term", searchTerm);
+  };
   return (
     <nav className="navbar navbar-expand-lg secondary-bg">
       <Container fluid={true}>
@@ -20,8 +25,11 @@ const Header = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
+        <div
+          className="collapse navbar-collapse justify-content-between"
+          id="navbarTogglerDemo02"
+        >
+          <ul className="navbar-nav mb-2 mb-lg-0 align-items-center">
             <li className="nav-item">
               <NavLink className="nav-link active" aria-current="page" href="#">
                 Home
@@ -33,7 +41,24 @@ const Header = () => {
               </NavLink>
             </li>
           </ul>
-
+          <div>
+            <form className="d-flex" role="search">
+              <input
+                className="form-control me-2"
+                type="text"
+                placeholder="Search Movies or Show"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={(e) => submitHandler(e)}
+              >
+                <i className="fa fa-search"></i>
+              </button>
+            </form>
+          </div>
           <div className="d-flex align-items-center">
             <div className="form-check form-switch me-3">
               <input
@@ -50,17 +75,6 @@ const Header = () => {
                 className="img-fluid avatar-xs"
               />
             </div>
-            {/* <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="button">
-                Search
-              </button>
-            </form> */}
           </div>
         </div>
       </Container>

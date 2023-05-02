@@ -1,9 +1,9 @@
 :root {
     --primary-color: #0f171e;
     --secondary-color: #1a242f;
+    --accent-color: #40719f;
     --font-primary: #ffffff;
     --font-secondary: #8bb5dc;
-    --loader-primary: #40719f;
 }
 
 * {
@@ -107,7 +107,7 @@
 /* * Loader*/
 .loader {
     border: 7px solid #eaf0f6;
-    border-top: 7px solid var(--loader-primary);
+    border-top: 7px solid var(--accent-color);
     border-radius: 50%;
     width: 100px;
     height: 100px;
@@ -135,5 +135,11 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background-color: var(--loader-primary);
+    background-color: var(--accent-color);
+}
+
+.btn-primary {
+    background-color: var(--accent-color) !important;
+    outline: 0 !important;
+    border: 0 !important;
 }
