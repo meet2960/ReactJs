@@ -3,9 +3,9 @@ import AddNoteForm from "../Components/AddNoteForm";
 
 const AddNote = () => {
   return (
-    <div>
+    <>
       <AddNoteForm />
-    </div>
+    </>
   );
 };
 
