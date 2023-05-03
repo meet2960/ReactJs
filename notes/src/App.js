@@ -6,7 +6,7 @@ import Routing from "./Pages/Routing";
 
 const App = () => {
   return (
-    <div className="min-100vh d-flex flex-column">
+    <div>
       <Routing />
     </div>
   );

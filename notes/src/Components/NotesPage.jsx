@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addNotes } from "../Redux/notesSlice";
-const Note = () => {
+const NotesPage = () => {
   const dispatch = useDispatch();
   const [noteInput, setNoteInput] = useState({
     noteTitle: "",
@@ -63,4 +63,4 @@ const Note = () => {
   );
 };
 
-export default Note;
+export default NotesPage;
