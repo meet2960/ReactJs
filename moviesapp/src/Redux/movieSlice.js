@@ -40,6 +40,15 @@ const movieSlice = createSlice({
       state.selectedMovieOrShow = {};
     },
   },
+  /*  extraReducers: (builder) => {
+    builder.addCase(fetchAsyncMovies.pending, (state, { payload }) => {
+      console.log("Pending");
+    });
+    builder.addCase(fetchAsyncMovies.fulfilled, (state, { payload }) => {
+      console.log("Fullfiled");
+      state.movies = payload;
+    });
+  }, */
   extraReducers: {
     [fetchAsyncMovies.pending]: () => {
       // console.log("Pending");
