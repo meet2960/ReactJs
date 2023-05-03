@@ -1,15 +1,25 @@
 .navbar-nav .nav-link.active,
-.navbar-nav .show>.nav-link {
-    color: var(--primary-color);
+.navbar-nav .show > .nav-link {
+  color: var(--primary-color);
 }
 
 .btn-success {
-    background-color: var(--primary-color) !important;
-    outline: inherit;
-    border: inherit;
+  background-color: var(--primary-color) !important;
+  outline: inherit;
+  border: inherit;
 }
 
 .nav-link,
 .navbar-brand {
-    color: var(--cs-white);
+  color: var(--cs-white);
+}
+
+.nav-link:focus,
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.navbar-brand:focus,
+.navbar-brand:hover {
+  color: inherit;
 }
