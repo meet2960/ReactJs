@@ -1,7 +1,12 @@
 import React from "react";
+import AddNoteForm from "../Components/AddNoteForm";
 
 const AddNote = () => {
-  return <div>New Notes Will be Added Here</div>;
+  return (
+    <div>
+      <AddNoteForm />
+    </div>
+  );
 };
 
 export default AddNote;

@@ -1,5 +1,5 @@
 .navbar-nav .nav-link.active,
-.navbar-nav .show > .nav-link {
+.navbar-nav .show>.nav-link {
   color: var(--primary-color);
 }
 
@@ -22,4 +22,8 @@
 .navbar-brand:focus,
 .navbar-brand:hover {
   color: inherit;
+}
+
+.border-bottom {
+  border-bottom: 2px solid var(--cs-dark) !important;
 }

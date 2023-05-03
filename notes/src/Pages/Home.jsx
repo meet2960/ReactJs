@@ -9,7 +9,6 @@ const Home = () => {
       <Header />
       <div className="flex-grow-1">
         <Container className="my-4">
-          {/* This is Home Page */}
           <Outlet />
         </Container>
       </div>

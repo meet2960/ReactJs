@@ -11,6 +11,7 @@ const AddNoteForm = () => {
     noteContent: "",
   });
   const handleChange = (e) => {
+    e.preventDefault();
     setNoteInput((prevData) => {
       return {
         ...prevData,
@@ -30,7 +31,7 @@ const AddNoteForm = () => {
       position: "top-right",
       showConfirmButton: false,
     });
-    setNoteInput({ noteTitle: "", noteContent: "" });
+    setNoteInput({ noteTitle: "", noteContent: " " });
   };
   return (
     <div className="main-content">
@@ -57,16 +58,16 @@ const AddNoteForm = () => {
                 <Label htmlFor="description" className="fw-semibold">
                   Description
                 </Label>
-                <TextArea
+                <textarea
                   rows="5"
                   type="text"
                   id="description"
                   className="form-control"
                   name="noteContent"
                   placeholder="Enter Description"
-                  value={noteInput.description}
-                  onChange={handleChange}
-                />
+                  value={noteInput.noteContent}
+                  onChange={(e) => handleChange(e)}
+                ></textarea>
               </Col>
               <Col lg={12}>
                 <button

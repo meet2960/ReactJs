@@ -31,3 +31,18 @@ body {
 .back-bg {
   background-color: var(--cs-whitesmoke);
 }
+
+.notes-title {
+  font-size: 20px;
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.02);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.notes-date,
+.note-read {
+  color: var(--cs-light-dark)
+}

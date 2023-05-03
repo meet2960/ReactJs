@@ -1,7 +1,12 @@
 import React from "react";
+import EditNoteForm from "../Components/EditNoteForm";
 
 const EditNote = () => {
-  return <div>Notes Can be edited here based on its ID</div>;
+  return (
+    <>
+      <EditNoteForm />
+    </>
+  );
 };
 
 export default EditNote;
