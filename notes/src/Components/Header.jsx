@@ -34,11 +34,6 @@ const Header = () => {
                 Add
               </Link>
             </li>
-            <li className="nav-item">
-              <NavLink to="/edit" className="nav-link">
-                Edit
-              </NavLink>
-            </li>
           </ul>
           {/* <form className="d-flex" role="search">
             <input
