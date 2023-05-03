@@ -22,7 +22,8 @@ const Note = () => {
     e.preventDefault();
   };
   return (
-    <div>
+    <div className="main-content">
+      <h2>Add Note Here</h2>
       <form action="">
         <div className="row">
           <div className="col-6">

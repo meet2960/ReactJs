@@ -1,9 +1,34 @@
-* {}
+* {
+    --cs-dark: #1A1A1A;
+    --cs-light-dark: #404040;
+    --cs-whitesmoke: #F8F8F8;
+    --cs-gray: #F2F2F2;
+    --cs-green: #00A82D;
+    --cs-white: #ffffff;
+    --primary-color: #FB3640;
+    --font-family: 'Inter',
+        sans-serif;
+}
 
 body {
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--font-family);
 }
 
 .min-100vh {
     min-height: 100vh;
+}
+
+.btn-success {
+    background-color: var(--primary-color) !important;
+    outline: inherit;
+    border: inherit;
+}
+
+.nav-bg {
+    background-color: var(--cs-dark);
+}
+
+.nav-link,
+.navbar-brand {
+    color: var(--cs-white);
 }

@@ -3,10 +3,10 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg text-white nav-bg">
       <div className="container-fluid">
         <NavLink className="navbar-brand" href="#">
-          <h3 className="mb-0 fw-semibold">NotesApp</h3>
+          <h4 className="mb-0">NotesApp</h4>
         </NavLink>
         <button
           className="navbar-toggler"
@@ -39,7 +39,7 @@ const Header = () => {
               placeholder="Search"
               aria-label="Search"
             />
-            <button className="btn btn-outline-success" type="submit">
+            <button className="btn btn-success" type="submit">
               Search
             </button>
           </form>
