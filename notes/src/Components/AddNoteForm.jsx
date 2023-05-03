@@ -3,14 +3,13 @@ import { useDispatch } from "react-redux";
 import { addNotes } from "../Redux/notesSlice";
 import { Col, Row, Label, Input } from "reactstrap";
 import TextArea from "antd/es/input/TextArea";
+import { CustomToast } from "../utils/Toast";
 const AddNoteForm = () => {
   const dispatch = useDispatch();
   const [noteInput, setNoteInput] = useState({
     noteTitle: "",
     noteContent: "",
   });
-  //   console.log("noteTitle", noteInput.noteTitle);
-  //   console.log("noteContent", noteInput.noteContent);
   const handleChange = (e) => {
     setNoteInput((prevData) => {
       return {
@@ -23,6 +22,15 @@ const AddNoteForm = () => {
   const handleAddNote = (e) => {
     e.preventDefault();
     dispatch(addNotes(noteInput));
+    CustomToast({
+      title: "Note Added successfully",
+      icon: "success",
+      timerProgressBar: true,
+      timer: 1000,
+      position: "top-right",
+      showConfirmButton: false,
+    });
+    setNoteInput({ noteTitle: "", noteContent: "" });
   };
   return (
     <div className="main-content">
