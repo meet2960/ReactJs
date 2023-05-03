@@ -20,7 +20,7 @@ const NoteList = () => {
   }
   return (
     <>
-      <h3 className="fw-semibold border-bottom py-2 mb-4">Notes List</h3>
+      <h2 className="fw-semibold border-bottom pb-2 mb-4">Notes List</h2>
       <Row className="g-3">
         {notes &&
           notes.map((items, index) => {
