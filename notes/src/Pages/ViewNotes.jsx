@@ -1,7 +1,7 @@
 import React from "react";
 import NoteList from "../Components/NoteList";
 
-const AllNotes = () => {
+const ViewNotes = () => {
   return (
     <>
       <NoteList />
@@ -9,4 +9,4 @@ const AllNotes = () => {
   );
 };
 
-export default AllNotes;
+export default ViewNotes;

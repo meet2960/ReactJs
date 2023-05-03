@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addNotes } from "../Redux/notesSlice";
 import { Col, Row, Label, Input } from "reactstrap";
-import TextArea from "antd/es/input/TextArea";
 import { CustomToast } from "../utils/Toast";
 const AddNoteForm = () => {
   const dispatch = useDispatch();

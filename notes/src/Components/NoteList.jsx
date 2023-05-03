@@ -21,11 +21,11 @@ const NoteList = () => {
   return (
     <>
       <h3 className="fw-semibold border-bottom py-2 mb-4">Notes List</h3>
-      <Row>
+      <Row className="g-3">
         {notes &&
           notes.map((items, index) => {
             return (
-              <Col xs={12} md={6} lg={4} key={index}>
+              <Col xs={12} md={6} xl={4} key={index}>
                 <Card>
                   <div className="notes-title">
                     {items.noteTitle.substring(0, 80) + "..."}

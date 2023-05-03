@@ -9,6 +9,48 @@ const initialState = {
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
       noteDate: "5/3/2023, 10:15:03 PM",
     },
+    {
+      noteId: "14ed0889-98e6-4645-8d23-5fc3c5e05931",
+      noteTitle: "TypeScript",
+      noteContent:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      noteDate: "5/3/2023, 10:15:03 PM",
+    },
+    {
+      noteId: "14ed0889-98e6-4645-8d23-5fc3c5e05931",
+      noteTitle: "TypeScript",
+      noteContent:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      noteDate: "5/3/2023, 10:15:03 PM",
+    },
+    {
+      noteId: "14ed0889-98e6-4645-8d23-5fc3c5e05931",
+      noteTitle: "TypeScript",
+      noteContent:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      noteDate: "5/3/2023, 10:15:03 PM",
+    },
+    {
+      noteId: "14ed0889-98e6-4645-8d23-5fc3c5e05931",
+      noteTitle: "TypeScript",
+      noteContent:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      noteDate: "5/3/2023, 10:15:03 PM",
+    },
+    {
+      noteId: "14ed0889-98e6-4645-8d23-5fc3c5e05931",
+      noteTitle: "TypeScript",
+      noteContent:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      noteDate: "5/3/2023, 10:15:03 PM",
+    },
+    {
+      noteId: "14ed0889-98e6-4645-8d23-5fc3c5e05931",
+      noteTitle: "TypeScript",
+      noteContent:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      noteDate: "5/3/2023, 10:15:03 PM",
+    },
     /*  {
       noteId: "5c30ed37-020b-4c06-8b59-d4aea264b887",
       noteTitle: "React",
@@ -37,9 +79,21 @@ const noteSlice = createSlice({
       state.notes = tempNotes;
       console.log(tempId);
     },
+    editNotes: (state, action) => {
+      const { noteId, noteTitle, noteContent } = action.payload;
+      const tempNotes = state.notes.map((note) => {
+        if (note.noteId === noteId) {
+          note.noteTitle = noteTitle;
+          note.noteContent = noteContent;
+          note.noteDate = new Date().toLocaleString();
+        }
+        return note;
+      });
+      state.notes = tempNotes;
+    },
   },
 });
 
-export const { addNotes, removeNotes } = noteSlice.actions;
+export const { addNotes, removeNotes, editNotes } = noteSlice.actions;
 export const getAllNotes = (state) => state.notes;
 export default noteSlice.reducer;
