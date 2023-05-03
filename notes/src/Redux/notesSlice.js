@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import { v4 as uuid } from "uuid";
 const initialState = {
   notes: [],
 };
@@ -8,9 +8,12 @@ const noteSlice = createSlice({
   initialState,
   reducers: {
     addNotes: (state, action) => {
-      console.log("Inside Function");
-      console.log("Data", action.payload);
-      state.notes.push(action.payload);
+      const { noteTitle, noteContent } = action.payload;
+      let noteId = uuid();
+      let newNote = { noteId, noteTitle, noteContent };
+      newNote.noteDate = new Date().toISOString();
+      state.notes.push(newNote);
+      console.log("New Note", newNote);
     },
   },
 });

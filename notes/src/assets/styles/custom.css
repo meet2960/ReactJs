@@ -1,13 +1,16 @@
+@import url("./reset.css");
+
 * {
-    --cs-dark: #1A1A1A;
+    --cs-dark: #1a1a1a;
     --cs-light-dark: #404040;
-    --cs-whitesmoke: #F8F8F8;
-    --cs-gray: #F2F2F2;
-    --cs-green: #00A82D;
+    --cs-whitesmoke: #f8f8f8;
+    --cs-gray: #f2f2f2;
+    --cs-green: #00a82d;
     --cs-white: #ffffff;
-    --primary-color: #FB3640;
-    --font-family: 'Inter',
-        sans-serif;
+    --primary-color: #fb3640;
+    --font-family: "Poppins", sans-serif;
+    /*     --font-family: 'Inter',
+        sans-serif; */
 }
 
 body {
@@ -18,17 +21,15 @@ body {
     min-height: 100vh;
 }
 
-.btn-success {
-    background-color: var(--primary-color) !important;
-    outline: inherit;
-    border: inherit;
-}
-
 .nav-bg {
     background-color: var(--cs-dark);
 }
 
-.nav-link,
-.navbar-brand {
-    color: var(--cs-white);
+.avatar-xxs {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.back-bg {
+    background-color: var(--cs-whitesmoke);
 }

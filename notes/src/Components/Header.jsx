@@ -1,13 +1,16 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-
+import { NavLink, Link } from "react-router-dom";
+import logo from "../assets/images/notes-icon.png";
 const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg text-white nav-bg">
       <div className="container-fluid">
-        <NavLink className="navbar-brand" href="#">
-          <h4 className="mb-0">NotesApp</h4>
-        </NavLink>
+        <div className="d-flex align-items-center">
+          <img src={logo} alt="logo" className="avatar-xxs me-2" />
+          <NavLink to={"/"} className="navbar-brand" href="#">
+            <h4 className="mb-0">NotesApp</h4>
+          </NavLink>
+        </div>
         <button
           className="navbar-toggler"
           type="button"
@@ -22,17 +25,22 @@ const Header = () => {
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link" aria-current="page" href="#sas">
+              <NavLink to={"/home"} className="nav-link">
                 Home
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#sasa">
-                Link
-              </a>
+              <Link to={"/add"} className="nav-link">
+                Add
+              </Link>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/edit" className="nav-link">
+                Edit
+              </NavLink>
             </li>
           </ul>
-          <form className="d-flex" role="search">
+          {/* <form className="d-flex" role="search">
             <input
               className="form-control me-2"
               type="search"
@@ -42,7 +50,7 @@ const Header = () => {
             <button className="btn btn-success" type="submit">
               Search
             </button>
-          </form>
+          </form> */}
         </div>
       </div>
     </nav>
