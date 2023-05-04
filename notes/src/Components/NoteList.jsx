@@ -14,7 +14,7 @@ const NoteList = () => {
   if (!notes || notes.length === 0) {
     return (
       <div className="d-flex justify-content-center align-items-center">
-        <h2>No Notes Found, Please Add One </h2>
+        <h2 className="fw-semibold">No Notes Found, Please Add One </h2>
       </div>
     );
   }
