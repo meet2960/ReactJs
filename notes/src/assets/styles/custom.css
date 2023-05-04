@@ -62,3 +62,7 @@ body {
 ::-webkit-scrollbar-thumb {
   background-color: var(--cs-light-dark);
 }
+
+.text-justify {
+  text-align: justify;
+}

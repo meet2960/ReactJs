@@ -27,11 +27,13 @@ const NoteList = () => {
             return (
               <Col xs={12} md={6} xl={4} key={index}>
                 <Card>
-                  <div className="notes-title">
-                    {items.noteTitle.substring(0, 80) + "..."}
-                  </div>
+                  <div className="notes-title">{items.noteTitle}</div>
                   <CardBody>
-                    <div>{items.noteContent.substring(0, 200) + "..."}</div>
+                    <div>
+                      <p className="text-justify">
+                        {items.noteContent.substring(0, 200) + "..."}
+                      </p>
+                    </div>
                     <div className="d-flex justify-content-between my-3">
                       <button
                         type="button"
