@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuid } from "uuid";
 const initialState = {
   notes: [
-     {
+     /*{
       noteId: "5c30ed37-020b-4c06-8b59-d4aea264b887",
       noteTitle: "React",
       noteContent:
@@ -27,16 +27,16 @@ const initialState = {
       noteId: "5c30ed37-020b-4c06-8b59-d4aea264b987",
       noteTitle: "NodeJs",
       noteContent:
-          "meetgheani",
+          "meetgheanimeetgheanimeetgheanimeetgheani",
       noteDate: "2023-05-03T16:54:41.994Z",
     },
     {
       noteId: "5c30ed37-020b-4c06-8b59-d4aea264b987",
       noteTitle: "React with Typescript",
       noteContent:
-          "meetgheani",
+          "Meet Ghelani",
       noteDate: "2023-05-03T16:54:41.994Z",
-    },
+    },*/
   ],
 };
 const noteSlice = createSlice({

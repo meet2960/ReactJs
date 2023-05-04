@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { getAllNotes } from "../Redux/notesSlice";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import GoBack from "../Components/GoBack";
 const ViewSingleNote = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -16,13 +17,7 @@ const ViewSingleNote = () => {
       <div className="p-5">
         <p className="text-justify">{selectedNote[0].noteContent}</p>
         <div className="d-flex justify-content-end">
-          <button
-            className="btn btn-success"
-            type="button"
-            onClick={(e) => navigate("/home")}
-          >
-            Go Back
-          </button>
+            <GoBack />
         </div>
       </div>
     </div>

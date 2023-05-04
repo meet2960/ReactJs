@@ -2,8 +2,10 @@ import React, {useState} from 'react';
 import {getAllNotes} from "../Redux/notesSlice";
 import {useSelector} from "react-redux";
 import {Col, Row} from "reactstrap";
-
+import {useNavigate} from "react-router-dom"
+import GoBack from "./GoBack";
 const SearchNote = () => {
+    const navigate = useNavigate()
     const [searchItem, setSearchItem] = useState("")
     const [filteredNote, setFilteredNote] = useState([])
     const notes = useSelector(getAllNotes)
@@ -14,12 +16,14 @@ const SearchNote = () => {
     const handleFindNote = (e) => {
         e.preventDefault()
         if (searchItem !== "") {
-            let tempNotes = notes.filter(items =>
+            let tempNotes = notes.find(items =>
                 items.noteTitle.toLowerCase().includes(searchItem)
             )
             setFilteredNote(tempNotes)
+            console.log(tempNotes)
         }
     }
+
 
     return (
         <div>
@@ -36,7 +40,7 @@ const SearchNote = () => {
             </Row>
             <div className="my-5">
                 <Row>
-                    {filteredNote && filteredNote.length !== 0 ? (
+                    {searchItem.length > 1 && filteredNote && filteredNote.length !== 0 ? (
                         filteredNote.map((items, index) => {
                             return <Col key={index}>
                                 <div className="shadow rounded-3">
@@ -46,19 +50,16 @@ const SearchNote = () => {
                                     <div className="p-5">
                                         <p className="text-justify">{items.noteContent}</p>
                                         <div className="d-flex justify-content-end">
-                                            <button
-                                                className="btn btn-success"
-                                                type="button"
-                                                // onClick={(e) => navigate("/home")}
-                                            >
-                                                Go Back
-                                            </button>
+                                           <GoBack />
                                         </div>
                                     </div>
                                 </div>
                             </Col>
                         })
                     ) : null}
+                    {!filteredNote && (<div>
+                        <h2 className="text-center">No Not Found, Please search Again</h2>
+                    </div>)}
                 </Row>
             </div>
         </div>
