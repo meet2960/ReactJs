@@ -9,4 +9,4 @@ const EditNote = () => {
   );
 };
 
-export default EditNote;
+export default EditNote

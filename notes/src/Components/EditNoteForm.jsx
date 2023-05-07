@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllNotes, editNotes } from "../Redux/notesSlice";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 import { CustomToast } from "../utils/Toast";
 import { Row, Col, Label, Input } from "reactstrap";
 const EditNoteForm = () => {
   const { id } = useParams();
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const notes = useSelector(getAllNotes);
   const selectedNote = notes.filter((items) => items.noteId === id);
@@ -32,6 +33,7 @@ const EditNoteForm = () => {
       showConfirmButton: false,
     });
     setFormData({ noteTitle: "", noteContent: " " });
+    navigate("/")
   };
   return (
     <div className="main-content">
@@ -86,4 +88,4 @@ const EditNoteForm = () => {
   );
 };
 
-export default EditNoteForm;
+export default EditNoteForm

@@ -1,11 +1,15 @@
 import React, {useState} from 'react';
-import {getAllNotes} from "../Redux/notesSlice";
-import {useSelector} from "react-redux";
-import {Col, Row} from "reactstrap";
-import {useNavigate} from "react-router-dom"
+import {getAllNotes, removeNotes} from "../Redux/notesSlice";
+import {useSelector,useDispatch} from "react-redux";
+import {Card, CardBody, Col, Row} from "reactstrap";
+import {NavLink, useNavigate} from "react-router-dom"
 import GoBack from "./GoBack";
+import {ImCancelCircle} from "react-icons/im";
+import {FiEdit} from "react-icons/fi";
+
 const SearchNote = () => {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const [searchItem, setSearchItem] = useState("")
     const [filteredNote, setFilteredNote] = useState([])
     const notes = useSelector(getAllNotes)
@@ -16,11 +20,11 @@ const SearchNote = () => {
     const handleFindNote = (e) => {
         e.preventDefault()
         if (searchItem !== "") {
-            let tempNotes = notes.find(items =>
-                items.noteTitle.toLowerCase().includes(searchItem)
+            let tempNotes = notes.filter(items =>
+                items.noteTitle.toLowerCase().includes(searchItem.toLowerCase())
             )
             setFilteredNote(tempNotes)
-            console.log(tempNotes)
+            console.log("Filtered Notes are : ", filteredNote)
         }
     }
 
@@ -39,27 +43,57 @@ const SearchNote = () => {
                 </Col>
             </Row>
             <div className="my-5">
-                <Row>
-                    {searchItem.length > 1 && filteredNote && filteredNote.length !== 0 ? (
-                        filteredNote.map((items, index) => {
-                            return <Col key={index}>
-                                <div className="shadow rounded-3">
-                                    <div className="notes-title p-4">
-                                        <h2>{items.noteTitle}</h2>
-                                    </div>
-                                    <div className="p-5">
-                                        <p className="text-justify">{items.noteContent}</p>
-                                        <div className="d-flex justify-content-end">
-                                           <GoBack />
+                <Row className="g-3">
+                    {filteredNote && searchItem.length > 1 && filteredNote.length >= 1 ? filteredNote.map((items, index) => {
+                        return (
+                            <Col xs={12} md={6} xl={4} key={index}>
+                                <Card>
+                                    <div className="notes-title">{items.noteTitle}</div>
+                                    <CardBody>
+                                        <div>
+                                            <p className="text-justify">
+                                                {items.noteContent.substring(0, 200) + "..."}
+                                            </p>
                                         </div>
-                                    </div>
-                                </div>
+                                        <div className="d-flex justify-content-between my-3">
+                                            <button
+                                                type="button"
+                                                className="btn btn-sm btn-danger me-3"
+                                                onClick={(e) => dispatch(removeNotes(items.noteId))}
+                                            >
+                                                <ImCancelCircle/>
+                                            </button>
+                                            <NavLink to={`/edit/${items.noteId}`}>
+                                                <button
+                                                    type="button"
+                                                    className="btn btn-sm btn-warning"
+                                                >
+                                                    <FiEdit/>
+                                                </button>
+                                            </NavLink>
+                                        </div>
+                                        <div className="d-flex justify-content-between">
+                                            <div className="notes-date text-capitalize">
+                                                {items.noteDate}
+                                                {/* {formatDistanceToNow(parseISO(items.noteDate))} */}
+                                            </div>
+                                            <div>
+                                                <NavLink
+                                                    to={`/note/${items.noteId}`}
+                                                    className="note-read"
+                                                >
+                                                    Read More
+                                                </NavLink>
+                                            </div>
+                                        </div>
+                                    </CardBody>
+                                </Card>
                             </Col>
-                        })
-                    ) : null}
-                    {!filteredNote && (<div>
-                        <h2 className="text-center">No Not Found, Please search Again</h2>
-                    </div>)}
+                        );
+                    }) : null}
+                        {!filteredNote && (<div>
+                            <h2 className="text-center">No Not Found, Please search Again</h2>
+                        </div>)}
                 </Row>
             </div>
         </div>
