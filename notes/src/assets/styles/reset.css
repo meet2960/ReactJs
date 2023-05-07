@@ -8,7 +8,11 @@
   outline: inherit;
   border: inherit;
 }
-
+.btn-success:hover {
+  color: var(--bs-btn-hover-color);
+  background-color: #c1252c !important;
+  border-color: var(--bs-btn-hover-border-color);
+}
 .nav-link,
 .navbar-brand {
   color: var(--cs-white);
