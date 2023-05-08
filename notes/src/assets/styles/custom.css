@@ -66,3 +66,9 @@ body {
 .text-justify {
   text-align: justify;
 }
+.fs-18{
+  font-size: 18px;
+}
+[data-layout-mode=dark] .light-dark-mode .bi-moon::before {
+  content: "\f1d2";
+}

@@ -2,6 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuid } from "uuid";
 const initialState = {
   notes: [
+    {
+      noteId: "5c30ed37-020b-4c06-8b59-d4aea264b887",
+      noteTitle: "React",
+      noteContent:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      noteDate: "2023-05-03T16:54:41.994Z",
+    },
      /*{
       noteId: "5c30ed37-020b-4c06-8b59-d4aea264b887",
       noteTitle: "React",
@@ -74,5 +81,5 @@ const noteSlice = createSlice({
 });
 
 export const { addNotes, removeNotes, editNotes } = noteSlice.actions;
-export const getAllNotes = (state) => state.notes;
+export const getAllNotes = (state) => state.notes.notes;
 export default noteSlice.reducer;
