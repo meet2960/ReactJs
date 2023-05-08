@@ -54,16 +54,6 @@ const dispatch = useDispatch()
                 Search
               </NavLink>
             </li>
-            <li>
-              <div className=''>
-                <button className='btn btn-secondary light-dark-mode'
-                onClick={(e)=>{onThemeChange(e)}} >
-                  <i className="bi bi-moon fs-18"/>
-                </button>
-
-              </div>
-            </li>
-
           </ul>
           {/* <form className="d-flex" role="search">
             <input
@@ -76,6 +66,13 @@ const dispatch = useDispatch()
               Search
             </button>
           </form> */}
+          <div className=''>
+            <button className='btn btn-secondary light-dark-mode'
+                    onClick={(e)=>{onThemeChange(e)}} >
+              <i className="bi bi-moon fs-18"/>
+            </button>
+
+          </div>
         </div>
       </div>
     </nav>
