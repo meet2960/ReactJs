@@ -1,5 +1,5 @@
 @import url("./reset.css");
-
+@import url("./dark-layout.scss");
 * {
   --cs-dark: #1a1a1a;
   --cs-light-dark: #404040;
