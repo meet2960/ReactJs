@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Container } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductList } from "../Redux/product/action";
+import Loader from "../Components/Loader";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const Home = () => {
   return (
     <React.Fragment>
       <Container>
+        <Loader />
         <p className="justify-paragraph">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
           corporis itaque nemo, qui rem sed tempore voluptates. Dolor, odio,
