@@ -16,20 +16,20 @@ $light: #f3f6f9;
 $dark: #2E4056;
 // * Dark Theme Colors
 $white: #fff;
-$gray-100: #f3f6f9;
-$gray-200: #eff2f7;
-$gray-300: #e9ebec;
-$gray-400: #ced4da;
-$gray-500: #adb5bd;
-$gray-600: #878a99;
-$gray-700: #495057;
-$gray-800: #343a40;
-$gray-900: #2E4056;
+$light-gray-100: #f3f6f9;
+$light-gray-200: #eff2f7;
+$light-gray-300: #e9ebec;
+$light-gray-400: #ced4da;
+$light-gray-500: #adb5bd;
+$light-gray-600: #878a99;
+$light-gray-700: #495057;
+$light-gray-800: #343a40;
+$light-gray-900: #2E4056;
 $black: #000;
 
 
 // Body Color
-$body-color: $gray-900;
+$body-color: $light-gray-900;
 $body-bg: #f3f3f9;
 // body
 :root {

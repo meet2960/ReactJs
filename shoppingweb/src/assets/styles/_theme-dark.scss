@@ -1,4 +1,13 @@
 [data-layout-mode="dark"] {
+  $dark-gray-100: #1a1d21;
+  $dark-gray-200: #212529;
+  $dark-gray-300: #2a2f34;
+  $dark-gray-400: #878a99;
+  $dark-gray-500: #adb5bd;
+  $dark-gray-600: #bfc8e2;
+  $dark-gray-700: #ced4da;
+  $dark-gray-800: #eff2f7;
+  $dark-gray-900: #f3f6f9;
   $body-dark-bg: #1a1d21;
   $body-dark-color: #bfc8e2;
   $heading-dark-color: #ced4da;
@@ -17,5 +26,18 @@
 
   .navbar-nav .nav-link, .navbar-brand {
     color: var(--ecm-body-color) !important;
+  }
+
+  .form-control {
+    background-color: #{$dark-gray-200};
+    outline: #{$light-gray-600};
+    border: #{$light-gray-600};
+    //color: ;
+  }
+
+  .form-control::placeholder {
+    color: #{$light-gray-600};
+
+
   }
 }

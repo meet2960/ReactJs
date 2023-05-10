@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   layoutModeType: "light",
@@ -14,4 +14,4 @@ export const LayoutSlices = createSlice({
   },
 });
 
-export const {changeLayoutMode} = LayoutSlices.actions;
+export const { changeLayoutMode } = LayoutSlices.actions;
