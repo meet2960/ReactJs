@@ -1,0 +1,21 @@
+[data-layout-mode="dark"] {
+  $body-dark-bg: #1a1d21;
+  $body-dark-color: #bfc8e2;
+  $heading-dark-color: #ced4da;
+  --#{$prefix}-body-color: #{$body-dark-color};
+  --#{$prefix}-body-bg: #{$body-dark-bg};
+  --#{$prefix}-heading-color: #{$heading-dark-color};
+
+  .nav-bg {
+    background-color: #272b30;
+    box-shadow: 0 2px 4px rgba(15, 34, 58, 0.12);
+  }
+
+  .light-dark-mode .bi-moon::before {
+    content: "\f1d2";
+  }
+
+  .navbar-nav .nav-link, .navbar-brand {
+    color: var(--ecm-body-color) !important;
+  }
+}

@@ -1,0 +1,76 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  font-family: $font-family-secondary;
+  color: var(--ecm-body-color) !important;
+  background-color: var(--ecm-body-bg) !important;
+}
+
+:is(.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6) {
+  color: var(--ecm-heading-color);
+  font-family: $heading-font-family;
+}
+
+h1,
+.h1 {
+  font-size: $h1-font-size;
+}
+
+h2,
+.h2 {
+  font-size: $h2-font-size;
+}
+
+h3,
+.h3 {
+  font-size: $h3-font-size;
+}
+
+h4,
+.h4 {
+  font-size: $h4-font-size;
+}
+
+h5,
+.h5 {
+  font-size: $h5-font-size;
+}
+
+h6,
+.h6 {
+  font-size: $h6-font-size;
+}
+
+button,
+a {
+  outline: none !important;
+  position: relative;
+  text-decoration: none !important;
+}
+
+// container
+
+/*:is(
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl
+  ) {
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
+}*/
+.form-select {
+  //background-image: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$gray-400}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/></svg>"));
+  background-color: var(--#{$prefix}gray-200) !important;
+  border-color: var(--#{$prefix}border-color) !important;
+}
+
+.text-muted {
+  color: #878a99 !important;
+}

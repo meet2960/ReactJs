@@ -4,7 +4,7 @@ import {LayoutSlices} from "./layouts/layout";
 import {productSlice} from "./product/productSlice";
 
 export const rootReducer = combineReducers({
-    layout: LayoutSlices.reducer,
-    cart: cartSlice.reducer,
-    product: productSlice.reducer,
+  layout: LayoutSlices.reducer,
+  cart: cartSlice.reducer,
+  product: productSlice.reducer,
 });

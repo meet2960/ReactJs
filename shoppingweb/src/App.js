@@ -1,6 +1,6 @@
-import React from 'react';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
-import "./assets/styles/app.scss"
+import React from "react";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+import "./assets/styles/app.scss";
 import Routing from "./Pages/Routing";
 
 const App = () => {
@@ -11,4 +11,4 @@ const App = () => {
     );
 };
 
-export default App
+export default App;
