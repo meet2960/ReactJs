@@ -1,11 +1,14 @@
 import React from 'react';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import "./assets/styles/app.scss"
+import Routing from "./Pages/Routing";
 
 const App = () => {
     return (
-        <div>
-          Hello World
+        <div className="layout-wrapper">
+            <Routing/>
         </div>
     );
 };
 
-export default App;
+export default App
