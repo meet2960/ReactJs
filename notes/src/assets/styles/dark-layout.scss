@@ -1,0 +1,51 @@
+@import "reset.css";
+[data-layout-mode=dark] {
+    --nts-primary-color: #fb3640;
+    --nts-blue: #2E4056;
+    --nts-indigo: #E97015;
+    --nts-purple: #6559cc;
+    --nts-pink: #f672a7;
+    --nts-red: #eb320c;
+    --nts-orange: #f1963b;
+    --nts-yellow: #f7b84b;
+    --nts-green: #0ab39c;
+    --nts-teal: #02a8b5;
+    --nts-cyan: #4484EF;
+    --nts-white: #fff;
+    --nts-gray-100: #1a1d21;
+    --nts-gray-200: #212529;
+    --nts-gray-300: #2a2f34;
+    --nts-gray-400: #878a99;
+    --nts-gray-500: #adb5bd;
+    --nts-gray-600: #bfc8e2;
+    --nts-gray-700: #ced4da;
+    --nts-gray-800: #eff2f7;
+    --nts-gray-900: #f3f6f9;
+    --nts-border-color:#1a1d21;
+    .back-bg{
+        background-color:var(--nts-gray-100);
+        color: var(--nts-white);
+    }
+    body{
+        background-color:var(--nts-gray-100);
+    }
+    .light-dark-mode .bi-moon::before {
+        content: "\f1d2";
+    }
+    .card{
+        background-color: #212529;
+        color: #bfc8e2;
+    }
+    .form-control {
+        background-color: var(--nts-gray-200) !important;
+        border-color: var(--nts-border-color) !important;
+        color: var(--nts-white);
+    }
+    .border-bottom{
+        border-bottom: 2px solid var(--nts-white) !important;
+    }
+    .notes-date,
+    .note-read {
+        color: #bfc8e2 !important;
+    }
+}
