@@ -2,6 +2,7 @@ import {getRequest} from "../../utils/crud";
 import {productSlice} from "./productSlice";
 
 const {actions} = productSlice;
+
 export const getProductList = () => (dispatch) => {
     return getRequest(`https://dummyjson.com/products`)
         .then((response) => {
