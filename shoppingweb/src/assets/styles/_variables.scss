@@ -14,6 +14,16 @@ $warning: #f7b84b;
 $danger: #eb320c;
 $light: #f3f6f9;
 $dark: #2E4056;
+$theme-colors: (
+        "primary": $primary,
+        "secondary": $secondary,
+        "success": $success,
+        "info": $info,
+        "warning": $warning,
+        "danger": $danger,
+        "light": $light,
+        "dark": $dark
+);
 // * Dark Theme Colors
 $white: #fff;
 $light-gray-100: #f3f6f9;
@@ -36,6 +46,7 @@ $body-bg: #f3f3f9;
   --#{$prefix}-body-color: #{$body-color};
   --#{$prefix}-body-bg: #{$body-bg};
   --#{$prefix}-heading-color: #{$heading-color}
+
 }
 
 // For Dynamic Font Sizes
@@ -43,6 +54,42 @@ $font-size-mixing: 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 3
 @each $font-size-mixing in $font-size-mixing {
   .fs-#{$font-size-mixing} {
     font-size: #{$font-size-mixing}px !important;
+  }
+}
+
+// Create Dynamic Buttons for Hovers
+$primary-hover: #c65f12;
+$secondary-hover: #dde0e2;
+$success-hover: #099885;
+$danger-hover: #c82b0a;
+$warning-hover: #d29c40;
+$info-hover: #3a70cb;
+$dark-hover: #4d5d6f;
+$light-hover: #cfd1d4;
+$btn-hover-colors: (
+        "primary": $primary-hover,
+        "secondary": $secondary-hover,
+        "success": $success-hover,
+        "info": $info-hover,
+        "warning": $warning-hover,
+        "danger": $danger-hover,
+        "light": $light-hover,
+        "dark": $dark-hover
+);
+// * For Buttons and its hover
+@each $color, $value in $theme-colors {
+  .btn-#{$color}, .btn-#{$color}:is(.btn-check:checked + .btn, :not(.btn-check) + .btn:active, .btn:first-child:active, .btn.active, .btn.show) {
+    background-color: #{$value};
+    border: #{$value};
+  }
+}
+
+@each $color, $value in $btn-hover-colors {
+  .btn-#{$color}:hover {
+    background-color: #{$value};
+    border: #{$primary};
+    box-shadow: none;
+    border: #{$value};
   }
 }
 

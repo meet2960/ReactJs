@@ -51,23 +51,13 @@ a {
   text-decoration: none !important;
 }
 
-.form-control {
+.form-control, .form-control:focus {
+  outline: 0;
+  border: 1px solid #f2f6f7;
+  box-shadow: none;
   background-color: rgba(255, 255, 255, 0.0509804) !important;
 }
-// container
 
-/*:is(
-    .container,
-    .container-lg,
-    .container-md,
-    .container-sm,
-    .container-xl,
-    .container-xxl
-  ) {
-  @media (min-width: 1200px) {
-    max-width: 1140px;
-  }
-}*/
 .form-select {
   //background-image: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$gray-400}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/></svg>"));
   background-color: var(--#{$prefix}gray-200) !important;

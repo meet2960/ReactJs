@@ -1,0 +1,9 @@
+/*.btn-primary:hover,.btn-primary:focus-visible{
+  background-color: #{$primary-hover};
+  border: #{$primary};
+  box-shadow: none;
+}*/
+:is(.btn.show, .btn:first-child:active, :not(.btn-check) + .btn:active) {
+  border-color: transparent;
+  background-color: #{$primary};
+}

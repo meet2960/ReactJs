@@ -8,9 +8,10 @@
   $dark-gray-700: #ced4da;
   $dark-gray-800: #eff2f7;
   $dark-gray-900: #f3f6f9;
-  $body-dark-bg: #1a1d21;
-  $body-dark-color: #bfc8e2;
-  $heading-dark-color: #ced4da;
+
+  $body-dark-bg: $dark-gray-100;
+  $body-dark-color: $dark-gray-600;
+  $heading-dark-color: $dark-gray-700;
   --#{$prefix}-body-color: #{$body-dark-color};
   --#{$prefix}-body-bg: #{$body-dark-bg};
   --#{$prefix}-heading-color: #{$heading-dark-color};
@@ -32,12 +33,10 @@
     background-color: #{$dark-gray-200};
     outline: #{$light-gray-600};
     border: #{$light-gray-600};
-    //color: ;
+    color: #{$light-gray-200};
   }
 
   .form-control::placeholder {
     color: #{$light-gray-600};
-
-
   }
 }

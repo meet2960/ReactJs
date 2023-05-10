@@ -71,14 +71,21 @@ const Header = () => {
                 />
                 <i className="bi bi-search" />
               </div>
-              {/*<div>
-                <button className="btn btn-primary">
-                  <i className="bi bi-cart fs-18" />
+              <div>
+                <button type="button" className="btn btn-primary btn-sm">
+                  <i className="bi bi-person-circle me-2" />
+                  Account
                 </button>
-              </div>*/}
+              </div>
+              <div className="ms-3">
+                <button className="btn btn-info btn-sm">
+                  <i className="bi bi-cart me-2" />
+                  Cart
+                </button>
+              </div>
               <div className="ms-3">
                 <button
-                  className="btn btn-primary light-dark-mode"
+                  className="btn btn-success btn-sm light-dark-mode"
                   onClick={(e) => handleThemeChange(e)}
                 >
                   <i className="bi bi-moon fs-18" />
