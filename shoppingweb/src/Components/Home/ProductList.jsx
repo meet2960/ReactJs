@@ -3,6 +3,7 @@ import { Col, Container, Row } from "reactstrap";
 import Loader from "../Common/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductList } from "../../Redux/product/action";
+import ProductCard from "./ProductCard";
 
 const ProductList = () => {
   const dispatch = useDispatch();
@@ -19,13 +20,13 @@ const ProductList = () => {
       <Container>
         {actionLoading && <Loader />}
         <Container fluid>
-          <Row>
+          <Row className="g-4">
             {productData &&
               productData.length !== 0 &&
               productData.map((items, index) => (
                 <React.Fragment key={index}>
-                  <Col>
-                    <h3>{items.title}</h3>
+                  <Col lg={3}>
+                    <ProductCard items={items} />
                   </Col>
                 </React.Fragment>
               ))}

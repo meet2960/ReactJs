@@ -25,7 +25,8 @@
     content: "\f1d2";
   }
 
-  .navbar-nav .nav-link, .navbar-brand {
+  .navbar-nav .nav-link,
+  .navbar-brand {
     color: var(--ecm-body-color) !important;
   }
 
@@ -38,5 +39,13 @@
 
   .form-control::placeholder {
     color: #{$light-gray-600};
+  }
+
+  .card {
+    background-color: $dark-gray-300 !important;
+  }
+
+  .card-title {
+    color: #{$dark-gray-600};
   }
 }

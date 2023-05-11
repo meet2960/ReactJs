@@ -43,6 +43,7 @@
   left: 0;
   top: 0;
   width: 100%;
+  z-index: 999;
 }
 
 .main-content {
@@ -87,4 +88,24 @@
     top: 1px;
     right: 6%;
   }
+}
+
+// * ProductList Page
+.product-img img {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.card-animate {
+  transition: all 0.4s;
+
+  &:hover {
+    transform: translateY(calc(-1.5rem / 5));
+    box-shadow: 0 5px 10px rgba(30, 32, 37, 0.12);
+  }
+}
+
+.footer {
+  margin-top: 20px;
 }
