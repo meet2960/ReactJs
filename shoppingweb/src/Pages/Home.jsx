@@ -1,36 +1,16 @@
-import React, { useEffect } from "react";
-import { Col, Container, Row } from "reactstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { getProductList } from "../Redux/product/action";
-import Loader from "../Components/Loader";
+import React from "react";
+import { Container } from "reactstrap";
+
+import ProductList from "../Components/Home/ProductList";
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const { productData, actionLoading } = useSelector((state) => ({
-    productData: state.product.products,
-    actionLoading: state.common.actionsLoading,
-  }));
-  useEffect(() => {
-    dispatch(getProductList());
-    console.log("Loading State is", actionLoading);
-  }, [dispatch]);
+  document.title = "Home | Ecommerce";
+
   return (
     <React.Fragment>
-      <Container>
-        {actionLoading && <Loader />}
-        <Container fluid>
-          <Row>
-            {productData &&
-              productData.length !== 0 &&
-              productData.map((items, index) => (
-                <React.Fragment key={index}>
-                  <Col>
-                    <h3>{items.title}</h3>
-                  </Col>
-                </React.Fragment>
-              ))}
-          </Row>
-        </Container>
+      <Container fluid>
+        <h1 className="text-center">Welcome to Ecommerce Web</h1>
+        <ProductList />
       </Container>
     </React.Fragment>
   );

@@ -51,19 +51,33 @@ a {
   text-decoration: none !important;
 }
 
-.form-control, .form-control:focus {
+.form-control,
+.form-control:focus {
   outline: 0;
-  border: 1px solid #f2f6f7;
+  border: 1px solid #ced4da;
   box-shadow: none;
   background-color: rgba(255, 255, 255, 0.0509804) !important;
 }
 
 .form-select {
-  //background-image: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$gray-400}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/></svg>"));
   background-color: var(--#{$prefix}gray-200) !important;
   border-color: var(--#{$prefix}border-color) !important;
 }
 
+.text-danger {
+  color: #eb320c !important;
+}
+
 .text-muted {
   color: #878a99 !important;
+}
+
+.form-control.is-valid:focus {
+  border-color: #0ab39c;
+  box-shadow: 0 0 0 0 rgba(10, 179, 156, 0.25);
+}
+
+.form-control.is-invalid:focus {
+  border-color: #eb320c;
+  box-shadow: 0 0 0 0 rgba(235, 50, 12, 0.25);
 }
