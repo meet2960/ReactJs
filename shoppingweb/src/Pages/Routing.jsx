@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "../Components/Header";
 import Home from "./Home";
 import Login from "../Components/Login/Login";
-import Footer from "../Components/Footer/Footer";
 
 const Routing = () => {
   return (
@@ -15,7 +14,6 @@ const Routing = () => {
           <Route path="/login" element={<Login />} />
         </Routes>
       </div>
-      <Footer />
     </BrowserRouter>
   );
 };

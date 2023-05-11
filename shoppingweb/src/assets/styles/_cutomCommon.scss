@@ -91,14 +91,21 @@
 }
 
 // * ProductList Page
-.product-img img {
-  height: 200px;
-  object-fit: cover;
-  width: 100%;
+.product-img {
+  img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .skeleton {
+    height: 200px !important;
+  }
 }
 
 .card-animate {
   transition: all 0.4s;
+  overflow: hidden;
 
   &:hover {
     transform: translateY(calc(-1.5rem / 5));

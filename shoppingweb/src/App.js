@@ -4,11 +4,11 @@ import "./assets/styles/app.scss";
 import Routing from "./Pages/Routing";
 
 const App = () => {
-    return (
-        <div className="layout-wrapper">
-            <Routing/>
-        </div>
-    );
+  return (
+    <div className="layout-wrapper">
+      <Routing />
+    </div>
+  );
 };
 
 export default App;
