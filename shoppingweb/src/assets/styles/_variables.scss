@@ -40,12 +40,13 @@ $black: #000;
 
 // Body Color
 $body-color: $light-gray-900;
-$body-bg: #f3f3f9;
+$body-bg: $light-gray-100;
 // body
 :root {
   --#{$prefix}-body-color: #{$body-color};
   --#{$prefix}-body-bg: #{$body-bg};
   --#{$prefix}-heading-color: #{$heading-color};
+  --swiper-theme-color: #{$primary} !important;
 }
 
 // For Dynamic Font Sizes

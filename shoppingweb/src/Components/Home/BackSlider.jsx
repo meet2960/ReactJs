@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 const BackSlider = () => {
   return (
     <React.Fragment>
-      <div className="my-2">
+      <div className="mb-2">
         <Swiper
           slidesPerView={1}
           spaceBetween={10}

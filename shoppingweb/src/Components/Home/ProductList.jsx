@@ -25,7 +25,7 @@ const ProductList = () => {
               productData.length !== 0 &&
               productData.map((items, index) => (
                 <React.Fragment key={index}>
-                  <Col lg={3}>
+                  <Col xs={12} md={6} xl={3}>
                     <ProductCard items={items} />
                   </Col>
                 </React.Fragment>

@@ -27,10 +27,14 @@ const ProductsImageSlider = ({ selectedProduct }) => {
           <div className="">
             {loading && <Skeleton.Image active={true} className="skeleton" />}
             <img
-              src={selectedProduct.images[selectedImage]}
+              src={
+                selectedProduct?.images[selectedImage]
+                  ? selectedProduct?.images[selectedImage]
+                  : selectedProduct.thumbnail
+              }
               alt={selectedProduct.title}
               className={`img-fluid hov ${loading ? "d-none" : "d-block"}`}
-              // onLoad={() => setLoading(false)}
+              onLoad={() => setLoading(false)}
             />
           </div>
         </Col>
