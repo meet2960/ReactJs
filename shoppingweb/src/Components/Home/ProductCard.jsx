@@ -8,7 +8,7 @@ const ProductCard = ({ items }) => {
   return (
     <React.Fragment>
       <Card className="h-100 card-animate">
-        <NavLink to="/login" className="nav-link">
+        <NavLink to={`/productdetails/${items.id}`} className="nav-link">
           <div className="product-img d-flex justify-content-center align-items-center">
             {loading && (
               <Skeleton.Image active={true} className="w-100 skeleton" />

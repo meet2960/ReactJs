@@ -64,13 +64,16 @@ a {
   border-color: var(--#{$prefix}border-color) !important;
 }
 
-.text-danger {
+/* .text-danger {
   color: #eb320c !important;
 }
 
 .text-muted {
   color: #878a99 !important;
 }
+.text-success {
+  color: #0ab39c !important;
+} */
 
 .form-control.is-valid:focus {
   border-color: #0ab39c;
@@ -80,4 +83,19 @@ a {
 .form-control.is-invalid:focus {
   border-color: #eb320c;
   box-shadow: 0 0 0 0 rgba(235, 50, 12, 0.25);
+}
+
+.card-title,
+.navbar-brand,
+.navbar-nav,
+.nav-link {
+  color: var(--ecm-body-color) !important;
+}
+
+.nav-link.active {
+  color: #{$primary} !important;
+}
+
+.card-body {
+  color: var(--ecm-body-color) !important;
 }

@@ -10,3 +10,12 @@
   display: none;
   z-index: 1000;
 }
+
+.img-stretch {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+}

@@ -16,7 +16,7 @@ const ProductList = () => {
     console.log("Loading State is", actionLoading);
   }, [dispatch]);
   return (
-    <div>
+    <React.Fragment>
       <Container>
         {actionLoading && <Loader />}
         <Container fluid>
@@ -33,7 +33,7 @@ const ProductList = () => {
           </Row>
         </Container>
       </Container>
-    </div>
+    </React.Fragment>
   );
 };
 

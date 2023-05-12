@@ -3,15 +3,26 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "../Components/Header";
 import Home from "./Home";
 import Login from "../Components/Login/Login";
+import Footer from "../Components/Footer/Footer";
+import ShowProductDetail from "./ShowProductDetail";
 
 const Routing = () => {
   return (
     <BrowserRouter>
       <Header />
-      <div className="main-content container-fluid">
+      <div className="main-content">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={
+              <div>
+                <Home />
+                <Footer />
+              </div>
+            }
+          />
           <Route path="/login" element={<Login />} />
+          <Route path="/productdetails/:id" element={<ShowProductDetail />} />
         </Routes>
       </div>
     </BrowserRouter>

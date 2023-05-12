@@ -11,7 +11,7 @@
 
   $body-dark-bg: $dark-gray-100;
   $body-dark-color: $dark-gray-600;
-  $heading-dark-color: $dark-gray-700;
+  $heading-dark-color: $dark-gray-900;
   --#{$prefix}-body-color: #{$body-dark-color};
   --#{$prefix}-body-bg: #{$body-dark-bg};
   --#{$prefix}-heading-color: #{$heading-dark-color};
@@ -25,10 +25,10 @@
     content: "\f1d2";
   }
 
-  .navbar-nav .nav-link,
+  /*  .navbar-nav .nav-link,
   .navbar-brand {
     color: var(--ecm-body-color) !important;
-  }
+  } */
 
   .form-control {
     background-color: #{$dark-gray-200};

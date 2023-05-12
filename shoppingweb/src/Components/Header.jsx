@@ -48,17 +48,25 @@ const Header = () => {
           >
             <ul className="navbar-nav mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="#">
+                <NavLink
+                  to={"/category"}
+                  className="nav-link"
+                  aria-current="page"
+                >
                   Category
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <NavLink
+                  className="nav-link"
+                  to={"/header"}
+                  aria-current="page"
+                >
                   Deals
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to={"/login"} className="nav-link" href="#">
+                <NavLink to={"/login"} className="nav-link" aria-current="page">
                   Login
                 </NavLink>
               </li>

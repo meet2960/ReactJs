@@ -7,7 +7,7 @@ const Login = () => {
   return (
     <Container className="login">
       <Row>
-        <Col className="mx-auto shadow p-4 p-md-5 rounded-3" lg={6}>
+        <Col className="mx-auto shadow p-4 p-md-5 rounded-3 mt-5" lg={6}>
           <h2 className="mb-4">Login</h2>
           <LoginForm />
           <div className="mt-4">
