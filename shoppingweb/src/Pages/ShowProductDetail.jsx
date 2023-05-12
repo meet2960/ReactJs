@@ -21,9 +21,6 @@ const ShowProductDetail = () => {
               <Row>
                 <Col lg={5}>
                   <ProductsImageSlider selectedProduct={selectedProduct} />
-                  <button type="button" className="btn btn-primary mt-4">
-                    Add to Cart
-                  </button>
                 </Col>
                 <Col lg={7}>
                   <ItemDetail selectedProduct={selectedProduct} />

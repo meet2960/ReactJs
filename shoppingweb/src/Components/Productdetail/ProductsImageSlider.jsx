@@ -16,7 +16,7 @@ const ProductsImageSlider = ({ selectedProduct }) => {
         <Col lg={3}>
           {selectedProduct.images.map((items, index) => (
             <div
-              className="avatar-md position-relative cursor-pointer mx-auto mb-3"
+              className="avatar-sm position-relative cursor-pointer mx-auto mb-3"
               onClick={() => changeImageIndex(index)}
             >
               <img src={items} alt="slider-img" className="img-stretch" />
@@ -24,7 +24,7 @@ const ProductsImageSlider = ({ selectedProduct }) => {
           ))}
         </Col>
         <Col lg={9}>
-          <div className="">
+          <div className="d-flex justify-content-center align-items-center h-100">
             {loading && <Skeleton.Image active={true} className="skeleton" />}
             <img
               src={
