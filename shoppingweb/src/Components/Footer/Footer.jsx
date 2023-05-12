@@ -3,8 +3,8 @@ import { Col, Container, Row } from "reactstrap";
 
 const Footer = () => {
   return (
-    <Container className="">
-      <div className="footer py-3">
+    <Container fluid className="footer">
+      <Container className=" py-3">
         <Row>
           <Col sm={6}>Ecommerce© {new Date().getFullYear()}</Col>
           <Col sm={6}>
@@ -13,7 +13,7 @@ const Footer = () => {
             </div>
           </Col>
         </Row>
-      </div>
+      </Container>
     </Container>
   );
 };

@@ -2,18 +2,32 @@ import React from "react";
 import { currencyFormat } from "../../utils/currencyFormat";
 
 const ItemDetail = ({ selectedProduct }) => {
+  const ratings = Math.round(selectedProduct.rating);
+  const totalRating = 5;
   return (
-    <div>
-      <h3>{selectedProduct.title}</h3>
-      <p className="fw-14 mb-0">
-        <span className="p-1 rounded-3 text-white bg-success me-2 d-inline-block">
-          {Math.floor(selectedProduct.rating)}
-          <i className="fa-solid fa-star"></i>
+    <div className="item-details">
+      <h2 className="fw-semibold">
+        {selectedProduct.title.charAt(0).toUpperCase() +
+          selectedProduct.title.slice(1)}
+      </h2>
+      <p className="mb-0 fs-14">
+        <span>
+          {[...Array(totalRating)].map((items, index) => (
+            <React.Fragment>
+              <i
+                className={`bi bi-star-fill me-1 ${
+                  index < ratings ? "text-warning" : ""
+                }`}
+              ></i>
+            </React.Fragment>
+          ))}
         </span>
         <span>30,856 Ratings & 3,851 Reviews</span>
       </p>
-      <p className="text-success fw-16 fw-semibold mb-2">Extra 15000 Off</p>
-      <h3 className="my-3">{currencyFormat(selectedProduct.price)}</h3>
+      <p className="text-success fs-14 fw-medium mb-2">Extra 15000 Off</p>
+      <h3 className="my-3 fw-semibold">
+        {currencyFormat(selectedProduct.price)}
+      </h3>
       <div>
         <h6 className="text-decoration-underline">Avaliable Offers</h6>
         <ul className="list-unstyled fs-14">
@@ -44,7 +58,7 @@ const ItemDetail = ({ selectedProduct }) => {
         </ul>
       </div>
       <div>
-        <h4 className="mb-0">Description</h4>
+        <h4 className="mb-0 text-decoration-underline">Description</h4>
         <span className="fw-14">{selectedProduct.category}</span>
         <p>{selectedProduct.description}</p>
       </div>
