@@ -15,17 +15,17 @@ const Login = () => {
             <div className="row justify-content-center align-items-center">
               <Col xs={"auto"}>
                 <button className="btn btn-dark" type="button">
-                  <i class="bi bi-facebook fs-18"></i>
+                  <i className="bi bi-facebook fs-18"></i>
                 </button>
               </Col>
               <Col xs={"auto"}>
                 <button className="btn btn-dark" type="button">
-                  <i class="bi bi-google fs-18"></i>
+                  <i className="bi bi-google fs-18"></i>
                 </button>
               </Col>
               <Col xs={"auto"}>
                 <button className="btn btn-dark" type="button">
-                  <i class="bi bi-apple fs-18"></i>
+                  <i className="bi bi-apple fs-18"></i>
                 </button>
               </Col>
             </div>

@@ -1,7 +1,15 @@
 import React from "react";
+import { Container } from "reactstrap";
+import FilterCategory from "../Components/Categories/FilterCategory";
 
 const Category = () => {
-  return <div>Category</div>;
+  return (
+    <Container fluid>
+      <div>
+        <FilterCategory />
+      </div>
+    </Container>
+  );
 };
 
 export default Category;

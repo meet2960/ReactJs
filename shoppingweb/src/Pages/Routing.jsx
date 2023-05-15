@@ -6,6 +6,7 @@ import Login from "../Components/Login/Login";
 import Footer from "../Components/Footer/Footer";
 import ShowProductDetail from "./ShowProductDetail";
 import CartOffCanvas from "../Components/Cart/CartOffCanvas";
+import Category from "./Category";
 
 const Routing = () => {
   return (
@@ -23,6 +24,7 @@ const Routing = () => {
               </div>
             }
           />
+          <Route path="/category" element={<Category />} />
           <Route path="/login" element={<Login />} />
           <Route path="/productdetails/:id" element={<ShowProductDetail />} />
         </Routes>
