@@ -18,14 +18,16 @@ const ShowProductDetail = () => {
         <CardBody>
           <div className="p-3 product-details rounded-3">
             {selectedProduct ? (
-              <Row>
-                <Col lg={5}>
-                  <ProductsImageSlider selectedProduct={selectedProduct} />
-                </Col>
-                <Col lg={7}>
-                  <ItemDetail selectedProduct={selectedProduct} />
-                </Col>
-              </Row>
+              <>
+                <Row>
+                  <Col lg={5}>
+                    <ProductsImageSlider selectedProduct={selectedProduct} />
+                  </Col>
+                  <Col lg={7}>
+                    <ItemDetail selectedProduct={selectedProduct} />
+                  </Col>
+                </Row>
+              </>
             ) : (
               <div>No Product Found</div>
             )}

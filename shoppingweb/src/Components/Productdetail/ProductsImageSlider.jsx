@@ -13,17 +13,22 @@ const ProductsImageSlider = ({ selectedProduct }) => {
   return (
     <React.Fragment>
       <Row>
-        <Col lg={3}>
-          {selectedProduct.images.map((items, index) => (
-            <div
-              className="avatar-sm position-relative cursor-pointer mx-auto mb-3"
-              onClick={() => changeImageIndex(index)}
-            >
-              <img src={items} alt="slider-img" className="img-stretch" />
-            </div>
-          ))}
+        <Col md={2} className="order-2 order-md-1">
+          <Row className="gx-0 justify-content-between mt-3 mt-lg-0">
+            {selectedProduct.images.map((items, index) => (
+              <Col xs={"auto"} md={12}>
+                <div
+                  key={index}
+                  className="avatar-sm position-relative cursor-pointer mx-auto mb-3"
+                  onClick={() => changeImageIndex(index)}
+                >
+                  <img src={items} alt="slider-img" className="img-stretch" />
+                </div>
+              </Col>
+            ))}
+          </Row>
         </Col>
-        <Col lg={9}>
+        <Col md={10} className="order-1 order-md-2">
           <div className="d-flex justify-content-center align-items-center h-100">
             {loading && <Skeleton.Image active={true} className="skeleton" />}
             <img

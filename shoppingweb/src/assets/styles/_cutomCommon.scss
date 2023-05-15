@@ -134,6 +134,13 @@
     // width: 100%;
   }
 }
+@media screen and (max-width: 768px) {
+  .slider-img img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
 
 .home {
   z-index: 50;

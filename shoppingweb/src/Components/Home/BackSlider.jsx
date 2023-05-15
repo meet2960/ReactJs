@@ -24,7 +24,7 @@ const BackSlider = () => {
           {backImgArray &&
             backImgArray.length !== 0 &&
             backImgArray.map((items, index) => (
-              <SwiperSlide>
+              <SwiperSlide key={index}>
                 <div className="slider-img">
                   <img
                     src={items}

@@ -5,11 +5,13 @@ import Home from "./Home";
 import Login from "../Components/Login/Login";
 import Footer from "../Components/Footer/Footer";
 import ShowProductDetail from "./ShowProductDetail";
+import CartOffCanvas from "../Components/Cart/CartOffCanvas";
 
 const Routing = () => {
   return (
     <BrowserRouter>
       <Header />
+      <CartOffCanvas />
       <div className="main-content">
         <Routes>
           <Route

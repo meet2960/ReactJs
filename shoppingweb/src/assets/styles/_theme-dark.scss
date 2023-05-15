@@ -16,6 +16,10 @@
   --#{$prefix}-body-bg: #{$body-dark-bg};
   --#{$prefix}-heading-color: #{$heading-dark-color};
 
+  body {
+    // transition: all 0.9s linear;
+  }
+
   .nav-bg {
     background-color: #272b30;
     box-shadow: 0 2px 4px rgba(15, 34, 58, 0.12);

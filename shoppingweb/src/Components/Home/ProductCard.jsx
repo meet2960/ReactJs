@@ -23,32 +23,43 @@ const ProductCard = ({ items }) => {
               onLoad={() => setLoading(false)}
             />
           </div>
-          <CardBody>
-            <div className="d-flex justify-content-between align-items-center fs-14">
-              <div>{items.category.toUpperCase()}</div>
-              <div>
-                <span>
-                  {[...Array(totalRating)].map((items, index) => (
-                    <React.Fragment>
-                      <i
-                        className={`bi bi-star-fill me-1 ${
-                          index < ratings ? "text-warning" : ""
-                        }`}
-                      ></i>
-                    </React.Fragment>
-                  ))}
-                </span>
-              </div>
-            </div>
-            <h5 className="fw-medium my-3">{items.title.toUpperCase()}</h5>
-            <div>
-              <span className="me-3 text-decoration-line-through text-success">
-                {currencyFormat(items.price)}
-              </span>
-              <span>{currencyFormat(items.price - 30)}</span>
-            </div>
-          </CardBody>
         </NavLink>
+        <CardBody>
+          <div className="d-flex justify-content-between align-items-center fs-14">
+            <div>{items.category.toUpperCase()}</div>
+            <div>
+              <span>
+                {[...Array(totalRating)].map((items, index) => (
+                  <React.Fragment key={index}>
+                    <i
+                      className={`bi bi-star-fill me-1 ${
+                        index < ratings ? "text-warning" : ""
+                      }`}
+                    ></i>
+                  </React.Fragment>
+                ))}
+              </span>
+            </div>
+          </div>
+          <h5 className="fw-medium my-3">{items.title.toUpperCase()}</h5>
+          <div>
+            <span className="me-3 text-decoration-line-through text-success">
+              {currencyFormat(items.price)}
+            </span>
+            <span>{currencyFormat(items.price - 30)}</span>
+          </div>
+          <div>
+            <button
+              type="button"
+              className="btn btn-sm mt-3 btn-primary"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#cartOffCanvas"
+              aria-controls="offcanvasRight"
+            >
+              ADD TO CART
+            </button>
+          </div>
+        </CardBody>
       </Card>
     </React.Fragment>
   );

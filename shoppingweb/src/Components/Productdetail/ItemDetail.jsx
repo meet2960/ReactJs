@@ -13,7 +13,7 @@ const ItemDetail = ({ selectedProduct }) => {
       <p className="mb-0 fs-14">
         <span>
           {[...Array(totalRating)].map((items, index) => (
-            <React.Fragment>
+            <React.Fragment key={index}>
               <i
                 className={`bi bi-star-fill me-1 ${
                   index < ratings ? "text-warning" : ""
@@ -33,7 +33,7 @@ const ItemDetail = ({ selectedProduct }) => {
         <ul className="list-unstyled fs-14">
           <li>
             <p className="justify-paragraph">
-              <i class="bi bi-tag-fill me-2"></i>
+              <i className="bi bi-tag-fill me-2"></i>
               <span className="fw-semibold">Bank Offer</span> 10% off on ICICI
               Bank Credit Card Transactions, up to ₹750, on orders of ₹5,000 and
               above
@@ -41,7 +41,7 @@ const ItemDetail = ({ selectedProduct }) => {
           </li>
           <li>
             <p className="justify-paragraph">
-              <i class="bi bi-tag-fill me-2"></i>
+              <i className="bi bi-tag-fill me-2"></i>
               <span className="fw-semibold">Bank Offer</span> 10% off on SBI
               Bank Credit Card Transactions, up to ₹750, on orders of ₹5,000 and
               above
@@ -49,7 +49,7 @@ const ItemDetail = ({ selectedProduct }) => {
           </li>
           <li>
             <p className="justify-paragraph">
-              <i class="bi bi-tag-fill me-2"></i>
+              <i className="bi bi-tag-fill me-2"></i>
               <span className="fw-semibold">Bank Offer</span> 10% off on SBI
               Bank Credit Card Transactions, up to ₹750, on orders of ₹5,000 and
               above
@@ -57,10 +57,17 @@ const ItemDetail = ({ selectedProduct }) => {
           </li>
         </ul>
       </div>
-      <div>
-        <h4 className="mb-0 text-decoration-underline">Description</h4>
-        <span className="fw-14">{selectedProduct.category}</span>
-        <p>{selectedProduct.description}</p>
+      <div className="">
+        <h4 className="text-decoration-underline">Description</h4>
+        <div className="mb-2">
+          Category :-{" "}
+          <span className="fw-14">
+            {selectedProduct.category.toUpperCase()}
+          </span>
+        </div>
+        <div>
+          <p>{selectedProduct.description}</p>
+        </div>
       </div>
     </div>
   );

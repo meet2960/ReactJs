@@ -14,7 +14,7 @@ const Header = () => {
       // ? Get the current layout mode, then set it
       document.body.setAttribute("data-layout-mode", layoutType);
     }
-    console.log("Inside Header Component", layoutType);
+    // console.log("Inside Header Component", layoutType);
   }, [layoutType]);
   const handleThemeChange = (e) => {
     e.preventDefault();
@@ -97,6 +97,7 @@ const Header = () => {
                   <button className="btn btn-info btn-sm text-white">
                     <i className="bi bi-cart me-0 me-md-2" />
                     <span className="d-none d-md-inline-block">Cart</span>
+                    <span className="ms-2 badge">length</span>
                   </button>
                 </Col>
                 <Col xs={"auto"}>

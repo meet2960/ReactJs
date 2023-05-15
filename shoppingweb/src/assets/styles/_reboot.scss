@@ -4,6 +4,7 @@ html {
 }
 
 body {
+  transition: all 0.3s linear;
   font-family: $font-family-secondary;
   color: var(--ecm-body-color) !important;
   background-color: var(--ecm-body-bg) !important;

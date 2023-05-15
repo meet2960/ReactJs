@@ -12,8 +12,10 @@ const ProductList = () => {
     actionLoading: state.common.actionsLoading,
   }));
   useEffect(() => {
-    dispatch(getProductList());
-    console.log("Loading State is", actionLoading);
+    if (productData.length === 0) {
+      console.log("Inside Home Api Calling");
+      dispatch(getProductList());
+    }
   }, [dispatch]);
   return (
     <React.Fragment>
