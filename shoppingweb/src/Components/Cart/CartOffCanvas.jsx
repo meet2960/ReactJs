@@ -12,7 +12,7 @@ const CartOffCanvas = () => {
       >
         <div className="offcanvas-header">
           <h5 className="offcanvas-title" id="offcanvasRightLabel">
-            <i className="fa-solid fa-cart-shopping"></i> Shopping Cart
+            <i className="bi bi-cart-fill"></i> Shopping Cart
           </h5>
           <button
             type="button"

@@ -20,13 +20,11 @@
     // transition: all 0.9s linear;
   }
 
-  .nav-bg {
+  .nav-bg,
+  .footer,
+  .offcanvas {
     background-color: #272b30;
     box-shadow: 0 2px 4px rgba(15, 34, 58, 0.12);
-  }
-
-  .footer {
-    background-color: #272b30;
   }
 
   .light-dark-mode .bi-moon::before {
@@ -56,4 +54,8 @@
   .card-title {
     color: #{$dark-gray-600};
   }
+
+  /* .offcanvas {
+    background-color: #272b30;
+  } */
 }

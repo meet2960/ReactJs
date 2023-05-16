@@ -1,22 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Col, Container, Row } from "reactstrap";
 import Loader from "../Common/Loader";
-import { useDispatch, useSelector } from "react-redux";
-import { getProductList } from "../../Redux/product/action";
+import { useDispatch } from "react-redux";
 import ProductCard from "./ProductCard";
 
-const ProductList = () => {
+const ProductList = ({ actionLoading, productData }) => {
   const dispatch = useDispatch();
-  const { productData, actionLoading } = useSelector((state) => ({
-    productData: state.product.products,
-    actionLoading: state.common.actionsLoading,
-  }));
-  useEffect(() => {
-    if (productData.length === 0) {
-      console.log("Inside Home Api Calling");
-      dispatch(getProductList());
-    }
-  }, [dispatch]);
+
   return (
     <React.Fragment>
       <Container>

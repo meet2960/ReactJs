@@ -55,6 +55,7 @@ const ProductCard = ({ items }) => {
               data-bs-toggle="offcanvas"
               data-bs-target="#cartOffCanvas"
               aria-controls="offcanvasRight"
+              onClick={() => {}}
             >
               ADD TO CART
             </button>

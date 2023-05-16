@@ -128,10 +128,9 @@
   width: 100%;
 
   img {
-    height: 500px;
+    height: 350px;
     width: 100%;
     object-fit: cover;
-    // width: 100%;
   }
 }
 @media screen and (max-width: 768px) {
@@ -147,8 +146,31 @@
 }
 
 .product-details {
+  .product-details-img {
+    height: 400px !important;
+    width: 100% !important;
+    object-fit: contain;
+  }
+
   .skeleton {
     height: 400px !important;
     width: 100% !important;
   }
+}
+
+.table {
+  border: 1px solid blue !important;
+}
+
+th {
+  border-bottom: solid 3px red;
+  background: aliceblue;
+  color: black;
+  font-weight: bold;
+}
+
+td {
+  padding: 10px;
+  border: solid 1px gray;
+  background: papayawhip;
 }

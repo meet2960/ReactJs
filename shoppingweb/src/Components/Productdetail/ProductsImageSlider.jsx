@@ -12,7 +12,7 @@ const ProductsImageSlider = ({ selectedProduct }) => {
   };
   return (
     <React.Fragment>
-      <Row>
+      <Row className="align-items-center">
         <Col md={2} className="order-2 order-md-1">
           <Row className="gx-0 justify-content-between mt-3 mt-lg-0">
             {selectedProduct.images.map((items, index) => (
@@ -38,7 +38,9 @@ const ProductsImageSlider = ({ selectedProduct }) => {
                   : selectedProduct.thumbnail
               }
               alt={selectedProduct.title}
-              className={`img-fluid hov ${loading ? "d-none" : "d-block"}`}
+              className={`product-details-img ${
+                loading ? "d-none" : "d-block"
+              }`}
               onLoad={() => setLoading(false)}
             />
           </div>

@@ -33,7 +33,7 @@ const FilterCategory = () => {
             memoizedCategories.length !== 0 &&
             memoizedCategories.map((items, index) => (
               <React.Fragment>
-                <Col>{items}</Col>
+                <Col key={index}>{items}</Col>
               </React.Fragment>
             ))}
         </Row>
