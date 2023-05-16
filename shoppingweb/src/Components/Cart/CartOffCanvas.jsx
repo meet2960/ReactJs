@@ -2,7 +2,7 @@ import React from "react";
 import { currencyFormat } from "../../utils/currencyFormat";
 import { useDispatch, useSelector } from "react-redux";
 import { Col, Row } from "reactstrap";
-import { increaseQuantity, removeItem } from "../../Redux/cart/cartSlice";
+import { removeItem } from "../../Redux/cart/cartSlice";
 import { cartTotal } from "../../utils/cartTotal";
 import { NavLink } from "react-router-dom";
 
@@ -43,53 +43,44 @@ const CartOffCanvas = () => {
                       />
                     </Col>
                     <Col>
-                      <div className="row">
-                        <div className="col-9 col-lg-8">
-                          <h6>{items.title}</h6>
-                          <div className="fs-15">
-                            <span className="d-inline-block me-3">
-                              Quantity : {items.quantity}
-                            </span>
-                            <button
-                              className="btn btn-sm btn-success me-3"
-                              type="button"
-                              onClick={() => dispatch(increaseQuantity(items))}
-                            >
-                              +
-                            </button>
-                            <button
-                              className="btn btn-sm btn-danger"
-                              type="button"
-                              // onClick={() => dispatch(decreaseQuantity(items))}
-                              disabled={items.quantity > 1 ? "" : "Disabled "}
-                            >
-                              -
-                            </button>
-                          </div>
-                        </div>
-                        <div className="col-3 col-lg-4 d-flex flex-column justify-content-between align-items-center">
-                          <h6 className="mb-0">
-                            {currencyFormat(items.price)}
-                          </h6>
-                          <span
-                            className="cursor-pointer fs-14 text-danger"
-                            onClick={() => {
-                              dispatch(removeItem(items));
-                            }}
+                      <Row className="justify-content-between align-items-center">
+                        <Col xs={"3"}>
+                          <h6 className="mb-0">{items.title}</h6>
+                        </Col>
+                        <Col xs={"auto"}>
+                          {/* <button
+                            className="btn btn-sm btn-dark"
+                            type="button"
+                            onClick={() => dispatch(increaseQuantity(items))}
                           >
-                            Remove
+                            +
+                          </button> */}
+                          <span className="d-inline-block fs-15 mx-2">
+                            Quantity : {items.quantity}
                           </span>
                           {/* <button
+                            className="btn btn-sm btn-dark"
                             type="button"
-                            onClick={() => {
-                              dispatch(removeItem(items));
-                            }}
-                            className="btn btn-sm btn-outline-danger"
+                            onClick={() => dispatch(decreaseQuantity(items))}
+                            disabled={items.quantity > 1 ? "" : "Disabled "}
                           >
-                            X
+                            -
                           </button> */}
-                        </div>
-                      </div>
+                        </Col>
+                        <Col xs={"3"} className="text-end">
+                          <h6>{currencyFormat(items.price)}</h6>
+                          <div>
+                            <span
+                              className="cursor-pointer fs-14 text-danger"
+                              onClick={() => {
+                                dispatch(removeItem(items));
+                              }}
+                            >
+                              Remove
+                            </span>
+                          </div>
+                        </Col>
+                      </Row>
                     </Col>
                   </Row>
                 </Col>
