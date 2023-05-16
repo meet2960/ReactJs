@@ -3,8 +3,12 @@ import { Card, CardBody } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import { Skeleton } from "antd";
 import { currencyFormat } from "../../utils/currencyFormat";
+import { addToCart } from "../../Redux/cart/cartSlice";
+import { useDispatch } from "react-redux";
 
 const ProductCard = ({ items }) => {
+  const dispatch = useDispatch();
+
   const [loading, setLoading] = useState(true);
   const ratings = Math.round(items.rating);
   const totalRating = 5;
@@ -55,7 +59,9 @@ const ProductCard = ({ items }) => {
               data-bs-toggle="offcanvas"
               data-bs-target="#cartOffCanvas"
               aria-controls="offcanvasRight"
-              onClick={() => {}}
+              onClick={() => {
+                dispatch(addToCart(items));
+              }}
             >
               ADD TO CART
             </button>

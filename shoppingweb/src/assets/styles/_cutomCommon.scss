@@ -174,3 +174,10 @@ td {
   border: solid 1px gray;
   background: papayawhip;
 }
+
+// * Cart OffCanvas
+.cart-canvas {
+  .c-borderbottom {
+    border-bottom: 1px solid #{$light-gray-400};
+  }
+}

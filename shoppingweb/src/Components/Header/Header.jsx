@@ -6,6 +6,7 @@ import { Col, Input, Row } from "reactstrap";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart.cartItems);
   const { layoutType } = useSelector((state) => ({
     layoutType: state.layout.layoutModeType,
   }));
@@ -94,10 +95,15 @@ const Header = () => {
                   </div>
                 </Col>
                 <Col xs={"auto"}>
-                  <button className="btn btn-info btn-sm text-white">
+                  <button
+                    className="btn btn-info btn-sm text-white"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#cartOffCanvas"
+                    aria-controls="offcanvasRight"
+                  >
                     <i className="bi bi-cart me-0 me-md-2" />
                     <span className="d-none d-md-inline-block">Cart</span>
-                    <span className="ms-2 badge">length</span>
+                    <span className="ms-2 badge">{cart && cart.length}</span>
                   </button>
                 </Col>
                 <Col xs={"auto"}>
