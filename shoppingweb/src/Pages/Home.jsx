@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { Container } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
-import ProductList from "../Components/Home/ProductList";
 import BackSlider from "../Components/Home/BackSlider";
 import { getProductList } from "../Redux/product/action";
 
@@ -21,14 +20,14 @@ const Home = () => {
   return (
     <React.Fragment>
       <Container fluid={true} className="px-0">
-        <div className="background-slider">
+        <React.Fragment>
           <BackSlider />
-        </div>
+        </React.Fragment>
         <Container className="mt-3 home">
-          <ProductList
+          {/* <ProductList
             productData={productData}
             actionLoading={actionLoading}
-          />
+          /> */}
           {/* <Tables /> */}
         </Container>
       </Container>

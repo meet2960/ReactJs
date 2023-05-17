@@ -3,6 +3,7 @@ import Header from "../Components/Header/Header";
 import CartOffCanvas from "../Components/Cart/CartOffCanvas";
 import { Outlet } from "react-router-dom";
 import Footer from "../Components/Footer/Footer";
+import BackToTopButton from "../Components/Common/BackToTopButton";
 
 const Layout = () => {
   return (
@@ -13,6 +14,7 @@ const Layout = () => {
         <Outlet />
         <Footer />
       </div>
+      <BackToTopButton />
     </div>
   );
 };

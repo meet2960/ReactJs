@@ -63,12 +63,16 @@ a {
   text-decoration: none !important;
 }
 
+a {
+  color: inherit !important;
+}
+
 .form-control,
 .form-control:focus {
   outline: 0;
-  border: 1px solid #ced4da;
+  border: 1px solid #{$light-gray-400};
   box-shadow: none;
-  background-color: rgba(255, 255, 255, 0.0509804) !important;
+  // background-color: rgba(255, 255, 255, 0.0509804) !important;
 }
 
 .form-select {

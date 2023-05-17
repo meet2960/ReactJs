@@ -55,7 +55,9 @@
     color: #{$dark-gray-600};
   }
 
-  /* .offcanvas {
-    background-color: #272b30;
-  } */
+  .footer-details {
+    ul li span::after {
+      background-color: #{$dark-gray-600};
+    }
+  }
 }
