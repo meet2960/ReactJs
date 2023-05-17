@@ -45,7 +45,7 @@ const CartOffCanvas = () => {
                     <Col>
                       <Row className="justify-content-between align-items-center">
                         <Col xs={"3"}>
-                          <h6 className="mb-0">{items.title}</h6>
+                          <h6 className="mb-0 fw-semibold">{items.title}</h6>
                         </Col>
                         <Col xs={"auto"}>
                           {/* <button
@@ -68,7 +68,9 @@ const CartOffCanvas = () => {
                           </button> */}
                         </Col>
                         <Col xs={"3"} className="text-end">
-                          <h6>{currencyFormat(items.price)}</h6>
+                          <h6 className="fw-semibold">
+                            {currencyFormat(items.price)}
+                          </h6>
                           <div>
                             <span
                               className="cursor-pointer fs-14 text-danger"

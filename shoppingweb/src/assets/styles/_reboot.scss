@@ -14,7 +14,18 @@ body {
   color: var(--ecm-heading-color);
   font-family: $heading-font-family;
 }
-
+/* :is(
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl
+  ) {
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
+} */
 h1,
 .h1 {
   font-size: $h1-font-size;

@@ -59,13 +59,15 @@ const LoginForm = () => {
                     <ErrorMessage
                       name={"email"}
                       component={"span"}
-                      className="text-danger position-absolute bottom-0"
+                      className="text-danger position-absolute bottom-0 fs-14"
                     />
                   </div>
                 </Col>
                 <Col lg={12}>
                   <div className="pb-4 position-relative">
-                    <Label htmlFor="password">Password</Label>
+                    <Label htmlFor="password" className="fs-16">
+                      Password
+                    </Label>
                     <div className="position-relative">
                       <Field
                         type={showPassword ? "text" : "password"}
@@ -90,7 +92,7 @@ const LoginForm = () => {
                     <ErrorMessage
                       name={"password"}
                       component={"div"}
-                      className="text-danger position-absolute bottom-0"
+                      className="text-danger position-absolute bottom-0 fs-14"
                     />
                   </div>
                 </Col>

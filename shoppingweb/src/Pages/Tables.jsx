@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { useTable } from "react-table";
+import { useSortBy, useTable } from "react-table";
 import { useSelector } from "react-redux";
 import { Container } from "reactstrap";
 
@@ -45,7 +45,7 @@ const Tables = () => {
   const data = useMemo(() => productData, [productData]);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable({ columns, data });
+    useTable({ columns, data }, useSortBy);
   return (
     <Container>
       <h2>Examples of React Tables</h2>
@@ -55,8 +55,19 @@ const Tables = () => {
             {headerGroups.map((headerGroup) => (
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column) => (
-                  <th {...column.getHeaderProps()}>
+                  <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                     {column.render("Header")}
+                    <span>
+                      {column.isSorted ? (
+                        column.isSortedDesc ? (
+                          <i className="ms-2 bi bi-arrow-up-circle-fill"></i>
+                        ) : (
+                          <i className="ms-2 bi bi-arrow-down-circle-fill"></i>
+                        )
+                      ) : (
+                        ""
+                      )}
+                    </span>
                   </th>
                 ))}
               </tr>

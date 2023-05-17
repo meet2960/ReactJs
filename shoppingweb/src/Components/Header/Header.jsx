@@ -96,7 +96,7 @@ const Header = () => {
                 </Col>
                 <Col xs={"auto"}>
                   <button
-                    className="btn btn-info btn-sm text-white"
+                    className="btn btn-dark btn-sm"
                     data-bs-toggle="offcanvas"
                     data-bs-target="#cartOffCanvas"
                     aria-controls="offcanvasRight"
