@@ -44,7 +44,7 @@ const CartOffCanvas = () => {
                     </Col>
                     <Col>
                       <Row className="justify-content-between align-items-center">
-                        <Col xs={"3"}>
+                        <Col xs={"5"}>
                           <h6 className="mb-0 fw-semibold">{items.title}</h6>
                         </Col>
                         <Col xs={"auto"}>

@@ -55,9 +55,19 @@
     color: #{$dark-gray-600};
   }
 
+  // * Footer
   .footer-details {
     ul li span::after {
       background-color: #{$dark-gray-600};
+    }
+  }
+
+  // * Review
+  .reviews {
+    background-color: #{$dark-gray-300};
+
+    .user {
+      background: #{$dark-gray-200};
     }
   }
 }

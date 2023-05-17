@@ -5,6 +5,7 @@ import { productSlice } from "./product/productSlice";
 import { commonSlices } from "./common/commonSlice";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { AuthSlice } from "./auth/authSlice";
 
 const layoutPersistConfig = {
   key: "ecommerceLayout",
@@ -15,4 +16,5 @@ export const rootReducer = combineReducers({
   layout: persistReducer(layoutPersistConfig, LayoutSlices.reducer),
   cart: cartSlice.reducer,
   product: productSlice.reducer,
+  auth: AuthSlice.reducer,
 });

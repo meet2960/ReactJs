@@ -1,16 +1,9 @@
 import React from "react";
-import { Col, Container, Row } from "reactstrap";
-import customQrCode from "../../assets/images/qr-code.png";
-import playStoreImg from "../../assets/images/play-store.png";
-import appStoreImg from "../../assets/images/app-store.png";
-import paypalLogo from "../../assets/images/PaypalLogo.png";
-import visaLogo from "../../assets/images/VisaLogo.png";
-import masterLogo from "../../assets/images/MasterCardLogo.png";
 
 const Footer = () => {
   return (
-    <Container fluid className="footer">
-      <Container className="newsletter my-5">
+    <React.Fragment>
+      {/* <Container className="newsletter my-5">
         <div className="newsletter-bg p-4 p-md-5 rounded-3">
           <div className="content p-3">
             <div className="fs-14 mb-1">
@@ -184,66 +177,71 @@ const Footer = () => {
           </Col>
         </Row>
       </Container>
-      <Container className="py-4 fs-16">
-        <Row className="gy-3 gy-xl-0">
-          <Col xs={12} xl={4}>
-            <Row className="justify-content-center justify-content-xl-start">
-              <Col xs={"auto"}>
-                <i class="bi bi-facebook"></i>
+      <footer>
+        <Container fluid className="footer">
+          <Container className="py-4 fs-16">
+            <Row className="gy-3 gy-xl-0">
+              <Col xs={12} xl={4}>
+                <Row className="justify-content-center justify-content-xl-start">
+                  <Col xs={"auto"}>
+                    <i class="bi bi-facebook"></i>
+                  </Col>
+                  <Col xs={"auto"}>
+                    <i class="bi bi-twitter"></i>
+                  </Col>
+                  <Col xs={"auto"}>
+                    <i class="bi bi-instagram"></i>
+                  </Col>
+                  <Col xs={"auto"}>
+                    <i class="bi bi-discord"></i>
+                  </Col>
+                </Row>
               </Col>
-              <Col xs={"auto"}>
-                <i class="bi bi-twitter"></i>
+              <Col xs={12} xl={4}>
+                <div className="d-flex justify-content-center">
+                  Ecommerce© {new Date().getFullYear()} All Rights Reserved by
+                  Meet
+                </div>
               </Col>
-              <Col xs={"auto"}>
-                <i class="bi bi-instagram"></i>
-              </Col>
-              <Col xs={"auto"}>
-                <i class="bi bi-discord"></i>
+              <Col xs={12} xl={4}>
+                <div className="d-flex justify-content-center justify-content-xl-end">
+                  <div className="me-3">We Accept</div>
+                  <Row>
+                    <Col xs={"auto"}>
+                      <div>
+                        <img
+                          src={paypalLogo}
+                          alt="payment-methods"
+                          className="img-fluid"
+                        />
+                      </div>
+                    </Col>
+                    <Col xs={"auto"}>
+                      <div>
+                        <img
+                          src={visaLogo}
+                          alt="payment-methods"
+                          className="img-fluid"
+                        />
+                      </div>
+                    </Col>
+                    <Col xs={"auto"}>
+                      <div>
+                        <img
+                          src={masterLogo}
+                          alt="payment-methods"
+                          className="img-fluid"
+                        />
+                      </div>
+                    </Col>
+                  </Row>
+                </div>
               </Col>
             </Row>
-          </Col>
-          <Col xs={12} xl={4}>
-            <div className="d-flex justify-content-center">
-              Ecommerce© {new Date().getFullYear()}All Rights Reserved by Meet
-            </div>
-          </Col>
-          <Col xs={12} xl={4}>
-            <div className="d-flex justify-content-center justify-content-xl-end">
-              <div className="me-3">All Cards Accepted</div>
-              <Row>
-                <Col xs={"auto"}>
-                  <div>
-                    <img
-                      src={paypalLogo}
-                      alt="payment-methods"
-                      className="img-fluid"
-                    />
-                  </div>
-                </Col>
-                <Col xs={"auto"}>
-                  <div>
-                    <img
-                      src={visaLogo}
-                      alt="payment-methods"
-                      className="img-fluid"
-                    />
-                  </div>
-                </Col>
-                <Col xs={"auto"}>
-                  <div>
-                    <img
-                      src={masterLogo}
-                      alt="payment-methods"
-                      className="img-fluid"
-                    />
-                  </div>
-                </Col>
-              </Row>
-            </div>
-          </Col>
-        </Row>
-      </Container>
-    </Container>
+          </Container>
+        </Container>
+      </footer> */}
+    </React.Fragment>
   );
 };
 

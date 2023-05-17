@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Container } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
-import BackSlider from "../Components/Home/BackSlider";
 import { getProductList } from "../Redux/product/action";
+import CustomerReview from "../Components/CustomerReview";
 
 const Home = () => {
   document.title = "Home | Ecommerce";
@@ -20,9 +20,8 @@ const Home = () => {
   return (
     <React.Fragment>
       <Container fluid={true} className="px-0">
-        <React.Fragment>
-          <BackSlider />
-        </React.Fragment>
+        <React.Fragment>{/* <BackSlider /> */}</React.Fragment>
+        <CustomerReview />
         <Container className="mt-3 home">
           {/* <ProductList
             productData={productData}
