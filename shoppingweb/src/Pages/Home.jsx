@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Container } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductList } from "../Redux/product/action";
-import ShowProductDetail from "./ShowProductDetail";
+import ProductList from "../Components/Home/ProductList";
 
 const Home = () => {
   document.title = "Home | Ecommerce";
@@ -23,12 +23,12 @@ const Home = () => {
         <React.Fragment>{/* <BackSlider /> */}</React.Fragment>
         {/* <CustomerReview /> */}
         <Container className="mt-3 home">
-          {/*  <ProductList
+          <ProductList
             productData={productData}
             actionLoading={actionLoading}
-          /> */}
+          />
           {/* <Tables /> */}
-          <ShowProductDetail />
+          {/* <ShowProductDetail /> */}
         </Container>
       </Container>
     </React.Fragment>

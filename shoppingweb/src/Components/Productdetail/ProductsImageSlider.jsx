@@ -34,7 +34,7 @@ const ProductsImageSlider = ({ selectedProduct }) => {
           </Row>
         </Col>
         <Col md={9} className="order-1 order-md-2">
-          <div className="d-flex justify-content-center align-items-center product-details-img">
+          <div className="d-flex justify-content-center product-details-img">
             {loading && <Skeleton.Image active={true} className="skeleton" />}
             <img
               src={
@@ -44,7 +44,7 @@ const ProductsImageSlider = ({ selectedProduct }) => {
               }
               alt={selectedProduct.title}
               className={`img-fluid ${loading ? "d-none" : "d-block"}`}
-              onLoad={() => setLoading(true)}
+              onLoad={() => setLoading(false)}
             />
           </div>
         </Col>

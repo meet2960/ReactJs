@@ -3,6 +3,7 @@ import { Col, Container, Row } from "reactstrap";
 import { useSelector } from "react-redux";
 import ProductsImageSlider from "../Components/Productdetail/ProductsImageSlider";
 import ItemDetail from "../Components/Productdetail/ItemDetail";
+import ItemDetailsTabs from "../Components/Productdetail/ItemDetailsTabs";
 
 const ShowProductDetail = () => {
   const productList = useSelector((state) => state.product.products);
@@ -13,10 +14,8 @@ const ShowProductDetail = () => {
   );
   console.log("getSelectedProduct is : ", selectedProduct);
   return (
-    <Container>
-      {/* <Card className="mt-3"> */}
-      {/* <CardBody> */}
-      <div className="product-details rounded-3 mt-5">
+    <Container className="product-details">
+      <div className="mt-5">
         {selectedProduct ? (
           <>
             <Row>
@@ -32,10 +31,9 @@ const ShowProductDetail = () => {
           <div>No Product Found</div>
         )}
       </div>
-      <div className="items-tabs mt-5">tabs will appear here</div>
-
-      {/* </CardBody> */}
-      {/* </Card> */}
+      <div className="items-tabs mt-5">
+        <ItemDetailsTabs />
+      </div>
     </Container>
   );
 };

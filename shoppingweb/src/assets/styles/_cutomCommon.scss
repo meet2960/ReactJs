@@ -276,6 +276,29 @@
     border-top: 1px double #{$light-gray-400};
     border-bottom: 1px double #{$light-gray-400};
   }
+
+  .items-tabs {
+    .list-description li {
+      margin-bottom: 10px;
+      padding-left: 35px;
+      position: relative;
+    }
+
+    .list-description li ::after {
+      position: absolute;
+
+      left: 0;
+      top: 0;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f00c";
+    }
+
+    .nav-tabs .nav-link.active {
+      background-color: transparent;
+      border: none;
+    }
+  }
 }
 
 .table {
@@ -299,35 +322,5 @@ td {
 .cart-canvas {
   .c-borderbottom {
     border-bottom: 1px solid #{$light-gray-400};
-  }
-}
-
-.arrow-img {
-  height: 6rem;
-  width: 6rem;
-}
-
-.next-pos {
-  right: -4%;
-  top: 15%;
-}
-
-@media screen and (max-width: 426px) {
-  .arrow-img {
-    height: 2rem;
-    width: 2rem;
-  }
-  .next-pos {
-    // * set according to the display
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .arrow-img {
-    height: 4rem;
-    width: 4rem;
-  }
-  .next-pos {
-    // * set according to the display
   }
 }

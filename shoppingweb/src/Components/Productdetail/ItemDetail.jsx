@@ -9,17 +9,18 @@ const ItemDetail = ({ selectedProduct }) => {
   const dispatch = useDispatch();
   const ratings = Math.round(selectedProduct.rating);
   const totalRating = 5;
-  const productSizes = ["XS", "S", "M", "L", "XL", "XXL", "XXXL"];
-  const productColors = [
-    "Red",
-    "Yello",
-    "Blue",
-    "Black",
-    "White",
-    "Green",
-    "Purple",
-  ];
+
   const dynamicDropDowns = useMemo(() => {
+    const productSizes = ["XS", "S", "M", "L", "XL", "XXL", "XXXL"];
+    const productColors = [
+      "Red",
+      "Yello",
+      "Blue",
+      "Black",
+      "White",
+      "Green",
+      "Purple",
+    ];
     return (
       <React.Fragment>
         <Col>
@@ -54,21 +55,17 @@ const ItemDetail = ({ selectedProduct }) => {
         </Col>
       </React.Fragment>
     );
-  }, [productSizes, productColors]);
+  }, []);
   const handleAddToCart = (e) => {
     e.preventDefault();
     dispatch(addToCart(selectedProduct));
     CustomToast({
       title: "Product Added to Cart",
       icon: "success",
-      timerProgressBar: true,
-      timer: 1000,
-      position: "top-right",
-      showConfirmButton: false,
     });
   };
   return (
-    <>
+    <React.Fragment>
       <div className="item-details">
         <h3 className="fw-semibold mb-3">
           {selectedProduct.title.charAt(0).toUpperCase() +
@@ -108,7 +105,7 @@ const ItemDetail = ({ selectedProduct }) => {
           </button>
         </div>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 
