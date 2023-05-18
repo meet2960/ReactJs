@@ -18,7 +18,7 @@ const BackSlider = () => {
             clickable: true,
             dynamicBullets: true,
           }}
-          navigation={true}
+          // navigation={true}
           modules={[Pagination, Navigation]}
         >
           {backImgArray &&

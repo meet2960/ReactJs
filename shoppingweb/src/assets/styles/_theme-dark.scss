@@ -47,6 +47,12 @@
     color: #{$light-gray-600};
   }
 
+  .form-select {
+    background-color: #{$dark-gray-300} !important;
+    border: #{$dark-gray-800} !important;
+    color: #{$dark-gray-600} !important;
+  }
+
   .card {
     background-color: $dark-gray-300 !important;
   }
@@ -68,6 +74,13 @@
 
     .user {
       background: #{$dark-gray-200};
+    }
+  }
+
+  .product-details {
+    .item-desc {
+      border-top: 1px double #{$dark-gray-400};
+      border-bottom: 1px double #{$dark-gray-400};
     }
   }
 }

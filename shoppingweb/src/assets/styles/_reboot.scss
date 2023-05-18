@@ -68,7 +68,8 @@ a {
 }
 
 .form-control,
-.form-control:focus {
+.form-control:focus,
+.form-select:focus {
   outline: 0;
   border: 1px solid #{$light-gray-400};
   box-shadow: none;

@@ -12,14 +12,19 @@ const ProductsImageSlider = ({ selectedProduct }) => {
   };
   return (
     <React.Fragment>
-      <Row className="align-items-center">
-        <Col md={2} className="order-2 order-md-1">
+      <Row>
+        <Col md={3} className="order-2 order-md-1">
           <Row className="gx-0 justify-content-between mt-3 mt-lg-0">
-            {selectedProduct.images.map((items, index) => (
-              <Col xs={"auto"} md={12}>
+            {selectedProduct.images.slice(0, 4).map((items, index) => (
+              <Col
+                xs={"auto"}
+                md={12}
+                key={index}
+                className="d-flex justify-content-center align-items-center mb-3"
+              >
                 <div
                   key={index}
-                  className="avatar-sm position-relative cursor-pointer mx-auto mb-3"
+                  className="avatar-md position-relative cursor-pointer"
                   onClick={() => changeImageIndex(index)}
                 >
                   <img src={items} alt="slider-img" className="img-stretch" />
@@ -28,8 +33,8 @@ const ProductsImageSlider = ({ selectedProduct }) => {
             ))}
           </Row>
         </Col>
-        <Col md={10} className="order-1 order-md-2">
-          <div className="d-flex justify-content-center align-items-center h-100">
+        <Col md={9} className="order-1 order-md-2">
+          <div className="d-flex justify-content-center align-items-center product-details-img">
             {loading && <Skeleton.Image active={true} className="skeleton" />}
             <img
               src={
@@ -38,10 +43,8 @@ const ProductsImageSlider = ({ selectedProduct }) => {
                   : selectedProduct.thumbnail
               }
               alt={selectedProduct.title}
-              className={`product-details-img ${
-                loading ? "d-none" : "d-block"
-              }`}
-              onLoad={() => setLoading(false)}
+              className={`img-fluid ${loading ? "d-none" : "d-block"}`}
+              onLoad={() => setLoading(true)}
             />
           </div>
         </Col>
