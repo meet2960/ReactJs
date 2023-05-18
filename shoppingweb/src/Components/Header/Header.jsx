@@ -31,7 +31,7 @@ const Header = () => {
     <React.Fragment>
       <header className="nav-bg">
         <Container>
-          <nav className="navbar navbar-expand-lg ">
+          <nav className="navbar navbar-expand-lg py-3">
             <Container fluid className="px-0">
               <Col xs={2}>
                 <div>

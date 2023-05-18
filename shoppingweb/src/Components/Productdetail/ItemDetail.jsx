@@ -67,6 +67,7 @@ const ItemDetail = ({ selectedProduct }) => {
   return (
     <React.Fragment>
       <div className="item-details">
+        <p className="fs-12">{selectedProduct.category.toUpperCase()}</p>
         <h3 className="fw-semibold mb-3">
           {selectedProduct.title.charAt(0).toUpperCase() +
             selectedProduct.title.slice(1)}
