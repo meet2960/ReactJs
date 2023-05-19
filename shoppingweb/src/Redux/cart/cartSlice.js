@@ -28,6 +28,7 @@ export const cartSlice = createSlice({
       );
       state.cartItems = removeItem;
     },
+    // AMA MAIN CATCH E CHE, AKHU APP NU STATE EK J JAGIYA E CHE, E REDUX MA
     increaseQuantity: (state, action) => {
       const selectedItem = state.cartItems.find(
         (item) => item.id === action.payload.id

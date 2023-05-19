@@ -43,7 +43,9 @@ const ProductsImageSlider = ({ selectedProduct }) => {
                   : selectedProduct.thumbnail
               }
               alt={selectedProduct.title}
-              className={`img-fluid ${loading ? "d-none" : "d-block"}`}
+              className={`img-fluid object-cover ${
+                loading ? "d-none" : "d-block"
+              }`}
               onLoad={() => setLoading(false)}
             />
           </div>

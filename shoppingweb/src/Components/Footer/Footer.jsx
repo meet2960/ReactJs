@@ -1,15 +1,18 @@
 import React from "react";
 import { Col, Container, Row } from "reactstrap";
-
+import NewsLetter from "../Footer/NewsLetter";
+import OurServices from "../Footer/OurServices";
 import paypalLogo from "../../assets/images/PaypalLogo.png";
 import visaLogo from "../../assets/images/VisaLogo.png";
 import masterLogo from "../../assets/images/MasterCardLogo.png";
+import CustomerReview from "../CustomerReview";
 
 const Footer = () => {
   return (
     <React.Fragment>
-      {/* <NewsLetter /> */}
-      {/* <OurServices /> */}
+      <CustomerReview />
+      <NewsLetter />
+      <OurServices />
 
       <footer className="mt-3">
         <Container fluid className="footer">

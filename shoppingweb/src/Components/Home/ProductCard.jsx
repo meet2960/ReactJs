@@ -5,13 +5,13 @@ import { Skeleton } from "antd";
 import { currencyFormat } from "../../utils/currencyFormat";
 import { addToCart } from "../../Redux/cart/cartSlice";
 import { useDispatch } from "react-redux";
+import RatingsStars from "../Common/RatingsStars";
 
 const ProductCard = ({ items }) => {
   const dispatch = useDispatch();
-
+  // ? State for Image Loaing Skeleton
   const [loading, setLoading] = useState(true);
-  const ratings = Math.round(items.rating);
-  const totalRating = 5;
+
   return (
     <React.Fragment>
       <Card className="h-100 card-animate rounded-0">
@@ -32,17 +32,7 @@ const ProductCard = ({ items }) => {
           <div className="d-flex justify-content-between align-items-center fs-14">
             <div>{items.category.toUpperCase()}</div>
             <div>
-              <span>
-                {[...Array(totalRating)].map((items, index) => (
-                  <React.Fragment key={index}>
-                    <i
-                      className={`bi bi-star-fill me-1 ${
-                        index < ratings ? "text-warning" : ""
-                      }`}
-                    ></i>
-                  </React.Fragment>
-                ))}
-              </span>
+              <RatingsStars getRatings={items.rating} />
             </div>
           </div>
           <h5 className="fw-medium my-3">{items.title.toUpperCase()}</h5>

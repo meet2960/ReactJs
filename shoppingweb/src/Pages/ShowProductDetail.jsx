@@ -4,11 +4,12 @@ import { useSelector } from "react-redux";
 import ProductsImageSlider from "../Components/Productdetail/ProductsImageSlider";
 import ItemDetail from "../Components/Productdetail/ItemDetail";
 import ItemDetailsTabs from "../Components/Productdetail/ItemDetailsTabs";
+import { useParams } from "react-router-dom";
 
 const ShowProductDetail = () => {
   const productList = useSelector((state) => state.product.products);
-  // const { id } = useParams();
-  const id = 2;
+  const { id } = useParams();
+  // const id = 2;
   const selectedProduct = productList.find(
     (items) => items.id === parseInt(id)
   );
@@ -17,7 +18,7 @@ const ShowProductDetail = () => {
     <Container className="product-details">
       <div className="mt-5">
         {selectedProduct ? (
-          <>
+          <React.Fragment>
             <Row>
               <Col lg={5}>
                 <ProductsImageSlider selectedProduct={selectedProduct} />
@@ -26,13 +27,13 @@ const ShowProductDetail = () => {
                 <ItemDetail selectedProduct={selectedProduct} />
               </Col>
             </Row>
-          </>
+          </React.Fragment>
         ) : (
           <div>No Product Found</div>
         )}
       </div>
-      <div className="items-tabs mt-5">
-        <ItemDetailsTabs />
+      <div className="product-items-tab mt-5">
+        <ItemDetailsTabs selectedProduct={selectedProduct} />
       </div>
     </Container>
   );

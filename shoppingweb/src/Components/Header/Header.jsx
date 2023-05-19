@@ -33,8 +33,8 @@ const Header = () => {
         <Container>
           <nav className="navbar navbar-expand-lg py-3">
             <Container fluid className="px-0">
-              <Col xs={2}>
-                <div>
+              <Col xs={4} lg={2} xl={2}>
+                <div className="logo">
                   <NavLink to="/" className="navbar-brand" href="#">
                     {layoutType === "light" ? (
                       <img

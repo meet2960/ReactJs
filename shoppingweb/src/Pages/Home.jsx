@@ -23,10 +23,12 @@ const Home = () => {
         <React.Fragment>{/* <BackSlider /> */}</React.Fragment>
         {/* <CustomerReview /> */}
         <Container className="mt-3 home">
-          <ProductList
-            productData={productData}
-            actionLoading={actionLoading}
-          />
+          {
+            <ProductList
+              productData={productData}
+              actionLoading={actionLoading}
+            />
+          }
           {/* <Tables /> */}
           {/* <ShowProductDetail /> */}
         </Container>

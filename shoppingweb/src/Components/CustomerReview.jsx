@@ -6,6 +6,7 @@ import { reviewList } from "../utils/reviewsList";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import RatingsStars from "./Common/RatingsStars";
 
 const CustomerReview = () => {
   return (
@@ -34,15 +35,11 @@ const CustomerReview = () => {
                       <SwiperSlide key={index}>
                         <React.Fragment>
                           <div className="d-flex justify-content-center">
-                            {[...Array(items.rating)].map((items, index) => (
-                              <React.Fragment key={index}>
-                                <i className="bi bi-star-fill me-1"></i>
-                              </React.Fragment>
-                            ))}
+                            <RatingsStars getRatings={items.rating} />
                           </div>
                           <h4 className="my-3">{items.title}</h4>
                           <div className="d-flex justify-content-center align-items-center my-4">
-                            <div className="d-flex align-items-center user">
+                            <div className="d-flex align-items-center review-user">
                               <div className="me-3 ">
                                 <img
                                   src={items.image}

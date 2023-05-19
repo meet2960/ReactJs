@@ -8,6 +8,7 @@ export const reviewList = [
     name: "Shahnewaz Sakil",
     role: "UI/UX Designer",
     image: reviewImg,
+    duration: "3 Months Ago",
   },
   {
     rating: 4,
@@ -16,6 +17,16 @@ export const reviewList = [
     name: "James Dopli",
     role: "Developer",
     image: reviewImg,
+    duration: "6 Months Ago",
+  },
+  {
+    rating: 5,
+    title:
+      "“ How you use the city or town name is up to you. All results may be freely used in any work.”",
+    name: "Julias Roy",
+    role: "CO Founder",
+    image: reviewImg,
+    duration: "12 Months Ago",
   },
   {
     rating: 3,
@@ -24,5 +35,6 @@ export const reviewList = [
     name: "James Dopli",
     role: "CO Founder",
     image: reviewImg,
+    duration: "9 Months Ago",
   },
 ];

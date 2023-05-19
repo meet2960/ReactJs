@@ -20,6 +20,10 @@
     // transition: all 0.9s linear;
   }
 
+  .text-muted {
+    color: #{$dark-gray-500} !important;
+  }
+
   .nav-bg,
   .footer,
   .offcanvas {
@@ -72,15 +76,39 @@
   .reviews {
     background-color: #{$dark-gray-300};
 
-    .user {
+    .review-user {
       background: #{$dark-gray-200};
     }
   }
 
+  // * Product Details Page
   .product-details {
-    .item-desc {
-      border-top: 1px double #{$dark-gray-400};
-      border-bottom: 1px double #{$dark-gray-400};
+    .product-items-tab {
+      .border-bottom,
+      .nav-tabs {
+        border-bottom: 1px solid #bfc8e2 !important;
+      }
+
+      .custom-tabs {
+        .nav-tabs .nav-link .title {
+          color: #{$dark-gray-400} !important;
+        }
+
+        .nav-tabs .nav-link.active .active-title {
+          color: #{$dark-gray-900} !important;
+        }
+      }
+    }
+
+    .related-products {
+      .related-title h3 {
+        transition: all 0.3s linear;
+        background: #1a1d21;
+      }
+
+      .related-title::after {
+        border-top: 1px solid #{$dark-gray-600};
+      }
     }
   }
 }

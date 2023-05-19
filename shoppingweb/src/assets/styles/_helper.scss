@@ -20,10 +20,19 @@
   left: 0;
 }
 
-.obj-cover {
+.object-cover {
   object-fit: cover;
 }
 
-.obj-contain {
+.object-contain {
   object-fit: contain;
+}
+
+.justify-paragraph {
+  word-break: break-all;
+  text-align: justify;
+}
+
+.left-50 {
+  left: 50%;
 }
