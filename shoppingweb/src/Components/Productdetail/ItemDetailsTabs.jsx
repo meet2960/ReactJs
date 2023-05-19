@@ -14,12 +14,13 @@ import RatingsStars from "../Common/RatingsStars";
 
 const ItemDetailsTabs = ({ selectedProduct }) => {
   // ? State for Tabs Toggle and function to Toggle the State
-  const [activeTab, setActiveTab] = useState("2");
+  const [activeTab, setActiveTab] = useState("1");
   const toggleTab = (tab) => {
     if (activeTab !== tab) {
       setActiveTab(tab);
     }
   };
+
   return (
     <React.Fragment>
       <div className="custom-tabs">
@@ -76,7 +77,7 @@ const ItemDetailsTabs = ({ selectedProduct }) => {
             </NavLink>
           </NavItem>
         </Nav>
-        <TabContent activeTab={activeTab} className="mt-3 fs-16">
+        <TabContent activeTab={activeTab} className="mt-4 fs-16">
           <TabPane tabId="1">
             <p className="justify-paragraph">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -124,6 +125,10 @@ const ItemDetailsTabs = ({ selectedProduct }) => {
                       <td>{selectedProduct?.title}</td>
                     </tr>
                     <tr>
+                      <td>Category</td>
+                      <td>{selectedProduct?.category.toUpperCase()}</td>
+                    </tr>
+                    <tr>
                       <td>Color</td>
                       <td>Black</td>
                     </tr>
@@ -135,68 +140,91 @@ const ItemDetailsTabs = ({ selectedProduct }) => {
                       <td>Dimensions</td>
                       <td>62 x 56 x 12 cm</td>
                     </tr>
+                    <tr>
+                      <td>Size</td>
+                      <td>XL, XXL, LG, SM, MD</td>
+                    </tr>
+                    <tr>
+                      <td>Gurantee</td>
+                      <td>1 Year</td>
+                    </tr>
+                    <tr>
+                      <td>Series</td>
+                      <td>{selectedProduct?.title}</td>
+                    </tr>
+                    <tr>
+                      <td>Discount</td>
+                      <td>{selectedProduct?.discountPercentage}</td>
+                    </tr>
                   </tbody>
                 </Table>
               </Col>
             </Row>
           </TabPane>
           <TabPane tabId="3">
+            <h5 className="mb-4">
+              Reviews ({reviewList && reviewList.length})
+            </h5>
             <div>
-              <Row>
-                <Col xs={4} md={3} lg={1}>
-                  <div className="rounded-circle overflow-hidden">
-                    <img
-                      src={reviewList[0].image}
-                      alt="user-img"
-                      className="img-fluid"
-                    />
-                  </div>
-                </Col>
-                <Col xs={8} md={9} lg={11}>
-                  <div>
-                    <div className="d-flex justify-content-between">
-                      <div>
-                        <p className="fw-semibold mb-0 d-inline-block">
-                          {reviewList[0].name}
-                        </p>
-                        <span className="fs-12">
-                          {" "}
-                          - {reviewList[0].duration}
-                        </span>
-                        <p className="fs-14">
-                          <RatingsStars getRatings={reviewList[1].rating} />
-                        </p>
-                      </div>
-                      <div>Leave Reply</div>
-                    </div>
-                  </div>
-                </Col>
+              <Row className="gy-4">
+                {reviewList &&
+                  reviewList.length !== 0 &&
+                  reviewList.map((items, index) => (
+                    <React.Fragment key={index}>
+                      <Col xs={2} lg={2} xl={1}>
+                        <div className="rounded-circle overflow-hidden">
+                          <img
+                            src={items.image}
+                            alt="user-img"
+                            className="img-fluid"
+                          />
+                        </div>
+                      </Col>
+                      <Col xs={10} lg={10} xl={11}>
+                        <div>
+                          <div className="d-flex justify-content-between">
+                            <div>
+                              <p className="fw-semibold mb-0 d-inline-block">
+                                {items.name}
+                              </p>
+                              <span className="fs-12"> - {items.duration}</span>
+                              <p className="fs-14 mb-0">
+                                <RatingsStars
+                                  getRatings={reviewList[1].rating}
+                                />
+                              </p>
+                            </div>
+                            <div className="fs-12">
+                              <span className="cursor-pointer">
+                                Leave Reply
+                              </span>
+                            </div>
+                          </div>
+                          <p className="my-3">{items.title}</p>
+                          <Row className="align-items-center">
+                            <Col xs={"auto"} className="">
+                              <span>
+                                <i className="bi bi-hand-thumbs-up-fill"></i>
+                              </span>
+                              <span className="mx-2">Helpful</span>
+                              <span>(3)</span>
+                            </Col>
+                            <Col xs={"auto"}>
+                              <span>
+                                <i className="bi bi-hand-thumbs-down"></i>
+                              </span>
+                              <span className="mx-2">Unhelpful</span>
+                              <span>(1)</span>
+                            </Col>
+                          </Row>
+                        </div>
+                      </Col>
+                    </React.Fragment>
+                  ))}
               </Row>
             </div>
           </TabPane>
         </TabContent>
-      </div>
-
-      {/* // * Related Products Section */}
-      <div className="related-products mt-5 fs-16">
-        <Row className="mb-5">
-          <Col xs={12}>
-            <div className="text-center">
-              <div className="related-title position-relative mb-3">
-                <h3 className="mb-0">Related Products</h3>
-              </div>
-              <div>
-                <p className="text-center">
-                  Mirum est notare quam littera gothica quam nunc putamus parum
-                  claram!
-                </p>
-              </div>
-            </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12}>Show all products</Col>
-        </Row>
       </div>
     </React.Fragment>
   );

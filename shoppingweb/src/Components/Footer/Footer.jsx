@@ -5,15 +5,12 @@ import OurServices from "../Footer/OurServices";
 import paypalLogo from "../../assets/images/PaypalLogo.png";
 import visaLogo from "../../assets/images/VisaLogo.png";
 import masterLogo from "../../assets/images/MasterCardLogo.png";
-import CustomerReview from "../CustomerReview";
 
 const Footer = () => {
   return (
     <React.Fragment>
-      <CustomerReview />
       <NewsLetter />
       <OurServices />
-
       <footer className="mt-3">
         <Container fluid className="footer">
           <Container className="py-4 fs-16">

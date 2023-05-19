@@ -117,10 +117,17 @@ const Header = () => {
                           type="button"
                           className="btn btn-primary btn-sm"
                         >
-                          <i className="bi bi-person-circle me-0 me-md-2" />
-                          <span className="d-none d-md-inline-block">
-                            Account
-                          </span>
+                          <i className="bi bi-suit-heart"></i>
+                        </button>
+                      </div>
+                    </Col>
+                    <Col xs={"auto"}>
+                      <div>
+                        <button
+                          type="button"
+                          className="btn btn-primary btn-sm"
+                        >
+                          <i className="bi bi-person-circle" />
                         </button>
                       </div>
                     </Col>
@@ -131,8 +138,7 @@ const Header = () => {
                         data-bs-target="#cartOffCanvas"
                         aria-controls="offcanvasRight"
                       >
-                        <i className="bi bi-cart me-0 me-md-2" />
-                        <span className="d-none d-md-inline-block">Cart</span>
+                        <i className="bi bi-cart" />
                         <span className="ms-2 badge">
                           {cart && cart.length}
                         </span>

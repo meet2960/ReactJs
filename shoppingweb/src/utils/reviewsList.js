@@ -32,7 +32,7 @@ export const reviewList = [
     rating: 3,
     title:
       "“ How you use the city or town name is up to you. All results may be freely used in any work.”",
-    name: "James Dopli",
+    name: "Arista Williamson",
     role: "CO Founder",
     image: reviewImg,
     duration: "9 Months Ago",
