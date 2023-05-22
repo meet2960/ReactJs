@@ -6,6 +6,7 @@ import BackSlider from "../Components/Home/BackSlider";
 import OurServices from "../Components/Footer/OurServices";
 import NewsLetter from "../Components/Footer/NewsLetter";
 import TrendingProducts from "../Components/TrendingProducts";
+import FooterDetails from "../Components/Footer/FooterDetails";
 
 const Home = () => {
   document.title = "Home | Ecommerce";
@@ -25,10 +26,11 @@ const Home = () => {
       <Container fluid={true} className="px-0">
         <BackSlider />
       </Container>
-      <Container className="mt-3 home">
+      <Container className="home">
         <OurServices />
         <TrendingProducts productData={productData} />
         <NewsLetter />
+        <FooterDetails />
       </Container>
       {/* <CustomerReview /> */}
       {/* <ProductList productData={productData} actionLoading={actionLoading} /> */}

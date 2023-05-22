@@ -4,8 +4,8 @@ import { Col, Container, Row } from "reactstrap";
 const NewsLetter = () => {
   return (
     <React.Fragment>
-      <section>
-        <div className="banner-bg my-3">
+      <section className="mb-5">
+        <div className="banner-bg">
           <Container>
             <Row className="gy-3 gy-md-0">
               <Col md={6}>
@@ -32,8 +32,8 @@ const NewsLetter = () => {
           </Container>
         </div>
       </section>
-      {/*  <section>
-        <Container className="newsletter my-4">
+      <section className="mb-5">
+        <Container className="newsletter">
           <div className="newsletter-bg p-4 p-md-5 rounded-3">
             <div className="content p-3">
               <div className="fs-14 mb-1 newsletter-icon">
@@ -60,7 +60,7 @@ const NewsLetter = () => {
             </div>
           </div>
         </Container>
-      </section> */}
+      </section>
     </React.Fragment>
   );
 };

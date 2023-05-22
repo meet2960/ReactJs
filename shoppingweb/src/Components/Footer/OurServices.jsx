@@ -4,7 +4,7 @@ import { Col, Container, Row } from "reactstrap";
 const OurServices = () => {
   return (
     <React.Fragment>
-      <section className="my-4">
+      <section className="my-5">
         <Container className="services">
           <Row className="row-cols-xl-4 row-cols-sm-2 row-cols-1 gy-4 gy-xl-0">
             <Col>

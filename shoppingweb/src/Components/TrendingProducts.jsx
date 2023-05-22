@@ -8,7 +8,7 @@ const TrendingProducts = ({ productData }) => {
   const { formatCurrency } = useContext(CurrenctContext);
   return (
     <React.Fragment>
-      <section className="trending-products my-4">
+      <section className="trending-products mb-5">
         <Container>
           <div className="text-center">
             <div className="heading-title position-relative mb-3">
