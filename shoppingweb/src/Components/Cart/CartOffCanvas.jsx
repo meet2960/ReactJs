@@ -10,7 +10,7 @@ const CartOffCanvas = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cartItems);
   return (
-    <>
+    <aside>
       <div
         className="offcanvas offcanvas-end cart-canvas"
         tabIndex="-1"
@@ -111,7 +111,7 @@ const CartOffCanvas = () => {
           </div>
         ) : null}
       </div>
-    </>
+    </aside>
   );
 };
 

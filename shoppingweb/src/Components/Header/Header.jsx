@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeLayoutMode } from "../../Redux/layouts/layout";
 import { NavLink } from "react-router-dom";
 import { Col, Container, Input, Row } from "reactstrap";
-import LightLogo from "../../assets/images/LightLogo.png";
-import DarkLogo from "../../assets/images/DarkLogo.png";
+import Logo from "../../assets/images/NewLogo.png";
+import DarkLogo from "../../assets/images/NewDarkLogo.png";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -27,21 +27,18 @@ const Header = () => {
       dispatch(changeLayoutMode("light"));
     }
   };
+
   return (
     <React.Fragment>
       <header className="nav-bg">
         <Container>
-          <nav className="navbar navbar-expand-lg py-3">
+          <nav className="navbar navbar-expand-lg py-2">
             <Container fluid className="px-0">
-              <Col xs={4} lg={2} xl={2}>
+              <Col xs={3} lg={2} xl={1}>
                 <div className="logo">
-                  <NavLink to="/" className="navbar-brand" href="#">
+                  <NavLink to="/" href="#">
                     {layoutType === "light" ? (
-                      <img
-                        src={LightLogo}
-                        alt="main-logo"
-                        className="img-fluid"
-                      />
+                      <img src={Logo} alt="main-logo" className="img-fluid" />
                     ) : (
                       <img
                         src={DarkLogo}
@@ -87,21 +84,12 @@ const Header = () => {
                       Deals
                     </NavLink>
                   </li>
-                  <li className="nav-item">
-                    <NavLink
-                      to={"/login"}
-                      className="nav-link"
-                      aria-current="page"
-                    >
-                      Login
-                    </NavLink>
-                  </li>
                 </ul>
                 <div>
                   <div className="search-field">
                     <Input
                       type="text"
-                      className="form-control search"
+                      className="form-control form-control-sm search"
                       name="searchField"
                       id="search"
                       placeholder="Search Here"

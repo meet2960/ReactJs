@@ -7,15 +7,17 @@ import BackToTopButton from "../Components/Common/BackToTopButton";
 
 const Layout = () => {
   return (
-    <div className="layout-wrapper">
-      <Header />
-      <CartOffCanvas />
-      <div className="main-content">
-        <Outlet />
+    <>
+      <div className="layout-wrapper">
+        <Header />
+        <main className="main-content">
+          <Outlet />
+        </main>
         <Footer />
       </div>
+      <CartOffCanvas />
       <BackToTopButton />
-    </div>
+    </>
   );
 };
 
