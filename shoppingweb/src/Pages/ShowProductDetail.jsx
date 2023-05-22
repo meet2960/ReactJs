@@ -4,11 +4,12 @@ import { useSelector } from "react-redux";
 import ProductsImageSlider from "../Components/Productdetail/ProductsImageSlider";
 import ItemDetail from "../Components/Productdetail/ItemDetail";
 import ItemDetailsTabs from "../Components/Productdetail/ItemDetailsTabs";
+import { useParams } from "react-router-dom";
 
 const ShowProductDetail = () => {
   const productList = useSelector((state) => state.product.products);
-  // const { id } = useParams();
-  const id = 5;
+  const { id } = useParams();
+  // const id = 5;
   const selectedProduct = productList.find(
     (items) => items.id === parseInt(id)
   );

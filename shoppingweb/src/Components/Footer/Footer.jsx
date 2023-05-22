@@ -1,8 +1,8 @@
 import React from "react";
 import { Col, Container, Row } from "reactstrap";
-import customQrCode from "../../assets/images/qr-code.png";
+/* import customQrCode from "../../assets/images/qr-code.png";
 import playStoreImg from "../../assets/images/play-store.png";
-import appStoreImg from "../../assets/images/app-store.png";
+import appStoreImg from "../../assets/images/app-store.png"; */
 import paypalLogo from "../../assets/images/PaypalLogo.png";
 import visaLogo from "../../assets/images/VisaLogo.png";
 import masterLogo from "../../assets/images/MasterCardLogo.png";
@@ -10,7 +10,7 @@ import masterLogo from "../../assets/images/MasterCardLogo.png";
 const Footer = () => {
   return (
     <React.Fragment>
-      <section className="mb-3">
+      {/* <section className="mb-3">
         <Container className="footer-details fs-16">
           <Row>
             <Col xs={12} md={6} lg={3}>
@@ -112,7 +112,7 @@ const Footer = () => {
             </Col>
           </Row>
         </Container>
-      </section>
+      </section> */}
       <footer className="mt-3">
         <Container fluid className="footer">
           <Container className="py-4 fs-16">

@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProductList } from "../Redux/product/action";
 import BackSlider from "../Components/Home/BackSlider";
 import OurServices from "../Components/Footer/OurServices";
-import CustomerReview from "../Components/Home/CustomerReview";
 import NewsLetter from "../Components/Footer/NewsLetter";
+import TrendingProducts from "../Components/TrendingProducts";
 
 const Home = () => {
   document.title = "Home | Ecommerce";
@@ -27,10 +27,11 @@ const Home = () => {
       </Container>
       <Container className="mt-3 home">
         <OurServices />
+        <TrendingProducts productData={productData} />
         <NewsLetter />
       </Container>
-      <CustomerReview />
-      {/*   <ProductList productData={productData} actionLoading={actionLoading} /> */}
+      {/* <CustomerReview /> */}
+      {/* <ProductList productData={productData} actionLoading={actionLoading} /> */}
     </React.Fragment>
   );
 };

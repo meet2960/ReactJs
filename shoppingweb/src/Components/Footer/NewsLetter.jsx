@@ -32,7 +32,7 @@ const NewsLetter = () => {
           </Container>
         </div>
       </section>
-      <section>
+      {/*  <section>
         <Container className="newsletter my-4">
           <div className="newsletter-bg p-4 p-md-5 rounded-3">
             <div className="content p-3">
@@ -60,7 +60,7 @@ const NewsLetter = () => {
             </div>
           </div>
         </Container>
-      </section>
+      </section> */}
     </React.Fragment>
   );
 };

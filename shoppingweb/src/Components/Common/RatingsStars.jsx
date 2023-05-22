@@ -1,6 +1,6 @@
 import React from "react";
 
-const RatingsStars = ({ getRatings }) => {
+const RatingsStars = ({ getRatings, size }) => {
   const ratings = Math.round(getRatings);
   const totalRating = 5;
   return (
@@ -11,7 +11,7 @@ const RatingsStars = ({ getRatings }) => {
             <i
               className={`bi bi-star-fill me-1 ${
                 index < ratings ? "text-warning" : ""
-              }`}
+              } ${size}`}
             ></i>
           </React.Fragment>
         ))}

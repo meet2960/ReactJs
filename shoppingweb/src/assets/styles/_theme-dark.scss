@@ -111,4 +111,19 @@
       }
     }
   }
+
+  // * Trending Products
+  .trending-products {
+    .trending-content {
+      background-color: #{$dark-gray-300};
+      transition: all 0.3s 0s ease-out;
+      border: 1px solid #{$dark-gray-100};
+      border-radius: 8px;
+
+      &:hover {
+        box-shadow: 0px 4px 10px rgba(1, 15, 28, 0.14);
+        border-color: #{$dark-gray-300};
+      }
+    }
+  }
 }
