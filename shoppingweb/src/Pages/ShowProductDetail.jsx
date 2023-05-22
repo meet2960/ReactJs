@@ -5,6 +5,7 @@ import ProductsImageSlider from "../Components/Productdetail/ProductsImageSlider
 import ItemDetail from "../Components/Productdetail/ItemDetail";
 import ItemDetailsTabs from "../Components/Productdetail/ItemDetailsTabs";
 import { useParams } from "react-router-dom";
+import RelatedProducts from "../Components/Productdetail/RelatedProducts";
 
 const ShowProductDetail = () => {
   const productList = useSelector((state) => state.product.products);
@@ -34,6 +35,9 @@ const ShowProductDetail = () => {
       </div>
       <div className="product-items-tab mt-5">
         <ItemDetailsTabs selectedProduct={selectedProduct} />
+      </div>
+      <div>
+        <RelatedProducts />
       </div>
     </Container>
   );

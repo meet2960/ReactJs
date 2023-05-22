@@ -17,6 +17,10 @@
   background-color: #{$light-gray-900};
 }
 
+.secondary-bg {
+  background-color: #{$light-gray-200};
+}
+
 .layout-wrapper {
   display: flex;
   // justify-content: center;
@@ -101,6 +105,31 @@
   z-index: 50;
 }
 
+// * Some Common
+.heading-title h3 {
+  background: #f3f6f9 none repeat scroll 0 0;
+  transition: all 0.3s linear;
+  display: inline-block;
+  font-weight: 500;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.heading-title::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  top: 50%;
+  left: 0;
+  margin: 0;
+  border-top: 3px solid #{$light-gray-600};
+}
+
+.border-bottom {
+  border-bottom: 1px solid #{$light-gray-600} !important;
+}
+
 // * ProductList Page
 .product-img {
   img {
@@ -171,6 +200,11 @@
     &:hover {
       box-shadow: 0px 4px 10px rgba(1, 15, 28, 0.14);
       border-color: #ffffff;
+    }
+
+    .sale {
+      top: 2%;
+      right: 5%;
     }
   }
 
@@ -254,7 +288,6 @@
 }
 // * Product Details Page
 .product-details {
-  .border-bottom,
   .nav-tabs {
     border-bottom: 1px solid #{$light-gray-600} !important;
   }
@@ -319,19 +352,15 @@
         border: 1px solid #{$light-gray-600};
         width: 100%;
         color: inherit;
-
         & tr {
           &:not(:last-child) {
             border-bottom: 1px solid #{$light-gray-600};
           }
-
           & td {
             padding: 12px 34px;
-
             &:first-child {
               font-size: 16px;
               width: 40%;
-              // background-color: #{$light-gray-200};
             }
             &:last-child {
               font-size: 16px;
@@ -343,36 +372,12 @@
   }
 
   .related-products {
-    position: relative;
-
-    .related-title h3 {
-      background: #f3f6f9 none repeat scroll 0 0;
-      transition: all 0.3s linear;
-      display: inline-block;
-      font-weight: 400;
-      padding: 0 2.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .related-title::after {
-      position: absolute;
-      content: "";
-      width: 100%;
-      top: 50%;
-      left: 0;
-      margin: 0;
-      border-top: 1px solid #{$light-gray-600};
-    }
-
     .related-product-img {
       height: 250px;
     }
-
     .related-swiper {
       position: static;
     }
-
     .swiper-wrapper {
       padding-bottom: 50px;
     }

@@ -20,10 +20,29 @@
     // transition: all 0.9s linear;
   }
 
+  .secondary-bg {
+    background-color: #{$dark-gray-300};
+  }
+
   .text-muted {
     color: #{$dark-gray-500} !important;
   }
 
+  // * Some Common CSS
+  .heading-title h3 {
+    transition: all 0.3s linear;
+    background: #1a1d21;
+  }
+
+  .heading-title::after {
+    border-top: 3px solid #{$dark-gray-600};
+  }
+
+  .border-bottom {
+    border-bottom: 1px solid #bfc8e2 !important;
+  }
+
+  // * Navbar
   .nav-bg,
   .footer,
   .offcanvas {
@@ -75,7 +94,6 @@
   // * Review
   .reviews {
     background-color: #{$dark-gray-300};
-
     .review-user {
       background: #{$dark-gray-200};
     }
@@ -84,7 +102,6 @@
   // * Product Details Page
   .product-details {
     .product-items-tab {
-      .border-bottom,
       .nav-tabs {
         border-bottom: 1px solid #bfc8e2 !important;
       }
@@ -97,17 +114,6 @@
         .nav-tabs .nav-link.active .active-title {
           color: #{$dark-gray-900} !important;
         }
-      }
-    }
-
-    .related-products {
-      .related-title h3 {
-        transition: all 0.3s linear;
-        background: #1a1d21;
-      }
-
-      .related-title::after {
-        border-top: 1px solid #{$dark-gray-600};
       }
     }
   }

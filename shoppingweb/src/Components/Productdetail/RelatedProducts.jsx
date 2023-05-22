@@ -12,11 +12,11 @@ const RelatedProducts = () => {
 
   return (
     <React.Fragment>
-      <div className="related-products my-5 fs-16">
+      <div className="related-products position-relative my-5 fs-16">
         <Row className="mb-5">
           <Col xs={12}>
             <div className="text-center">
-              <div className="related-title position-relative mb-3">
+              <div className="heading-title position-relative mb-3">
                 <h3 className="mb-0">Related Products</h3>
               </div>
               <div>
