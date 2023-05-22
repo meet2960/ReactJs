@@ -96,6 +96,11 @@
   }
 }
 
+// * Home Page
+.home {
+  z-index: 50;
+}
+
 // * ProductList Page
 .product-img {
   img {
@@ -190,36 +195,22 @@
 }
 
 // * BackImgSlider
+.home-background-swiper {
+  .background-banner {
+    padding: 130px 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    @media screen and (max-width: 768px) {
+      padding: 50px 0;
+      background: url("../images/background-banner-1.png") no-repeat left center/cover;
+    }
 
-.bg-banner {
-  padding: 130px 0;
-  color: white;
-  background: url("../images/background-banner-1.png") no-repeat center center/cover;
-  @media screen and (max-width: 768px) {
-    padding: 50px 0;
-    background: url("../images/background-banner-1.png") no-repeat left center/cover;
+    .back-content p,
+    h1 {
+      color: black !important;
+    }
   }
-}
-
-.slider-img {
-  width: 100%;
-
-  img {
-    height: 350px;
-    width: 100%;
-    object-fit: cover;
-  }
-}
-@media screen and (max-width: 768px) {
-  .slider-img img {
-    height: 250px;
-    width: 100%;
-    object-fit: cover;
-  }
-}
-
-.home {
-  z-index: 50;
 }
 
 .banner-bg {
@@ -363,23 +354,6 @@
     }
   }
 }
-
-/* .table {
-  border: 1px solid blue !important;
-}
-
-th {
-  border-bottom: solid 3px red;
-  background: aliceblue;
-  color: black;
-  font-weight: bold;
-}
-
-td {
-  padding: 10px;
-  border: solid 1px gray;
-  background: papayawhip;
-} */
 
 // * Cart OffCanvas
 .cart-canvas {

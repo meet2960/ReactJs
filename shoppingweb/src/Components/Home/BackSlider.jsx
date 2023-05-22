@@ -1,30 +1,62 @@
 import React from "react";
-/* import { backImgArray } from "../../utils/backImgCollection";
+import { BackBannerImagesArray } from "../../utils/backImgCollection";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
 import "swiper/css";
-import "swiper/css/pagination"; */
+import "swiper/css/pagination";
 import { Col, Container, Row } from "reactstrap";
 
 const BackSlider = () => {
   return (
     <React.Fragment>
-      <div className="bg-banner">
-        <Container>
-          <Row>
-            <Col lg={6}>
-              <p>Amazing Products From Store</p>
-              <h1 className="text-white">
-                Explore Our Awesome Collection of Perfect Products for your
-                Livings
-              </h1>
-              <button type="button" className="btn btn-primary mt-3">
-                Shop Now
-              </button>
-            </Col>
-          </Row>
-        </Container>
-      </div>
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={10}
+        loop={true}
+        className="home-background-swiper"
+        pagination={{
+          clickable: true,
+          dynamicBullets: true,
+        }}
+        // navigation={true}
+        modules={[Pagination, Navigation]}
+      >
+        {BackBannerImagesArray &&
+          BackBannerImagesArray.length !== 0 &&
+          BackBannerImagesArray.map((items, index) => {
+            return (
+              <SwiperSlide key={index}>
+                <div
+                  className="background-banner"
+                  style={{
+                    backgroundImage: `url(${items.path})`,
+                  }}
+                >
+                  <Container>
+                    <Row>
+                      <Col lg={6} className="back-content">
+                        <div>
+                          <p>Amazing Products From Store</p>
+                          <h1>
+                            Explore Our Awesome Collection of Perfect Products
+                            for your Livings
+                          </h1>
+                          <button
+                            type="button"
+                            className="btn btn-primary mt-3"
+                          >
+                            Shop Now
+                          </button>
+                        </div>
+                      </Col>
+                    </Row>
+                  </Container>
+                </div>
+              </SwiperSlide>
+            );
+          })}
+      </Swiper>
 
       {/*  <section>
         <div className="mb-2">

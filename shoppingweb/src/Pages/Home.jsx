@@ -3,6 +3,9 @@ import { Container } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductList } from "../Redux/product/action";
 import BackSlider from "../Components/Home/BackSlider";
+import OurServices from "../Components/Footer/OurServices";
+import CustomerReview from "../Components/Home/CustomerReview";
+import NewsLetter from "../Components/Footer/NewsLetter";
 
 const Home = () => {
   document.title = "Home | Ecommerce";
@@ -22,10 +25,12 @@ const Home = () => {
       <Container fluid={true} className="px-0">
         <BackSlider />
       </Container>
-      {/* <Container className="mt-3 home">
-        <ProductList productData={productData} actionLoading={actionLoading} />
-      </Container> */}
-      {/* <CustomerReview /> */}
+      <Container className="mt-3 home">
+        <OurServices />
+        <NewsLetter />
+      </Container>
+      <CustomerReview />
+      {/*   <ProductList productData={productData} actionLoading={actionLoading} /> */}
     </React.Fragment>
   );
 };

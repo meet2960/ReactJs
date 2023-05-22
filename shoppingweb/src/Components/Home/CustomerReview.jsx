@@ -11,36 +11,8 @@ import RatingsStars from "../Common/RatingsStars";
 const CustomerReview = () => {
   return (
     <React.Fragment>
-      {/*   <section>
-        <div className="banner-bg my-3">
-          <Container>
-            <Row className="gy-3 gy-md-0">
-              <Col md={6}>
-                <div className="banner-bg-1 p-4 text-end rounded-2">
-                  <h5>New Arrivals</h5>
-                  <h3 className="py-3 border-bottom">Sports Outfit</h3>
-                  <div>
-                    From <span>$150</span>
-                  </div>
-                </div>
-              </Col>
-              <Col md={6}>
-                <div className="banner-bg-2 p-4 text-white rounded-2">
-                  <h5 className="text-white">SmartWatches</h5>
-                  <h3 className="py-3 border-bottom text-white">
-                    Sale up to 20% Off
-                  </h3>
-                  <div>
-                    Starting From <span>$200</span>
-                  </div>
-                </div>
-              </Col>
-            </Row>
-          </Container>
-        </div>
-      </section> */}
-      <section>
-        <Container fluid className="reviews my-4">
+      <section className="reviews my-4">
+        <Container fluid>
           <Container className="position-relative">
             <div className="p-3  p-md-5">
               <div>
