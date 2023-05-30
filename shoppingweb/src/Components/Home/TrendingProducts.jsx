@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { CurrenctContext } from "../Context/CurrencyContext";
+import { CurrenctContext } from "../../Context/CurrencyContext";
 import { Col, Container, Row } from "reactstrap";
 import { NavLink } from "react-router-dom";
-import RatingsStars from "./Common/RatingsStars";
+import RatingsStars from "../Common/RatingsStars";
 
 const TrendingProducts = ({ productData }) => {
   const { formatCurrency } = useContext(CurrenctContext);

@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../Redux/cart/cartSlice";
 import { CustomToast } from "../../utils/customToast";
 import RatingsStars from "../Common/RatingsStars";
+import Select from "react-select";
 
 const ItemDetail = ({ selectedProduct }) => {
   const dispatch = useDispatch();
@@ -20,10 +21,30 @@ const ItemDetail = ({ selectedProduct }) => {
       "Green",
       "Purple",
     ];
+    const colorOptions = [
+      { value: "red", label: "Red" },
+      { value: "yellow", label: "Yellow" },
+      { value: "blue", label: "Blue" },
+      { value: "black", label: "Black" },
+      { value: "white", label: "White" },
+      { value: "green", label: "Green" },
+      { value: "purple", label: "Purple" },
+    ];
+
     return (
       <React.Fragment>
         <Col xs={6}>
-          <label htmlFor="size" className="form-label">
+          <div className="custom-select-container">
+            <label htmlFor="size" className="form-label">
+              Sizes
+            </label>
+            <Select
+              options={colorOptions}
+              className="react-select-container"
+              classNamePrefix="react-select"
+            />
+          </div>
+          {/* <label htmlFor="size" className="form-label">
             Sizes
           </label>
           <select name="size" id="size" className="form-select form-select-sm">
@@ -35,7 +56,7 @@ const ItemDetail = ({ selectedProduct }) => {
                   <option value={items}>{items}</option>
                 </React.Fragment>
               ))}
-          </select>
+          </select> */}
         </Col>
         <Col xs={6}>
           <label htmlFor="size" className="form-label">

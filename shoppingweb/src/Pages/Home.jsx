@@ -5,8 +5,10 @@ import { getProductList } from "../Redux/product/action";
 import BackSlider from "../Components/Home/BackSlider";
 import OurServices from "../Components/Footer/OurServices";
 import NewsLetter from "../Components/Footer/NewsLetter";
-import TrendingProducts from "../Components/TrendingProducts";
+import TrendingProducts from "../Components/Home/TrendingProducts";
 import FooterDetails from "../Components/Footer/FooterDetails";
+import DealsProducts from "../Components/DealsProducts";
+import CustomerReview from "../Components/Home/CustomerReview";
 
 const Home = () => {
   document.title = "Home | Ecommerce";
@@ -30,9 +32,10 @@ const Home = () => {
         <OurServices />
         <TrendingProducts productData={productData} />
         <NewsLetter />
-        <FooterDetails />
+        <DealsProducts />
       </Container>
-      {/* <CustomerReview /> */}
+      <CustomerReview />
+      <FooterDetails />
       {/* <ProductList productData={productData} actionLoading={actionLoading} /> */}
     </React.Fragment>
   );

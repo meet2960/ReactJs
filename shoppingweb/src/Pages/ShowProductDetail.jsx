@@ -29,16 +29,17 @@ const ShowProductDetail = () => {
                   <ItemDetail selectedProduct={selectedProduct} />
                 </Col>
               </Row>
+
+              <div className="product-items-tab mt-5">
+                <ItemDetailsTabs selectedProduct={selectedProduct} />
+              </div>
+              <div>
+                <RelatedProducts />
+              </div>
             </React.Fragment>
           ) : (
             <div>No Product Found</div>
           )}
-        </div>
-        <div className="product-items-tab mt-5">
-          <ItemDetailsTabs selectedProduct={selectedProduct} />
-        </div>
-        <div>
-          <RelatedProducts />
         </div>
       </Container>
     </section>
