@@ -190,7 +190,7 @@ const ItemDetailsTabs = ({ selectedProduct }) => {
                               <span className="fs-12"> - {items.duration}</span>
                               <p className="fs-14 mb-0">
                                 <RatingsStars
-                                  getRatings={reviewList[1].rating}
+                                  getRatings={reviewList[index].rating}
                                 />
                               </p>
                             </div>

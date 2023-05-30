@@ -4,15 +4,17 @@ import App from "../App";
 import ErrorPage from "../Pages/ErrorPage";
 import PrivateRoutes from "./PrivateRoutes";
 import Login from "../Components/Login/Login";
+import { useSelector } from "react-redux";
 
 const AppRoutes = () => {
-  const [accessToken, setAccessToken] = useState(true);
+  const access_token = useSelector((state) => state.auth.access_token);
+  const [accessToken, setAccessToken] = useState(false);
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<App />}>
           <Route path={"/error"} element={<ErrorPage />} />
-          {accessToken ? (
+          {access_token ? (
             <React.Fragment>
               <Route path={"/*"} element={<PrivateRoutes />} />
               <Route index element={<Navigate to={"/home"} />} />

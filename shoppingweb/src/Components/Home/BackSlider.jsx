@@ -12,7 +12,7 @@ const BackSlider = () => {
     <React.Fragment>
       <Swiper
         slidesPerView={1}
-        spaceBetween={10}
+        // spaceBetween={10}
         loop={true}
         className="home-background-swiper"
         pagination={{

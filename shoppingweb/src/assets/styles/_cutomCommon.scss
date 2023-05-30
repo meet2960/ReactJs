@@ -14,7 +14,7 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background-color: #{$light-gray-900};
+  background-color: $light-gray-900;
 }
 
 .secondary-bg {
@@ -87,11 +87,11 @@
   flex-direction: column;
   justify-content: center;
   background: linear-gradient(to bottom, #323232 0%, #3f3f3f 40%, #1c1c1c 150%),
-  linear-gradient(
-                  to top,
-                  rgba(255, 255, 255, 0.4) 0%,
-                  rgba(0, 0, 0, 0.25) 200%
-  );
+    linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(0, 0, 0, 0.25) 200%
+    );
   background-blend-mode: multiply;
 
   .show-btn {
@@ -106,24 +106,25 @@
 }
 
 // * Some Common
-.heading-title h3 {
-  background: #f3f6f9 none repeat scroll 0 0;
-  transition: all 0.3s linear;
-  display: inline-block;
-  font-weight: 500;
-  padding: 0 1.5rem;
-  position: relative;
-  z-index: 1;
-}
-
-.heading-title::after {
-  position: absolute;
-  content: "";
-  width: 100%;
-  top: 50%;
-  left: 0;
-  margin: 0;
-  border-top: 3px solid #{$light-gray-600};
+.heading-title {
+  h3 {
+    background: #f3f6f9 none repeat scroll 0 0;
+    transition: all 0.3s linear;
+    display: inline-block;
+    font-weight: 500;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin: 0;
+    border-top: 3px solid #{$light-gray-600};
+  }
 }
 
 .border-bottom {
@@ -155,6 +156,8 @@
 
 // * Footer
 .footer {
+  bottom: 0;
+  position: sticky;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(15, 34, 58, 0.12);
   // margin-top: 1rem;
@@ -261,7 +264,8 @@
     background-repeat: no-repeat;
     @media screen and (max-width: 768px) {
       padding: 50px 0;
-      background: url("../images/background-banner-1.png") no-repeat left center/cover;
+      background: url("../images/background-banner-1.png") no-repeat left
+        center/cover;
     }
 
     .back-content p,
@@ -273,7 +277,8 @@
 
 .banner-bg {
   .banner-bg-1 {
-    background: url("../images/extra-photos-1.jpg") no-repeat center center/cover;
+    background: url("../images/extra-photos-1.jpg") no-repeat center
+      center/cover;
 
     h5,
     h3,
@@ -283,7 +288,8 @@
   }
 
   .banner-bg-2 {
-    background: url("../images/extra-photos-2.jpg") no-repeat center center/cover;
+    background: url("../images/extra-photos-2.jpg") no-repeat center
+      center/cover;
   }
 }
 // * Product Details Page
@@ -337,15 +343,15 @@
         margin-bottom: 10px;
         padding-left: 35px;
         position: relative;
-      }
-
-      .list-description li ::after {
-        position: absolute;
-        content: "\f00c";
-        font-family: "Font Awesome 5 Free";
-        left: 0;
-        top: 0;
-        font-weight: 900;
+        &::after {
+          position: absolute;
+          content: "\f00c";
+          font-size: 20px;
+          font-family: "Font Awesome 5 Free";
+          left: 0;
+          top: 0;
+          font-weight: 900;
+        }
       }
 
       table {

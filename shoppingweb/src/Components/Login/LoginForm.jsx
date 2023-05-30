@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Label, Row } from "reactstrap";
 import * as Yup from "yup";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { FormikInput } from "./FormikInput";
-
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../Redux/auth/authSlice";
 const LoginForm = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const loginInfo = useSelector((state) => state.auth.access_token);
+  useEffect(() => {
+    console.log("LoginInfo : ", loginInfo);
+  }, [loginInfo]);
   const [showPassword, setShowPassword] = useState(false);
-
   const initValue = {
     email: "",
     password: "",
@@ -40,6 +47,8 @@ const LoginForm = () => {
         validationSchema={validationSchema}
         onSubmit={(values) => {
           console.log("Form Values Are : ", values);
+          dispatch(login());
+          navigate("/home");
         }}
       >
         {({ values, handleSubmit, handleChange }) => (

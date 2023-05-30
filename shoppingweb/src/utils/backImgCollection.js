@@ -4,14 +4,14 @@ import BackBannerImage3 from "../assets/images/background-banner-3.png";
 
 export const BackBannerImagesArray = [
   {
-    id: 1,
-    path: BackBannerImage1,
-  },
-  {
     id: 2,
     path: BackBannerImage2,
   },
   { id: 3, path: BackBannerImage3 },
+  {
+    id: 1,
+    path: BackBannerImage1,
+  },
 ];
 
 /* import back1 from "../assets/images/back-bg-1.jpg";
