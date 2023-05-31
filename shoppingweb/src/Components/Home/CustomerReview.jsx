@@ -16,7 +16,7 @@ const CustomerReview = () => {
           <Container className="position-relative">
             <div className="p-3  p-md-5">
               <div>
-                <h3 className="mb-5 text-center">The Reviews are</h3>
+                <h3 className="mb-5 text-center">The Reviews</h3>
               </div>
               <Row className="justify-content-center gx-0">
                 <Col lg={8}>

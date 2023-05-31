@@ -10,17 +10,13 @@ const TrendingProducts = ({ productData }) => {
     <React.Fragment>
       <section className="trending-products mb-5  ">
         <Container>
-          <div className="text-center">
-            <div className="heading-title position-relative mb-3">
-              <h3 className="mb-0">Trending Products</h3>
-            </div>
-            <div>
-              <p className="text-center">
-                Look at this amazing Currently Trending Products to Buy from
-                with lowest Price Every...!!!
-              </p>
-            </div>
+          <div className="heading-title mb-3">
+            <h3 className="mb-0">Trending Products</h3>
           </div>
+          <p className="text-center mb-4">
+            Look at this amazing Currently Trending Products to Buy from with
+            lowest Price Every...!!!
+          </p>
           <Row className="gy-4">
             {productData &&
               productData.lenght !== 0 &&

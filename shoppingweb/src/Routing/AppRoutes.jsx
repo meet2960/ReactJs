@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import App from "../App";
-import ErrorPage from "../Pages/ErrorPage";
+import ErrorPage from "../Pages/Error/ErrorPage";
 import PrivateRoutes from "./PrivateRoutes";
 import Login from "../Components/Login/Login";
 import { useSelector } from "react-redux";

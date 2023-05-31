@@ -1,9 +1,9 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from "../Pages/Layout";
-import Home from "../Pages/Home";
-import Category from "../Pages/Category";
-import ShowProductDetail from "../Pages/ShowProductDetail";
+import Home from "../Pages/Home/Home";
+import Category from "../Pages/Category/Category";
+import ShowProductDetail from "../Pages/ProductDetail/ShowProductDetail";
 
 const PrivateRoutes = () => {
   return (

@@ -1,11 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { currencyFormat } from "../../utils/currencyFormat";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Col, Row } from "reactstrap";
+import DisplayProductSlider from "../Common/DisplayProductSlider";
 
 const RelatedProducts = () => {
   const product = useSelector((state) => state.product.products);
@@ -13,22 +11,19 @@ const RelatedProducts = () => {
   return (
     <React.Fragment>
       <div className="related-products position-relative my-5 fs-16">
-        <Row className="mb-5">
+        <Row>
           <Col xs={12}>
-            <div className="text-center">
-              <div className="heading-title position-relative mb-3">
-                <h3 className="mb-0">Related Products</h3>
-              </div>
-              <div>
-                <p className="text-center">
-                  Mirum est notare quam littera gothica quam nunc putamus parum
-                  claram!
-                </p>
-              </div>
+            <div className="heading-title mb-3">
+              <h3 className="mb-0">Related Products</h3>
             </div>
+            <p className="text-center">
+              Mirum est notare quam littera gothica quam nunc putamus parum
+              claram!
+            </p>
           </Col>
         </Row>
-        <div>
+        <DisplayProductSlider />
+        {/* <div>
           <Swiper
             slidesPerView={4}
             spaceBetween={20}
@@ -78,7 +73,7 @@ const RelatedProducts = () => {
                 </SwiperSlide>
               ))}
           </Swiper>
-        </div>
+        </div> */}
       </div>
     </React.Fragment>
   );
