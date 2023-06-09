@@ -102,7 +102,7 @@ const CartOffCanvas = () => {
               Cart Total: {currencyFormat(cartTotal(cart))}
             </h5>
             <div>
-              <NavLink to="/checkout">
+              <NavLink to="/cart">
                 <button type="button" className="btn btn-sm btn-dark">
                   Checkout
                 </button>

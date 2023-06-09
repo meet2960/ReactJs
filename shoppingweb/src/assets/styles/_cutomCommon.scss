@@ -23,8 +23,6 @@
 
 .layout-wrapper {
   display: flex;
-  // justify-content: center;
-  // align-items: center;
   flex-direction: column;
   min-height: 100vh;
 }
@@ -33,34 +31,6 @@
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-}
-// * Navbar or Header
-.search-field {
-  position: relative;
-}
-
-.search {
-  padding-right: 50px;
-}
-
-.search-field .bi-search {
-  position: absolute;
-  top: 5px;
-  right: 20px;
-}
-
-.nav-bg {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(15, 34, 58, 0.12);
-  position: sticky;
-  left: 0;
-  top: 0;
-  width: 100%;
-  z-index: 999;
-}
-
-.logo {
-  width: 90%;
 }
 
 .loader-background {
@@ -80,6 +50,64 @@
   border-right-color: transparent;
 }
 
+// * Navbar or Header
+.navbar {
+  padding: 14px 0 !important;
+
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .nav-icons {
+    .nav-link {
+      padding: 0 0.7rem;
+
+      .bi::before {
+        font-size: 22px;
+        font-weight: 600 !important;
+      }
+    }
+
+    .badge {
+      position: absolute;
+      left: 16px;
+      top: -12px;
+      font-size: 16px;
+    }
+  }
+
+  .search-field {
+    position: relative;
+
+    .search {
+      padding-right: 50px;
+    }
+
+    .bi-search {
+      position: absolute;
+      top: 5px;
+      right: 20px;
+    }
+  }
+}
+
+.nav-bg {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(15, 34, 58, 0.12);
+  position: sticky;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.logo {
+  width: 90%;
+}
 // * Login Page CSS\
 .otplogin {
   .otp-field {

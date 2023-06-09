@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeLayoutMode } from "../../Redux/layouts/layout";
 import { NavLink } from "react-router-dom";
-import { Col, Container, Input, Row } from "reactstrap";
+import { Col, Container, Input } from "reactstrap";
 import Logo from "../../assets/images/NewLogo.png";
 import DarkLogo from "../../assets/images/NewDarkLogo.png";
 
@@ -32,7 +32,7 @@ const Header = () => {
     <React.Fragment>
       <header className="nav-bg">
         <Container>
-          <nav className="navbar navbar-expand-lg py-2">
+          <nav className="navbar navbar-expand-lg">
             <Container fluid className="px-0">
               <Col xs={3} lg={2} xl={1}>
                 <div className="logo">
@@ -84,65 +84,60 @@ const Header = () => {
                       Deals
                     </NavLink>
                   </li>
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to={"/"} aria-current="page">
+                      Blogs
+                    </NavLink>
+                  </li>
                 </ul>
-                <div>
-                  <div className="search-field">
-                    <Input
-                      type="text"
-                      className="form-control form-control-sm search"
-                      name="searchField"
-                      id="search"
-                      placeholder="Search Here"
-                    />
-                    <i className="bi bi-search" />
-                  </div>
+                <div className="search-field">
+                  <Input
+                    type="text"
+                    className="form-control form-control-sm search"
+                    name="searchField"
+                    id="search"
+                    placeholder="Search Here"
+                  />
+                  <i className="bi bi-search" />
                 </div>
                 <div className="mt-3 mt-lg-0">
-                  <Row className="align-items-center justify-content-evenly">
-                    <Col xs={"auto"}>
-                      <div>
-                        <button
-                          type="button"
-                          className="btn btn-primary btn-sm"
-                        >
-                          <NavLink to="/wishlist">
-                            <i className="bi bi-suit-heart"></i>
-                          </NavLink>
-                        </button>
-                      </div>
-                    </Col>
-                    <Col xs={"auto"}>
-                      <div>
-                        <button
-                          type="button"
-                          className="btn btn-primary btn-sm"
-                        >
-                          <i className="bi bi-person-circle" />
-                        </button>
-                      </div>
-                    </Col>
-                    <Col xs={"auto"}>
-                      <button
-                        className="btn btn-dark btn-sm"
+                  <ul className="navbar-nav nav-icons">
+                    <li className="nav-item">
+                      <NavLink to="/wishlist" className="nav-link">
+                        <i class="fa-regular fa-heart fs-22"></i>
+                      </NavLink>
+                    </li>
+                    <li className="nav-item">
+                      <NavLink to="/profile" className="nav-link">
+                        <i class="fa-regular fa-user fs-22"></i>
+                      </NavLink>
+                    </li>
+                    <li className="nav-item">
+                      <NavLink
+                        to=""
+                        className="nav-link"
                         data-bs-toggle="offcanvas"
                         data-bs-target="#cartOffCanvas"
                         aria-controls="offcanvasRight"
                       >
-                        <i className="bi bi-cart" />
-                        <span className="ms-2 badge">
-                          {cart && cart.length}
-                        </span>
-                      </button>
-                    </Col>
-                    <Col xs={"auto"}>
-                      <button
-                        className="btn btn-success btn-sm light-dark-mode"
+                        <div className="position-relative">
+                          <i class="fa-solid fa-cart-shopping fs-22"></i>
+                          <span className="badge text-dark">
+                            {cart && cart.length}
+                          </span>
+                        </div>
+                      </NavLink>
+                    </li>
+                    <li className="nav-item">
+                      <NavLink
+                        to=""
+                        className="light-dark-mode nav-link"
                         onClick={(e) => handleThemeChange(e)}
                       >
                         <i className="bi bi-moon" />
-                      </button>
-                    </Col>
-                  </Row>
+                      </NavLink>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </Container>
