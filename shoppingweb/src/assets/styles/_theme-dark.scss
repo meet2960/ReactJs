@@ -104,7 +104,6 @@
     .nav-tabs {
       border-bottom: 1px solid #bfc8e2 !important;
     }
-
     .product-custom-tabs {
       .nav-tabs .nav-link.active ::after {
         border-bottom: 2px solid #{$dark-gray-900};
@@ -120,41 +119,14 @@
     }
   }
 
-  // * Trending Products
-  .trending-products {
-    .trending-content {
-      background-color: #{$dark-gray-300};
-      transition: all 0.3s 0s ease-out;
-      border: 1px solid #{$dark-gray-100};
-      border-radius: 8px;
+  // * Common Product Card For All
+  .custom-productcard {
+    background-color: #{$dark-gray-300};
+    border: 1px solid #{$dark-gray-100};
 
-      &:hover {
-        box-shadow: 0px 4px 10px rgba(1, 15, 28, 0.14);
-        border-color: #{$dark-gray-300};
-      }
-    }
-  }
-
-  .product-slider {
-    .product-slider-image {
-      height: 300px;
-
-      img {
-        width: 100%;
-        object-fit: cover;
-      }
-    }
-
-    .product-slider-content {
-      background-color: #{$dark-gray-300};
-      transition: all 0.3s 0s ease-out;
-      border: 1px solid #{$dark-gray-100};
-      border-radius: 8px;
-
-      &:hover {
-        box-shadow: 0px 4px 10px rgba(1, 15, 28, 0.14);
-        border-color: #{$dark-gray-300};
-      }
+    &:hover {
+      box-shadow: 0px 4px 10px rgba(1, 15, 28, 0.14);
+      border-color: #{$dark-gray-300};
     }
   }
 }

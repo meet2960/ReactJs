@@ -1,20 +1,18 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-import RatingsStars from "./RatingsStars";
 import { Col } from "reactstrap";
-import { CurrenctContext } from "../../Context/CurrencyContext";
 import { NavLink } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
+import CommonProductCard from "./CommonProductCard";
 
 const DisplayProductSlider = () => {
   const { productData, actionLoading } = useSelector((state) => ({
     productData: state.product.products,
     actionLoading: state.common.actionsLoading,
   }));
-  const { formatCurrency } = useContext(CurrenctContext);
   return (
     <React.Fragment>
       <div className="product-slider">
@@ -51,31 +49,7 @@ const DisplayProductSlider = () => {
                 <SwiperSlide key={index}>
                   <Col>
                     <NavLink to={`/productdetails/${items.id}`}>
-                      <div className="fs-16 product-slider-content overflow-hidden text-center position-relative">
-                        <div className="product-slider-image d-flex justify-content-center">
-                          <img src={items.thumbnail} alt={items.title} />
-                        </div>
-                        <div className="px-4 py-3">
-                          <div className="fs-12">
-                            {items.category.toUpperCase()}
-                          </div>
-                          <h5 className="mb-0 text-truncate">
-                            {items.title.toUpperCase()}
-                          </h5>
-                          <p className="mb-0">
-                            <RatingsStars
-                              getRatings={items.rating}
-                              size={"fs-12"}
-                            />
-                          </p>
-                          <div className="fw-semibold my-2">
-                            <span>{formatCurrency(items.price)}</span>
-                          </div>
-                        </div>
-                        <div className="position-absolute sale">
-                          <span className="badge bg-dark">Sale</span>
-                        </div>
-                      </div>
+                      <CommonProductCard items={items} />
                     </NavLink>
                   </Col>
                 </SwiperSlide>

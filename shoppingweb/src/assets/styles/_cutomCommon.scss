@@ -129,7 +129,7 @@
   z-index: 50;
 }
 
-// * Some Common
+// * Common Heading
 .heading-title {
   text-align: center;
   position: relative;
@@ -158,18 +158,49 @@
   border-bottom: 1px solid #{$light-gray-600} !important;
 }
 
-/* // * ProductList Page
-.product-img {
-  img {
-    height: 200px;
-    object-fit: cover;
-    width: 100%;
+// * Common Product Slider
+.product-slider {
+  @media screen and (max-width: 600px) {
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: none !important;
+    }
+  }
+}
+
+// * Common Product Card For All
+.custom-productcard {
+  background-color: #ffffff;
+  transition: all 0.3s 0s ease-out;
+  border: 1px solid #eaebed;
+  border-radius: 8px;
+
+  &:hover {
+    box-shadow: 0px 4px 10px rgba(1, 15, 28, 0.14);
+    border-color: #ffffff;
   }
 
-  .skeleton {
-    height: 200px !important;
+  .custom-productcard-img {
+    height: 300px;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    @media screen and (max-width: 600px) {
+      height: 250px;
+      img {
+        object-fit: contain;
+      }
+    }
   }
-} */
+
+  .sale {
+    top: 2%;
+    right: 5%;
+  }
+}
 
 .card-animate {
   transition: all 0.4s;
@@ -216,35 +247,6 @@
         left: 0;
       }
     }
-  }
-}
-
-// * Trending Products
-.trending-products {
-  .trending-content {
-    background-color: #ffffff;
-    transition: all 0.3s 0s ease-out;
-    border: 1px solid #eaebed;
-    border-radius: 8px;
-
-    &:hover {
-      box-shadow: 0px 4px 10px rgba(1, 15, 28, 0.14);
-      border-color: #ffffff;
-    }
-
-    .sale {
-      top: 2%;
-      right: 5%;
-    }
-  }
-
-  .trending-img {
-    height: 300px;
-  }
-
-  img {
-    width: 100%;
-    object-fit: cover;
   }
 }
 
@@ -423,41 +425,5 @@
 .cart-canvas {
   .c-borderbottom {
     border-bottom: 1px solid #{$light-gray-400};
-  }
-}
-
-// * Display Product Slider (Common)
-.product-slider {
-  .product-slider-image {
-    height: 300px;
-
-    img {
-      width: 100%;
-      object-fit: cover;
-    }
-  }
-
-  .product-slider-content {
-    background-color: #ffffff;
-    transition: all 0.3s 0s ease-out;
-    border: 1px solid #eaebed;
-    border-radius: 8px;
-
-    &:hover {
-      box-shadow: 0px 4px 10px rgba(1, 15, 28, 0.14);
-      border-color: #ffffff;
-    }
-
-    .sale {
-      top: 2%;
-      right: 5%;
-    }
-  }
-
-  @media screen and (max-width: 428px) {
-    .swiper-button-prev,
-    .swiper-button-next {
-      display: none !important;
-    }
   }
 }
