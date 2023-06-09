@@ -101,19 +101,21 @@
 
   // * Product Details Page
   .product-details {
-    .product-items-tab {
-      .nav-tabs {
-        border-bottom: 1px solid #bfc8e2 !important;
+    .nav-tabs {
+      border-bottom: 1px solid #bfc8e2 !important;
+    }
+
+    .product-custom-tabs {
+      .nav-tabs .nav-link.active ::after {
+        border-bottom: 2px solid #{$dark-gray-900};
       }
 
-      .custom-tabs {
-        .nav-tabs .nav-link .title {
-          color: #{$dark-gray-400} !important;
-        }
+      .nav-tabs .nav-link .title {
+        color: #{$dark-gray-400} !important;
+      }
 
-        .nav-tabs .nav-link.active .active-title {
-          color: #{$dark-gray-900} !important;
-        }
+      .nav-tabs .nav-link.active .active-title {
+        color: #{$dark-gray-900} !important;
       }
     }
   }

@@ -3,6 +3,7 @@ import { CurrenctContext } from "../../Context/CurrencyContext";
 import { Col, Container, Row } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import RatingsStars from "../Common/RatingsStars";
+import CommonHeading from "../Common/CommonHeading";
 
 const TrendingProducts = ({ productData }) => {
   const { formatCurrency } = useContext(CurrenctContext);
@@ -10,13 +11,7 @@ const TrendingProducts = ({ productData }) => {
     <React.Fragment>
       <section className="trending-products mb-5  ">
         <Container>
-          <div className="heading-title mb-3">
-            <h3 className="mb-0">Trending Products</h3>
-          </div>
-          <p className="text-center mb-4">
-            Look at this amazing Currently Trending Products to Buy from with
-            lowest Price Every...!!!
-          </p>
+          <CommonHeading heading={"Trending Products"} />
           <Row className="gy-4">
             {productData &&
               productData.lenght !== 0 &&

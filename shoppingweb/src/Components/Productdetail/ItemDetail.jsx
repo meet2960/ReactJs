@@ -41,7 +41,7 @@ const ItemDetail = ({ selectedProduct }) => {
             <Select
               options={colorOptions}
               className="react-select-container"
-              classNamePrefix="react-select"
+              classNamePrefix="custom-react-select"
             />
           </div>
           {/* <label htmlFor="size" className="form-label">
