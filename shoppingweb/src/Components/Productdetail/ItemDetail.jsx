@@ -5,21 +5,20 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../Redux/cart/cartSlice";
 import { CustomToast } from "../../utils/customToast";
 import RatingsStars from "../Common/RatingsStars";
-import Select from "react-select";
+import CustomReactSelect from "../Common/CustomReactSelect";
 
 const ItemDetail = ({ selectedProduct }) => {
   const dispatch = useDispatch();
 
   const dynamicDropDowns = useMemo(() => {
-    const productSizes = ["XS", "S", "M", "L", "XL", "XXL", "XXXL"];
-    const productColors = [
-      "Red",
-      "Yello",
-      "Blue",
-      "Black",
-      "White",
-      "Green",
-      "Purple",
+    const sizesOption = [
+      { value: "XS", label: "XS" },
+      { value: "S", label: "S" },
+      { value: "M", label: "M" },
+      { value: "L", label: "L" },
+      { value: "XL", label: "XL" },
+      { value: "XXL", label: "XXL" },
+      { value: "XXXL", label: "XXXL" },
     ];
     const colorOptions = [
       { value: "red", label: "Red" },
@@ -34,44 +33,10 @@ const ItemDetail = ({ selectedProduct }) => {
     return (
       <React.Fragment>
         <Col xs={6}>
-          <div className="custom-select-container">
-            <label htmlFor="size" className="form-label">
-              Sizes
-            </label>
-            <Select
-              options={colorOptions}
-              className="react-select-container"
-              classNamePrefix="custom-react-select"
-            />
-          </div>
-          {/* <label htmlFor="size" className="form-label">
-            Sizes
-          </label>
-          <select name="size" id="size" className="form-select form-select-sm">
-            <option value={"default"}>Please Select</option>
-            {productSizes &&
-              productSizes.length !== 0 &&
-              productSizes.map((items, index) => (
-                <React.Fragment key={index}>
-                  <option value={items}>{items}</option>
-                </React.Fragment>
-              ))}
-          </select> */}
+          <CustomReactSelect label={"Sizes"} options={sizesOption} />
         </Col>
         <Col xs={6}>
-          <label htmlFor="size" className="form-label">
-            Colors
-          </label>
-          <select name="size" id="size" className="form-select form-select-sm">
-            <option value={"default"}>Please Select</option>
-            {productColors &&
-              productColors.length !== 0 &&
-              productColors.map((items, index) => (
-                <React.Fragment key={index}>
-                  <option value={items}>{items}</option>
-                </React.Fragment>
-              ))}
-          </select>
+          <CustomReactSelect label={"Colors"} options={colorOptions} />
         </Col>
       </React.Fragment>
     );

@@ -12,7 +12,7 @@ const TrendingProducts = ({ productData }) => {
           <CommonHeading heading={"Trending Products"} />
           <Row className="gy-4">
             {productData &&
-              productData.lenght !== 0 &&
+              productData.length !== 0 &&
               productData.slice(8, 16).map((items, index) => (
                 <React.Fragment key={index}>
                   <Col md={6} xl={3}>

@@ -1,54 +1,100 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Col, Container, Row } from "reactstrap";
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+import CommonProductCard from "../Common/CommonProductCard";
+import saleImg from "../../assets/images/category-img-widget.jpg";
 
 const FilterCategory = () => {
   document.title = "Ecommerce | Category";
   const { productData } = useSelector((state) => ({
     productData: state.product.products,
   }));
+  // ? To Filter Unique Category from the API Response
   const [uniqueCategory, setUniqueCategory] = useState([]);
-
+  const memoizedCategories = useMemo(() => uniqueCategory, [uniqueCategory]);
+  const [selectedCategoryProduct, setSelectedCategoryProduct] = useState([]);
+  const handleCategoryChange = (e, selectedItem) => {
+    e.preventDefault();
+    console.log("Items", selectedItem);
+    const filterProducts = productData.filter((items, index) => {
+      return items.category === selectedItem;
+    });
+    setSelectedCategoryProduct(filterProducts);
+  };
   useEffect(() => {
-    console.log("Products is", productData);
     const findCategory = [
       ...new Set(
         productData && productData.map((items, index) => items.category)
       ),
     ];
     setUniqueCategory(findCategory);
-    console.log("Category is", uniqueCategory);
-  }, [productData]);
-  const memoizedCategories = useMemo(() => uniqueCategory, [uniqueCategory]);
+    console.log("Selected", selectedCategoryProduct);
+  }, [productData, selectedCategoryProduct]);
+
   return (
     <React.Fragment>
-      <section className="mt-4 category">
+      <section className="my-4 category">
         <Container>
           <Row>
-            <Col lg={2}>
+            <Col lg={3} className="border-end">
               <h3 className="mb-3">Categories</h3>
-              <div>
-                <ul className="list-unstyled">
-                  {memoizedCategories &&
-                    memoizedCategories.length !== 0 &&
-                    memoizedCategories.map((items, index) => (
-                      <React.Fragment>
-                        <li key={index} className="text-capitalize">
+
+              <ul className="list-unstyled ">
+                {memoizedCategories &&
+                  memoizedCategories.length !== 0 &&
+                  memoizedCategories.map((items, index) => (
+                    <React.Fragment key={index}>
+                      <li className="text-capitalize">
+                        <div
+                          className="cursor-pointer"
+                          onClick={(e) => handleCategoryChange(e, items)}
+                        >
                           {items}
-                        </li>
-                      </React.Fragment>
-                    ))}
-                </ul>
+                        </div>
+                      </li>
+                    </React.Fragment>
+                  ))}
+              </ul>
+              <div>
+                <img src={saleImg} alt="sale" className="img-fluid" />
               </div>
             </Col>
             <Col lg={9}>
               <div>
-                <div className="d-flex">
+                <div className="d-flex justify-content-between">
                   <div>Shop By Category</div>
-                  <div>Filters Here</div>
+                  <div>
+                    Filters Here
+                    <h5>
+                      {selectedCategoryProduct &&
+                        selectedCategoryProduct.length}{" "}
+                      : Products Found
+                    </h5>
+                  </div>
                 </div>
-                <div>
-                  <h3>Selected Product</h3>
+                <div className="mt-4">
+                  <h3 className="text-capitalize">
+                    {selectedCategoryProduct &&
+                    selectedCategoryProduct.length !== 0
+                      ? selectedCategoryProduct[0].category
+                      : null}
+                  </h3>
+                  <div>
+                    <Row className="gy-4">
+                      {selectedCategoryProduct &&
+                        selectedCategoryProduct.length !== 0 &&
+                        selectedCategoryProduct.map((items, index) => (
+                          <React.Fragment key={index}>
+                            <Col md={6} xl={4}>
+                              <NavLink to={`/productdetails/${items.id}`}>
+                                <CommonProductCard items={items} />
+                              </NavLink>
+                            </Col>
+                          </React.Fragment>
+                        ))}
+                    </Row>
+                  </div>
                 </div>
               </div>
             </Col>
