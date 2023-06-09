@@ -3,7 +3,7 @@ import React from "react";
 const Wishlist = () => {
   return (
     <React.Fragment>
-      <section></section>
+      <section>All the Wishlist product will Display Here</section>
     </React.Fragment>
   );
 };

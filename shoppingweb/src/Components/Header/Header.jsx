@@ -105,7 +105,9 @@ const Header = () => {
                           type="button"
                           className="btn btn-primary btn-sm"
                         >
-                          <i className="bi bi-suit-heart"></i>
+                          <NavLink to="/wishlist">
+                            <i className="bi bi-suit-heart"></i>
+                          </NavLink>
                         </button>
                       </div>
                     </Col>

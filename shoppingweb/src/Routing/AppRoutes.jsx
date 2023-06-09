@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import App from "../App";
 import ErrorPage from "../Pages/Error/ErrorPage";
@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 
 const AppRoutes = () => {
   const access_token = useSelector((state) => state.auth.access_token);
-  const [accessToken, setAccessToken] = useState(false);
   return (
     <BrowserRouter>
       <Routes>
