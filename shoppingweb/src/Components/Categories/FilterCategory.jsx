@@ -7,37 +7,54 @@ const FilterCategory = () => {
   const { productData } = useSelector((state) => ({
     productData: state.product.products,
   }));
-  const [category, setCategory] = useState([]);
+  const [uniqueCategory, setUniqueCategory] = useState([]);
 
   useEffect(() => {
     console.log("Products is", productData);
-    const uniqueCategory = [
+    const findCategory = [
       ...new Set(
         productData && productData.map((items, index) => items.category)
       ),
     ];
-    setCategory(uniqueCategory);
-    console.log("Category is", category);
+    setUniqueCategory(findCategory);
+    console.log("Category is", uniqueCategory);
   }, [productData]);
-  const memoizedCategories = useMemo(() => category, [category]);
+  const memoizedCategories = useMemo(() => uniqueCategory, [uniqueCategory]);
   return (
     <React.Fragment>
-      <Container>
-        All Categories Will be Displayed Here
-        <h1>
-          Length :-
-          {memoizedCategories.length}
-        </h1>
-        <Row>
-          {memoizedCategories &&
-            memoizedCategories.length !== 0 &&
-            memoizedCategories.map((items, index) => (
-              <React.Fragment>
-                <Col key={index}>{items}</Col>
-              </React.Fragment>
-            ))}
-        </Row>
-      </Container>
+      <section className="mt-4 category">
+        <Container>
+          <Row>
+            <Col lg={2}>
+              <h3 className="mb-3">Categories</h3>
+              <div>
+                <ul className="list-unstyled">
+                  {memoizedCategories &&
+                    memoizedCategories.length !== 0 &&
+                    memoizedCategories.map((items, index) => (
+                      <React.Fragment>
+                        <li key={index} className="text-capitalize">
+                          {items}
+                        </li>
+                      </React.Fragment>
+                    ))}
+                </ul>
+              </div>
+            </Col>
+            <Col lg={9}>
+              <div>
+                <div className="d-flex">
+                  <div>Shop By Category</div>
+                  <div>Filters Here</div>
+                </div>
+                <div>
+                  <h3>Selected Product</h3>
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
     </React.Fragment>
   );
 };

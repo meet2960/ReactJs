@@ -332,6 +332,7 @@
   }
 }
 
+// * OfferImage Section
 .banner-bg {
   .banner-bg-1 {
     background: url("../images/extra-photos-1.jpg") no-repeat center
@@ -349,7 +350,8 @@
       center/cover;
   }
 }
-// * Product Details Page
+
+// * Product Details Page with All Section
 .product-details {
   .nav-tabs {
     border-bottom: 1px solid #{$light-gray-600} !important;
@@ -454,4 +456,15 @@
   .c-borderbottom {
     border-bottom: 1px solid #{$light-gray-400};
   }
+}
+
+// * Category Page
+.category {
+  ul li {
+    padding-bottom: 16px;
+  }
+}
+
+.tt {
+  text-transform: capitalize;
 }

@@ -103,13 +103,22 @@ const Header = () => {
                 <div className="mt-3 mt-lg-0">
                   <ul className="navbar-nav nav-icons">
                     <li className="nav-item">
+                      <NavLink
+                        to=""
+                        className="light-dark-mode nav-link"
+                        onClick={(e) => handleThemeChange(e)}
+                      >
+                        <i className="bi bi-moon" />
+                      </NavLink>
+                    </li>
+                    <li className="nav-item">
                       <NavLink to="/wishlist" className="nav-link">
-                        <i class="fa-regular fa-heart fs-22"></i>
+                        <i className="fa-regular fa-heart fs-22"></i>
                       </NavLink>
                     </li>
                     <li className="nav-item">
                       <NavLink to="/profile" className="nav-link">
-                        <i class="fa-regular fa-user fs-22"></i>
+                        <i className="fa-regular fa-user fs-22"></i>
                       </NavLink>
                     </li>
                     <li className="nav-item">
@@ -121,20 +130,11 @@ const Header = () => {
                         aria-controls="offcanvasRight"
                       >
                         <div className="position-relative">
-                          <i class="fa-solid fa-cart-shopping fs-22"></i>
+                          <i className="fa-solid fa-cart-shopping fs-22"></i>
                           <span className="badge text-dark">
                             {cart && cart.length}
                           </span>
                         </div>
-                      </NavLink>
-                    </li>
-                    <li className="nav-item">
-                      <NavLink
-                        to=""
-                        className="light-dark-mode nav-link"
-                        onClick={(e) => handleThemeChange(e)}
-                      >
-                        <i className="bi bi-moon" />
                       </NavLink>
                     </li>
                   </ul>

@@ -32,7 +32,7 @@ const OurServices = () => {
             <Col>
               <Row className="align-items-center">
                 <Col xs={"auto"}>
-                  <i class="bi bi-arrow-left-square-fill fs-35"></i>
+                  <i className="bi bi-arrow-left-square-fill fs-35"></i>
                 </Col>
                 <Col>
                   <h6>24 Hour Return Policyy</h6>
