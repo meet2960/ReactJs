@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Col, Container, Row } from "reactstrap";
-import LoginForm from "./LoginForm";
 import loginImage from "../../assets/images/login-image.jpg";
+import LoginWithOTP from "./LoginWithOTP";
 
 const Login = () => {
   document.title = "Login | Ecommerce";
@@ -17,30 +17,8 @@ const Login = () => {
                 </Col>
                 <Col lg={6}>
                   <div className="p-lg-5 p-4">
-                    <h5 className="mb-4 text-primary">Welcome Back !</h5>
-                    <LoginForm />
-                    <div className="mt-3">
-                      <h6 className="text-center mb-2 fs-16">
-                        Or Signup Using
-                      </h6>
-                      <div className="row justify-content-center align-items-center">
-                        <Col xs={"auto"}>
-                          <button className="btn btn-sm btn-dark" type="button">
-                            <i className="bi bi-facebook fs-14"></i>
-                          </button>
-                        </Col>
-                        <Col xs={"auto"}>
-                          <button className="btn btn-sm btn-dark" type="button">
-                            <i className="bi bi-google fs-14"></i>
-                          </button>
-                        </Col>
-                        <Col xs={"auto"}>
-                          <button className="btn btn-sm btn-dark" type="button">
-                            <i className="bi bi-apple fs-14"></i>
-                          </button>
-                        </Col>
-                      </div>
-                    </div>
+                    <LoginWithOTP />
+                    {/* <LoginForm /> */}
                   </div>
                 </Col>
               </Row>

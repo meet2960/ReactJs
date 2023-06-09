@@ -4,7 +4,7 @@ import DisplayProductSlider from "./Common/DisplayProductSlider";
 
 const DealsProducts = () => {
   return (
-    <section>
+    <section className="mb-5">
       <Container>
         <div className="heading-title mb-3">
           <h3 className="mb-0">Deal of The Day</h3>

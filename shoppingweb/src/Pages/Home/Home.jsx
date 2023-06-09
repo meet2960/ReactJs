@@ -3,12 +3,13 @@ import { Container } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductList } from "../../Redux/product/action";
 import BackSlider from "../../Components/Home/BackSlider";
-import OurServices from "../../Components/Footer/OurServices";
-import NewsLetter from "../../Components/Footer/NewsLetter";
+import OurServices from "../../Components/Home/OurServices";
+import NewsLetter from "../../Components/Home/NewsLetter";
 import TrendingProducts from "../../Components/Home/TrendingProducts";
-import FooterDetails from "../../Components/Footer/FooterDetails";
 import DealsProducts from "../../Components/DealsProducts";
 import CustomerReview from "../../Components/Home/CustomerReview";
+import FooterDetails from "../../Components/Footer/FooterDetails";
+import OfferImage from "../../Components/Home/OfferImage";
 
 const Home = () => {
   document.title = "Home | Ecommerce";
@@ -31,8 +32,9 @@ const Home = () => {
         </Container>
         <OurServices />
         <TrendingProducts productData={productData} />
-        <NewsLetter />
+        <OfferImage />
         <DealsProducts />
+        <NewsLetter />
         <CustomerReview />
         <FooterDetails />
       </div>

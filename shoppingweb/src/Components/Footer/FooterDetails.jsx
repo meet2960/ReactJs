@@ -7,7 +7,7 @@ import { Col, Container, Row } from "reactstrap";
 const FooterDetails = () => {
   return (
     <React.Fragment>
-      <section className="mb-4">
+      <section className="my-5">
         <Container className="footer-details fs-16">
           <Row>
             <Col xs={12} md={6} lg={3}>

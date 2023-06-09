@@ -6,6 +6,7 @@ import { FormikInput } from "./FormikInput";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../Redux/auth/authSlice";
+
 const LoginForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -42,6 +43,7 @@ const LoginForm = () => {
   });
   return (
     <React.Fragment>
+      <h3 className="mb-4 text-primary text-center">Welcome Back !</h3>
       <Formik
         initialValues={initValue}
         validationSchema={validationSchema}
@@ -54,9 +56,9 @@ const LoginForm = () => {
         {({ values, handleSubmit, handleChange }) => (
           <React.Fragment>
             <Form>
-              <Row className="gy-3 gy-md-2">
+              <Row className="gy-md-2">
                 <Col lg={12}>
-                  <div className="pb-4 position-relative">
+                  <div className="pb-3 position-relative">
                     <Label htmlFor="email">Username</Label>
                     <Field
                       type={"email"}
@@ -67,13 +69,13 @@ const LoginForm = () => {
                     />
                     <ErrorMessage
                       name={"email"}
-                      component={"span"}
-                      className="text-danger position-absolute bottom-0 fs-14"
+                      component={"div"}
+                      className="text-danger position-absolute fs-14"
                     />
                   </div>
                 </Col>
                 <Col lg={12}>
-                  <div className="pb-4 position-relative">
+                  <div className="pb-3 position-relative">
                     <Label htmlFor="password" className="fs-16">
                       Password
                     </Label>
@@ -101,7 +103,7 @@ const LoginForm = () => {
                     <ErrorMessage
                       name={"password"}
                       component={"div"}
-                      className="text-danger position-absolute bottom-0 fs-14"
+                      className="text-danger position-absolute fs-14"
                     />
                   </div>
                 </Col>
@@ -123,6 +125,26 @@ const LoginForm = () => {
           </React.Fragment>
         )}
       </Formik>
+      <div className="mt-3">
+        <h6 className="text-center mb-2 fs-16">Or Signup Using</h6>
+        <div className="row justify-content-center align-items-center">
+          <Col xs={"auto"}>
+            <button className="btn btn-sm btn-dark" type="button">
+              <i className="bi bi-facebook fs-14"></i>
+            </button>
+          </Col>
+          <Col xs={"auto"}>
+            <button className="btn btn-sm btn-dark" type="button">
+              <i className="bi bi-google fs-14"></i>
+            </button>
+          </Col>
+          <Col xs={"auto"}>
+            <button className="btn btn-sm btn-dark" type="button">
+              <i className="bi bi-apple fs-14"></i>
+            </button>
+          </Col>
+        </div>
+      </div>
     </React.Fragment>
   );
 };
