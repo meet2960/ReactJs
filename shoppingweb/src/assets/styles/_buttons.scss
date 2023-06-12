@@ -15,11 +15,18 @@ $btn-hover-colors: (
         "warning": $warning-hover,
         "danger": $danger-hover,
         "light": $light-hover,
-        "dark": $dark-hover
+        "dark": $dark-hover,
 );
 // * For Buttons and its hover
 @each $color, $value in $theme-colors {
-  .btn-#{$color}, .btn-#{$color}:is(.btn-check:checked + .btn, :not(.btn-check) + .btn:active, .btn:first-child:active, .btn.active, .btn.show) {
+  .btn-#{$color},
+  .btn-#{$color}:is(
+      .btn-check:checked + .btn,
+      :not(.btn-check) + .btn:active,
+      .btn:first-child:active,
+      .btn.active,
+      .btn.show
+    ) {
     background-color: #{$value};
     border: #{$value};
   }
@@ -31,5 +38,13 @@ $btn-hover-colors: (
     border: #{$primary};
     box-shadow: none;
     border: #{$value};
+  }
+}
+
+.btn-link {
+  color: inherit !important;
+
+  &:hover {
+    color: #58616b !important;
   }
 }

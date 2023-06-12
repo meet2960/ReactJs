@@ -43,7 +43,7 @@ const LoginForm = () => {
   });
   return (
     <React.Fragment>
-      <h3 className="mb-4 text-primary text-center">Welcome Back !</h3>
+      <h3 className="my-4 text-primary text-center">Welcome Back !</h3>
       <Formik
         initialValues={initValue}
         validationSchema={validationSchema}
@@ -125,9 +125,9 @@ const LoginForm = () => {
           </React.Fragment>
         )}
       </Formik>
-      <div className="mt-3">
+      <div className="my-3">
         <h6 className="text-center mb-2 fs-16">Or Signup Using</h6>
-        <div className="row justify-content-center align-items-center">
+        <Row className="justify-content-center align-items-center">
           <Col xs={"auto"}>
             <button className="btn btn-sm btn-dark" type="button">
               <i className="bi bi-facebook fs-14"></i>
@@ -143,7 +143,13 @@ const LoginForm = () => {
               <i className="bi bi-apple fs-14"></i>
             </button>
           </Col>
-        </div>
+        </Row>
+      </div>
+      <div>
+        <h6 className="text-center">
+          Not a Member ?{" "}
+          <span className="text-primary cursor-pointer">Create an Account</span>
+        </h6>
       </div>
     </React.Fragment>
   );

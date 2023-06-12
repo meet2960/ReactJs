@@ -22,6 +22,10 @@ const FilterCategory = () => {
     });
     setSelectedCategoryProduct(filterProducts);
   };
+  const [activeIndex, setActiveIndex] = useState(null);
+  const handleChangeIndex = (index) => {
+    setActiveIndex(index);
+  };
   useEffect(() => {
     const findCategory = [
       ...new Set(
@@ -39,19 +43,23 @@ const FilterCategory = () => {
           <Row>
             <Col lg={3} className="border-end">
               <h3 className="mb-3">Categories</h3>
-
               <ul className="list-unstyled ">
                 {memoizedCategories &&
                   memoizedCategories.length !== 0 &&
                   memoizedCategories.map((items, index) => (
                     <React.Fragment key={index}>
-                      <li className="text-capitalize">
-                        <div
-                          className="cursor-pointer"
-                          onClick={(e) => handleCategoryChange(e, items)}
+                      <li>
+                        <span
+                          className={`text-capitalize cursor-pointer ${
+                            index === activeIndex ? "border-bottom" : null
+                          }`}
+                          onClick={(e) => {
+                            handleCategoryChange(e, items);
+                            handleChangeIndex(index);
+                          }}
                         >
                           {items}
-                        </div>
+                        </span>
                       </li>
                     </React.Fragment>
                   ))}
@@ -62,16 +70,12 @@ const FilterCategory = () => {
             </Col>
             <Col lg={9}>
               <div>
-                <div className="d-flex justify-content-between">
+                <div className="d-flex justify-content-between align-items-center">
                   <div>Shop By Category</div>
-                  <div>
-                    Filters Here
-                    <h5>
-                      {selectedCategoryProduct &&
-                        selectedCategoryProduct.length}{" "}
-                      : Products Found
-                    </h5>
-                  </div>
+                  <h5>
+                    {selectedCategoryProduct && selectedCategoryProduct.length}{" "}
+                    : Products Found
+                  </h5>
                 </div>
                 <div className="mt-4">
                   <h3 className="text-capitalize">

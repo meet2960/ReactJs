@@ -1,14 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeLayoutMode } from "../../Redux/layouts/layout";
 import { NavLink } from "react-router-dom";
 import { Col, Container, Input } from "reactstrap";
 import Logo from "../../assets/images/NewLogo.png";
 import DarkLogo from "../../assets/images/NewDarkLogo.png";
+import CustomReactSelect from "../Common/CustomReactSelect";
+import { CurrenctContext } from "../../Context/CurrencyContext";
 
 const Header = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cartItems);
+  // * For Currency Change
+  const { handleCurrencyFormatChange } = useContext(CurrenctContext);
+  // * To get currenct layout theme of Page
   const { layoutType } = useSelector((state) => ({
     layoutType: state.layout.layoutModeType,
   }));
@@ -26,6 +31,14 @@ const Header = () => {
     } else {
       dispatch(changeLayoutMode("light"));
     }
+  };
+  const currencyOptions = [
+    { value: "INR", label: "INR" },
+    { value: "USD", label: "USD" },
+    { value: "EUR", label: "EUR" },
+  ];
+  const handleSelectedValue = (selectedValue) => {
+    handleCurrencyFormatChange(selectedValue);
   };
 
   return (
@@ -88,6 +101,12 @@ const Header = () => {
                     <NavLink className="nav-link" to={"/"} aria-current="page">
                       Blogs
                     </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <CustomReactSelect
+                      options={currencyOptions}
+                      getSelectedValue={handleSelectedValue}
+                    />
                   </li>
                 </ul>
                 <div className="search-field">

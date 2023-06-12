@@ -11,10 +11,15 @@ const layoutPersistConfig = {
   key: "ecommerceLayout",
   storage: storage,
 };
+const productPersistConfig = {
+  key: "ecommerceProductList",
+  storage: storage,
+};
 export const rootReducer = combineReducers({
   layout: persistReducer(layoutPersistConfig, LayoutSlices.reducer),
   common: commonSlices.reducer,
   cart: cartSlice.reducer,
-  product: productSlice.reducer,
+  product: persistReducer(productPersistConfig, productSlice.reducer),
+  // product: productSlice.reducer,
   auth: AuthSlice.reducer,
 });

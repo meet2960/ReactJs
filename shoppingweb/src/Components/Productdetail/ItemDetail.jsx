@@ -1,5 +1,5 @@
-import React, { useMemo } from "react";
-import { currencyFormat } from "../../utils/currencyFormat";
+import React, { useContext, useEffect, useMemo, useState } from "react";
+import { CurrenctContext } from "../../Context/CurrencyContext";
 import { Col, Row } from "reactstrap";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../Redux/cart/cartSlice";
@@ -9,9 +9,9 @@ import CustomReactSelect from "../Common/CustomReactSelect";
 
 const ItemDetail = ({ selectedProduct }) => {
   const dispatch = useDispatch();
-
-  const dynamicDropDowns = useMemo(() => {
-    const sizesOption = [
+  const { formatCurrency } = useContext(CurrenctContext);
+  const sizesOption = useMemo(
+    () => [
       { value: "XS", label: "XS" },
       { value: "S", label: "S" },
       { value: "M", label: "M" },
@@ -19,8 +19,11 @@ const ItemDetail = ({ selectedProduct }) => {
       { value: "XL", label: "XL" },
       { value: "XXL", label: "XXL" },
       { value: "XXXL", label: "XXXL" },
-    ];
-    const colorOptions = [
+    ],
+    []
+  );
+  const colorOptions = useMemo(
+    () => [
       { value: "red", label: "Red" },
       { value: "yellow", label: "Yellow" },
       { value: "blue", label: "Blue" },
@@ -28,19 +31,10 @@ const ItemDetail = ({ selectedProduct }) => {
       { value: "white", label: "White" },
       { value: "green", label: "Green" },
       { value: "purple", label: "Purple" },
-    ];
+    ],
+    []
+  );
 
-    return (
-      <React.Fragment>
-        <Col xs={6}>
-          <CustomReactSelect label={"Sizes"} options={sizesOption} />
-        </Col>
-        <Col xs={6}>
-          <CustomReactSelect label={"Colors"} options={colorOptions} />
-        </Col>
-      </React.Fragment>
-    );
-  }, []);
   const handleAddToCart = (e) => {
     e.preventDefault();
     dispatch(addToCart(selectedProduct));
@@ -49,6 +43,15 @@ const ItemDetail = ({ selectedProduct }) => {
       icon: "success",
     });
   };
+  const [optionObj, setOptionObj] = useState(null);
+  const handleSelectedValue = (selectedValue, options) => {
+    if (options === sizesOption) {
+      setOptionObj(selectedValue);
+    }
+  };
+  useEffect(() => {
+    console.log("inside detail", optionObj);
+  }, [optionObj]);
   return (
     <React.Fragment>
       <div className="item-details">
@@ -63,13 +66,30 @@ const ItemDetail = ({ selectedProduct }) => {
         </p>
         <p className="text-success fs-12 fw-medium mb-2">Extra 15000 Off</p>
         <h3 className="my-3 fw-semibold">
-          {currencyFormat(selectedProduct.price)}
+          {formatCurrency(selectedProduct.price)}
         </h3>
         <div className="fs-16 py-3 border-bottom">
           <p className="mb-0">{selectedProduct.description}</p>
         </div>
         <Row className="item-dropdowns justify-content-between my-3 fs-16">
-          {dynamicDropDowns}
+          <Col xs={6}>
+            <label htmlFor="Sizes" className="form-label">
+              Sizes
+            </label>
+            <CustomReactSelect
+              options={sizesOption}
+              getSelectedValue={handleSelectedValue}
+            />
+          </Col>
+          <Col xs={6}>
+            <label htmlFor="Sizes" className="form-label">
+              Colors
+            </label>
+            <CustomReactSelect
+              options={colorOptions}
+              getSelectedValue={handleSelectedValue}
+            />
+          </Col>
         </Row>
         <div>
           <button

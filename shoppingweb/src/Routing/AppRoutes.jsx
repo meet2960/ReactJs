@@ -3,7 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import App from "../App";
 import ErrorPage from "../Pages/Error/ErrorPage";
 import PrivateRoutes from "./PrivateRoutes";
-import Login from "../Components/Login/Login";
+import Login from "../Pages/Login/Login";
 import { useSelector } from "react-redux";
 
 const AppRoutes = () => {

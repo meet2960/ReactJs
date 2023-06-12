@@ -105,6 +105,7 @@ const FooterDetails = () => {
                       </div>
                     </Col>
                   </Row>
+                  <div></div>
                 </div>
               </div>
             </Col>

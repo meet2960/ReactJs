@@ -13,7 +13,12 @@ export const cartSlice = createSlice({
         (items) => items.id === action.payload.id
       );
       if (itemIndex < 0) {
-        state.cartItems.push({ ...action.payload, quantity: 1 });
+        state.cartItems.push({
+          ...action.payload,
+          quantity: 1,
+          /*   size: "L",
+          color: "red", */
+        });
       } else {
         let addeditem = state.cartItems[itemIndex];
         state.cartItems[itemIndex] = {

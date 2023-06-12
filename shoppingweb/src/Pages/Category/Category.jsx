@@ -5,9 +5,7 @@ import FilterCategory from "../../Components/Categories/FilterCategory";
 const Category = () => {
   return (
     <Container fluid>
-      <div>
-        <FilterCategory />
-      </div>
+      <FilterCategory />
     </Container>
   );
 };
