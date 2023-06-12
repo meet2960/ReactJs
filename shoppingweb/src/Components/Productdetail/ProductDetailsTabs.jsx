@@ -31,7 +31,6 @@ const ProductDetailsTabs = ({ selectedProduct }) => {
           >
             <NavItem>
               <NavLink
-                href="#"
                 className={activeTab === "1" ? "active" : ""}
                 onClick={() => {
                   toggleTab("1");
@@ -48,7 +47,6 @@ const ProductDetailsTabs = ({ selectedProduct }) => {
             </NavItem>
             <NavItem>
               <NavLink
-                href="#"
                 className={activeTab === "2" ? "active" : ""}
                 onClick={() => {
                   toggleTab("2");
@@ -65,7 +63,6 @@ const ProductDetailsTabs = ({ selectedProduct }) => {
             </NavItem>
             <NavItem>
               <NavLink
-                href="#"
                 className={activeTab === "3" ? "active" : " "}
                 onClick={() => {
                   toggleTab("3");

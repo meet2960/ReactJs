@@ -9,7 +9,6 @@ import RelatedProducts from "../../Components/Productdetail/RelatedProducts";
 const ShowProductDetail = () => {
   const productList = useSelector((state) => state.product.products);
   const { id } = useParams();
-  // const id = 9;
   const selectedProduct = productList.find(
     (items) => items.id === parseInt(id)
   );
