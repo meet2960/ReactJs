@@ -6,7 +6,6 @@ const initialState = {
   access_token: "",
   user: {
     email: "",
-    password: "",
   },
   /*   admin: {
     name: "",

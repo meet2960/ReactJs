@@ -4,13 +4,16 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { FormikInput } from "../Login/FormikInput";
 import { Col, Label, Row } from "reactstrap";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { createUserList } from "../../Redux/auth/createUserAction";
 const RegisterForm = () => {
+  const dispatch = useDispatch();
+  // ? To Toggle Password Field
   const [togglePassword, setTogglePassword] = useState({
     togglePass: false,
     toggleCnfPass: false,
   });
-  console.log("Toggle", togglePassword.togglePass);
-  const initValue = {
+  const initialValues = {
     email: "",
     password: "",
     confirmPassword: "",
@@ -21,7 +24,7 @@ const RegisterForm = () => {
       .email("Please Enter Valid Email")
       .required("Email is Required"),
     password: Yup.string()
-      .required("Password is required")
+      .required("Password is Required")
       .min(8, "Password must be at least 8 characters")
       .matches(
         RegExp("(.*[a-z].*)"),
@@ -34,20 +37,19 @@ const RegisterForm = () => {
     confirmPassword: Yup.string()
       .oneOf([Yup.ref("password"), null], "Password must match")
       .required("Confirm Password is required"),
-    /* .min(8, "Password must be at least 8 characters")
-      .matches(
-        RegExp("(.*[a-z].*)"),
-        "Password must contain at least one lowercase letter."
-      ), */
   });
   return (
     <React.Fragment>
       <Formik
-        initialValues={initValue}
+        initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={(values) => console.log("Register Values", values)}
+        onSubmit={(values) => {
+          console.log("Errors");
+          console.log("Register Values", values);
+          dispatch(createUserList(values));
+        }}
       >
-        {({ values, handleSubmit, handleChange }) => (
+        {({ values, handleSubmit, handleChange, errors }) => (
           <React.Fragment>
             <Form>
               <Row className="gy-md-2">
@@ -84,7 +86,7 @@ const RegisterForm = () => {
                       <button
                         className={`btn btn-link position-absolute text-decoration-none text-muted password-addon show-btn`}
                         type="button"
-                        id="password-addon"
+                        id="password-btn"
                         onClick={() =>
                           setTogglePassword((prev) => ({
                             ...prev,
@@ -125,7 +127,7 @@ const RegisterForm = () => {
                       <button
                         className={`btn btn-link position-absolute text-decoration-none text-muted password-addon show-btn`}
                         type="button"
-                        id="password-addon"
+                        id="cnfpassword-btn"
                         onClick={() =>
                           setTogglePassword((prev) => ({
                             ...prev,
@@ -153,7 +155,8 @@ const RegisterForm = () => {
                     <button
                       type="button"
                       className="btn btn-primary"
-                      onClick={() => {
+                      onClick={(e) => {
+                        console.log("Form Error", errors);
                         handleSubmit();
                       }}
                     >
