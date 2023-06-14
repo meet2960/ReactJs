@@ -91,10 +91,10 @@ const Header = () => {
                   <li className="nav-item">
                     <NavLink
                       className="nav-link"
-                      to={"/header"}
+                      to={"/cart"}
                       aria-current="page"
                     >
-                      Deals
+                      Cart
                     </NavLink>
                   </li>
                   <li className="nav-item">

@@ -6,6 +6,7 @@ import Category from "../Pages/Category/Category";
 import ShowProductDetail from "../Pages/ProductDetail/ShowProductDetail";
 import Wishlist from "../Pages/Wishlist/Wishlist";
 import Profile from "../Pages/Profile/Profile";
+import Cart from "../Pages/Cart/Cart";
 
 const PrivateRoutes = () => {
   return (
@@ -16,7 +17,7 @@ const PrivateRoutes = () => {
         <Route path={"/productdetails/:id"} element={<ShowProductDetail />} />
         <Route path={"/wishlist"} element={<Wishlist />} />
         <Route path={"/profile"} element={<Profile />} />
-        <Route path={"/cart"} element />
+        <Route path={"/cart"} element={<Cart />} />
         <Route path={"/*"} element={<Navigate to={"/error"} />} />
       </Route>
     </Routes>
