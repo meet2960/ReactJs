@@ -13,10 +13,10 @@ const PrivateRoutes = () => {
       <Route element={<Layout />}>
         <Route path={"/home"} element={<Home />} />
         <Route path={"/category"} element={<Category />} />
-        <Route path="/productdetails/:id" element={<ShowProductDetail />} />
-        <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/cart" element />
+        <Route path={"/productdetails/:id"} element={<ShowProductDetail />} />
+        <Route path={"/wishlist"} element={<Wishlist />} />
+        <Route path={"/profile"} element={<Profile />} />
+        <Route path={"/cart"} element />
         <Route path={"/*"} element={<Navigate to={"/error"} />} />
       </Route>
     </Routes>

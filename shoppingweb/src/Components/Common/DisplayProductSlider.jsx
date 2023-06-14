@@ -27,7 +27,7 @@ const DisplayProductSlider = () => {
           }}
           modules={[Pagination, Navigation]}
           breakpoints={{
-            425: {
+            345: {
               slidesPerView: 1,
             },
             768: {

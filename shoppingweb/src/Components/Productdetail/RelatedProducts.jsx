@@ -6,7 +6,7 @@ const RelatedProducts = () => {
   return (
     <React.Fragment>
       <section className="my-5">
-        <div className="related-products position-relative  fs-16">
+        <div className="related-products  fs-16">
           <CommonHeading heading={"Related Products"} />
           <DisplayProductSlider />
         </div>
