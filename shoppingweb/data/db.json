@@ -1,9 +1,8 @@
 {
   "users": [
     {
-      "email": "meetghelani@gmail.com",
-      "password": "meet",
-      "confirmPassword": "meet",
+      "email": "meetghelani@123.com",
+      "password": "meetghelani2",
       "id": 1
     }
   ]

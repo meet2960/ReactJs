@@ -44,9 +44,10 @@ const RegisterForm = () => {
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          console.log("Errors");
-          console.log("Register Values", values);
-          dispatch(createUserList(values));
+          console.log("Registered Values", values);
+          dispatch(
+            createUserList({ email: values.email, password: values.password })
+          );
         }}
       >
         {({ values, handleSubmit, handleChange, errors }) => (
@@ -156,7 +157,6 @@ const RegisterForm = () => {
                       type="button"
                       className="btn btn-primary"
                       onClick={(e) => {
-                        console.log("Form Error", errors);
                         handleSubmit();
                       }}
                     >
