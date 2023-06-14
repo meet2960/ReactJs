@@ -5,6 +5,7 @@ import ErrorPage from "../Pages/Error/ErrorPage";
 import PrivateRoutes from "./PrivateRoutes";
 import Login from "../Pages/Login/Login";
 import { useSelector } from "react-redux";
+import Register from "../Pages/Register/Register";
 
 const AppRoutes = () => {
   const access_token = useSelector((state) => state.auth.access_token);
@@ -13,6 +14,7 @@ const AppRoutes = () => {
       <Routes>
         <Route element={<App />}>
           <Route path={"/error"} element={<ErrorPage />} />
+          <Route path={"/register"} element={<Register />} />
           {access_token ? (
             <React.Fragment>
               <Route path={"/*"} element={<PrivateRoutes />} />

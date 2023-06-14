@@ -135,7 +135,8 @@
   }
 }
 
-.login {
+.login,
+.register {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -465,7 +466,7 @@
   }
   .cart-quantity {
     background-color: $light-gray-300;
-    // padding: 10px;
+    // padding: 5px;
     span {
       cursor: pointer;
       margin: 0 8px;

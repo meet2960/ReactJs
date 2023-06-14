@@ -97,6 +97,7 @@ const Header = () => {
                       Cart
                     </NavLink>
                   </li>
+
                   <li className="nav-item">
                     <NavLink className="nav-link" to={"/"} aria-current="page">
                       Blogs
@@ -120,7 +121,12 @@ const Header = () => {
                   <i className="bi bi-search" />
                 </div>
                 <div className="mt-3 mt-lg-0">
-                  <ul className="navbar-nav nav-icons">
+                  <ul className="navbar-nav align-items-center nav-icons">
+                    <li className="nav-item">
+                      <button type="button" className="btn btn-primary btn-sm">
+                        Logout
+                      </button>
+                    </li>
                     <li className="nav-item">
                       <NavLink
                         to=""

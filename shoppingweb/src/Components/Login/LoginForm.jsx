@@ -3,7 +3,7 @@ import { Col, Label, Row } from "reactstrap";
 import * as Yup from "yup";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { FormikInput } from "./FormikInput";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../Redux/auth/authSlice";
 
@@ -27,8 +27,8 @@ const LoginForm = () => {
       .matches(
         RegExp("(.*[a-z].*)"),
         "Password must contain at least one lowercase letter."
-      )
-      .matches(
+      ),
+    /* .matches(
         RegExp("(.*[A-Z].*)"),
         "Password must contain at least one uppercase letter."
       )
@@ -39,19 +39,19 @@ const LoginForm = () => {
       .matches(
         RegExp("(.*[!@#$%^&*].*)"),
         "Password must contain at one special character."
-      ),
+      ), */
   });
+  const loggedIn = (values) => {
+    console.log("Form Values Are : ", values);
+    dispatch(login(values));
+    // navigate("/home");
+  };
   return (
     <React.Fragment>
-      <h3 className="my-4 text-primary text-center">Welcome Back !</h3>
       <Formik
         initialValues={initValue}
         validationSchema={validationSchema}
-        onSubmit={(values) => {
-          console.log("Form Values Are : ", values);
-          dispatch(login());
-          navigate("/home");
-        }}
+        onSubmit={(values) => loggedIn(values)}
       >
         {({ values, handleSubmit, handleChange }) => (
           <React.Fragment>
@@ -125,32 +125,6 @@ const LoginForm = () => {
           </React.Fragment>
         )}
       </Formik>
-      <div className="my-3">
-        <h6 className="text-center mb-2 fs-16">Or Signup Using</h6>
-        <Row className="justify-content-center align-items-center">
-          <Col xs={"auto"}>
-            <button className="btn btn-sm btn-dark" type="button">
-              <i className="bi bi-facebook fs-14"></i>
-            </button>
-          </Col>
-          <Col xs={"auto"}>
-            <button className="btn btn-sm btn-dark" type="button">
-              <i className="bi bi-google fs-14"></i>
-            </button>
-          </Col>
-          <Col xs={"auto"}>
-            <button className="btn btn-sm btn-dark" type="button">
-              <i className="bi bi-apple fs-14"></i>
-            </button>
-          </Col>
-        </Row>
-      </div>
-      <div>
-        <h6 className="text-center">
-          Not a Member ?{" "}
-          <span className="text-primary cursor-pointer">Create an Account</span>
-        </h6>
-      </div>
     </React.Fragment>
   );
 };

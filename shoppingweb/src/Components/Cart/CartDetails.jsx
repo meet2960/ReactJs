@@ -5,6 +5,7 @@ const CartDetails = ({ cartItems }) => {
   const [dynamicColumns, setDynamicColumns] = useState([]);
   useEffect(() => {
     if (cartItems && cartItems.length !== 0) {
+      // ? Generate Columns Names and Save them in state
       const generatedColumns = [
         { Header: "Sr.No" },
         {
@@ -34,21 +35,28 @@ const CartDetails = ({ cartItems }) => {
   }, [cartItems]);
 
   const columns = useMemo(() => {
+    // ?  memoize the columns, so that no need to calculate again
     if (dynamicColumns && dynamicColumns.length !== 0) {
       return dynamicColumns;
     } else {
       return [];
     }
   }, [dynamicColumns]);
+  // ? Contains original data to be displayed in table
   const data = useMemo(() => cartItems, [cartItems]);
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({ columns, data }, useSortBy);
   return (
     <React.Fragment>
       <div className="cart-content shadow p-3 rounded-3">
-        <h5 className="text-center mb-3">Purchase List</h5>
+        <h4 className="text-center mb-4 fw-semibold">
+          Purchase List <i className="bi bi-bag-check-fill" />
+        </h4>
         <div className="table-responsive">
-          <table className="table align-middle text-center">
+          <table
+            className="table align-middle text-center"
+            {...getTableProps()}
+          >
             <thead>
               {headerGroups.map((headerGroup) => (
                 <tr {...headerGroup.getHeaderGroupProps()}>
@@ -56,18 +64,18 @@ const CartDetails = ({ cartItems }) => {
                     <th
                       {...column.getHeaderProps(column.getSortByToggleProps())}
                     >
-                      {column.render("Header")}
                       <span>
                         {column.isSorted ? (
                           column.isSortedDesc ? (
-                            <i className="ms-2 bi bi-arrow-up-circle-fill"></i>
+                            <i class="me-2 bi bi-arrow-up"></i>
                           ) : (
-                            <i className="ms-2 bi bi-arrow-down-circle-fill"></i>
+                            <i class="me-2 bi bi-arrow-down"></i>
                           )
                         ) : (
                           ""
                         )}
                       </span>
+                      {column.render("Header")}
                     </th>
                   ))}
                 </tr>
@@ -104,7 +112,7 @@ const CartDetails = ({ cartItems }) => {
                       } else if (cell.column.Header === "Quantity") {
                         return (
                           <td>
-                            <div className="d-inline-block rounded-5 cart-quantity">
+                            <div className="d-inline-block p-1 rounded-5 cart-quantity">
                               <span>
                                 <i class="bi bi-dash" />
                               </span>
