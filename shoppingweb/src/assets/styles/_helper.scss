@@ -28,3 +28,19 @@
 .left-50 {
   left: 50%;
 }
+.error-btn {
+  position: relative !important;
+  transition: all 0.2s ease-out;
+  &:hover {
+    padding-left: 30px;
+    transition: all 0.2s ease-in;
+    &::before {
+      position: absolute;
+      content: "\F12C";
+      font-size: 25px;
+      font-family: "bootstrap-icons";
+      left: 1%;
+      top: 8%;
+    }
+  }
+}

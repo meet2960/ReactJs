@@ -15,7 +15,7 @@ const ErrorPage = () => {
         <div className="mt-2">
           <button
             type="button"
-            className="btn btn-link"
+            className="btn btn-dark error-btn"
             onClick={(e) => navigateHome(e)}
           >
             Back Home
