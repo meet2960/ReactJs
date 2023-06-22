@@ -27,8 +27,8 @@ const LoginForm = () => {
       .matches(
         RegExp("(.*[a-z].*)"),
         "Password must contain at least one lowercase letter."
-      ),
-    /* .matches(
+      )
+      .matches(
         RegExp("(.*[A-Z].*)"),
         "Password must contain at least one uppercase letter."
       )
@@ -39,12 +39,12 @@ const LoginForm = () => {
       .matches(
         RegExp("(.*[!@#$%^&*].*)"),
         "Password must contain at one special character."
-      ), */
+      ),
   });
   const loggedIn = (values) => {
     console.log("Form Values Are : ", values);
-    // dispatch(login(values));
-    // navigate("/home");
+    dispatch(login(values));
+    navigate("/home");
   };
   return (
     <React.Fragment>

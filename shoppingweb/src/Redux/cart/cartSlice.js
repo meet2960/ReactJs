@@ -29,22 +29,21 @@ export const cartSlice = createSlice({
     },
     removeItem: (state, action) => {
       const removeItem = state.cartItems.filter(
-        (item) => item.id !== action.payload.id
+        (item) => item.id !== action.payload
       );
       state.cartItems = removeItem;
     },
-    // AMA MAIN CATCH E CHE, AKHU APP NU STATE EK J JAGIYA E CHE, E REDUX MA
     increaseQuantity: (state, action) => {
       const selectedItem = state.cartItems.find(
-        (item) => item.id === action.payload.id
+        (item) => item.id === action.payload
       );
       selectedItem.quantity++;
     },
     decreaseQuantity: (state, action) => {
       const selectedItem = state.cartItems.find(
-        (item) => item.id === action.payload.id
+        (item) => item.id === action.payload
       );
-      if (selectedItem.quantity >= 0) {
+      if (selectedItem.quantity > 1) {
         selectedItem.quantity--;
       }
       // * Some More logic

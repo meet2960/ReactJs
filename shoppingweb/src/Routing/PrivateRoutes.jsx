@@ -7,7 +7,8 @@ import ShowProductDetail from "../Pages/ProductDetail/ShowProductDetail";
 import Wishlist from "../Pages/Wishlist/Wishlist";
 import Profile from "../Pages/Profile/Profile";
 import Cart from "../Pages/Cart/Cart";
-
+import NewComponent from "../Pages/ExtraPages/NewComponent";
+import CustomDateTime from "../Pages/ExtraPages/CutomDateTime";
 const PrivateRoutes = () => {
   return (
     <Routes>
@@ -18,6 +19,8 @@ const PrivateRoutes = () => {
         <Route path={"/wishlist"} element={<Wishlist />} />
         <Route path={"/profile"} element={<Profile />} />
         <Route path={"/cart"} element={<Cart />} />
+        <Route path="/newcomp" element={<NewComponent />} />
+        <Route path={"/date"} element={<CustomDateTime />} />
         <Route path={"/*"} element={<Navigate to={"/error"} />} />
       </Route>
     </Routes>

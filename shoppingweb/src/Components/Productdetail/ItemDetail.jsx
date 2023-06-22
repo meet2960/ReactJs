@@ -43,14 +43,22 @@ const ItemDetail = ({ selectedProduct }) => {
       icon: "success",
     });
   };
-  const [optionObj, setOptionObj] = useState(null);
+  const [optionObj, setOptionObj] = useState({
+    selectedSize: "",
+    selectedColor: "",
+  });
   const handleSelectedValue = (selectedValue, options) => {
-    if (options === sizesOption) {
-      setOptionObj(selectedValue);
+    console.log("Details Select", selectedValue);
+    if (options.name === "size") {
+      setOptionObj({ ...optionObj, selectedSize: selectedValue });
+    } else if (options.name === "color") {
+      setOptionObj({ ...optionObj, selectedColor: selectedValue });
+    } else {
+      return;
     }
   };
   useEffect(() => {
-    console.log("inside detail", optionObj);
+    console.log("Inside Details with Options", optionObj);
   }, [optionObj]);
   return (
     <React.Fragment>
@@ -79,6 +87,7 @@ const ItemDetail = ({ selectedProduct }) => {
             <CustomReactSelect
               options={sizesOption}
               getSelectedValue={handleSelectedValue}
+              selectName={"size"}
             />
           </Col>
           <Col xs={6}>
@@ -88,6 +97,7 @@ const ItemDetail = ({ selectedProduct }) => {
             <CustomReactSelect
               options={colorOptions}
               getSelectedValue={handleSelectedValue}
+              selectName={"color"}
             />
           </Col>
         </Row>

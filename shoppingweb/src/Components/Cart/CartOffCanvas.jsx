@@ -1,12 +1,14 @@
-import React from "react";
-import { currencyFormat } from "../../utils/currencyFormat";
+import React, { useContext } from "react";
+// import { currencyFormat } from "../../utils/currencyFormat";
 import { useDispatch, useSelector } from "react-redux";
 import { Col, Row } from "reactstrap";
 import { removeItem } from "../../Redux/cart/cartSlice";
 import { cartTotal } from "../../utils/cartTotal";
+import { CurrenctContext } from "../../Context/CurrencyContext";
 import { NavLink } from "react-router-dom";
 
 const CartOffCanvas = () => {
+  const { formatCurrency } = useContext(CurrenctContext);
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cartItems);
   return (
@@ -69,7 +71,7 @@ const CartOffCanvas = () => {
                         </Col>
                         <Col xs={"3"} className="text-end">
                           <h6 className="fw-semibold">
-                            {currencyFormat(items.price)}
+                            {formatCurrency(items.price)}
                           </h6>
                           <div>
                             <span
@@ -99,7 +101,7 @@ const CartOffCanvas = () => {
         {cart.length >= 1 ? (
           <div className="offcanvas-header shadow-lg">
             <h5 className="mb-0">
-              Cart Total: {currencyFormat(cartTotal(cart))}
+              Cart Total: {formatCurrency(cartTotal(cart))}
             </h5>
             <div>
               <NavLink to="/cart">

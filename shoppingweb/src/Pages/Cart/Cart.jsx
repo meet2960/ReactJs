@@ -12,10 +12,10 @@ const Cart = () => {
       <section className="my-4 cart-section">
         <Container>
           <Row>
-            <Col lg={8} xl={9}>
+            <Col lg={8} xl={8}>
               <CartDetails cartItems={cartItems} />
             </Col>
-            <Col lg={4} xl={3}>
+            <Col lg={4} xl={4}>
               <CartPrice cartItems={cartItems} />
             </Col>
           </Row>

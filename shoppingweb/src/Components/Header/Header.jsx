@@ -7,12 +7,12 @@ import Logo from "../../assets/images/NewLogo.png";
 import DarkLogo from "../../assets/images/NewDarkLogo.png";
 import CustomReactSelect from "../Common/CustomReactSelect";
 import { CurrenctContext } from "../../Context/CurrencyContext";
-
+import Select from "react-select";
 const Header = () => {
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart.cartItems);
+  const cart = useSelector((state) => state.cart.cartItems); // to get cart total item count
   // * For Currency Change
-  const { handleCurrencyFormatChange } = useContext(CurrenctContext);
+  const { currency, handleCurrencyFormatChange } = useContext(CurrenctContext);
   // * To get currenct layout theme of Page
   const { layoutType } = useSelector((state) => ({
     layoutType: state.layout.layoutModeType,
@@ -38,9 +38,9 @@ const Header = () => {
     { value: "EUR", label: "EUR" },
   ];
   const handleSelectedValue = (selectedValue) => {
-    handleCurrencyFormatChange(selectedValue);
+    // console.log("Selected Currency", selectedValue);
+    handleCurrencyFormatChange(selectedValue.value);
   };
-
   return (
     <React.Fragment>
       <header className="nav-bg">
@@ -104,10 +104,22 @@ const Header = () => {
                     </NavLink>
                   </li>
                   <li className="nav-item">
-                    <CustomReactSelect
+                    <div className="custom-select-container fs-14">
+                      <Select
+                        className="react-select-container"
+                        classNamePrefix="custom-react-select"
+                        placeholder={"Currency"}
+                        name={"currency"}
+                        options={currencyOptions}
+                        onChange={handleSelectedValue}
+                        // value={selectedValue ? currencyOptions[0] : null}
+                      />
+                    </div>
+                    {/*    <CustomReactSelect
+                      optionText={"Currency"}
                       options={currencyOptions}
                       getSelectedValue={handleSelectedValue}
-                    />
+                    /> */}
                   </li>
                 </ul>
                 <div className="search-field">
