@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 import { Col, Container, Input } from "reactstrap";
 import Logo from "../../assets/images/NewLogo.png";
 import DarkLogo from "../../assets/images/NewDarkLogo.png";
-import CustomReactSelect from "../Common/CustomReactSelect";
 import { CurrenctContext } from "../../Context/CurrencyContext";
 import Select from "react-select";
 const Header = () => {
@@ -22,8 +21,8 @@ const Header = () => {
       // ? Get the current layout mode, then set it
       document.body.setAttribute("data-layout-mode", layoutType);
     }
-    // console.log("Inside Header Component", layoutType);
   }, [layoutType]);
+  // ? Change current Theme
   const handleThemeChange = (e) => {
     e.preventDefault();
     if (layoutType === "light") {
@@ -32,11 +31,13 @@ const Header = () => {
       dispatch(changeLayoutMode("light"));
     }
   };
+  // ? To Create currency city
   const currencyOptions = [
     { value: "INR", label: "INR" },
     { value: "USD", label: "USD" },
     { value: "EUR", label: "EUR" },
   ];
+  // ? Change Currency Based on DropDown Value
   const handleSelectedValue = (selectedValue) => {
     // console.log("Selected Currency", selectedValue);
     handleCurrencyFormatChange(selectedValue.value);
@@ -112,14 +113,8 @@ const Header = () => {
                         name={"currency"}
                         options={currencyOptions}
                         onChange={handleSelectedValue}
-                        // value={selectedValue ? currencyOptions[0] : null}
                       />
                     </div>
-                    {/*    <CustomReactSelect
-                      optionText={"Currency"}
-                      options={currencyOptions}
-                      getSelectedValue={handleSelectedValue}
-                    /> */}
                   </li>
                 </ul>
                 <div className="search-field">

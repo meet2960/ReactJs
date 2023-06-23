@@ -11,3 +11,87 @@
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: #{$light-gray-900} !important;
 }
+
+.calendar {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--secondary-bg);
+  color: var(--primary-text);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.weekdays {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(243, 243, 243);
+  padding: 10px 15px;
+  border-bottom: 2px solid #555;
+}
+
+.weekdays div {
+  width: calc(100% / 7);
+  text-align: center;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 2fr);
+  grid-auto-rows: 40px;
+  padding: 10px;
+}
+
+.days div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.days div:hover {
+  cursor: pointer;
+  background-color: var(--primary-bg);
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.today {
+  /* background-color: rgb(243, 243, 243); */
+  background-color: var(--primary-bg);
+
+  border-radius: 50%;
+}
+
+.date-btn {
+  margin: 10px;
+  padding: 10px;
+  background-color: var(--primary-bg);
+  color: black;
+
+  /* background-color: #666; */
+  /* color: #fff; */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.date-btn:hover {
+  background-color: var(--primary-bg);
+  transition: 0.4s;
+  border-radius: 8px;
+}
+
+.selected {
+  background-color: var(--primary-bg);
+  /* Change the color to your preference */
+  color: black;
+  transform: 0.6s;
+  border-radius: 50%;
+}

@@ -40,7 +40,7 @@ const CartDetails = ({ cartItems }) => {
         },
       ];
       setDynamicColumns(generatedColumns);
-      console.log("Dyanmic Columns", generatedColumns);
+      // console.log("Dyanmic Columns", generatedColumns);
     }
   }, [cartItems]);
 
@@ -100,7 +100,7 @@ const CartDetails = ({ cartItems }) => {
                   {...getTableBodyProps()}
                 >
                   {rows.map((row, rowIndex) => {
-                    console.log("Row", row.original);
+                    // console.log("Row", row.original);
                     const selectedItem = row.original; // get selected id
                     console.log("selectedItem", selectedItem);
                     prepareRow(row);
@@ -139,8 +139,9 @@ const CartDetails = ({ cartItems }) => {
                           } else if (cell.column.Header === "Quantity") {
                             return (
                               <td {...cell.getCellProps()}>
-                                <div className="d-inline-block p-1 rounded-5 cart-quantity">
-                                  <span
+                                <div className="d-flex justify-content-evenly p-1 rounded-5 cart-quantity">
+                                  <div
+                                    className="cursor-pointer"
                                     onClick={() =>
                                       dispatch(
                                         decreaseQuantity(selectedItem.id)
@@ -148,9 +149,10 @@ const CartDetails = ({ cartItems }) => {
                                     }
                                   >
                                     <i className="bi bi-dash" />
-                                  </span>
-                                  <span>{cell.render("Cell")}</span>
-                                  <span
+                                  </div>
+                                  <div>{cell.render("Cell")}</div>
+                                  <div
+                                    className="cursor-pointer"
                                     onClick={() =>
                                       dispatch(
                                         increaseQuantity(selectedItem.id)
@@ -158,7 +160,7 @@ const CartDetails = ({ cartItems }) => {
                                     }
                                   >
                                     <i className="bi bi-plus" />
-                                  </span>
+                                  </div>
                                 </div>
                               </td>
                             );

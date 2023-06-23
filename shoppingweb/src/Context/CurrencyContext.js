@@ -8,6 +8,7 @@ export const CurrencyProvider = ({ children }) => {
   const [currency, setCurrency] = useState("INR");
   const handleCurrencyFormatChange = (value) => {
     setCurrency(value);
+    setCurrency((prev)=>{});
     console.log("Currency ", currency);
   };
 
