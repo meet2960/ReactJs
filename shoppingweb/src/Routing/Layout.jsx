@@ -7,7 +7,7 @@ import BackToTopButton from "../Components/Common/BackToTopButton";
 
 const Layout = () => {
   return (
-    <>
+    <React.Fragment>
       <div className="layout-wrapper">
         <Header />
         <main className="main-content">
@@ -17,7 +17,7 @@ const Layout = () => {
       </div>
       <CartOffCanvas />
       <BackToTopButton />
-    </>
+    </React.Fragment>
   );
 };
 

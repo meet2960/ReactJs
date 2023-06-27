@@ -1,61 +1,34 @@
-import React, { useContext, useState } from "react";
-import { Dropdown, DropdownMenu, DropdownToggle } from "reactstrap";
+import React, { useContext } from "react";
+import Select from "react-select";
 import { CurrenctContext } from "../../Context/CurrencyContext";
-
 const CurrencyDropDown = () => {
-  const [isCurrencyDropDown, setIsCurrencyDropDown] = useState(false);
-  const toggleCurrencyDropDown = () => {
-    setIsCurrencyDropDown(!isCurrencyDropDown);
-  };
+  // * For Currency Change
   const { currency, handleCurrencyFormatChange } = useContext(CurrenctContext);
+  // ? To Create currency Options
+  const currencyOptions = [
+    { value: "USD", label: "USD" },
+    { value: "INR", label: "INR" },
+    { value: "EUR", label: "EUR" },
+  ];
+  // ? Change Currency Based on DropDown Selected Value
+  const handleSelectedValue = (selectedValue) => {
+    console.log("Selected Currency", selectedValue.value);
+    handleCurrencyFormatChange(selectedValue);
+  };
   return (
-    <div className="currency-dropdown">
-      <Dropdown
-        isOpen={isCurrencyDropDown}
-        toggle={toggleCurrencyDropDown}
-        className="topbar-head-dropdown ms-1 header-item"
-      >
-        <DropdownToggle
-          type="button"
-          tag="button"
-          className="btn btn-sm btn-primary"
-        >
-          <i className="bi bi-currency-exchange"></i>
-          Change
-        </DropdownToggle>
-        <DropdownMenu className="dropdown-menu-lg dropdown-menu-end p-0">
-          <div>
-            <div>
-              <button
-                type="butotn"
-                className="btn btn-link btn-sm"
-                onClick={() => handleCurrencyFormatChange("INR")}
-              >
-                INR
-              </button>
-            </div>
-            <div>
-              <button
-                type="butotn"
-                className="btn btn-link btn-sm"
-                onClick={() => handleCurrencyFormatChange("USD")}
-              >
-                USD
-              </button>
-            </div>
-            <div>
-              <button
-                type="butotn"
-                className="btn btn-link btn-sm"
-                onClick={() => handleCurrencyFormatChange("EUR")}
-              >
-                EUR
-              </button>
-            </div>
-          </div>
-        </DropdownMenu>
-      </Dropdown>
-    </div>
+    <React.Fragment>
+      <div className="custom-select-container fs-14">
+        <Select
+          className="react-select-container"
+          classNamePrefix="custom-react-select"
+          placeholder={"Currency"}
+          name={"currency"}
+          options={currencyOptions}
+          onChange={handleSelectedValue}
+          value={currency}
+        />
+      </div>
+    </React.Fragment>
   );
 };
 

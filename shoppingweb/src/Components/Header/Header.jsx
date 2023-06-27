@@ -1,47 +1,19 @@
-import React, { useContext, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { changeLayoutMode } from "../../Redux/layouts/layout";
+import React from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { Col, Container, Input } from "reactstrap";
 import Logo from "../../assets/images/NewLogo.png";
 import DarkLogo from "../../assets/images/NewDarkLogo.png";
-import { CurrenctContext } from "../../Context/CurrencyContext";
-import Select from "react-select";
+
+import ProfileDropDown from "../Common/ProfileDropDown";
+import ThemeChange from "../Common/ThemeChange";
 const Header = () => {
-  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cartItems); // to get cart total item count
-  // * For Currency Change
-  const { currency, handleCurrencyFormatChange } = useContext(CurrenctContext);
   // * To get currenct layout theme of Page
   const { layoutType } = useSelector((state) => ({
     layoutType: state.layout.layoutModeType,
   }));
-  useEffect(() => {
-    if (layoutType) {
-      // ? Get the current layout mode, then set it
-      document.body.setAttribute("data-layout-mode", layoutType);
-    }
-  }, [layoutType]);
-  // ? Change current Theme
-  const handleThemeChange = (e) => {
-    e.preventDefault();
-    if (layoutType === "light") {
-      dispatch(changeLayoutMode("dark"));
-    } else {
-      dispatch(changeLayoutMode("light"));
-    }
-  };
-  // ? To Create currency city
-  const currencyOptions = [
-    { value: "INR", label: "INR" },
-    { value: "USD", label: "USD" },
-    { value: "EUR", label: "EUR" },
-  ];
-  // ? Change Currency Based on DropDown Value
-  const handleSelectedValue = (selectedValue) => {
-    // console.log("Selected Currency", selectedValue);
-    handleCurrencyFormatChange(selectedValue.value);
-  };
+
   return (
     <React.Fragment>
       <header className="nav-bg">
@@ -100,21 +72,13 @@ const Header = () => {
                   </li>
 
                   <li className="nav-item">
-                    <NavLink className="nav-link" to={"/"} aria-current="page">
-                      Blogs
+                    <NavLink
+                      className="nav-link"
+                      to={"/checkout"}
+                      aria-current="page"
+                    >
+                      Checkout
                     </NavLink>
-                  </li>
-                  <li className="nav-item">
-                    <div className="custom-select-container fs-14">
-                      <Select
-                        className="react-select-container"
-                        classNamePrefix="custom-react-select"
-                        placeholder={"Currency"}
-                        name={"currency"}
-                        options={currencyOptions}
-                        onChange={handleSelectedValue}
-                      />
-                    </div>
                   </li>
                 </ul>
                 <div className="search-field">
@@ -130,29 +94,17 @@ const Header = () => {
                 <div className="mt-3 mt-lg-0">
                   <ul className="navbar-nav align-items-center nav-icons">
                     <li className="nav-item">
-                      <button type="button" className="btn btn-primary btn-sm">
-                        Logout
-                      </button>
+                      <ProfileDropDown />
                     </li>
                     <li className="nav-item">
-                      <NavLink
-                        to=""
-                        className="light-dark-mode nav-link"
-                        onClick={(e) => handleThemeChange(e)}
-                      >
-                        <i className="bi bi-moon" />
-                      </NavLink>
+                      <ThemeChange />
                     </li>
                     <li className="nav-item">
                       <NavLink to="/wishlist" className="nav-link">
                         <i className="fa-regular fa-heart fs-22"></i>
                       </NavLink>
                     </li>
-                    <li className="nav-item">
-                      <NavLink to="/profile" className="nav-link">
-                        <i className="fa-regular fa-user fs-22"></i>
-                      </NavLink>
-                    </li>
+
                     <li className="nav-item">
                       <NavLink
                         to=""

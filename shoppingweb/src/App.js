@@ -4,13 +4,7 @@ import "./assets/styles/app.scss";
 import { Outlet } from "react-router-dom";
 
 const App = () => {
-  return (
-    <Outlet />
-
-    /*  <div className="layout-wrapper">
-        <Routing />
-      </div> */
-  );
+  return <Outlet />;
 };
 
 export default App;

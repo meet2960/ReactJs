@@ -3,14 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const CryptoJS = require("crypto-js");
 
 const initialState = {
-  access_token: "masjask",
+  access_token: "",
   user: {
     email: "",
   },
-  /*   admin: {
-    name: "",
-    email: "",
-  }, */
 };
 
 export const AuthSlice = createSlice({
@@ -24,6 +20,9 @@ export const AuthSlice = createSlice({
         JSON.stringify("loginToken"),
         "loginKey"
       ).toString();
+    },
+    logout: (state, action) => {
+      state.access_token = null;
     },
   },
 });

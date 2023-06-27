@@ -1,14 +1,16 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { CurrenctContext } from "../../Context/CurrencyContext";
 import { Col, Row } from "reactstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../Redux/cart/cartSlice";
 import { CustomToast } from "../../utils/customToast";
 import RatingsStars from "../Common/RatingsStars";
 import CustomReactSelect from "../Common/CustomReactSelect";
+import { addToWishList } from "../../Redux/wishlist/wishlistSlice";
 
 const ItemDetail = ({ selectedProduct }) => {
   const dispatch = useDispatch();
+  const wishListItems = useSelector((state) => state.wishlist.wishListItems);
   const { formatCurrency } = useContext(CurrenctContext);
   const sizesOption = useMemo(
     () => [
@@ -58,8 +60,28 @@ const ItemDetail = ({ selectedProduct }) => {
     }
   };
   useEffect(() => {
-    console.log("Inside Details with Options", optionObj);
+    // console.log("Inside Details with Options", optionObj);
   }, [optionObj]);
+  const handleAddToWishlist = (e) => {
+    e.preventDefault();
+    dispatch(addToWishList(selectedProduct));
+    const productExistInWishList = wishListItems.findIndex((items, index) => {
+      return items.id === selectedProduct.id;
+    });
+    if (productExistInWishList < 0) {
+      console.log("Please add in wishlist");
+      CustomToast({
+        title: "Product Added to Wishlist",
+        icon: "success",
+      });
+    } else {
+      console.log("Already Added in Page");
+      CustomToast({
+        title: "Product Already Added in Wishlist",
+        icon: "error",
+      });
+    }
+  };
   return (
     <React.Fragment>
       <div className="item-details">
@@ -101,14 +123,25 @@ const ItemDetail = ({ selectedProduct }) => {
             />
           </Col>
         </Row>
-        <div>
-          <button
-            type="button"
-            className="btn btn-sm btn-primary"
-            onClick={(e) => handleAddToCart(e)}
-          >
-            ADD TO CART
-          </button>
+        <div className="d-flex justify-content-between">
+          <div>
+            <button
+              type="button"
+              className="btn btn-sm btn-primary"
+              onClick={(e) => handleAddToCart(e)}
+            >
+              ADD TO CART
+            </button>
+          </div>
+          <div>
+            <button
+              type="button"
+              className="btn btn-sm btn-primary"
+              onClick={(e) => handleAddToWishlist(e)}
+            >
+              Wishlist
+            </button>
+          </div>
         </div>
       </div>
     </React.Fragment>

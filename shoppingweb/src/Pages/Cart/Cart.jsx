@@ -11,7 +11,7 @@ const Cart = () => {
     <React.Fragment>
       <section className="my-4 cart-section">
         <Container>
-          <Row>
+          <Row className="gy-4 gy-lg-0">
             <Col lg={8} xl={8}>
               <CartDetails cartItems={cartItems} />
             </Col>
@@ -19,6 +19,7 @@ const Cart = () => {
               <CartPrice cartItems={cartItems} />
             </Col>
           </Row>
+          
         </Container>
       </section>
     </React.Fragment>

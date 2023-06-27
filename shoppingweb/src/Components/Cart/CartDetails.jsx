@@ -8,6 +8,7 @@ import {
 import { useDispatch } from "react-redux";
 import { CurrenctContext } from "../../Context/CurrencyContext";
 import { quantitySubTotal } from "../../utils/cartTotal";
+import { NavLink } from "react-router-dom";
 const CartDetails = ({ cartItems }) => {
   const { formatCurrency } = useContext(CurrenctContext);
   const dispatch = useDispatch();
@@ -17,7 +18,6 @@ const CartDetails = ({ cartItems }) => {
       // ? Generate Columns Names and Save them in state
       const generatedColumns = [
         { Header: "Sr.No" },
-
         {
           Header: "Images",
           accessor: "thumbnail",
@@ -178,7 +178,9 @@ const CartDetails = ({ cartItems }) => {
                           } else {
                             return (
                               <td {...cell.getCellProps()}>
-                                <span>{cell.render("Cell")}</span>
+                                <span className="text-capitalize">
+                                  {cell.render("Cell")}
+                                </span>
                               </td>
                             );
                           }
@@ -188,6 +190,13 @@ const CartDetails = ({ cartItems }) => {
                   })}
                 </tbody>
               </table>
+              <div className="d-flex justify-content-end">
+                <NavLink to={"/checkout"}>
+                  <button type="button" className="btn btn-primary">
+                    Checkout
+                  </button>
+                </NavLink>
+              </div>
             </div>
           ) : (
             <div className="p-5">

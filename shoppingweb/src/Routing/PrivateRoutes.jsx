@@ -1,16 +1,13 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import Layout from "../Pages/Layout";
+import Layout from "./Layout";
 import Home from "../Pages/Home/Home";
 import Category from "../Pages/Category/Category";
 import ShowProductDetail from "../Pages/ProductDetail/ShowProductDetail";
 import Wishlist from "../Pages/Wishlist/Wishlist";
 import Profile from "../Pages/Profile/Profile";
 import Cart from "../Pages/Cart/Cart";
-import NewComponent from "../Pages/ExtraPages/NewComponent";
-import CustomDateTime from "../Pages/ExtraPages/CutomDateTime";
-import EnterInfo from "../Pages/ExtraPages/EnterInfo";
-import ChooseDate from "../Pages/ExtraPages/ChooseDate";
+import Checkout from "../Pages/Checkout.jsx/Checkout";
 const PrivateRoutes = () => {
   return (
     <Routes>
@@ -21,7 +18,7 @@ const PrivateRoutes = () => {
         <Route path={"/wishlist"} element={<Wishlist />} />
         <Route path={"/profile"} element={<Profile />} />
         <Route path={"/cart"} element={<Cart />} />
-        <Route path={"/date"} element={<ChooseDate />} />
+        <Route path={"/checkout"} element={<Checkout />} />
         <Route path={"/*"} element={<Navigate to={"/error"} />} />
       </Route>
     </Routes>
