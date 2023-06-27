@@ -16,9 +16,6 @@ export const wishListSlice = createSlice({
         state.wishListItems.push({
           ...action.payload,
         });
-      } else {
-        // console.log("Already Added to Wishlist");
-        return;
       }
     },
   },

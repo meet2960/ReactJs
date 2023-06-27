@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-// import { currencyFormat } from "../../utils/currencyFormat";
 import { useDispatch, useSelector } from "react-redux";
 import { Col, Row } from "reactstrap";
 import { removeItem } from "../../Redux/cart/cartSlice";
@@ -50,27 +49,12 @@ const CartOffCanvas = () => {
                           <h6 className="mb-0 fw-semibold">{items.title}</h6>
                         </Col>
                         <Col xs={"auto"}>
-                          {/* <button
-                            className="btn btn-sm btn-dark"
-                            type="button"
-                            onClick={() => dispatch(increaseQuantity(items))}
-                          >
-                            +
-                          </button> */}
                           <span className="d-inline-block fs-15 mx-2">
                             Quantity : {items.quantity}
                           </span>
-                          {/* <button
-                            className="btn btn-sm btn-dark"
-                            type="button"
-                            onClick={() => dispatch(decreaseQuantity(items))}
-                            disabled={items.quantity > 1 ? "" : "Disabled "}
-                          >
-                            -
-                          </button> */}
                         </Col>
                         <Col xs={"3"} className="text-end">
-                          <h6 className="fw-semibold">
+                          <h6 className="fw-semibold mb-0">
                             {formatCurrency(items.price)}
                           </h6>
                           <div>

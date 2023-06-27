@@ -36,7 +36,10 @@ const ItemDetail = ({ selectedProduct }) => {
     ],
     []
   );
-
+  const [optionObj, setOptionObj] = useState({
+    selectedSize: "",
+    selectedColor: "",
+  });
   const handleAddToCart = (e) => {
     e.preventDefault();
     dispatch(addToCart(selectedProduct));
@@ -45,10 +48,7 @@ const ItemDetail = ({ selectedProduct }) => {
       icon: "success",
     });
   };
-  const [optionObj, setOptionObj] = useState({
-    selectedSize: "",
-    selectedColor: "",
-  });
+
   const handleSelectedValue = (selectedValue, options) => {
     console.log("Details Select", selectedValue);
     if (options.name === "size") {
@@ -60,7 +60,7 @@ const ItemDetail = ({ selectedProduct }) => {
     }
   };
   useEffect(() => {
-    // console.log("Inside Details with Options", optionObj);
+    console.log("Inside Details with Options", optionObj);
   }, [optionObj]);
   const handleAddToWishlist = (e) => {
     e.preventDefault();
