@@ -11,6 +11,6 @@ This Repository consists of React Projects from basic to Advance. All projects c
 | :-------- | :------- | :------------------------- |
 | 1 | `Notes` | [Notes App](https://customnotesapp.netlify.app/) |
 | 2 | `Movies App` | [Movies App](https://myshowsmoviesapp.netlify.app/) |
-| 3 | `Ecommerce App` | [Movies App](https://myshowsmoviesapp.netlify.app/) |
-| 4 | `Weather` | [Notes App](https://customnotesapp.netlify.app/) |
+| 3 | `Ecommerce App` | [Ecommerce App](https://myshowsmoviesapp.netlify.app/) |
+| 4 | `Weather` | [Weather App](https://findcustomweather.netlify.app) |
 | 5 | `Dynamic Form` | [Custom Form App](https://customformcreation.netlify.app/) |
