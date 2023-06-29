@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Col, Container, Row } from "reactstrap";
+import { CurrenctContext } from "../../Context/CurrencyContext";
 
 const OfferImage = () => {
+  const { formatCurrency } = useContext(CurrenctContext);
   return (
     <React.Fragment>
       <section className="mb-5">
@@ -13,7 +15,7 @@ const OfferImage = () => {
                   <h5>New Arrivals</h5>
                   <h3 className="py-3 border-bottom">Sports Outfit</h3>
                   <div>
-                    From <span>$150</span>
+                    From <span>{formatCurrency(150)}</span>
                   </div>
                 </div>
               </Col>
@@ -24,7 +26,7 @@ const OfferImage = () => {
                     Sale up to 20% Off
                   </h3>
                   <div>
-                    Starting From <span>$200</span>
+                    Starting From <span>{formatCurrency(200)}</span>
                   </div>
                 </div>
               </Col>

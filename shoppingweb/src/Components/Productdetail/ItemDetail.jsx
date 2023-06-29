@@ -36,10 +36,6 @@ const ItemDetail = ({ selectedProduct }) => {
     ],
     []
   );
-  const [optionObj, setOptionObj] = useState({
-    selectedSize: "",
-    selectedColor: "",
-  });
   const handleAddToCart = (e) => {
     e.preventDefault();
     dispatch(addToCart(selectedProduct));
@@ -49,7 +45,11 @@ const ItemDetail = ({ selectedProduct }) => {
     });
   };
 
-  const handleSelectedValue = (selectedValue, options) => {
+  const [optionObj, setOptionObj] = useState({
+    selectedSize: "",
+    selectedColor: "",
+  });
+  /*   const handleSelectedValue = (selectedValue, options) => {
     console.log("Details Select", selectedValue);
     if (options.name === "size") {
       setOptionObj({ ...optionObj, selectedSize: selectedValue });
@@ -58,10 +58,11 @@ const ItemDetail = ({ selectedProduct }) => {
     } else {
       return;
     }
-  };
+  }; */
   useEffect(() => {
-    console.log("Inside Details with Options", optionObj);
+    // console.log("Inside Details with Options", optionObj);
   }, [optionObj]);
+  // ? Add To Wishlist Button
   const handleAddToWishlist = (e) => {
     e.preventDefault();
     dispatch(addToWishList(selectedProduct));
@@ -108,7 +109,7 @@ const ItemDetail = ({ selectedProduct }) => {
             </label>
             <CustomReactSelect
               options={sizesOption}
-              getSelectedValue={handleSelectedValue}
+              // getSelectedValue={handleSelectedValue}
               selectName={"size"}
             />
           </Col>
@@ -118,7 +119,7 @@ const ItemDetail = ({ selectedProduct }) => {
             </label>
             <CustomReactSelect
               options={colorOptions}
-              getSelectedValue={handleSelectedValue}
+              // getSelectedValue={handleSelectedValue}
               selectName={"color"}
             />
           </Col>

@@ -126,4 +126,14 @@
       border-color: #{$dark-gray-300};
     }
   }
+  // * For React Select
+  .custom-select-container .react-select-container .custom-react-select__menu {
+    background-color: $dark-gray-200;
+  }
+  // * Cart Page
+  .cart-section {
+    .cart-quantity {
+      background-color: $dark-gray-200;
+    }
+  }
 }

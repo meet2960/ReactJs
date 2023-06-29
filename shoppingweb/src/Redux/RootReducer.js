@@ -5,13 +5,14 @@ import { productSlice } from "./product/productSlice";
 import { commonSlices } from "./common/commonSlice";
 import { persistReducer } from "redux-persist";
 import { AuthSlice } from "./auth/authSlice";
+import { orderSlice } from "./orders/ordersSlice";
 import { wishListSlice } from "./wishlist/wishlistSlice";
 import storage from "redux-persist/lib/storage";
 import sessionStorage from "redux-persist/lib/storage/session";
 
 const authPersistConfig = {
   key: "auth",
-  storage: storage, // use Session Storage here
+  storage: sessionStorage, // use Session Storage here
 };
 const layoutPersistConfig = {
   key: "ecommerceLayout",
@@ -19,7 +20,7 @@ const layoutPersistConfig = {
 };
 const productPersistConfig = {
   key: "ecommerceProductList",
-  storage: storage,
+  storage: sessionStorage,
 };
 export const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, AuthSlice.reducer),
@@ -28,6 +29,7 @@ export const rootReducer = combineReducers({
   cart: cartSlice.reducer,
   product: persistReducer(productPersistConfig, productSlice.reducer),
   wishlist: wishListSlice.reducer,
+  orderlist: orderSlice.reducer,
   // product: productSlice.reducer,
   // auth: AuthSlice.reducer,
 });

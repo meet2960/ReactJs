@@ -12,7 +12,7 @@ const RatingsStars = ({ getRatings, size }) => {
               className={`bi bi-star-fill me-1 ${
                 index < ratings ? "text-warning" : ""
               } ${size}`}
-            ></i>
+            />
           </React.Fragment>
         ))}
       </span>

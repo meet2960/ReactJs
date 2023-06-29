@@ -19,7 +19,6 @@ const Cart = () => {
               <CartPrice cartItems={cartItems} />
             </Col>
           </Row>
-          
         </Container>
       </section>
     </React.Fragment>

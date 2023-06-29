@@ -60,7 +60,7 @@ const CartDetails = ({ cartItems }) => {
     <React.Fragment>
       <div className="cart-content card">
         <div className="card-body">
-          <h4 className="text-center my-3 pb-4 border-bottom fw-semibold">
+          <h4 className="text-center my-3 border-bottom pb-4">
             Purchase List <i className="bi bi-bag-check-fill" />
           </h4>
           {cartItems && cartItems.length !== 0 ? (
@@ -95,10 +95,7 @@ const CartDetails = ({ cartItems }) => {
                     </tr>
                   ))}
                 </thead>
-                <tbody
-                  className="text-center fw-medium"
-                  {...getTableBodyProps()}
-                >
+                <tbody className="text-center" {...getTableBodyProps()}>
                   {rows.map((row, rowIndex) => {
                     // console.log("Row", row.original);
                     const selectedItem = row.original; // get selected id
@@ -129,7 +126,7 @@ const CartDetails = ({ cartItems }) => {
                                   type="button"
                                   className="btn btn-primary"
                                   onClick={() =>
-                                    dispatch(removeItem(selectedItem.id))
+                                    dispatch(removeItem(selectedItem))
                                   }
                                 >
                                   <i className="bi bi-x" />

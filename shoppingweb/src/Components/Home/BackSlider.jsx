@@ -35,7 +35,7 @@ const BackSlider = () => {
                 >
                   <Container>
                     <Row>
-                      <Col lg={6} className="back-content">
+                      <Col md={12} lg={6} className="back-content">
                         <div>
                           <p>Amazing Products From Store</p>
                           <h1>

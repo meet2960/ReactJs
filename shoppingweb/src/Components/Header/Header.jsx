@@ -92,7 +92,7 @@ const Header = () => {
                   <i className="bi bi-search" />
                 </div>
                 <div className="mt-3 mt-lg-0">
-                  <ul className="navbar-nav align-items-center nav-icons">
+                  <ul className="navbar-nav align-items-center nav-icons flex-row justify-content-center">
                     <li className="nav-item">
                       <ProfileDropDown />
                     </li>

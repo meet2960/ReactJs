@@ -8,10 +8,14 @@ const Wishlist = () => {
   }, [wishListItems]);
   return (
     <React.Fragment>
-      <section>
+      <section className="my-4 wishlist-section">
         <Container>
-          <h1>Total Items in WishList {wishListItems.length}</h1>
-          {/* <p>{wishListItems.length}</p> */}
+          <div>
+            <h1 className="text-center">My Wishlist {wishListItems.length}</h1>
+            <div>
+              
+            </div>
+          </div>
         </Container>
       </section>
     </React.Fragment>

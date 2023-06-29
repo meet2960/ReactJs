@@ -5,7 +5,10 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { FormikInput } from "../Login/FormikInput";
 import Select from "react-select";
 import citiesData from "../../utils/cities.json";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 const CheckoutForm = () => {
+  const navigate = useNavigate();
   //   console.log("Citites", citiesData);
   const uniqueStates = [
     ...new Set(citiesData.map((items) => items.state)),
@@ -55,6 +58,18 @@ const CheckoutForm = () => {
     .sort((a, b) => a.value.localeCompare(b.value));
 
   console.log("Filteted Cities", filterCitiesOption);
+  const handleOrderSubmit = (values) => {
+    console.log("Values", values);
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Order Placed Successfully",
+      showConfirmButton: false,
+      timer: 1500,
+    }).then(() => {
+      navigate("/home");
+    });
+  };
   return (
     <React.Fragment>
       <Container>
@@ -66,7 +81,7 @@ const CheckoutForm = () => {
             <Formik
               initialValues={initialValues}
               validationSchema={validationSchema}
-              onSubmit={(values) => console.log("Values", values)}
+              onSubmit={(values) => handleOrderSubmit(values)}
             >
               {({
                 values,
@@ -152,18 +167,23 @@ const CheckoutForm = () => {
                       <Label htmlFor="selectedState">State</Label>
                       <Field name="selectedState">
                         {({ field }) => (
-                          <Select
-                            id="selectedState"
-                            options={statesOptions}
-                            value={statesOptions.find(
-                              (option) => option.value === values.selectedState
-                            )}
-                            onChange={(option) => {
-                              setFieldValue("selectedState", option.value);
-                              handleOptionChange(option.value);
-                            }}
-                            onBlur={field.onBlur}
-                          />
+                          <div className="custom-select-container fs-14">
+                            <Select
+                              className="react-select-container"
+                              classNamePrefix="custom-react-select"
+                              id="selectedState"
+                              options={statesOptions}
+                              value={statesOptions.find(
+                                (option) =>
+                                  option.value === values.selectedState
+                              )}
+                              onChange={(option) => {
+                                setFieldValue("selectedState", option.value);
+                                handleOptionChange(option.value);
+                              }}
+                              onBlur={field.onBlur}
+                            />
+                          </div>
                         )}
                       </Field>
                       <ErrorMessage
@@ -176,17 +196,21 @@ const CheckoutForm = () => {
                       <Label htmlFor="selectedCity">Cities</Label>
                       <Field name="selectedCity">
                         {({ field }) => (
-                          <Select
-                            id="selectedCity"
-                            options={filterCitiesOption}
-                            value={filterCitiesOption.find(
-                              (option) => option.value === values.selectedCity
-                            )}
-                            onChange={(option) => {
-                              setFieldValue("selectedCity", option.value);
-                            }}
-                            onBlur={field.onBlur}
-                          />
+                          <div className="custom-select-container fs-14">
+                            <Select
+                              className="react-select-container"
+                              classNamePrefix="custom-react-select"
+                              id="selectedCity"
+                              options={filterCitiesOption}
+                              value={filterCitiesOption.find(
+                                (option) => option.value === values.selectedCity
+                              )}
+                              onChange={(option) => {
+                                setFieldValue("selectedCity", option.value);
+                              }}
+                              onBlur={field.onBlur}
+                            />
+                          </div>
                         )}
                       </Field>
                       <ErrorMessage

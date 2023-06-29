@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useMemo } from "react";
 import customQrCode from "../../assets/images/qr-code.png";
 import playStoreImg from "../../assets/images/play-store.png";
 import appStoreImg from "../../assets/images/app-store.png";
 import { Col, Container, Row } from "reactstrap";
+import { NavLink } from "react-router-dom";
 
 const FooterDetails = () => {
+  const accountList = useMemo(
+    () => ["My Account", "Login", "Card", "Wishlist", "Shop"],
+    []
+  );
   return (
     <React.Fragment>
       <section className="my-5">
@@ -34,6 +39,18 @@ const FooterDetails = () => {
               <div className="content">
                 <h5 className="mb-3 fw-semibold">Account</h5>
                 <ul className="list-unstyled">
+                  {/*   {accountList &&
+                    accountList.map((items, index) => {
+                      return (
+                        <React.Fragment key={index}>
+                          <NavLink to={items.toLowerCase()}>
+                            <li>
+                              <span>{items}</span>
+                            </li>
+                          </NavLink>
+                        </React.Fragment>
+                      );
+                    })} */}
                   <li>
                     <span>My Account</span>
                   </li>

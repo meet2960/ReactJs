@@ -7,10 +7,23 @@ import userImg from "../../../assets/images/userimage.png";
 const Header = () => {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
+  const handleChange = (e) => {
+    e.preventDefault();
+    setSearchTerm(e.target.value);
+    if (searchTerm.length <= 2) {
+      console.log("Enter More");
+      dispatch(fetchAsyncMovies("mission"));
+      dispatch(fetchAsyncShows("mission"));
+    } else {
+      console.log("Search Term", searchTerm);
+      dispatch(fetchAsyncMovies(searchTerm));
+      dispatch(fetchAsyncShows(searchTerm));
+    }
+  };
   const submitHandler = (e) => {
     e.preventDefault();
     if (searchTerm === "") {
-      alert("Please enter Search term");
+      console.log("Please enter Search term");
     } else {
       console.log("Search Term", searchTerm);
       dispatch(fetchAsyncMovies(searchTerm));
@@ -58,6 +71,7 @@ const Header = () => {
                 type="text"
                 placeholder="Search Movies or Show"
                 value={searchTerm}
+                // onChange={(e) => handleChange(e)}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
               <button

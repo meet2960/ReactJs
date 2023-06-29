@@ -6,12 +6,13 @@ const CustomReactSelect = ({
   options,
   selectName,
   getSelectedValue,
+  key,
 }) => {
   const [selectedOption, setSelectedOption] = useState();
   const handleChange = (selectedOption, options) => {
-    console.log("Inside react Select", selectedOption, options);
+    console.log("Inside react Select Component", selectedOption);
     setSelectedOption(selectedOption.value);
-    getSelectedValue(selectedOption.value, options); // send value back to other component
+    // getSelectedValue(selectedOption.value, options); // send value back to parent component
     console.log("Selected Option Value", selectedOption.value);
     console.log("Selected Options Object", options);
   };
@@ -19,13 +20,13 @@ const CustomReactSelect = ({
     <React.Fragment>
       <div className="custom-select-container fs-14">
         <Select
+          placeholder={optionText}
           className="react-select-container"
           classNamePrefix="custom-react-select"
-          value={selectedOption?.value}
           options={options}
-          onChange={handleChange}
-          placeholder={optionText}
           name={selectName}
+          value={selectedOption?.value}
+          onChange={handleChange} // gives Selected Value by itself
         />
       </div>
     </React.Fragment>
