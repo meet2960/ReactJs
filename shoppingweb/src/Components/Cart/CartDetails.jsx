@@ -99,7 +99,7 @@ const CartDetails = ({ cartItems }) => {
                   {rows.map((row, rowIndex) => {
                     // console.log("Row", row.original);
                     const selectedItem = row.original; // get selected id
-                    console.log("selectedItem", selectedItem);
+                    // console.log("selectedItem", selectedItem);
                     prepareRow(row);
                     return (
                       <tr {...row.getRowProps()}>
@@ -112,11 +112,15 @@ const CartDetails = ({ cartItems }) => {
                           } else if (cell.column.Header === "Images") {
                             return (
                               <td {...cell.getCellProps()}>
-                                <img
-                                  src={cell.value}
-                                  alt={cell.Title}
-                                  className="avatar-md"
-                                />
+                                <NavLink
+                                  to={`/productdetails/${selectedItem.id}`}
+                                >
+                                  <img
+                                    src={cell.value}
+                                    alt={cell.Title}
+                                    className="avatar-md"
+                                  />
+                                </NavLink>
                               </td>
                             );
                           } else if (cell.column.Header === "Remove") {
@@ -169,15 +173,18 @@ const CartDetails = ({ cartItems }) => {
                                     quantitySubTotal(selectedItem)
                                   )}
                                 </span>
-                                {/* <span>{formatCurrency(cell.value)}</span> */}
                               </td>
                             );
                           } else {
                             return (
                               <td {...cell.getCellProps()}>
-                                <span className="text-capitalize">
-                                  {cell.render("Cell")}
-                                </span>
+                                <NavLink
+                                  to={`/productdetails/${selectedItem.id}`}
+                                >
+                                  <span className="text-capitalize">
+                                    {cell.render("Cell")}
+                                  </span>
+                                </NavLink>
                               </td>
                             );
                           }

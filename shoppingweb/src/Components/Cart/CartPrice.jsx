@@ -5,7 +5,6 @@ import { CurrenctContext } from "../../Context/CurrencyContext";
 const CartPrice = ({ cartItems }) => {
   const { formatCurrency } = useContext(CurrenctContext);
   const subTotal = useMemo(() => {
-    console.log("UseMemo Again");
     return cartTotal(cartItems);
   }, [cartItems]);
   const deliveryCharges = cartItems && cartItems.length !== 0 ? 150 : 0;
