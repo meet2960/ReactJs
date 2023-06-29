@@ -6,7 +6,6 @@ import CommonProductCard from "../Common/CommonProductCard";
 import saleImg from "../../assets/images/category-img-widget.jpg";
 
 const FilterCategory = () => {
-  document.title = "Ecommerce | Category";
   const { productData } = useSelector((state) => ({
     productData: state.product.products,
   }));

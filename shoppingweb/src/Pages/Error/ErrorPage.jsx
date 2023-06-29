@@ -3,6 +3,7 @@ import ErrorImg from "../../assets/images/Errorimg.jpg";
 import { useNavigate } from "react-router-dom";
 
 const ErrorPage = () => {
+  document.title = "Error | Ecommerce";
   const navigate = useNavigate();
   const navigateHome = (e) => {
     e.preventDefault();

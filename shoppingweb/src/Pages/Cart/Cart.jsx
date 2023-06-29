@@ -5,6 +5,7 @@ import CartPrice from "../../Components/Cart/CartPrice";
 import { useSelector } from "react-redux";
 
 const Cart = () => {
+  document.title = "My Cart | Ecommerce";
   const cartItems = useSelector((state) => state.cart.cartItems);
   console.log("CartItems are : ", cartItems);
   return (

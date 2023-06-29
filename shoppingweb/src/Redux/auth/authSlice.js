@@ -3,9 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const CryptoJS = require("crypto-js");
 
 const initialState = {
-  access_token: "",
+  access_token: "U2FsdGVkX187NoJ5/GpgzWgD+GHre+1unBlAj3v7rd8=",
   user: {
-    email: "",
+    email: "abcdxyz@gmail.com",
   },
 };
 

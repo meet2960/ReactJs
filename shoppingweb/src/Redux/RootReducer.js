@@ -29,7 +29,7 @@ export const rootReducer = combineReducers({
   cart: cartSlice.reducer,
   product: persistReducer(productPersistConfig, productSlice.reducer),
   wishlist: wishListSlice.reducer,
-  orderlist: orderSlice.reducer,
+  order: orderSlice.reducer,
   // product: productSlice.reducer,
   // auth: AuthSlice.reducer,
 });

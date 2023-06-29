@@ -8,17 +8,19 @@ import Wishlist from "../Pages/Wishlist/Wishlist";
 import Profile from "../Pages/Profile/Profile";
 import Cart from "../Pages/Cart/Cart";
 import Checkout from "../Pages/Checkout.jsx/Checkout";
+import Orders from "../Pages/Orders/Orders";
 const PrivateRoutes = () => {
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route path={"/home"} element={<Home />} />
-        <Route path={"/category"} element={<Category />} />
-        <Route path={"/productdetails/:id"} element={<ShowProductDetail />} />
-        <Route path={"/wishlist"} element={<Wishlist />} />
-        <Route path={"/profile"} element={<Profile />} />
-        <Route path={"/cart"} element={<Cart />} />
-        <Route path={"/checkout"} element={<Checkout />} />
+        <Route path={"home"} element={<Home />} />
+        <Route path={"category"} element={<Category />} />
+        <Route path={"productdetails/:id"} element={<ShowProductDetail />} />
+        <Route path={"wishlist"} element={<Wishlist />} />
+        <Route path={"profile"} element={<Profile />} />
+        <Route path={"cart"} element={<Cart />} />
+        <Route path={"checkout"} element={<Checkout />} />
+        <Route path={"orders"} element={<Orders />} />
         <Route path={"/*"} element={<Navigate to={"/error"} />} />
       </Route>
     </Routes>

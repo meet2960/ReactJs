@@ -23,18 +23,19 @@ const ProfileDropDown = () => {
         </DropdownToggle>
         <DropdownMenu className="dropdown-menu-lg dropdown-menu-end p-0">
           <div>
-            <ul className="list-group fs-18555">
+            <ul className="list-group fs-18555 text-center">
               <li className="list-group-item">
                 <NavLink to="/profile" className="nav-link">
-                  Profile
+                  My Profile
                 </NavLink>
               </li>
               <li className="list-group-item">
-                <NavLink to="/home" className="nav-link">
-                  Orders
+                <NavLink to="/orders" className="nav-link">
+                  My Orders
                 </NavLink>
               </li>
               <li className="list-group-item">
+                <span className="fs-14">Change Currency</span>
                 <CurrencyDropDown />
               </li>
               <li className="list-group-item">

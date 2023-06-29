@@ -9,7 +9,7 @@ import ProfileDropDown from "../Common/ProfileDropDown";
 import ThemeChange from "../Common/ThemeChange";
 const Header = () => {
   const cart = useSelector((state) => state.cart.cartItems); // to get cart total item count
-  // * To get currenct layout theme of Page
+  // * To get currenct layout theme of Page for logo change
   const { layoutType } = useSelector((state) => ({
     layoutType: state.layout.layoutModeType,
   }));
@@ -35,7 +35,6 @@ const Header = () => {
                   </NavLink>
                 </div>
               </Col>
-
               <button
                 className="navbar-toggler"
                 type="button"
@@ -68,16 +67,6 @@ const Header = () => {
                       aria-current="page"
                     >
                       Cart
-                    </NavLink>
-                  </li>
-
-                  <li className="nav-item">
-                    <NavLink
-                      className="nav-link"
-                      to={"/checkout"}
-                      aria-current="page"
-                    >
-                      Checkout
                     </NavLink>
                   </li>
                 </ul>

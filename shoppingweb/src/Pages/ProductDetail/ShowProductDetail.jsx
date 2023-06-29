@@ -7,6 +7,7 @@ import ProductDetailsTabs from "../../Components/Productdetail/ProductDetailsTab
 import RelatedProducts from "../../Components/Productdetail/RelatedProducts";
 
 const ShowProductDetail = () => {
+  document.title = "Product | Ecommerce";
   const productList = useSelector((state) => state.product.products);
   const { id } = useParams();
   const selectedProduct = productList.find(

@@ -6,9 +6,14 @@ import { FormikInput } from "../Login/FormikInput";
 import Select from "react-select";
 import citiesData from "../../utils/cities.json";
 import Swal from "sweetalert2";
+import { addToOrders } from "../../Redux/orders/ordersSlice";
+import { deleteCart } from "../../Redux/cart/cartSlice";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 const CheckoutForm = () => {
+  const cartItems = useSelector((state) => state.cart.cartItems);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   //   console.log("Citites", citiesData);
   const uniqueStates = [
     ...new Set(citiesData.map((items) => items.state)),
@@ -25,8 +30,8 @@ const CheckoutForm = () => {
     postalcode: "",
     locality: "",
     address: "",
-    selectedState: "",
-    selectedCity: "",
+    state: "",
+    city: "",
   };
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Enter valid Name"),
@@ -39,18 +44,18 @@ const CheckoutForm = () => {
       .matches(/^\d{6}$/, "Postal code must be exactly 6 digits")
       .max(6, "Postal code must be exactly 6 digits")
       .required("Postal code is required"),
-    // locality: Yup.string().required("Postcode is Required"),
+    locality: Yup.string().required("Locality is Required"),
     address: Yup.string().required("Address is Required"),
-    selectedState: Yup.string().required("State is required"),
-    selectedCity: Yup.string().required("City is required"),
+    state: Yup.string().required("State is required"),
+    city: Yup.string().required("City is required"),
   });
-  const [stateValue, setStateValue] = useState(null);
+  const [selectedState, setSelectedState] = useState(null);
   const handleOptionChange = (selectedOption) => {
-    setStateValue(selectedOption);
+    setSelectedState(selectedOption);
   };
   const filterCitiesOption = citiesData
     .filter((items, index) => {
-      return stateValue === items.state;
+      return selectedState === items.state;
     })
     .map((items, index) => {
       return { value: items.name, label: items.name };
@@ -60,13 +65,16 @@ const CheckoutForm = () => {
   console.log("Filteted Cities", filterCitiesOption);
   const handleOrderSubmit = (values) => {
     console.log("Values", values);
+
     Swal.fire({
       position: "center",
       icon: "success",
       title: "Order Placed Successfully",
-      showConfirmButton: false,
-      timer: 1500,
+      showConfirmButton: true,
+      confirmButtonText: "Go Home",
     }).then(() => {
+      dispatch(addToOrders({ address: values, cart: cartItems }));
+      dispatch(deleteCart());
       navigate("/home");
     });
   };
@@ -164,21 +172,20 @@ const CheckoutForm = () => {
                       />
                     </Col>
                     <Col lg={6}>
-                      <Label htmlFor="selectedState">State</Label>
-                      <Field name="selectedState">
+                      <Label htmlFor="state">State</Label>
+                      <Field name="state">
                         {({ field }) => (
                           <div className="custom-select-container fs-14">
                             <Select
                               className="react-select-container"
                               classNamePrefix="custom-react-select"
-                              id="selectedState"
+                              id="state"
                               options={statesOptions}
                               value={statesOptions.find(
-                                (option) =>
-                                  option.value === values.selectedState
+                                (option) => option.value === values.state
                               )}
                               onChange={(option) => {
-                                setFieldValue("selectedState", option.value);
+                                setFieldValue("state", option.value);
                                 handleOptionChange(option.value);
                               }}
                               onBlur={field.onBlur}
@@ -187,26 +194,26 @@ const CheckoutForm = () => {
                         )}
                       </Field>
                       <ErrorMessage
-                        name={"selectedState"}
+                        name={"state"}
                         component={"div"}
                         className="text-danger position-absolute fs-14"
                       />
                     </Col>
                     <Col lg={6}>
-                      <Label htmlFor="selectedCity">Cities</Label>
-                      <Field name="selectedCity">
+                      <Label htmlFor="city">Cities</Label>
+                      <Field name="city">
                         {({ field }) => (
                           <div className="custom-select-container fs-14">
                             <Select
                               className="react-select-container"
                               classNamePrefix="custom-react-select"
-                              id="selectedCity"
+                              id="city"
                               options={filterCitiesOption}
                               value={filterCitiesOption.find(
-                                (option) => option.value === values.selectedCity
+                                (option) => option.value === values.city
                               )}
                               onChange={(option) => {
-                                setFieldValue("selectedCity", option.value);
+                                setFieldValue("city", option.value);
                               }}
                               onBlur={field.onBlur}
                             />
@@ -214,7 +221,7 @@ const CheckoutForm = () => {
                         )}
                       </Field>
                       <ErrorMessage
-                        name={"selectedCity"}
+                        name={"city"}
                         component={"div"}
                         className="text-danger position-absolute fs-14"
                       />

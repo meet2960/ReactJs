@@ -1,7 +1,6 @@
 import React from "react";
 import { Card, Col, Container, Row } from "reactstrap";
 import RegisterForm from "../../Components/Register/RegisterForm";
-import { doc } from "prettier";
 
 const Register = () => {
   document.title = "Register | Ecommerce";
