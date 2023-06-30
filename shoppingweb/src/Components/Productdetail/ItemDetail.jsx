@@ -87,9 +87,10 @@ const ItemDetail = ({ selectedProduct }) => {
     <React.Fragment>
       <div className="item-details">
         <p className="fs-12 mb-0">{selectedProduct.category.toUpperCase()}</p>
-        <h3 className="fw-semibold my-3">
-          {selectedProduct.title.charAt(0).toUpperCase() +
-            selectedProduct.title.slice(1)}
+        <h3 className="fw-semibold my-2 text-capitalize">
+          {selectedProduct.title}
+          {/*   {selectedProduct.title.charAt(0).toUpperCase() +
+            selectedProduct.title.slice(1)} */}
         </h3>
         <p className="mb-0 fs-12">
           <RatingsStars getRatings={selectedProduct.rating} />
@@ -99,7 +100,7 @@ const ItemDetail = ({ selectedProduct }) => {
         <h3 className="my-3 fw-semibold">
           {formatCurrency(selectedProduct.price)}
         </h3>
-        <div className="fs-16 py-3 border-bottom">
+        <div className="fs-16 pb-3 border-bottom">
           <p className="mb-0">{selectedProduct.description}</p>
         </div>
         <Row className="item-dropdowns justify-content-between my-3 fs-16">

@@ -11,7 +11,7 @@ const OfferImage = () => {
           <Container>
             <Row className="gy-3 gy-md-0">
               <Col md={6}>
-                <div className="banner-bg-1 p-4 text-end rounded-2">
+                <div className="banner-bg-1 p-4 text-md-end rounded-2">
                   <h5>New Arrivals</h5>
                   <h3 className="py-3 border-bottom">Sports Outfit</h3>
                   <div>

@@ -65,7 +65,8 @@ const CheckoutForm = () => {
   console.log("Filteted Cities", filterCitiesOption);
   const handleOrderSubmit = (values) => {
     console.log("Values", values);
-
+    dispatch(addToOrders({ address: values, cart: cartItems }));
+    /* 
     Swal.fire({
       position: "center",
       icon: "success",
@@ -73,10 +74,9 @@ const CheckoutForm = () => {
       showConfirmButton: true,
       confirmButtonText: "Go Home",
     }).then(() => {
-      dispatch(addToOrders({ address: values, cart: cartItems }));
       dispatch(deleteCart());
       navigate("/home");
-    });
+    }); */
   };
   return (
     <React.Fragment>

@@ -1,15 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import RatingsStars from "./RatingsStars";
 import { CurrenctContext } from "../../Context/CurrencyContext";
-
+import { Skeleton } from "antd";
 const CommonProductCard = ({ items }) => {
   const { formatCurrency } = useContext(CurrenctContext);
-
+  const [imgLoading, setImgLoading] = useState(true); // For Image Loading
   return (
     <React.Fragment>
       <div className="fs-16 custom-productcard overflow-hidden text-center position-relative">
         <div className="custom-productcard-img d-flex justify-content-center">
-          <img src={items.thumbnail} alt={items.title} />
+          {imgLoading && (
+            <Skeleton.Image active={true} className="card-skeleton" />
+          )}
+          <img
+            src={items.thumbnail}
+            alt={items.title}
+            className={`${imgLoading ? "d-none" : "d-block"}`}
+            onLoad={() => setImgLoading(false)}
+          />
         </div>
         <div className="px-4 py-3">
           <div className="fs-12">{items.category.toUpperCase()}</div>
