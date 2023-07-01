@@ -10,6 +10,7 @@ import { CurrenctContext } from "../../Context/CurrencyContext";
 import { quantitySubTotal } from "../../utils/cartTotal";
 import { NavLink } from "react-router-dom";
 import { Skeleton } from "antd";
+import CommonHeading from "../Common/CommonHeading";
 const CartDetails = ({ cartItems }) => {
   const [imgLoading, setImgLoading] = useState(true);
   const { formatCurrency } = useContext(CurrenctContext);
@@ -61,9 +62,12 @@ const CartDetails = ({ cartItems }) => {
   return (
     <React.Fragment>
       <React.Fragment>
-        <h4 className="text-center my-3 border-bottom pb-4">
+        <div className="my-3">
+          <CommonHeading heading={"Purchase List"} />
+        </div>
+        {/* <h3 className="text-center my-3 border-bottom pb-4">
           Purchase List <i className="bi bi-bag-check-fill" />
-        </h4>
+        </h3> */}
         {cartItems && cartItems.length !== 0 ? (
           <div className="table-responsive">
             <table

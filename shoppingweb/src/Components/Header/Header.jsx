@@ -69,6 +69,15 @@ const Header = () => {
                       Cart
                     </NavLink>
                   </li>
+                  <li className="nav-item">
+                    <NavLink
+                      className="nav-link"
+                      to={"/orders"}
+                      aria-current="page"
+                    >
+                      Orders
+                    </NavLink>
+                  </li>
                 </ul>
                 <div className="search-field">
                   <Input
@@ -104,7 +113,7 @@ const Header = () => {
                       >
                         <div className="position-relative">
                           <i className="fa-solid fa-cart-shopping fs-22"></i>
-                          <span className="badge text-dark">
+                          <span className="badge text-muted">
                             {cart && cart.length}
                           </span>
                         </div>

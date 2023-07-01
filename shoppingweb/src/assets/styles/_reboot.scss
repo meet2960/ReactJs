@@ -104,9 +104,16 @@ a {
 .nav-link.active {
   color: #{$primary} !important;
 }
-
-.card-body {
-  color: var(--ecm-body-color) !important;
+.card {
+  .card-body {
+    color: var(--ecm-body-color) !important;
+    .heading-title {
+      h3 {
+        transition: all 0.3s linear !important;
+        background: #fff none repeat scroll 0 0;
+      }
+    }
+  }
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

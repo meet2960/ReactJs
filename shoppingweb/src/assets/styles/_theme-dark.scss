@@ -17,7 +17,7 @@
   --#{$prefix}-heading-color: #{$heading-dark-color};
 
   body {
-    // transition: all 0.9s linear;
+    transition: all 0.3s linear;
   }
 
   .secondary-bg {
@@ -75,6 +75,14 @@
 
   .card {
     background-color: $dark-gray-300 !important;
+    .card-body {
+      .heading-title {
+        h3 {
+          transition: all 0.3s linear;
+          background: $dark-gray-300;
+        }
+      }
+    }
   }
 
   .card-title {

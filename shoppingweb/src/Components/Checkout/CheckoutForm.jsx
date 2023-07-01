@@ -10,6 +10,7 @@ import { addToOrders } from "../../Redux/orders/ordersSlice";
 import { deleteCart } from "../../Redux/cart/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { qunatityTotal } from "../../utils/cartTotal";
 const CheckoutForm = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const navigate = useNavigate();
@@ -64,19 +65,29 @@ const CheckoutForm = () => {
 
   console.log("Filteted Cities", filterCitiesOption);
   const handleOrderSubmit = (values) => {
-    console.log("Values", values);
-    dispatch(addToOrders({ address: values, cart: cartItems }));
-    /* 
+    console.log("Address Values", values);
+    let finalCartAmount = JSON.parse(sessionStorage.getItem("finalTotal"));
+    console.log("Cart Final Total Is", finalCartAmount);
+    let orderDetails = {
+      address: values,
+      cart: cartItems,
+      totalQuantity: qunatityTotal(cartItems),
+      totalItems: cartItems.length,
+      totalAmount: finalCartAmount,
+    };
+    console.log("Order Details in Page Object", orderDetails);
     Swal.fire({
       position: "center",
       icon: "success",
       title: "Order Placed Successfully",
       showConfirmButton: true,
+      timer: 1500,
       confirmButtonText: "Go Home",
     }).then(() => {
+      dispatch(addToOrders(orderDetails));
       dispatch(deleteCart());
       navigate("/home");
-    }); */
+    });
   };
   return (
     <React.Fragment>
@@ -91,13 +102,7 @@ const CheckoutForm = () => {
               validationSchema={validationSchema}
               onSubmit={(values) => handleOrderSubmit(values)}
             >
-              {({
-                values,
-                handleSubmit,
-                handleChange,
-                errors,
-                setFieldValue,
-              }) => (
+              {({ values, handleSubmit, setFieldValue }) => (
                 <Form>
                   <Row className="gy-4">
                     <Col lg={6}>
@@ -232,7 +237,7 @@ const CheckoutForm = () => {
                           type="button"
                           className="btn btn-primary"
                           onClick={() => {
-                            console.log("Errors", errors);
+                            // console.log("Errors", errors);
                             handleSubmit();
                           }}
                         >

@@ -10,6 +10,10 @@ const TrendingProducts = ({ productData }) => {
       <section className="trending-products mb-5  ">
         <Container>
           <CommonHeading heading={"Trending Products"} />
+          <p className="text-center mb-4">
+            Look at this amazing Currently Trending Products to Buy from with
+            lowest Price Every...!!!
+          </p>
           <Row className="gy-4">
             {productData &&
               productData.length !== 0 &&

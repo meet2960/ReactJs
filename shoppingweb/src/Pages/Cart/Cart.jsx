@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Col, Container, Row } from "reactstrap";
 import CartDetails from "../../Components/Cart/CartDetails";
 import CartPrice from "../../Components/Cart/CartPrice";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { cartTotal } from "../../utils/cartTotal";
 
@@ -10,13 +10,15 @@ const Cart = () => {
   document.title = "My Cart | Ecommerce";
   const cartItems = useSelector((state) => state.cart.cartItems);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  // console.log("CartItems are : ", cartItems);
-  const subTotal = cartTotal(cartItems);
-  const deliveryCharges = subTotal > 1500 ? 150 : 0;
+  const subTotal = cartTotal(cartItems); // Total of Cart
+  const deliveryCharges = subTotal > 1500 ? 150 : 0; // Delivery charges
   const discountAmount =
-    cartItems && cartItems.length !== 0 && subTotal > 3000 ? 1000 : 0;
-  const finalCartAmount = subTotal + deliveryCharges - discountAmount;
+    cartItems && cartItems.length !== 0 && subTotal > 3000 ? 1000 : 0; // DIscount to be given
+  const finalCartAmount = useMemo(() => {
+    let total = subTotal + deliveryCharges - discountAmount; // Final Amount after discount and delivery
+    sessionStorage.setItem("finalTotal", JSON.stringify(total));
+    return total;
+  }, [subTotal, deliveryCharges, discountAmount]);
   console.log("Final Amount", finalCartAmount);
   const handleCheckout = (e) => {
     navigate("/checkout");
@@ -49,6 +51,7 @@ const Cart = () => {
                     cartItems={cartItems}
                     discountAmount={discountAmount}
                     deliveryCharges={deliveryCharges}
+                    finalCartAmount={finalCartAmount}
                   />
                 </div>
               </div>
