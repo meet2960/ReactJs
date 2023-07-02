@@ -64,7 +64,7 @@ const initialState = {
     {
       orderId: "2ee4cf98-f134-40d0-a6b7-81d9ca1f42f2",
       orderDate: "6/30/2023, 4:01:48 PM",
-      orderStatus: "pending",
+      orderStatus: "confirmed",
       address: {
         name: "Meet Ghelani",
         phone: "9725582557",

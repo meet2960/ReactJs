@@ -1,11 +1,16 @@
 import React from "react";
+import { Col, Row } from "reactstrap";
 
 const CommonHeading = ({ heading }) => {
   return (
     <React.Fragment>
-      <div className="heading-title mb-3">
-        <h3 className="mb-0">{heading}</h3>
-      </div>
+      <Row>
+        <Col>
+          <div className="heading-title mb-4">
+            <h3 className="mb-0">{heading}</h3>
+          </div>
+        </Col>
+      </Row>
     </React.Fragment>
   );
 };

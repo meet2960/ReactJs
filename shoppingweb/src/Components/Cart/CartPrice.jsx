@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Col, Row } from "reactstrap";
 import { CurrenctContext } from "../../Context/CurrencyContext";
 import { cartTotal } from "../../utils/cartTotal";
+import CommonHeading from "../Common/CommonHeading";
 const CartPrice = ({
   cartItems,
   deliveryCharges,
@@ -12,7 +13,9 @@ const CartPrice = ({
 
   return (
     <React.Fragment>
-      <h3 className="text-center my-3 pb-4 border-bottom ">Price Details</h3>
+      <div className="my-3">
+        <CommonHeading heading={"Price Details"} />
+      </div>
       <Row className="gy-4 fw-medium fs-18 pb-4">
         <Col xs={6}>Sub Total</Col>
         <Col xs={6} className="text-end">

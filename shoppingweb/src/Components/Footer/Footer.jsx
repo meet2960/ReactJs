@@ -1,6 +1,5 @@
 import React from "react";
 import { Col, Container, Row } from "reactstrap";
-
 import paypalLogo from "../../assets/images/PaypalLogo.png";
 import visaLogo from "../../assets/images/VisaLogo.png";
 import masterLogo from "../../assets/images/MasterCardLogo.png";
@@ -29,7 +28,7 @@ const Footer = () => {
                 </Row>
               </Col>
               <Col xs={12} xl={4}>
-                <div className="d-flex justify-content-center">
+                <div className="d-flex justify-content-center text-center">
                   Ecommerce© {new Date().getFullYear()} All Rights Reserved by
                   Meet
                 </div>

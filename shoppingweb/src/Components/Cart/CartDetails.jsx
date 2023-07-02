@@ -65,9 +65,6 @@ const CartDetails = ({ cartItems }) => {
         <div className="my-3">
           <CommonHeading heading={"Purchase List"} />
         </div>
-        {/* <h3 className="text-center my-3 border-bottom pb-4">
-          Purchase List <i className="bi bi-bag-check-fill" />
-        </h3> */}
         {cartItems && cartItems.length !== 0 ? (
           <div className="table-responsive">
             <table

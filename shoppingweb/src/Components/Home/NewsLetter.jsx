@@ -19,12 +19,12 @@ const NewsLetter = () => {
                 <Col xs={7} lg={3}>
                   <input
                     type="text"
-                    className="form-control form-control-sm"
-                    placeholder="example@gmail.com"
+                    className="form-control"
+                    placeholder="xyz@abc.com"
                   />
                 </Col>
-                <Col>
-                  <button type="button" className="btn btn-sm btn-dark">
+                <Col xs={5}>
+                  <button type="button" className="btn btn-dark">
                     Subscribe
                   </button>
                 </Col>

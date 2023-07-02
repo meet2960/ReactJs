@@ -9,8 +9,8 @@ const OfferImage = () => {
       <section className="mb-5">
         <div className="banner-bg">
           <Container>
-            <Row className="gy-3 gy-md-0">
-              <Col md={6}>
+            <Row className="gy-3 gy-lg-0">
+              <Col lg={6}>
                 <div className="banner-bg-1 p-4 text-md-end rounded-2">
                   <h5>New Arrivals</h5>
                   <h3 className="py-3 border-bottom">Sports Outfit</h3>
@@ -19,7 +19,7 @@ const OfferImage = () => {
                   </div>
                 </div>
               </Col>
-              <Col md={6}>
+              <Col lg={6}>
                 <div className="banner-bg-2 p-4 text-white rounded-2">
                   <h5 className="text-white">SmartWatches</h5>
                   <h3 className="py-3 border-bottom text-white">

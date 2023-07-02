@@ -32,7 +32,7 @@ const Cart = () => {
               <div className="cart-content card">
                 <div className="card-body">
                   <CartDetails cartItems={cartItems} />
-                  <div className="d-flex justify-content-end">
+                  <div className="d-flex justify-content-end mt-4 mt-lg-0">
                     <button
                       type="button"
                       className="btn btn-primary"

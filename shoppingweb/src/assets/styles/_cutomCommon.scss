@@ -4,6 +4,7 @@
 
 ::-webkit-scrollbar {
   width: 4px;
+  height: 5px;
 }
 
 /* Track */
@@ -152,7 +153,6 @@
 .heading-title {
   text-align: center;
   position: relative;
-
   h3 {
     background: #f3f6f9 none repeat scroll 0 0;
     transition: all 0.3s linear;
@@ -182,11 +182,9 @@
 
 // * Common Product Slider
 .product-slider {
-  @media screen and (max-width: 600px) {
-    .swiper-button-prev,
-    .swiper-button-next {
-      display: none !important;
-    }
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
   }
 }
 
@@ -498,4 +496,15 @@
 
 // * Wishlist Page
 .wishlist-section {
+}
+
+// * Order List
+.order-list {
+  table {
+    color: inherit !important;
+    td,
+    th {
+      padding: 1.5rem 1rem !important;
+    }
+  }
 }

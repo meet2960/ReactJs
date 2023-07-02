@@ -14,56 +14,64 @@ const OrderList = () => {
     });
   };
   return (
-    <div>
-      <Row className="mt-4 justify-content-between px-3 text-center">
-        <Col>
-          <h6>Order #</h6>
-        </Col>
-        <Col>
-          <h6>Status</h6>
-        </Col>
-        <Col>
-          <h6>Date Purchased</h6>
-        </Col>
-        <Col>
-          <h6>Total</h6>
-        </Col>
-        <Col xs={"auto"}>
-          <h6>More Details</h6>
-        </Col>
-      </Row>
-      {ordersList &&
-        ordersList.length !== 0 &&
-        ordersList.map((items, index) => {
-          return (
-            <React.Fragment key={items.orderId}>
-              <div className="card">
-                <div className="card-body">
-                  <NavLink to={`${items.orderId}`}>
-                    <Row className="justify-content-between align-items-center text-center">
-                      <Col>
-                        <p className="mb-0">{items.orderId.slice(0, 8)}</p>
-                      </Col>
-                      <Col>
-                        <p className="mb-0 text-capitalize">
-                          {items.orderStatus}
-                        </p>
-                      </Col>
-                      <Col>{formatDate(items.orderDate)}</Col>
-                      <Col>{items.totalAmount}</Col>
-                      <Col xs={"auto"}>
-                        <div className="avatar-xs bg-dark rounded-circle d-flex justify-content-center">
-                          <i className="bi bi-arrow-right-short text-white fs-25"></i>
-                        </div>
-                      </Col>
-                    </Row>
-                  </NavLink>
-                </div>
-              </div>
-            </React.Fragment>
-          );
-        })}
-    </div>
+    <React.Fragment>
+      <div className="table-responsive order-list">
+        <div className="card">
+          <div className="card-body">
+            <table className="table align-middle text-center table-hover">
+              <thead>
+                <tr role="row">
+                  <th>No.</th>
+                  <th>Order #</th>
+                  <th>Status</th>
+                  <th>Date Purchased</th>
+                  <th>Total</th>
+                  <th>More Details</th>
+                </tr>
+              </thead>
+              <tbody className="text-center fw-medium">
+                {ordersList &&
+                  ordersList.length !== 0 &&
+                  ordersList.map((items, index) => {
+                    return (
+                      <tr role="row">
+                        <td>
+                          <span>{index + 1}</span>
+                        </td>
+                        <td>
+                          <span className="mb-0">
+                            {items.orderId.slice(0, 8)}
+                          </span>
+                        </td>
+                        <td>
+                          <span className="text-capitalize badge bg-dark text-white">
+                            {items.orderStatus}
+                          </span>
+                        </td>
+                        <td>
+                          <span>{formatDate(items.orderDate)}</span>
+                        </td>
+                        <td>
+                          <span>{items.totalAmount}</span>
+                        </td>
+                        <td>
+                          <div className="d-flex justify-content-center">
+                            <NavLink to={`${items.orderId}`}>
+                              <div className="avatar-xs bg-dark rounded-circle">
+                                <i className="bi bi-arrow-right-short text-white fs-25"></i>
+                              </div>
+                            </NavLink>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </React.Fragment>
   );
 };
 
