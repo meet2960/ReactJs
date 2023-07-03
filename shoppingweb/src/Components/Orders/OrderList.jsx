@@ -2,17 +2,11 @@ import React, { useContext } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { CurrenctContext } from "../../Context/CurrencyContext";
+import { formatDate } from "../../utils/formatDate";
 const OrderList = () => {
   const { formatCurrency } = useContext(CurrenctContext);
   const ordersList = useSelector((state) => state.order.orderItems);
-  const formatDate = (orderDate) => {
-    const dateObject = new Date(Date.parse(orderDate));
-    return dateObject.toLocaleString("en-US", {
-      month: "long",
-      day: "numeric",
-      year: "2-digit",
-    });
-  };
+
   return (
     <React.Fragment>
       <div className="card">
@@ -30,8 +24,7 @@ const OrderList = () => {
                 </tr>
               </thead>
               <tbody className="text-center fw-medium">
-                {ordersList &&
-                  ordersList.length !== 0 &&
+                {ordersList && ordersList.length !== 0 ? (
                   ordersList.map((items, index) => {
                     return (
                       <tr role="row" key={index}>
@@ -65,7 +58,14 @@ const OrderList = () => {
                         </td>
                       </tr>
                     );
-                  })}
+                  })
+                ) : (
+                  <tr className="my-5">
+                    <td colSpan={6}>
+                      <h3 className="text-center my-5">No Orders Found</h3>
+                    </td>
+                  </tr>
+                )}
               </tbody>
             </table>
           </div>

@@ -4,7 +4,7 @@ import { Col, Row } from "reactstrap";
 const CommonHeading = ({ heading }) => {
   return (
     <React.Fragment>
-      <Row>
+      <Row className="gx-0">
         <Col>
           <div className="heading-title mb-4">
             <h3 className="mb-0">{heading}</h3>

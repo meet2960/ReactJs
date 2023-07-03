@@ -73,6 +73,7 @@ const CheckoutForm = () => {
       cart: cartItems,
       totalQuantity: qunatityTotal(cartItems),
       totalItems: cartItems.length,
+      orderStatus: "pending",
       ...priceDetailsObj,
     };
     console.log("Order Details in Page Object", orderDetails);
@@ -81,7 +82,7 @@ const CheckoutForm = () => {
       icon: "success",
       title: "Order Placed Successfully",
       showConfirmButton: true,
-      timer: 1500,
+      timer: 3000,
       confirmButtonText: "Go Home",
     }).then(() => {
       dispatch(addToOrders(orderDetails));

@@ -1,54 +1,100 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { Col, Row } from "reactstrap";
+import { CurrenctContext } from "../../Context/CurrencyContext";
+import { quantitySubTotal } from "../../utils/cartTotal";
+import { formatDate } from "../../utils/formatDate";
+import { useContext } from "react";
 const OrderDetails = () => {
+  const { formatCurrency } = useContext(CurrenctContext);
   const orderList = useSelector((state) => state.order.orderItems);
   const { id } = useParams();
   console.log("Selected Order ID", id);
-  const selectedOrder = orderList.filter((items, index) => {
+  const selectedOrder = orderList.find((items, index) => {
     return items.orderId === id;
   });
   console.log("Selected Order", selectedOrder);
   return (
-    <div className="fs-16">
-      <div className="card">
+    <React.Fragment>
+      <div className="card fs-16">
         <div className="card-body">
-          <Row className="">
-            <Col xs={2}>
-              <div>
-                <img
-                  src={selectedOrder[0].cart[0].thumbnail}
-                  alt="orderImg"
-                  className="img-fluid"
-                />
-              </div>
-            </Col>
-            <Col>
-              <div>
-                <p className="mb-0">{selectedOrder[0].cart[0].title}</p>
-                <p className="mb-0">
-                  <span>{selectedOrder[0].cart[0].price}</span>
-                  <span className="mx-2">x</span>
-                  <span>{selectedOrder[0].cart[0].quantity}</span>
-                </p>
-              </div>
-            </Col>
-          </Row>
+          <h3 className="mb-3">Order Details</h3>
+          <div className="d-flex mb-3">
+            <div className="me-3">
+              <span>Ordered on {formatDate(selectedOrder.orderDate)}</span>
+            </div>
+            <div>
+              <span>Order# {selectedOrder.orderId}</span>
+            </div>
+          </div>
+          <h5>Items Detail</h5>
+          {selectedOrder &&
+            selectedOrder.cart.length !== 0 &&
+            selectedOrder.cart.map((items, index) => {
+              return (
+                <React.Fragment>
+                  <Row className="align-items-center mb-3 mb-lg-0">
+                    <Col xs={"auto"}>
+                      <NavLink to={`/productdetails/${items.id}`}>
+                        <div className="avatar-lg d-grid align-items-center">
+                          <img
+                            src={items.thumbnail}
+                            alt="orderImg"
+                            className="img-fluid"
+                          />
+                        </div>
+                      </NavLink>
+                    </Col>
+                    <Col>
+                      <div>
+                        <span>{formatCurrency(items.price)}</span>
+                        <span className="mx-2">x</span>
+                        <span>{formatCurrency(items.quantity)}</span>
+                        <p className="mb-0">
+                          {formatCurrency(quantitySubTotal(items))}
+                        </p>
+                      </div>
+                    </Col>
+                    <Col>
+                      <div>
+                        <h6>{items.title}</h6>
+                        <p className="mb-0"></p>
+                        <span className="text-capitalize">
+                          {items.category}
+                        </span>
+                      </div>
+                    </Col>
+                    <Col xs={"auto"}>
+                      <button type="button" className="btn btn-sm btn-dark">
+                        Track
+                      </button>
+                    </Col>
+                    <Col xs={"auto"}>
+                      <button type="button" className="btn btn-sm btn-danger">
+                        Cancel
+                      </button>
+                    </Col>
+                  </Row>
+                </React.Fragment>
+              );
+            })}
         </div>
       </div>
-      <Row className="mt-4">
+      <Row className="mt-lg-3 fs-16 gy-3 gy-lg-0">
         <Col lg={6}>
           <div className="card">
             <div className="card-body">
               <h5>Shipping Address</h5>
               <div>
-                <p>{selectedOrder[0].address.address}</p>
-                <div className="d-flex">
-                  <div>{selectedOrder[0].address.state}</div>
-                  <div>{selectedOrder[0].address.city}</div>
-                  <div>{selectedOrder[0].address.postalcode}</div>
-                </div>
+                <p className="mb-0">{selectedOrder.address.name}</p>
+                <p className="mb-0">{selectedOrder.address.address}</p>
+                <p className="mb-0">{selectedOrder.address.locality}</p>
+                <p>
+                  <span>{selectedOrder.address.city}, </span>
+                  <span>{selectedOrder.address.state} - </span>
+                  <span>{selectedOrder.address.postalcode}</span>
+                </p>
               </div>
             </div>
           </div>
@@ -56,44 +102,45 @@ const OrderDetails = () => {
         <Col lg={6}>
           <div className="card">
             <div className="card-body">
-              <div>
-                <h5>Total Summary</h5>
-                <Row className="gy-3">
-                  <Col xs={6}>
-                    <span>Sub Total</span>
-                  </Col>
-                  <Col xs={6} className="text-end">
-                    <span>{selectedOrder[0].subTotal}</span>
-                  </Col>
-                  <Col xs={6}>
-                    <span>Shipping Cost</span>
-                  </Col>
-                  <Col xs={6} className="text-end">
-                    <span>{selectedOrder[0].deliveryAmount}</span>
-                  </Col>
-                  <Col xs={6}>
-                    <span>Discount</span>
-                  </Col>
-                  <Col xs={6} className="text-end">
-                    <span>{selectedOrder[0].discountAmount}</span>
-                  </Col>
-                </Row>
-                <div className="d-flex justify-content-between border-top mt-3 pt-3">
-                  <div>
-                    <h6 className="fs-18 fw-semibold">Total</h6>
-                  </div>
-                  <div>
-                    <h6 className="fs-18 fw-semibold">
-                      {selectedOrder[0].totalAmount}
-                    </h6>
-                  </div>
+              <h5>Total Summary</h5>
+              <Row className="gy-3">
+                <Col xs={6}>
+                  <span>Sub Total</span>
+                </Col>
+                <Col xs={6} className="text-end">
+                  <span>{formatCurrency(selectedOrder.subTotal)}</span>
+                </Col>
+                <Col xs={6}>
+                  <span>Shipping Cost</span>
+                </Col>
+                <Col xs={6} className="text-end">
+                  <span>{formatCurrency(selectedOrder.deliveryAmount)}</span>
+                </Col>
+                <Col xs={6}>
+                  <span>Discount</span>
+                </Col>
+                <Col xs={6} className="text-end">
+                  <span>{formatCurrency(selectedOrder.discountAmount)}</span>
+                </Col>
+              </Row>
+              <div className="d-flex justify-content-between border-top mt-3 pt-3">
+                <div>
+                  <h6 className="fs-18 fw-semibold">Total</h6>
                 </div>
+                <div>
+                  <h6 className="fs-18 fw-semibold">
+                    {formatCurrency(selectedOrder.totalAmount)}
+                  </h6>
+                </div>
+              </div>
+              <div className="text-end mt-2">
+                <span>Paid by Credit/Debit Card</span>
               </div>
             </div>
           </div>
         </Col>
       </Row>
-    </div>
+    </React.Fragment>
   );
 };
 
