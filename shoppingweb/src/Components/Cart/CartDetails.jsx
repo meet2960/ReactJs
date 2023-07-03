@@ -68,7 +68,7 @@ const CartDetails = ({ cartItems }) => {
         {cartItems && cartItems.length !== 0 ? (
           <div className="table-responsive">
             <table
-              className="table align-middle text-center"
+              className="table align-middle text-center fs-16"
               {...getTableProps()}
             >
               <thead>
@@ -123,7 +123,7 @@ const CartDetails = ({ cartItems }) => {
                                   )}
                                   <img
                                     src={cell.value}
-                                    alt={cell.Title}
+                                    alt={"images"}
                                     className={`avatar-md ${
                                       imgLoading ? "d-none" : "d-block"
                                     }`}

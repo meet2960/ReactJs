@@ -16,28 +16,34 @@ const CartPrice = ({
       <div className="my-3">
         <CommonHeading heading={"Price Details"} />
       </div>
-      <Row className="gy-4 fw-medium fs-18 pb-4">
-        <Col xs={6}>Sub Total</Col>
-        <Col xs={6} className="text-end">
-          <h5 className="fw-semibold">
-            {formatCurrency(cartTotal(cartItems))}
-          </h5>
+      <Row className="gy-3 fs-16 pb-4">
+        <Col xs={6}>
+          <span>Sub Total</span>
         </Col>
-        <Col xs={6}>Shipping Cost</Col>
         <Col xs={6} className="text-end">
-          <h5>{formatCurrency(deliveryCharges)}</h5>
+          <span className="fs-18">{formatCurrency(cartTotal(cartItems))}</span>
         </Col>
-        <Col xs={6}>Discount</Col>
+        <Col xs={6}>
+          <span>Shipping Cost</span>
+        </Col>
         <Col xs={6} className="text-end">
-          <h5>{formatCurrency(discountAmount)}</h5>
+          <span className="fs-18">{formatCurrency(deliveryCharges)}</span>
+        </Col>
+        <Col xs={6}>
+          <span>Discount</span>
+        </Col>
+        <Col xs={6} className="text-end">
+          <span className="fs-18">{formatCurrency(discountAmount)}</span>
         </Col>
       </Row>
       <div className="d-flex justify-content-between border-top pt-4">
         <div>
-          <h5>Total Cost</h5>
+          <h6 className="fs-18 fw-semibold">Total</h6>
         </div>
         <div>
-          <h5 className="fw-semibold">{formatCurrency(finalCartAmount)}</h5>
+          <h6 className="fs-18 fw-semibold">
+            {formatCurrency(finalCartAmount)}
+          </h6>
         </div>
       </div>
     </React.Fragment>

@@ -502,6 +502,8 @@
 .order-list {
   table {
     color: inherit !important;
+    // --bs-table-hover-color: var(--bs-body-color);
+    // --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
     td,
     th {
       padding: 1.5rem 1rem !important;

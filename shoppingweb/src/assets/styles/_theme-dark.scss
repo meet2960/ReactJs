@@ -53,6 +53,7 @@
   }
 
   .light-dark-mode .bi-moon::before {
+    font-size: 22px;
     content: "\f1d2";
   }
 
@@ -142,6 +143,18 @@
   .cart-section {
     .cart-quantity {
       background-color: $dark-gray-200;
+    }
+  }
+  // * Order List
+  .order-list {
+    table {
+      color: inherit !important;
+      --bs-table-hover-color: #{$dark-gray-900};
+      --bs-table-hover-bg: #{$dark-gray-200};
+      td,
+      th {
+        padding: 1.5rem 1rem !important;
+      }
     }
   }
 }

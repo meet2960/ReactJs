@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { Col, Row } from "reactstrap";
-
+import { CurrenctContext } from "../../Context/CurrencyContext";
 const OrderList = () => {
+  const { formatCurrency } = useContext(CurrenctContext);
   const ordersList = useSelector((state) => state.order.orderItems);
   const formatDate = (orderDate) => {
     const dateObject = new Date(Date.parse(orderDate));
@@ -15,10 +15,10 @@ const OrderList = () => {
   };
   return (
     <React.Fragment>
-      <div className="table-responsive order-list">
-        <div className="card">
-          <div className="card-body">
-            <table className="table align-middle text-center table-hover">
+      <div className="card">
+        <div className="card-body">
+          <div className="table-responsive order-list">
+            <table className="table align-middle text-center table-hover fs-16">
               <thead>
                 <tr role="row">
                   <th>No.</th>
@@ -34,7 +34,7 @@ const OrderList = () => {
                   ordersList.length !== 0 &&
                   ordersList.map((items, index) => {
                     return (
-                      <tr role="row">
+                      <tr role="row" key={index}>
                         <td>
                           <span>{index + 1}</span>
                         </td>
@@ -52,7 +52,7 @@ const OrderList = () => {
                           <span>{formatDate(items.orderDate)}</span>
                         </td>
                         <td>
-                          <span>{items.totalAmount}</span>
+                          <span>{formatCurrency(items.totalAmount)}</span>
                         </td>
                         <td>
                           <div className="d-flex justify-content-center">

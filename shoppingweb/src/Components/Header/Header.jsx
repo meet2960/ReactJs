@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import { Col, Container, Input } from "reactstrap";
 import Logo from "../../assets/images/NewLogo.png";
 import DarkLogo from "../../assets/images/NewDarkLogo.png";
-
 import ProfileDropDown from "../Common/ProfileDropDown";
 import ThemeChange from "../Common/ThemeChange";
 const Header = () => {
@@ -97,11 +96,11 @@ const Header = () => {
                     <li className="nav-item">
                       <ThemeChange />
                     </li>
-                    <li className="nav-item">
+                    {/*    <li className="nav-item">
                       <NavLink to="/wishlist" className="nav-link">
                         <i className="fa-regular fa-heart fs-22"></i>
                       </NavLink>
-                    </li>
+                    </li> */}
 
                     <li className="nav-item">
                       <NavLink

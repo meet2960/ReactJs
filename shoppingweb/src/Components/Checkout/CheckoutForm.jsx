@@ -66,14 +66,14 @@ const CheckoutForm = () => {
   console.log("Filteted Cities", filterCitiesOption);
   const handleOrderSubmit = (values) => {
     console.log("Address Values", values);
-    let finalCartAmount = JSON.parse(sessionStorage.getItem("finalTotal"));
-    console.log("Cart Final Total Is", finalCartAmount);
+    let priceDetailsObj = JSON.parse(sessionStorage.getItem("priceDetailsObj"));
+    console.log("All Price Details", priceDetailsObj);
     let orderDetails = {
       address: values,
       cart: cartItems,
       totalQuantity: qunatityTotal(cartItems),
       totalItems: cartItems.length,
-      totalAmount: finalCartAmount,
+      ...priceDetailsObj,
     };
     console.log("Order Details in Page Object", orderDetails);
     Swal.fire({

@@ -16,10 +16,16 @@ const Cart = () => {
     cartItems && cartItems.length !== 0 && subTotal > 3000 ? 1000 : 0; // DIscount to be given
   const finalCartAmount = useMemo(() => {
     let total = subTotal + deliveryCharges - discountAmount; // Final Amount after discount and delivery
-    sessionStorage.setItem("finalTotal", JSON.stringify(total));
+    let allAmountObj = {
+      subTotal: subTotal,
+      deliveryAmount: deliveryCharges,
+      discountAmount: discountAmount,
+      totalAmount: total,
+    };
+    sessionStorage.setItem("priceDetailsObj", JSON.stringify(allAmountObj));
     return total;
   }, [subTotal, deliveryCharges, discountAmount]);
-  console.log("Final Amount", finalCartAmount);
+  console.log("Amount Object", finalCartAmount);
   const handleCheckout = (e) => {
     navigate("/checkout");
   };
