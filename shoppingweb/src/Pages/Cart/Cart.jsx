@@ -5,6 +5,7 @@ import CartPrice from "../../Components/Cart/CartPrice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { cartTotal } from "../../utils/cartTotal";
+import CommonHeading from "../../Components/Common/CommonHeading";
 
 const Cart = () => {
   document.title = "My Cart | Ecommerce";
@@ -33,20 +34,23 @@ const Cart = () => {
     <React.Fragment>
       <section className="my-4 cart-section">
         <Container>
+          <CommonHeading heading={"My Cart"} />
           <Row className="gy-4 gy-lg-0">
             <Col lg={8} xl={8}>
               <div className="cart-content card">
                 <div className="card-body">
                   <CartDetails cartItems={cartItems} />
-                  <div className="d-flex justify-content-end mt-4 mt-lg-0">
-                    <button
-                      type="button"
-                      className="btn btn-primary"
-                      onClick={(e) => handleCheckout(e)}
-                    >
-                      Checkout
-                    </button>
-                  </div>
+                  {cartItems && cartItems.length !== 0 && (
+                    <div className="d-flex justify-content-end mt-4 mt-lg-0">
+                      <button
+                        type="button"
+                        className="btn btn-primary"
+                        onClick={(e) => handleCheckout(e)}
+                      >
+                        Checkout
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             </Col>

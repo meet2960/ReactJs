@@ -62,8 +62,9 @@ const CartDetails = ({ cartItems }) => {
   return (
     <React.Fragment>
       <React.Fragment>
-        <div className="my-3">
-          <CommonHeading heading={"Purchase List"} />
+        <div className="my-3 border-bottom">
+          <h3 className="text-center">Product List</h3>
+          {/* <CommonHeading heading={"Purchase List"} /> */}
         </div>
         {cartItems && cartItems.length !== 0 ? (
           <div className="table-responsive">

@@ -15,8 +15,8 @@ const ShowProductDetail = () => {
   );
   console.log("getSelectedProduct is : ", selectedProduct);
   return (
-    <section>
-      <Container className="product-details">
+    <section className="product-details">
+      <Container>
         {selectedProduct ? (
           <React.Fragment>
             <SelectedProductDetail selectedProduct={selectedProduct} />
@@ -24,7 +24,9 @@ const ShowProductDetail = () => {
             <RelatedProducts />
           </React.Fragment>
         ) : (
-          <div>No Product Found</div>
+          <div className="d-flex justify-content-center align-items-center">
+            <h3 className="text-center my-5">No Product Found</h3>
+          </div>
         )}
       </Container>
     </section>

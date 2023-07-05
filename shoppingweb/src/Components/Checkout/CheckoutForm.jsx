@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Col, Container, Row, Label } from "reactstrap";
 import * as Yup from "yup";
 import { ErrorMessage, Field, Form, Formik } from "formik";
@@ -20,10 +20,16 @@ const CheckoutForm = () => {
     ...new Set(citiesData.map((items) => items.state)),
   ].sort();
   //   console.log("States", uniqueStates);
-  const statesOptions = uniqueStates.map((items, index) => {
+  /*   const statesOptions = uniqueStates.map((items, index) => {
     return { value: items, label: items };
-  });
-  //   console.log("States", statesOptions);
+  }); */
+  const statesOptions = useMemo(() => {
+    const getStatesaName = uniqueStates.map((items, index) => {
+      return { value: items, label: items };
+    });
+    return getStatesaName;
+  }, [uniqueStates]);
+  console.log("States", statesOptions);
 
   const initialValues = {
     name: "",
@@ -50,7 +56,7 @@ const CheckoutForm = () => {
     state: Yup.string().required("State is required"),
     city: Yup.string().required("City is required"),
   });
-  const [selectedState, setSelectedState] = useState(null);
+  const [selectedState, setSelectedState] = useState(null); // TO get user selected state name
   const handleOptionChange = (selectedOption) => {
     setSelectedState(selectedOption);
   };
@@ -92,167 +98,178 @@ const CheckoutForm = () => {
   };
   return (
     <React.Fragment>
-      <Container>
-        <div className="card">
-          <div className="card-body p-4">
-            <h3 className="my-3 pb-3 text-center border-bottom">
-              Add Shipping Address
-            </h3>
-            <Formik
-              initialValues={initialValues}
-              validationSchema={validationSchema}
-              onSubmit={(values) => handleOrderSubmit(values)}
-            >
-              {({ values, handleSubmit, setFieldValue }) => (
-                <Form>
-                  <Row className="gy-4">
-                    <Col lg={6}>
-                      <Label htmlFor="name">Name</Label>
-                      <Field
-                        name="name"
-                        id="name"
-                        placeholder="Enter Name"
-                        component={FormikInput}
-                      />
-                      <ErrorMessage
-                        name={"name"}
-                        component={"div"}
-                        className="text-danger position-absolute fs-14"
-                      />
-                    </Col>
-                    <Col lg={6}>
-                      <Label htmlFor="phone">Phone Number</Label>
-                      <Field
-                        name="phone"
-                        id="phone"
-                        placeholder="Enter Phone Number"
-                        component={FormikInput}
-                      />
-                      <ErrorMessage
-                        name={"phone"}
-                        component={"div"}
-                        className="text-danger position-absolute fs-14"
-                      />
-                    </Col>
-                    <Col lg={6}>
-                      <Label htmlFor="postalcode">Pincode</Label>
-                      <Field
-                        name="postalcode"
-                        id="postalcode"
-                        placeholder="Enter Postalcode"
-                        component={FormikInput}
-                        maxLength={6}
-                      />
-                      <ErrorMessage
-                        name={"postalcode"}
-                        component={"div"}
-                        className="text-danger position-absolute fs-14"
-                      />
-                    </Col>
-                    <Col lg={6}>
-                      <Label htmlFor="locality">Locality</Label>
-                      <Field
-                        name="locality"
-                        id="locality"
-                        placeholder="Enter Locality"
-                        component={FormikInput}
-                      />
-                      <ErrorMessage
-                        name={"locality"}
-                        component={"div"}
-                        className="text-danger position-absolute fs-14"
-                      />
-                    </Col>
-                    <Col lg={12}>
-                      <Label htmlFor="address">Address</Label>
-                      <Field
-                        name="address"
-                        id="address"
-                        placeholder="Enter Full Address"
-                        component={FormikInput}
-                      />
-                      <ErrorMessage
-                        name={"address"}
-                        component={"div"}
-                        className="text-danger position-absolute fs-14"
-                      />
-                    </Col>
-                    <Col lg={6}>
-                      <Label htmlFor="state">State</Label>
-                      <Field name="state">
-                        {({ field }) => (
-                          <div className="custom-select-container fs-14">
-                            <Select
-                              className="react-select-container"
-                              classNamePrefix="custom-react-select"
-                              id="state"
-                              options={statesOptions}
-                              value={statesOptions.find(
-                                (option) => option.value === values.state
-                              )}
-                              onChange={(option) => {
-                                setFieldValue("state", option.value);
-                                handleOptionChange(option.value);
-                              }}
-                              onBlur={field.onBlur}
-                            />
-                          </div>
-                        )}
-                      </Field>
-                      <ErrorMessage
-                        name={"state"}
-                        component={"div"}
-                        className="text-danger position-absolute fs-14"
-                      />
-                    </Col>
-                    <Col lg={6}>
-                      <Label htmlFor="city">Cities</Label>
-                      <Field name="city">
-                        {({ field }) => (
-                          <div className="custom-select-container fs-14">
-                            <Select
-                              className="react-select-container"
-                              classNamePrefix="custom-react-select"
-                              id="city"
-                              options={filterCitiesOption}
-                              value={filterCitiesOption.find(
-                                (option) => option.value === values.city
-                              )}
-                              onChange={(option) => {
-                                setFieldValue("city", option.value);
-                              }}
-                              onBlur={field.onBlur}
-                            />
-                          </div>
-                        )}
-                      </Field>
-                      <ErrorMessage
-                        name={"city"}
-                        component={"div"}
-                        className="text-danger position-absolute fs-14"
-                      />
-                    </Col>
-                    <Col lg={12}>
-                      <div className="d-flex justify-content-center align-items-center">
-                        <button
-                          type="button"
-                          className="btn btn-primary"
-                          onClick={() => {
-                            // console.log("Errors", errors);
-                            handleSubmit();
-                          }}
-                        >
-                          Submit
-                        </button>
-                      </div>
-                    </Col>
-                  </Row>
-                </Form>
-              )}
-            </Formik>
+      <Row>
+        <Col lg={4}>
+          <div className="card">
+            <div className="card-body">
+              <h5 className="pb-3 mb-3 text-center border-bottom">
+                Saved Address
+              </h5>
+            </div>
           </div>
-        </div>
-      </Container>
+        </Col>
+        <Col lg={8}>
+          <div className="card">
+            <div className="card-body p-4">
+              <h5 className="pb-3 mb-3 text-center border-bottom">
+                Add New Shipping Address
+              </h5>
+              <Formik
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                onSubmit={(values) => handleOrderSubmit(values)}
+              >
+                {({ values, handleSubmit, setFieldValue }) => (
+                  <Form className="fs-16">
+                    <Row className="gy-4">
+                      <Col lg={6}>
+                        <Label htmlFor="name">Name</Label>
+                        <Field
+                          name="name"
+                          id="name"
+                          placeholder="Enter Name"
+                          component={FormikInput}
+                        />
+                        <ErrorMessage
+                          name={"name"}
+                          component={"div"}
+                          className="text-danger position-absolute fs-14"
+                        />
+                      </Col>
+                      <Col lg={6}>
+                        <Label htmlFor="phone">Phone Number</Label>
+                        <Field
+                          name="phone"
+                          id="phone"
+                          placeholder="Enter Phone Number"
+                          component={FormikInput}
+                        />
+                        <ErrorMessage
+                          name={"phone"}
+                          component={"div"}
+                          className="text-danger position-absolute fs-14"
+                        />
+                      </Col>
+                      <Col lg={6}>
+                        <Label htmlFor="postalcode">Pincode</Label>
+                        <Field
+                          name="postalcode"
+                          id="postalcode"
+                          placeholder="Enter Postalcode"
+                          component={FormikInput}
+                          maxLength={6}
+                        />
+                        <ErrorMessage
+                          name={"postalcode"}
+                          component={"div"}
+                          className="text-danger position-absolute fs-14"
+                        />
+                      </Col>
+                      <Col lg={6}>
+                        <Label htmlFor="locality">Locality</Label>
+                        <Field
+                          name="locality"
+                          id="locality"
+                          placeholder="Enter Locality"
+                          component={FormikInput}
+                        />
+                        <ErrorMessage
+                          name={"locality"}
+                          component={"div"}
+                          className="text-danger position-absolute fs-14"
+                        />
+                      </Col>
+                      <Col lg={12}>
+                        <Label htmlFor="address">Address</Label>
+                        <Field
+                          name="address"
+                          id="address"
+                          placeholder="Enter Full Address"
+                          component={FormikInput}
+                        />
+                        <ErrorMessage
+                          name={"address"}
+                          component={"div"}
+                          className="text-danger position-absolute fs-14"
+                        />
+                      </Col>
+                      <Col lg={6}>
+                        <Label htmlFor="state">State</Label>
+                        <Field name="state">
+                          {({ field }) => (
+                            <div className="custom-select-container fs-14">
+                              <Select
+                                className="react-select-container"
+                                classNamePrefix="custom-react-select"
+                                id="state"
+                                options={statesOptions}
+                                value={statesOptions.find(
+                                  (option) => option.value === values.state
+                                )}
+                                onChange={(option) => {
+                                  setFieldValue("state", option.value);
+                                  handleOptionChange(option.value);
+                                }}
+                                onBlur={field.onBlur}
+                              />
+                            </div>
+                          )}
+                        </Field>
+                        <ErrorMessage
+                          name={"state"}
+                          component={"div"}
+                          className="text-danger position-absolute fs-14"
+                        />
+                      </Col>
+                      <Col lg={6}>
+                        <Label htmlFor="city">Cities</Label>
+                        <Field name="city">
+                          {({ field }) => (
+                            <div className="custom-select-container fs-14">
+                              <Select
+                                className="react-select-container"
+                                classNamePrefix="custom-react-select"
+                                id="city"
+                                options={filterCitiesOption}
+                                value={filterCitiesOption.find(
+                                  (option) => option.value === values.city
+                                )}
+                                onChange={(option) => {
+                                  setFieldValue("city", option.value);
+                                }}
+                                onBlur={field.onBlur}
+                              />
+                            </div>
+                          )}
+                        </Field>
+                        <ErrorMessage
+                          name={"city"}
+                          component={"div"}
+                          className="text-danger position-absolute fs-14"
+                        />
+                      </Col>
+                      <Col lg={12}>
+                        <div className="d-flex justify-content-center align-items-center">
+                          <button
+                            type="button"
+                            className="btn btn-primary"
+                            onClick={() => {
+                              // console.log("Errors", errors);
+                              handleSubmit();
+                            }}
+                          >
+                            Submit
+                          </button>
+                        </div>
+                      </Col>
+                    </Row>
+                  </Form>
+                )}
+              </Formik>
+            </div>
+          </div>
+        </Col>
+      </Row>
     </React.Fragment>
   );
 };

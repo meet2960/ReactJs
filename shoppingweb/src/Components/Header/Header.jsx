@@ -68,13 +68,24 @@ const Header = () => {
                       Cart
                     </NavLink>
                   </li>
+                  {
+                    <li className="nav-item">
+                      <NavLink
+                        className="nav-link"
+                        to={"/orders"}
+                        aria-current="page"
+                      >
+                        Orders
+                      </NavLink>
+                    </li>
+                  }
                   <li className="nav-item">
                     <NavLink
                       className="nav-link"
-                      to={"/orders"}
+                      to={"/wishlist"}
                       aria-current="page"
                     >
-                      Orders
+                      My Wishlist
                     </NavLink>
                   </li>
                 </ul>

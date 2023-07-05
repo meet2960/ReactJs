@@ -19,7 +19,7 @@ const OrderDetails = () => {
     <React.Fragment>
       <div className="card fs-16">
         <div className="card-body">
-          <h3 className="mb-3">Order Details</h3>
+          <h3 className="mb-3 text-center text-lg-start">Order Details</h3>
           <div className="d-flex mb-3">
             <div className="me-3">
               <span>Ordered on {formatDate(selectedOrder.orderDate)}</span>
@@ -28,13 +28,13 @@ const OrderDetails = () => {
               <span>Order# {selectedOrder.orderId}</span>
             </div>
           </div>
-          <h5>Items Detail</h5>
+          <h5>Items List</h5>
           {selectedOrder &&
             selectedOrder.cart.length !== 0 &&
             selectedOrder.cart.map((items, index) => {
               return (
                 <React.Fragment>
-                  <Row className="align-items-center mb-3 mb-lg-0">
+                  <Row className="align-items-center mb-3">
                     <Col xs={"auto"}>
                       <NavLink to={`/productdetails/${items.id}`}>
                         <div className="avatar-lg d-grid align-items-center">
@@ -81,7 +81,7 @@ const OrderDetails = () => {
             })}
         </div>
       </div>
-      <Row className="mt-lg-3 fs-16 gy-3 gy-lg-0">
+      <Row className="mt-3 fs-16 gy-3 gy-lg-0">
         <Col lg={6}>
           <div className="card">
             <div className="card-body">

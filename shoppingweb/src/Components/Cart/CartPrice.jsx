@@ -13,8 +13,9 @@ const CartPrice = ({
 
   return (
     <React.Fragment>
-      <div className="my-3">
-        <CommonHeading heading={"Price Details"} />
+      <div className="my-3 border-bottom">
+        <h3 className="text-center">Price Details</h3>
+        {/* <CommonHeading heading={"Price Details"} /> */}
       </div>
       <Row className="gy-3 fs-16 pb-4">
         <Col xs={6}>

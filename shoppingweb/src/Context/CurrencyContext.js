@@ -9,15 +9,12 @@ export const CurrencyProvider = ({ children }) => {
     value: "USD",
     label: "USD",
   });
-  // const [currency, setCurrency] = useState("INR");
   const handleCurrencyFormatChange = (selectedOption) => {
-    // setCurrency(selectedOption);
     setCurrency(selectedOption);
-    // setCurrency((prev) => {});
     console.log("New Currency ", currency);
   };
 
-  const formatCurrency = (value) => {
+  /*   const formatCurrency = (value) => {
     if (currency.value === "USD") {
       return new Intl.NumberFormat("en-IN", {
         style: "currency",
@@ -37,8 +34,8 @@ export const CurrencyProvider = ({ children }) => {
         minimumFractionDigits: 0,
       }).format(value * exchangeINRRate);
     }
-  };
-  /*   const formatCurrency = (value) => {
+  }; */
+  const formatCurrency = (value) => {
     let convertedCurrency = value;
     if (currency.value === "INR") {
       convertedCurrency = value * exchangeINRRate;
@@ -52,7 +49,7 @@ export const CurrencyProvider = ({ children }) => {
       currency: currency.value,
       minimumFractionDigits: 0,
     }).format(convertedCurrency);
-  }; */
+  };
   const contextValue = {
     currency,
     handleCurrencyFormatChange,

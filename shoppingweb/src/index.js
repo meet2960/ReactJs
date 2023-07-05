@@ -5,7 +5,6 @@ import store, { persistor } from "./Redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 import AppRoutes from "./Routing/AppRoutes";
 import { CurrencyProvider } from "./Context/CurrencyContext";
-import DashboardRouting from "./Pages/Dashboard/DashboardRouting";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,7 +12,6 @@ root.render(
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <CurrencyProvider>
-          {/* <DashboardRouting /> */}
           <AppRoutes />
         </CurrencyProvider>
       </PersistGate>
