@@ -1,11 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { Col, Container, Input } from "reactstrap";
+import { Col, Container } from "reactstrap";
 import Logo from "../../assets/images/NewLogo.png";
 import DarkLogo from "../../assets/images/NewDarkLogo.png";
 import ProfileDropDown from "../Common/ProfileDropDown";
 import ThemeChange from "../Common/ThemeChange";
+import SearchField from "../Common/SearchField";
 const Header = () => {
   const cart = useSelector((state) => state.cart.cartItems); // to get cart total item count
   // * To get currenct layout theme of Page for logo change
@@ -59,46 +60,10 @@ const Header = () => {
                       Category
                     </NavLink>
                   </li>
-                  <li className="nav-item">
-                    <NavLink
-                      className="nav-link"
-                      to={"/cart"}
-                      aria-current="page"
-                    >
-                      Cart
-                    </NavLink>
-                  </li>
-                  {
-                    <li className="nav-item">
-                      <NavLink
-                        className="nav-link"
-                        to={"/orders"}
-                        aria-current="page"
-                      >
-                        Orders
-                      </NavLink>
-                    </li>
-                  }
-                  <li className="nav-item">
-                    <NavLink
-                      className="nav-link"
-                      to={"/wishlist"}
-                      aria-current="page"
-                    >
-                      My Wishlist
-                    </NavLink>
-                  </li>
                 </ul>
-                <div className="search-field">
-                  <Input
-                    type="text"
-                    className="form-control form-control-sm search"
-                    name="searchField"
-                    id="search"
-                    placeholder="Search Here"
-                  />
-                  <i className="bi bi-search" />
-                </div>
+                <Col lg={4}>
+                  <SearchField />
+                </Col>
                 <div className="mt-3 mt-lg-0">
                   <ul className="navbar-nav align-items-center nav-icons flex-row justify-content-center">
                     <li className="nav-item">
@@ -107,12 +72,6 @@ const Header = () => {
                     <li className="nav-item">
                       <ThemeChange />
                     </li>
-                    {/*    <li className="nav-item">
-                      <NavLink to="/wishlist" className="nav-link">
-                        <i className="fa-regular fa-heart fs-22"></i>
-                      </NavLink>
-                    </li> */}
-
                     <li className="nav-item">
                       <NavLink
                         to=""

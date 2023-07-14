@@ -78,18 +78,19 @@
       font-size: 16px;
     }
   }
+  .search {
+    transition: all 0.9s ease;
 
-  .search-field {
-    position: relative;
-
-    .search {
-      padding-right: 50px;
+    .search-field {
+      padding-right: 25px;
     }
-
-    .bi-search {
+    .search-icon {
       position: absolute;
-      top: 5px;
+      top: 8px;
       right: 20px;
+    }
+    .search-items {
+      transition: all 0.9s ease;
     }
   }
 }

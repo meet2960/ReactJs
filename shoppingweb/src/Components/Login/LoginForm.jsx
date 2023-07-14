@@ -21,9 +21,8 @@ const LoginForm = () => {
   };
   const validationSchema = Yup.object().shape({
     email: Yup.string().trim().email().required("Enter valid Email"),
-    password: Yup.string()
-      .required("Password is required")
-      .min(8, "Password must be at least 8 characters")
+    password: Yup.string().required("Password is required"),
+    /*     .min(8, "Password must be at least 8 characters")
       .matches(
         RegExp("(.*[a-z].*)"),
         "Password must contain at least one lowercase letter."
@@ -39,7 +38,7 @@ const LoginForm = () => {
       .matches(
         RegExp("(.*[!@#$%^&*].*)"),
         "Password must contain at one special character."
-      ),
+      ), */
   });
   const loggedIn = (values) => {
     console.log("Form Values Are : ", values);

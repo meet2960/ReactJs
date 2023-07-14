@@ -3,6 +3,7 @@ import { Col, Row } from "reactstrap";
 import { Skeleton } from "antd";
 import "swiper/css";
 import "swiper/css/pagination";
+import { useEffect } from "react";
 
 const ProductsImageSlider = ({ selectedProduct }) => {
   const [loading, setLoading] = useState({
@@ -13,6 +14,16 @@ const ProductsImageSlider = ({ selectedProduct }) => {
   const changeImageIndex = (index) => {
     setSelectedImage(index);
   };
+  useEffect(() => {
+    console.log("All Loading States Are", loading);
+    return () => {
+      setLoading((prevLoading) => ({
+        ...prevLoading,
+        subImageLoading: true,
+        mainImageLoading: true,
+      }));
+    };
+  }, [selectedProduct]);
   return (
     <React.Fragment>
       <Row>

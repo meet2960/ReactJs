@@ -33,7 +33,7 @@ const OrderDetails = () => {
             selectedOrder.cart.length !== 0 &&
             selectedOrder.cart.map((items, index) => {
               return (
-                <React.Fragment>
+                <React.Fragment key={index}>
                   <Row className="align-items-center mb-3">
                     <Col xs={"auto"}>
                       <NavLink to={`/productdetails/${items.id}`}>

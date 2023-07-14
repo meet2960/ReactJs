@@ -42,11 +42,10 @@ const Wishlist = () => {
                     );
                   })
                 ) : (
-                  <div>
-                    <h3>No Products in wishlist</h3>
+                  <div className="p-5">
+                    <h3 className="text-center">No Products in wishlist</h3>
                   </div>
                 )}
-                {/* <CommonProductCard /> */}
               </Row>
             </div>
           </div>

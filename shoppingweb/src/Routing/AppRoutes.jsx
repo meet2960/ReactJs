@@ -17,8 +17,8 @@ const AppRoutes = () => {
           <Route path={"/register"} element={<Register />} />
           {access_token ? (
             <React.Fragment>
-              <Route path={"/*"} element={<PrivateRoutes />} />
               <Route index element={<Navigate to={"/home"} />} />
+              <Route path={"/*"} element={<PrivateRoutes />} />
             </React.Fragment>
           ) : (
             <React.Fragment>

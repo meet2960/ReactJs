@@ -39,6 +39,11 @@ const ProfileDropDown = () => {
               </NavLink>
             </li>
             <li className="list-group-item">
+              <NavLink to="/cart" className="nav-link">
+                My Cart
+              </NavLink>
+            </li>
+            <li className="list-group-item">
               <span className="fs-14">Change Currency</span>
               <CurrencyDropDown />
             </li>
