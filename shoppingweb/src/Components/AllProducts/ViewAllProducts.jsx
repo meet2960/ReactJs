@@ -1,14 +1,20 @@
 import React from "react";
 import { Col, Container, Row } from "reactstrap";
-import { ITEM_PER_Page, getAllProducts } from "../../Redux/product/action";
+import { getAllProducts } from "../../Redux/product/action";
 import { useDispatch } from "react-redux";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../../Components/Common/Loader";
 import { useState } from "react";
 import CustomPagination from "./CustomPagination";
+import { NavLink } from "react-router-dom";
+import CommonProductCard from "../Common/CommonProductCard";
+import { useMemo } from "react";
 const ViewAllProducts = () => {
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);
+  const handlePageChange = (page) => {
+    setPage(page);
+  };
   const {
     isLoading,
     data: productList,
@@ -20,9 +26,10 @@ const ViewAllProducts = () => {
     queryFn: () => dispatch(getAllProducts(page)),
     keepPreviousData: true,
   });
-  const pageCount = Math.ceil(productList?.data?.total / ITEM_PER_Page);
-  console.log("Total Page Count", pageCount);
-  console.log("Error Message", error);
+  const totalProduct = useMemo(() => {
+    return productList?.data?.total;
+  }, [productList]);
+
   if (isLoading) return <Loader />;
   if (isError)
     return (
@@ -32,11 +39,28 @@ const ViewAllProducts = () => {
         </h3>
       </div>
     );
-  console.log("Received Data", productList?.data?.products);
+
   return (
-    <div>
-      <CustomPagination currentPage={page} pageCount={9} />
-    </div>
+    <React.Fragment>
+      <Row className="gy-4">
+        {productList &&
+          productList?.data?.products.length !== 0 &&
+          productList?.data?.products.map((items, index) => {
+            return (
+              <Col lg={3} key={index}>
+                <NavLink to={`/productdetails/${items.id}`}>
+                  <CommonProductCard items={items} />
+                </NavLink>
+              </Col>
+            );
+          })}
+      </Row>
+      <CustomPagination
+        onChange={handlePageChange}
+        currentPage={page}
+        totalProduct={totalProduct}
+      />
+    </React.Fragment>
   );
 };
 

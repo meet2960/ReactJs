@@ -31,7 +31,7 @@ export const getAllProducts = (page) => (dispatch) => {
   )
     .then((response) => {
       if (response.status === 200) {
-        console.log("All Products Called Successfully", response.data);
+        // console.log("All Products Called Successfully", response.data);
         return response;
       }
       return response;

@@ -10,7 +10,7 @@ const CommonProductCard = ({ items }) => {
     return () => {
       setImgLoading(true);
     };
-  }, []);
+  }, [items]);
   return (
     <React.Fragment>
       <div className="fs-16 custom-productcard overflow-hidden text-center position-relative">
