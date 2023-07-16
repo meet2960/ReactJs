@@ -2,9 +2,15 @@ import React, { useContext, useState } from "react";
 import RatingsStars from "./RatingsStars";
 import { CurrenctContext } from "../../Context/CurrencyContext";
 import { Skeleton } from "antd";
+import { useEffect } from "react";
 const CommonProductCard = ({ items }) => {
   const { formatCurrency } = useContext(CurrenctContext);
   const [imgLoading, setImgLoading] = useState(true); // For Image Loading
+  useEffect(() => {
+    return () => {
+      setImgLoading(true);
+    };
+  }, []);
   return (
     <React.Fragment>
       <div className="fs-16 custom-productcard overflow-hidden text-center position-relative">

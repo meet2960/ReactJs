@@ -60,6 +60,15 @@ const Header = () => {
                       Category
                     </NavLink>
                   </li>
+                  <li className="nav-item">
+                    <NavLink
+                      to={"/allproducts"}
+                      className="nav-link"
+                      aria-current="page"
+                    >
+                      View All
+                    </NavLink>
+                  </li>
                 </ul>
                 <Col lg={4}>
                   <SearchField />

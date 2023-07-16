@@ -11,12 +11,14 @@ import Checkout from "../Pages/Checkout.jsx/Checkout";
 import Orders from "../Pages/Orders/Orders";
 import OrderDetails from "../Components/Orders/OrderDetails";
 import OrderList from "../Components/Orders/OrderList";
+import AllProducts from "../Pages/AllProducts/AllProducts";
 const PrivateRoutes = () => {
   return (
     <Routes>
       <Route element={<Layout />}>
         <Route path={"home"} element={<Home />} />
         <Route path={"category"} element={<Category />} />
+        <Route path={"allproducts"} element={<AllProducts />} />
         <Route path={"productdetails/:id"} element={<ShowProductDetail />} />
         <Route path={"wishlist"} element={<Wishlist />} />
         <Route path={"profile"} element={<Profile />} />

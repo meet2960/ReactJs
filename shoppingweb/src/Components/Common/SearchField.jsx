@@ -26,7 +26,7 @@ const SearchField = () => {
   useEffect(() => {
     const delay = 1000;
     const debounce = setTimeout(() => {
-      console.log("Hitting API");
+      // console.log("Hitting API");
       searchProducts(searchTerm);
     }, delay);
     return () => {
