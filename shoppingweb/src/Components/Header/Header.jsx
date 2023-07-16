@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 import { Col, Container } from "reactstrap";
 import Logo from "../../assets/images/NewLogo.png";
 import DarkLogo from "../../assets/images/NewDarkLogo.png";
-import ProfileDropDown from "../Common/ProfileDropDown";
-import ThemeChange from "../Common/ThemeChange";
-import SearchField from "../Common/SearchField";
+import ProfileDropDown from "./ProfileDropDown";
+import ThemeChange from "./ThemeChange";
+import SearchField from "./SearchField";
 const Header = () => {
   const cart = useSelector((state) => state.cart.cartItems); // to get cart total item count
   // * To get currenct layout theme of Page for logo change
