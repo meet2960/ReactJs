@@ -47,7 +47,7 @@ const ViewAllProducts = () => {
           productList?.data?.products.length !== 0 &&
           productList?.data?.products.map((items, index) => {
             return (
-              <Col lg={3} key={index}>
+              <Col md={6} lg={4} xl={3} key={index}>
                 <NavLink to={`/productdetails/${items.id}`}>
                   <CommonProductCard items={items} />
                 </NavLink>
