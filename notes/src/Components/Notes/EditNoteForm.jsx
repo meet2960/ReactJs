@@ -1,40 +1,42 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addNotes } from "../Redux/notesSlice";
-import { Col, Row, Label, Input } from "reactstrap";
-import { CustomToast } from "../utils/Toast";
-const AddNoteForm = () => {
+import { useSelector, useDispatch } from "react-redux";
+import { getAllNotes, editNotes } from "../../Redux/notesSlice";
+import { useParams, useNavigate } from "react-router-dom";
+import { CustomToast } from "../../utils/Toast";
+import { Row, Col, Label, Input } from "reactstrap";
+const EditNoteForm = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [noteInput, setNoteInput] = useState({
-    noteTitle: "",
-    noteContent: "",
-  });
-  const handleChange = (e) => {
+  const notes = useSelector(getAllNotes);
+  const selectedNote = notes.filter((items) => items.noteId === id);
+  const [formData, setFormData] = useState(selectedNote[0]);
+
+  const handleFormDataChange = (e) => {
     e.preventDefault();
-    setNoteInput((prevData) => {
+    setFormData((prevData) => {
       return {
         ...prevData,
         [e.target.name]: e.target.value,
       };
     });
-    // setNoteInput({ ...noteInput, [e.target.name]: e.target.value });
   };
-  const handleAddNote = (e) => {
+  const handleEditNote = (e) => {
     e.preventDefault();
-    dispatch(addNotes(noteInput));
+    dispatch(editNotes(formData));
     CustomToast({
-      title: "Note Added successfully",
+      title: "Note Edited successfully",
       icon: "success",
       timerProgressBar: true,
       timer: 1000,
       position: "top-right",
       showConfirmButton: false,
     });
-    setNoteInput({ noteTitle: "", noteContent: " " });
+    setFormData({ noteTitle: "", noteContent: " " });
+    navigate("/");
   };
   return (
-    <div className="main-content">
-      <h2>Add Note Here</h2>
+    <React.Fragment>
       <Row>
         <Col lg={8}>
           <form action="">
@@ -49,8 +51,8 @@ const AddNoteForm = () => {
                   className="form-control"
                   name="noteTitle"
                   placeholder="Enter Title"
-                  value={noteInput.noteTitle}
-                  onChange={handleChange}
+                  value={formData.noteTitle}
+                  onChange={(e) => handleFormDataChange(e)}
                 />
               </Col>
               <Col lg={12}>
@@ -64,25 +66,25 @@ const AddNoteForm = () => {
                   className="form-control"
                   name="noteContent"
                   placeholder="Enter Description"
-                  value={noteInput.noteContent}
-                  onChange={(e) => handleChange(e)}
+                  value={formData.noteContent}
+                  onChange={(e) => handleFormDataChange(e)}
                 ></textarea>
               </Col>
               <Col lg={12}>
                 <button
                   type="button"
                   className="btn btn-success"
-                  onClick={(e) => handleAddNote(e)}
+                  onClick={(e) => handleEditNote(e)}
                 >
-                  Add Note
+                  Save Note
                 </button>
               </Col>
             </Row>
           </form>
         </Col>
       </Row>
-    </div>
+    </React.Fragment>
   );
 };
 
-export default AddNoteForm;
+export default EditNoteForm;

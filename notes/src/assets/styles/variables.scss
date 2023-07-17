@@ -1,0 +1,23 @@
+$dark: #1a1a1a;
+$gray: #868585;
+$light-dark: #404040;
+$whitesmoke: #f8f8f8;
+$primary: #fb3640;
+$blue: #2e4056;
+$indigo: #e97015;
+$purple: #6559cc;
+$pink: #f672a7;
+$red: #eb320c;
+$orange: #f1963b;
+$yellow: #f7b84b;
+$green: #0ab39c;
+$teal: #02a8b5;
+$cyan: #4484ef;
+$white: #fff;
+$font-size-mixing: 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
+  25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 48;
+@each $font-size-mixing in $font-size-mixing {
+  .fs-#{$font-size-mixing} {
+    font-size: #{$font-size-mixing}px !important;
+  }
+}

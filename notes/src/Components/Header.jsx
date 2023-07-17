@@ -1,27 +1,27 @@
-import React,{useEffect} from "react";
-import {useSelector, useDispatch} from "react-redux";
-import {changeLayoutMode} from "../Redux/layout";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { changeLayoutMode } from "../Redux/layout";
 import { NavLink, Link } from "react-router-dom";
 import logo from "../assets/images/notes-icon.png";
 const Header = () => {
-const dispatch = useDispatch()
-  const {layoutType} = useSelector((state) => ({
+  const dispatch = useDispatch();
+  const { layoutType } = useSelector((state) => ({
     layoutType: state.notesLayout.layoutModeType,
   }));
   useEffect(() => {
     if (layoutType) {
       document.body.setAttribute("data-layout-mode", layoutType);
     }
-  }, [layoutType])
+  }, [layoutType]);
 
   const onThemeChange = () => {
-    console.log("Current Mode is : ", layoutType)
-    if (layoutType === 'light') {
-      dispatch(changeLayoutMode('dark'))
+    console.log("Current Mode is : ", layoutType);
+    if (layoutType === "light") {
+      dispatch(changeLayoutMode("dark"));
     } else {
-      dispatch(changeLayoutMode('light'))
+      dispatch(changeLayoutMode("light"));
     }
-  }
+  };
   return (
     <nav className="navbar navbar-expand-lg text-white nav-bg">
       <div className="container-fluid">
@@ -54,6 +54,11 @@ const dispatch = useDispatch()
                 Search
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink to={"/todo"} className="nav-link">
+                Todos
+              </NavLink>
+            </li>
           </ul>
           {/* <form className="d-flex" role="search">
             <input
@@ -66,12 +71,15 @@ const dispatch = useDispatch()
               Search
             </button>
           </form> */}
-          <div className=''>
-            <button className='btn btn-secondary light-dark-mode'
-                    onClick={(e)=>{onThemeChange(e)}} >
-              <i className="bi bi-moon fs-18"/>
+          <div className="">
+            <button
+              className="btn btn-secondary light-dark-mode"
+              onClick={(e) => {
+                onThemeChange(e);
+              }}
+            >
+              <i className="bi bi-moon fs-18" />
             </button>
-
           </div>
         </div>
       </div>

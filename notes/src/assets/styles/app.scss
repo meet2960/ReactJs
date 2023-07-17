@@ -1,3 +1,4 @@
-@import url("./reset.css");
-@import url("./custom.css");
-@import url("./dark-layout.scss");
+@import "./variables.scss";
+@import "./customCommon";
+@import "./reset";
+@import "./dark-layout";

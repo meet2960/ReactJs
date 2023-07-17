@@ -1,0 +1,37 @@
+[data-layout-mode="dark"] {
+  $gray-100: #1a1d21;
+  $gray-200: #212529;
+  $gray-300: #2a2f34;
+  $gray-400: #878a99;
+  $gray-500: #adb5bd;
+  $gray-600: #bfc8e2;
+  $gray-700: #ced4da;
+  $gray-800: #eff2f7;
+  $gray-900: #f3f6f9;
+  $border-color: #1a1d21;
+  --nts-body-bg: #{$gray-100};
+  --nts-body-color: #{$gray-900};
+
+  body {
+    transition: all 0.3s linear;
+  }
+  .light-dark-mode .bi-moon::before {
+    content: "\f1d2";
+  }
+  .card {
+    background-color: #212529;
+    color: #bfc8e2;
+  }
+  .form-control {
+    background-color: $gray-200 !important;
+    border-color: $border-color !important;
+    color: $gray-900;
+  }
+  .border-bottom {
+    border-bottom: 2px solid $gray-400 !important;
+  }
+  .notes-date,
+  .note-read {
+    color: #bfc8e2 !important;
+  }
+}

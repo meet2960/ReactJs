@@ -1,21 +1,11 @@
 import React from "react";
-import { Container } from "reactstrap";
-import Header from "../Components/Header";
-import { Outlet } from "react-router-dom";
-import Footer from "../Components/Footer";
-import SearchNote from "../Components/SearchNote";
+import NoteList from "../Components/Notes/NoteList";
+
 const Home = () => {
   return (
-    <div className="min-100vh d-flex flex-column back-bg">
-      <Header />
-      <div className="flex-grow-1 d-flex flex-column">
-        <Container className="my-4">
-            {/*<SearchNote />*/}
-          <Outlet />
-        </Container>
-      </div>
-      <Footer />
-    </div>
+    <React.Fragment>
+      <NoteList />
+    </React.Fragment>
   );
 };
 

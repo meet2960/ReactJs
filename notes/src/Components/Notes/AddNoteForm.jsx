@@ -1,43 +1,51 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getAllNotes, editNotes } from "../Redux/notesSlice";
-import { useParams,useNavigate } from "react-router-dom";
-import { CustomToast } from "../utils/Toast";
-import { Row, Col, Label, Input } from "reactstrap";
-const EditNoteForm = () => {
-  const { id } = useParams();
-  const navigate = useNavigate()
+import { useDispatch } from "react-redux";
+import { addNotes } from "../../Redux/notesSlice";
+import { Col, Row, Label, Input } from "reactstrap";
+import { CustomToast } from "../../utils/Toast";
+const AddNoteForm = () => {
   const dispatch = useDispatch();
-  const notes = useSelector(getAllNotes);
-  const selectedNote = notes.filter((items) => items.noteId === id);
-  const [formData, setFormData] = useState(selectedNote[0]);
-
-  const handleFormDataChange = (e) => {
+  const [noteInput, setNoteInput] = useState({
+    noteTitle: "",
+    noteContent: "",
+  });
+  const handleChange = (e) => {
     e.preventDefault();
-    setFormData((prevData) => {
+    setNoteInput((prevData) => {
       return {
         ...prevData,
         [e.target.name]: e.target.value,
       };
     });
+    // setNoteInput({ ...noteInput, [e.target.name]: e.target.value });
   };
-  const handleEditNote = (e) => {
+  const handleAddNote = (e) => {
     e.preventDefault();
-    dispatch(editNotes(formData));
-    CustomToast({
-      title: "Note Edited successfully",
-      icon: "success",
-      timerProgressBar: true,
-      timer: 1000,
-      position: "top-right",
-      showConfirmButton: false,
-    });
-    setFormData({ noteTitle: "", noteContent: " " });
-    navigate("/")
+    if (noteInput.noteTitle !== "" && noteInput.noteContent !== "") {
+      dispatch(addNotes(noteInput));
+      CustomToast({
+        title: "Note Added successfully",
+        icon: "success",
+      });
+      setNoteInput({ noteTitle: "", noteContent: " " });
+    } else {
+      if (noteInput.noteTitle === "") {
+        CustomToast({
+          title: "Please add Title",
+          icon: "error",
+        });
+      } else if (noteInput.noteContent === "") {
+        CustomToast({
+          title: "Please add Description",
+          icon: "error",
+        });
+      } else {
+        return;
+      }
+    }
   };
   return (
-    <div className="main-content">
-      <h2>Edit Note Here</h2>
+    <React.Fragment>
       <Row>
         <Col lg={8}>
           <form action="">
@@ -52,8 +60,8 @@ const EditNoteForm = () => {
                   className="form-control"
                   name="noteTitle"
                   placeholder="Enter Title"
-                  value={formData.noteTitle}
-                  onChange={(e) => handleFormDataChange(e)}
+                  value={noteInput.noteTitle}
+                  onChange={handleChange}
                 />
               </Col>
               <Col lg={12}>
@@ -67,25 +75,25 @@ const EditNoteForm = () => {
                   className="form-control"
                   name="noteContent"
                   placeholder="Enter Description"
-                  value={formData.noteContent}
-                  onChange={(e) => handleFormDataChange(e)}
+                  value={noteInput.noteContent}
+                  onChange={(e) => handleChange(e)}
                 ></textarea>
               </Col>
               <Col lg={12}>
                 <button
                   type="button"
                   className="btn btn-success"
-                  onClick={(e) => handleEditNote(e)}
+                  onClick={(e) => handleAddNote(e)}
                 >
-                  Save Note
+                  Add Note
                 </button>
               </Col>
             </Row>
           </form>
         </Col>
       </Row>
-    </div>
+    </React.Fragment>
   );
 };
 
-export default EditNoteForm
+export default AddNoteForm;
