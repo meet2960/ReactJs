@@ -69,11 +69,12 @@ const noteSlice = createSlice({
         (items, index) => items.todoId === action.payload
       );
       console.log("Find Todo", findTodo);
-      /*      if (findTodo) {
+      if (findTodo) {
         findTodo.isCompleted = !findTodo.isCompleted;
       }
-      console.log("Updated Toggle Todo", findTodo); */
+      console.log("Updated Toggle Todo", findTodo);
     },
+    removeTodo: (state, action) => {},
   },
 });
 

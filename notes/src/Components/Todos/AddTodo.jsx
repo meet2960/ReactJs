@@ -87,7 +87,15 @@ const AddTodo = () => {
                             onChange={(e) => handleToggleTodo(e, items.todoId)}
                           />
                         </div>
-                        <h5 className="ms-3 mb-0">{items.todoTitle}</h5>
+                        <h5
+                          className={`ms-3 mb-0 ${
+                            items.isCompleted
+                              ? "text-decoration-line-through"
+                              : ""
+                          }`}
+                        >
+                          {items.todoTitle}
+                        </h5>
                         <AiFillDelete className="fs-20" />
                       </div>
                     </li>
