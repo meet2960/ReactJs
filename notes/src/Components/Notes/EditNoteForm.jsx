@@ -9,9 +9,8 @@ const EditNoteForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const notes = useSelector(getAllNotes);
-  const selectedNote = notes.filter((items) => items.noteId === id);
-  const [formData, setFormData] = useState(selectedNote[0]);
-
+  const selectedNote = notes.find((items) => items.noteId === id);
+  const [formData, setFormData] = useState(selectedNote);
   const handleFormDataChange = (e) => {
     e.preventDefault();
     setFormData((prevData) => {
@@ -27,10 +26,6 @@ const EditNoteForm = () => {
     CustomToast({
       title: "Note Edited successfully",
       icon: "success",
-      timerProgressBar: true,
-      timer: 1000,
-      position: "top-right",
-      showConfirmButton: false,
     });
     setFormData({ noteTitle: "", noteContent: " " });
     navigate("/");
@@ -38,7 +33,7 @@ const EditNoteForm = () => {
   return (
     <React.Fragment>
       <Row>
-        <Col lg={8}>
+        <Col lg={8} className="mx-auto">
           <form action="">
             <Row className="gy-4">
               <Col lg={12}>
@@ -70,10 +65,10 @@ const EditNoteForm = () => {
                   onChange={(e) => handleFormDataChange(e)}
                 ></textarea>
               </Col>
-              <Col lg={12}>
+              <Col lg={12} className="d-flex justify-content-center">
                 <button
                   type="button"
-                  className="btn btn-success"
+                  className="btn btn-primary"
                   onClick={(e) => handleEditNote(e)}
                 >
                   Save Note

@@ -47,7 +47,7 @@ const AddNoteForm = () => {
   return (
     <React.Fragment>
       <Row>
-        <Col lg={8}>
+        <Col lg={8} className="mx-auto">
           <form action="">
             <Row className="gy-4">
               <Col lg={12}>
@@ -79,10 +79,10 @@ const AddNoteForm = () => {
                   onChange={(e) => handleChange(e)}
                 ></textarea>
               </Col>
-              <Col lg={12}>
+              <Col lg={12} className="d-flex justify-content-center">
                 <button
                   type="button"
-                  className="btn btn-success"
+                  className="btn btn-primary"
                   onClick={(e) => handleAddNote(e)}
                 >
                   Add Note

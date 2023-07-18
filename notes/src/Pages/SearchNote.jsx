@@ -1,23 +1,23 @@
-import React, { useState } from "react";
-import { getAllNotes, removeNotes } from "../../Redux/notesSlice";
+import React, { useEffect, useState } from "react";
+import { getAllNotes, removeNotes } from "../Redux/notesSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { Card, CardBody, Col, Row } from "reactstrap";
 import { NavLink, useNavigate } from "react-router-dom";
-import GoBack from "../GoBack";
+import GoBack from "../Components/GoBack";
 import { ImCancelCircle } from "react-icons/im";
 import { FiEdit } from "react-icons/fi";
+import CommonHeading from "../Components/CommonHeading";
+import { CustomToast } from "../utils/Toast";
 
 const SearchNote = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredNote, setFilteredNote] = useState([]);
+  const [filteredNote, setFilteredNote] = useState(null);
   const notes = useSelector(getAllNotes);
   const handleChange = (e) => {
-    e.preventDefault();
     setSearchTerm(e.target.value);
   };
-  const handleFindNote = (e) => {
+  const handleSearchNote = (e) => {
     e.preventDefault();
     if (searchTerm !== "") {
       let tempNotes = notes.filter((items) =>
@@ -25,35 +25,43 @@ const SearchNote = () => {
       );
       setFilteredNote(tempNotes);
       console.log("Filtered Notes are : ", filteredNote);
+    } else {
+      CustomToast({
+        title: "Please Enter Search Term",
+        icon: "error",
+      });
     }
   };
-
   return (
     <div>
-      <h3 className="text-center mb-5">Searched Notes Will Appear here</h3>
-      <Row>
-        <Col lg={6}>
-          <input
-            type="text"
-            placeholder="Search Here"
-            className="form-control"
-            value={searchTerm}
-            onChange={(e) => handleChange(e)}
-          />
-        </Col>
-        <Col>
-          <button
-            type="button"
-            className="btn btn-success"
-            onClick={(e) => handleFindNote(e)}
-          >
-            Search Note
-          </button>
+      <CommonHeading key={"Search"} title={"Search Note"} />
+      <Row className="mt-5">
+        <Col lg={8} className="mx-auto">
+          <Row>
+            <Col>
+              <input
+                type="text"
+                placeholder="Search Here"
+                className="form-control"
+                value={searchTerm}
+                onChange={(e) => handleChange(e)}
+              />
+            </Col>
+            <Col xs={"auto"}>
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={(e) => handleSearchNote(e)}
+              >
+                Search
+              </button>
+            </Col>
+          </Row>
         </Col>
       </Row>
       <div className="my-5">
         <Row className="g-3">
-          {filteredNote && searchTerm.length > 1 && filteredNote.length >= 1
+          {filteredNote && filteredNote.length >= 1
             ? filteredNote.map((items, index) => {
                 return (
                   <Col xs={12} md={6} xl={4} key={index}>
@@ -102,7 +110,7 @@ const SearchNote = () => {
                 );
               })
             : null}
-          {!filteredNote && (
+          {filteredNote && filteredNote.length <= 0 && (
             <div>
               <h2 className="text-center">No Not Found, Please search Again</h2>
             </div>

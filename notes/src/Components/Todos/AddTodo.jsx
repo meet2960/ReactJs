@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Col, Row } from "reactstrap";
-import { addTodo, getAllTodos, toggleTodo } from "../../Redux/notesSlice";
+import {
+  addTodo,
+  getAllTodos,
+  removeTodo,
+  toggleTodo,
+} from "../../Redux/notesSlice";
 import { CustomToast } from "../../utils/Toast";
 import { AiFillDelete } from "react-icons/ai";
+import CommonHeading from "../CommonHeading";
 const AddTodo = () => {
   const todoList = useSelector(getAllTodos);
   const dispatch = useDispatch();
@@ -36,14 +42,12 @@ const AddTodo = () => {
     }
   };
   const handleToggleTodo = (e, id) => {
-    dispatch(toggleTodo(id));
-    // console.log("Inside Toggle Todo", id);
+    dispatch(toggleTodo({ id: id }));
   };
   return (
-    <div>
-      <h2 className="fw-semibold  pb-2 mb-4 text-center">Add Todo</h2>
+    <React.Fragment>
       <Row className="mt-5">
-        <Col lg={"6"} className="mx-auto">
+        <Col lg={8} className="mx-auto">
           <Row className="justify-content-center">
             <Col>
               <input
@@ -68,7 +72,7 @@ const AddTodo = () => {
         </Col>
       </Row>
       <Row className="mt-5">
-        <h2 className="fw-semibold pb-2 mb-4 text-center">Todo List</h2>
+        <CommonHeading key={"Viewtodo"} title={"Todo List"} />
         <Col lg={"6"} className="mx-auto">
           {todoList &&
             todoList.length !== 0 &&
@@ -96,7 +100,15 @@ const AddTodo = () => {
                         >
                           {items.todoTitle}
                         </h5>
-                        <AiFillDelete className="fs-20" />
+                        <button
+                          type="button"
+                          className="btn btn-link"
+                          onClick={(e) =>
+                            dispatch(removeTodo({ id: items.todoId }))
+                          }
+                        >
+                          <AiFillDelete className="fs-20" />
+                        </button>
                       </div>
                     </li>
                   </ul>
@@ -105,7 +117,7 @@ const AddTodo = () => {
             })}
         </Col>
       </Row>
-    </div>
+    </React.Fragment>
   );
 };
 

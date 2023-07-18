@@ -1,10 +1,11 @@
 import React from "react";
 import EditNoteForm from "../Components/Notes/EditNoteForm";
+import CommonHeading from "../Components/CommonHeading";
 
 const EditNote = () => {
   return (
     <React.Fragment>
-      <h2>Edit Note Here</h2>
+      <CommonHeading key={"Editnote"} title={"Edit Note"} />
       <EditNoteForm />
     </React.Fragment>
   );

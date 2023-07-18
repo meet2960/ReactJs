@@ -47,6 +47,25 @@ body {
 .text-justify {
   text-align: justify;
 }
-.fs-18 {
-  font-size: 18px;
+.heading {
+  text-align: center;
+  position: relative;
+  h2 {
+    background: #f3f6f9 none repeat scroll 0 0;
+    transition: all 0.3s linear;
+    display: inline-block;
+    font-weight: 600;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin: 0;
+    border-top: 3px solid #2e4056;
+  }
 }

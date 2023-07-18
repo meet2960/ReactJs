@@ -22,8 +22,6 @@ const NoteList = () => {
     }*/
   return (
     <>
-      <h1 className="text-center mb-3">Welcome to Notes App</h1>
-      <h2 className="fw-semibold border-bottom pb-2 mb-4">Notes List</h2>
       <Row className="g-3">
         {notes &&
           notes.map((items, index) => {
@@ -41,7 +39,9 @@ const NoteList = () => {
                       <button
                         type="button"
                         className="btn btn-sm btn-danger me-3"
-                        onClick={(e) => dispatch(removeNotes(items.noteId))}
+                        onClick={(e) =>
+                          dispatch(removeNotes({ id: items.noteId }))
+                        }
                       >
                         <ImCancelCircle />
                       </button>

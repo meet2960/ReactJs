@@ -11,7 +11,9 @@
 ::-webkit-scrollbar-thumb {
   background-color: #404040;
 }
-
+.cursor-pointer {
+  cursor: pointer;
+}
 .navbar-nav .nav-link.active,
 .navbar-nav .show > .nav-link {
   color: $primary;
@@ -48,4 +50,7 @@
 
 .border-bottom {
   border-bottom: 2px solid $dark !important;
+}
+.btn-link {
+  color: inherit !important;
 }
