@@ -78,6 +78,7 @@ const noteSlice = createSlice({
       const findTodo = state.todoList.find(
         (items, index) => items.todoId === id
       );
+      console.log("FindTodo", findTodo);
       if (findTodo) {
         findTodo.isCompleted = !findTodo.isCompleted;
       }

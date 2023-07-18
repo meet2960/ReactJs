@@ -12,9 +12,9 @@ const ViewSingleNote = () => {
       <div className="notes-title p-4">
         <h2>{selectedNote.noteTitle}</h2>
       </div>
-      <div className="p-5">
+      <div className="p-4">
         <p className="text-justify">{selectedNote.noteContent}</p>
-        <div className="d-flex justify-content-end">
+        <div className="d-flex justify-content-end mt-4">
           <GoBack />
         </div>
       </div>

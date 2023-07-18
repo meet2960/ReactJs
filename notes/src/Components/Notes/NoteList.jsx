@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 import { ImCancelCircle } from "react-icons/im";
 import { FiEdit } from "react-icons/fi";
 import { formatDate } from "../../utils/formatDate";
-
+import { format } from "date-fns";
 const NoteList = () => {
   const notes = useSelector(getAllNotes);
   const dispatch = useDispatch();
@@ -56,8 +56,7 @@ const NoteList = () => {
                     </div>
                     <div className="d-flex justify-content-between">
                       <div className="notes-date text-capitalize">
-                        {formatDate(items.noteDate)}
-                        {/* {formatDistanceToNow(parseISO(items.noteDate))} */}
+                        {format(new Date(items.noteDate), "dd/MM/yyy hh:mm:ss")}
                       </div>
                       <div>
                         <NavLink

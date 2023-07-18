@@ -41,7 +41,7 @@ const AddTodo = () => {
       });
     }
   };
-  const handleToggleTodo = (e, id) => {
+  const handleToggleTodo = (id) => {
     dispatch(toggleTodo({ id: id }));
   };
   return (
@@ -71,52 +71,59 @@ const AddTodo = () => {
           </Row>
         </Col>
       </Row>
-      <Row className="mt-5">
+
+      <div className="mt-5">
         <CommonHeading key={"Viewtodo"} title={"Todo List"} />
-        <Col lg={"6"} className="mx-auto">
-          {todoList &&
-            todoList.length !== 0 &&
-            todoList.map((items, index) => {
-              return (
-                <React.Fragment key={index}>
-                  <ul className="list-group" lg={12}>
-                    <li className="list-group-item p-3">
-                      <div className="d-flex align-items-center justify-content-between">
-                        <div>
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            defaultChecked={items.isCompleted}
-                            id="flexCheckDefault"
-                            onChange={(e) => handleToggleTodo(e, items.todoId)}
-                          />
-                        </div>
-                        <h5
-                          className={`ms-3 mb-0 ${
-                            items.isCompleted
-                              ? "text-decoration-line-through"
-                              : ""
-                          }`}
-                        >
-                          {items.todoTitle}
-                        </h5>
-                        <button
-                          type="button"
-                          className="btn btn-link"
-                          onClick={(e) =>
-                            dispatch(removeTodo({ id: items.todoId }))
-                          }
-                        >
-                          <AiFillDelete className="fs-20" />
-                        </button>
-                      </div>
-                    </li>
-                  </ul>
-                </React.Fragment>
-              );
-            })}
-        </Col>
-      </Row>
+        <Row>
+          <Col lg={8} className="mx-auto">
+            {todoList &&
+              todoList.length !== 0 &&
+              todoList.map((items, index) => {
+                return (
+                  <React.Fragment key={index}>
+                    <ul className="list-group" lg={12}>
+                      <li className="list-group-item p-3">
+                        <Row className="align-items-center justify-content-between">
+                          <Col xs={"auto"}>
+                            <input
+                              className="form-check-input"
+                              type="checkbox"
+                              checked={items.isCompleted}
+                              id="flexCheckDefault"
+                              onChange={() => handleToggleTodo(items.todoId)}
+                            />
+                          </Col>
+                          <Col className="d-flex justify-content-center">
+                            <div>
+                              <h5
+                                className={`mb-0 ${
+                                  items.isCompleted ? "todotext" : ""
+                                }`}
+                              >
+                                <span>{items.todoTitle}</span>
+                              </h5>
+                            </div>
+                          </Col>
+                          <Col xs={"auto"}>
+                            <button
+                              type="button"
+                              className="btn btn-link"
+                              onClick={(e) =>
+                                dispatch(removeTodo({ id: items.todoId }))
+                              }
+                            >
+                              <AiFillDelete className="fs-20 text-primary" />
+                            </button>
+                          </Col>
+                        </Row>
+                      </li>
+                    </ul>
+                  </React.Fragment>
+                );
+              })}
+          </Col>
+        </Row>
+      </div>
     </React.Fragment>
   );
 };

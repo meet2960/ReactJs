@@ -25,6 +25,9 @@
   border: 1px solid $gray;
   box-shadow: none;
 }
+.text-primary {
+  color: $primary !important;
+}
 .btn-primary {
   background-color: $primary !important;
   outline: inherit;
