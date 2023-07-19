@@ -26,7 +26,7 @@ const SearchField = () => {
   useEffect(() => {
     const delay = 1000;
     const debounce = setTimeout(() => {
-      // console.log("Hitting API");
+      // console.log("Hitting Search API");
       searchProducts(searchTerm);
     }, delay);
     return () => {
@@ -58,14 +58,16 @@ const SearchField = () => {
             ) : filterProducts && filterProducts.length >= 1 ? (
               filterProducts.map((items, index) => {
                 return (
-                  <NavLink
-                    to={`/productdetails/${items.id}`}
-                    onClick={() => setsearchTerm("")}
-                  >
-                    <li className="list-group-item" key={index}>
-                      {items.title} - {items.price}
-                    </li>
-                  </NavLink>
+                  <React.Fragment key={index}>
+                    <NavLink
+                      to={`/productdetails/${items.id}`}
+                      onClick={() => setsearchTerm("")}
+                    >
+                      <li className="list-group-item" key={index}>
+                        {items.title} - {items.price}
+                      </li>
+                    </NavLink>
+                  </React.Fragment>
                 );
               })
             ) : (

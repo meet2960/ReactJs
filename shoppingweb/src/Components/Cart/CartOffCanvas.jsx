@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Col, Row } from "reactstrap";
 import { removeItem } from "../../Redux/cart/cartSlice";
-import { cartTotal } from "../../utils/cartTotal";
+import { cartTotal, quantitySubTotal } from "../../utils/cartTotal";
 import { CurrenctContext } from "../../Context/CurrencyContext";
 import { NavLink } from "react-router-dom";
-
+import { MdDeleteForever } from "react-icons/md";
 const CartOffCanvas = () => {
   const { formatCurrency } = useContext(CurrenctContext);
   const dispatch = useDispatch();
@@ -37,36 +37,41 @@ const CartOffCanvas = () => {
                 <Col lg={12} key={index} className="c-borderbottom pb-3">
                   <Row className="justify-content-between align-items-center">
                     <Col xs={"auto"} className="d-flex justify-content-center">
-                      <img
-                        src={items.images[0]}
-                        className="avatar-sm obj-contain"
-                        alt="cart-img"
-                      />
+                      <NavLink to={`/productdetails/${items.id}`}>
+                        <img
+                          src={items.images[0]}
+                          className="avatar-md object-fit-cover"
+                          alt="cart-img"
+                        />
+                      </NavLink>
                     </Col>
                     <Col>
                       <Row className="justify-content-between align-items-center">
-                        <Col xs={"5"}>
+                        <Col xs={4}>
                           <h6 className="mb-0 fw-semibold">{items.title}</h6>
                         </Col>
-                        <Col xs={"auto"}>
-                          <span className="d-inline-block fs-15 mx-2">
-                            Quantity : {items.quantity}
-                          </span>
+                        <Col xs={4} className="text-center fs-14 fw-semibold">
+                          <p className="mb-0">
+                            {items.quantity}* {formatCurrency(items.price)}
+                          </p>
                         </Col>
-                        <Col xs={"3"} className="text-end">
+                        <Col
+                          xs={4}
+                          className="d-flex align-items-center justify-content-end"
+                        >
                           <h6 className="fw-semibold mb-0">
-                            {formatCurrency(items.price)}
+                            {formatCurrency(quantitySubTotal(items))}
                           </h6>
-                          <div>
-                            <span
-                              className="cursor-pointer fs-14 text-danger"
-                              onClick={() => {
-                                dispatch(removeItem(items));
-                              }}
-                            >
-                              Remove
-                            </span>
-                          </div>
+                          <button
+                            className="btn btn-link p-0"
+                            onClick={() => {
+                              dispatch(removeItem(items));
+                            }}
+                          >
+                            <div className="d-flex justify-content-center align-items-center">
+                              <MdDeleteForever className="fs-20" />
+                            </div>
+                          </button>
                         </Col>
                       </Row>
                     </Col>

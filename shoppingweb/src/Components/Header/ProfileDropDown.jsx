@@ -15,14 +15,14 @@ const ProfileDropDown = () => {
     <Dropdown
       isOpen={isDropDownOpen}
       toggle={toggleProfileDrowDown}
-      className="topbar-head-dropdown header-item"
+      className="topbar-head-dropdown header-item profile-dropdown"
     >
       <DropdownToggle type="button" tag="button" className="nav-link">
         <i className="fa-regular fa-user fs-22"></i>
       </DropdownToggle>
       <DropdownMenu className="dropdown-menu-lg dropdown-menu-end p-0">
         <div>
-          <ul className="list-group fs-18555 text-center">
+          <ul className="list-group fs-16 text-center">
             <li className="list-group-item">
               <NavLink to="/profile" className="nav-link">
                 My Profile
@@ -44,7 +44,7 @@ const ProfileDropDown = () => {
               </NavLink>
             </li>
             <li className="list-group-item">
-              <span className="fs-14">Change Currency</span>
+              <span className="fs-14 text-primary">Change Currency</span>
               <CurrencyDropDown />
             </li>
             <li className="list-group-item">

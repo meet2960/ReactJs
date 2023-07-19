@@ -10,7 +10,6 @@ import { CurrenctContext } from "../../Context/CurrencyContext";
 import { quantitySubTotal } from "../../utils/cartTotal";
 import { NavLink } from "react-router-dom";
 import { Skeleton } from "antd";
-import CommonHeading from "../Common/CommonHeading";
 const CartDetails = ({ cartItems }) => {
   const [imgLoading, setImgLoading] = useState(true);
   const { formatCurrency } = useContext(CurrenctContext);

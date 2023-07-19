@@ -9,7 +9,9 @@ body {
   color: var(--ecm-body-color) !important;
   background-color: var(--ecm-body-bg) !important;
 }
-
+.text-primary {
+  color: var(--ecm-body-color) !important;
+}
 :is(.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6) {
   color: var(--ecm-heading-color);
   font-family: $heading-font-family;

@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Col, Container, Row } from "reactstrap";
+import { Col, Row } from "reactstrap";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import CommonProductCard from "../Common/CommonProductCard";
@@ -37,73 +37,63 @@ const FilterCategory = () => {
 
   return (
     <React.Fragment>
-      <section className="my-4 category">
-        <Container>
-          <Row>
-            <Col lg={3} className="border-end">
-              <h3 className="mb-3">Categories</h3>
-              <ul className="list-unstyled ">
-                {memoizedCategories &&
-                  memoizedCategories.length !== 0 &&
-                  memoizedCategories.map((items, index) => (
-                    <React.Fragment key={index}>
-                      <li>
-                        <span
-                          className={`text-capitalize cursor-pointer ${
-                            index === activeIndex ? "border-bottom" : null
-                          }`}
-                          onClick={(e) => {
-                            handleCategoryChange(e, items);
-                            handleChangeIndex(index);
-                          }}
-                        >
-                          {items}
-                        </span>
-                      </li>
-                    </React.Fragment>
-                  ))}
-              </ul>
-              <div>
-                <img src={saleImg} alt="sale" className="img-fluid" />
-              </div>
-            </Col>
-            <Col lg={9}>
-              <div>
-                <div className="d-flex justify-content-between align-items-center">
-                  <div>Shop By Category</div>
-                  <h5>
-                    {selectedCategoryProduct && selectedCategoryProduct.length}{" "}
-                    : Products Found
-                  </h5>
-                </div>
-                <div className="mt-4">
-                  <h3 className="text-capitalize">
-                    {selectedCategoryProduct &&
-                    selectedCategoryProduct.length !== 0
-                      ? selectedCategoryProduct[0].category
-                      : null}
-                  </h3>
-                  <div>
-                    <Row className="gy-4">
-                      {selectedCategoryProduct &&
-                        selectedCategoryProduct.length !== 0 &&
-                        selectedCategoryProduct.map((items, index) => (
-                          <React.Fragment key={index}>
-                            <Col md={6} xl={4}>
-                              <NavLink to={`/productdetails/${items.id}`}>
-                                <CommonProductCard items={items} />
-                              </NavLink>
-                            </Col>
-                          </React.Fragment>
-                        ))}
-                    </Row>
-                  </div>
-                </div>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </section>
+      <Row>
+        <Col lg={3} className="border-end">
+          <ul className="list-unstyled ">
+            {memoizedCategories &&
+              memoizedCategories.length !== 0 &&
+              memoizedCategories.map((items, index) => (
+                <React.Fragment key={index}>
+                  <li>
+                    <span
+                      className={`text-capitalize cursor-pointer ${
+                        index === activeIndex ? "border-bottom" : null
+                      }`}
+                      onClick={(e) => {
+                        handleCategoryChange(e, items);
+                        handleChangeIndex(index);
+                      }}
+                    >
+                      {items}
+                    </span>
+                  </li>
+                </React.Fragment>
+              ))}
+          </ul>
+          {/*  <div>
+            <img src={saleImg} alt="sale" className="img-fluid" />
+          </div> */}
+        </Col>
+        <Col lg={9}>
+          <div className="d-flex justify-content-between align-items-center">
+            <div>Shop By Category</div>
+            <h5>
+              {selectedCategoryProduct && selectedCategoryProduct.length} :
+              Products Found
+            </h5>
+          </div>
+          <div className="mt-4">
+            <Row className="gy-4">
+              <h3 className="text-capitalize">
+                {selectedCategoryProduct && selectedCategoryProduct.length !== 0
+                  ? selectedCategoryProduct[0].category
+                  : null}
+              </h3>
+              {selectedCategoryProduct &&
+                selectedCategoryProduct.length !== 0 &&
+                selectedCategoryProduct.map((items, index) => (
+                  <React.Fragment key={index}>
+                    <Col md={6} xl={4}>
+                      <NavLink to={`/productdetails/${items.id}`}>
+                        <CommonProductCard items={items} />
+                      </NavLink>
+                    </Col>
+                  </React.Fragment>
+                ))}
+            </Row>
+          </div>
+        </Col>
+      </Row>
     </React.Fragment>
   );
 };
