@@ -5,6 +5,7 @@ import CommonHeading from "../../Components/Common/CommonHeading";
 
 const Category = () => {
   document.title = "Category | Ecommerce";
+
   return (
     <React.Fragment>
       <section className="my-4 category">

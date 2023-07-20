@@ -1,32 +1,107 @@
-import React from "react";
+import React, { lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
 import Home from "../Pages/Home/Home";
-import Category from "../Pages/Category/Category";
-import ShowProductDetail from "../Pages/ProductDetail/ShowProductDetail";
-import Wishlist from "../Pages/Wishlist/Wishlist";
-import Profile from "../Pages/Profile/Profile";
-import Cart from "../Pages/Cart/Cart";
-import Checkout from "../Pages/Checkout.jsx/Checkout";
-import Orders from "../Pages/Orders/Orders";
-import OrderDetails from "../Components/Orders/OrderDetails";
-import OrderList from "../Components/Orders/OrderList";
-import AllProducts from "../Pages/AllProducts/AllProducts";
+import SuspensedView from "../Components/Common/SuspensedView";
+
+const Category = lazy(() => import("../Pages/Category/Category"));
+const ShowProductDetail = lazy(() =>
+  import("../Pages/ProductDetail/ShowProductDetail")
+);
+const Wishlist = lazy(() => import("../Pages/Wishlist/Wishlist"));
+const AllProducts = lazy(() => import("../Pages/AllProducts/AllProducts"));
+const Profile = lazy(() => import("../Pages/Profile/Profile"));
+const Cart = lazy(() => import("../Pages/Cart/Cart"));
+const Checkout = lazy(() => import("../Pages/Checkout.jsx/Checkout"));
+const Orders = lazy(() => import("../Pages/Orders/Orders"));
+const OrderDetails = lazy(() => import("../Components/Orders/OrderDetails"));
+const OrderList = lazy(() => import("../Components/Orders/OrderList"));
+
 const PrivateRoutes = () => {
   return (
     <Routes>
       <Route element={<Layout />}>
         <Route path={"home"} element={<Home />} />
-        <Route path={"category"} element={<Category />} />
-        <Route path={"allproducts"} element={<AllProducts />} />
-        <Route path={"productdetails/:id"} element={<ShowProductDetail />} />
-        <Route path={"wishlist"} element={<Wishlist />} />
-        <Route path={"profile"} element={<Profile />} />
-        <Route path={"cart"} element={<Cart />} />
-        <Route path={"checkout"} element={<Checkout />} />
-        <Route path={"orders"} element={<Orders />}>
-          <Route path="" element={<OrderList />} />
-          <Route path={":id"} element={<OrderDetails />} />
+        <Route
+          path={"category"}
+          element={
+            <SuspensedView>
+              <Category />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path={"allproducts"}
+          element={
+            <SuspensedView>
+              <AllProducts />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path={"productdetails/:id"}
+          element={
+            <SuspensedView>
+              <ShowProductDetail />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path={"wishlist"}
+          element={
+            <SuspensedView>
+              <Wishlist />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path={"profile"}
+          element={
+            <SuspensedView>
+              <Profile />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path={"cart"}
+          element={
+            <SuspensedView>
+              <Cart />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path={"checkout"}
+          element={
+            <SuspensedView>
+              <Checkout />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path={"orders"}
+          element={
+            <SuspensedView>
+              <Orders />
+            </SuspensedView>
+          }
+        >
+          <Route
+            path=""
+            element={
+              <SuspensedView>
+                <OrderList />
+              </SuspensedView>
+            }
+          />
+          <Route
+            path={":id"}
+            element={
+              <SuspensedView>
+                <OrderDetails />
+              </SuspensedView>
+            }
+          />
         </Route>
         <Route path={"/*"} element={<Navigate to={"/error"} />} />
       </Route>
