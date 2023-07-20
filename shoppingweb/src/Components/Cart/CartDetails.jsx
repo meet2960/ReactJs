@@ -123,7 +123,7 @@ const CartDetails = ({ cartItems }) => {
                                   )}
                                   <img
                                     src={cell.value}
-                                    alt={"images"}
+                                    alt="images"
                                     className={`avatar-md ${
                                       imgLoading ? "d-none" : "d-block"
                                     }`}

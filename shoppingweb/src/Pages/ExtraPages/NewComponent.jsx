@@ -68,11 +68,6 @@ const Second = () => {
                     >
                       <div className="row align-items-center sess">
                         <div className="col-6 col-md-4 d-flex flex-md-column justify-content-center align-items-center border-last order-1">
-                          {/*  <img
-                            src={Location}
-                            className="loc-img"
-                            alt="location"
-                          /> */}
                           <p className="ms-1 m-0 p-0  mt-md-2 mb-lg-2 fw-loc-head">
                             Los Angeles
                           </p>

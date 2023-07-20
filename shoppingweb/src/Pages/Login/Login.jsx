@@ -12,9 +12,6 @@ const Login = () => {
           <Col lg={6}>
             <Card className="overflow-hidden">
               <Row className="gx-0 justify-content-center align-items-center">
-                {/*  <Col lg={6}>
-                  <img src={loginImage} alt="login" className="img-fluid" />
-                </Col> */}
                 <Col lg={12}>
                   <div className="px-5 py-4">
                     {/* <LoginWithOTP /> */}
