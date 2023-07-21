@@ -1,0 +1,36 @@
+:root {
+  --primary-color: #2a8b8b;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+.card {
+  background-color: #24232b !important;
+  color: #fff !important;
+}
+
+.btn-primary {
+  text-transform: uppercase;
+  border: var(--primary-color);
+  background-color: var(--primary-color) !important;
+}
+.btn-primary:hover {
+  background-color: #296c6c !important;
+}
+
+.password {
+  font-weight: 700 !important;
+}
+.fs-20 {
+  font-size: 20px;
+}
+.form-check-input:checked {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+.form-check-input:focus {
+  border-color: var(--primary-color);
+  outline: 0;
+  box-shadow: 0 0 0 0.1rem var(--primary-color);
+}
