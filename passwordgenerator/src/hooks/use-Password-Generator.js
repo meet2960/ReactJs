@@ -40,8 +40,6 @@ const usePasswordGenerator = () => {
     console.log("Random Password", generatedPassword);
     setPassword(generatedPassword);
     setErrorMsg("");
-    console.log("CharSet is", charset);
-    console.log("SelectedOptions", selectedOption);
   };
   return { password, errorMsg, generatePassword };
 };
