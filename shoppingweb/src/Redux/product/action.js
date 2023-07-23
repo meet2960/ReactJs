@@ -9,7 +9,7 @@ export const getProductList = () => (dispatch) => {
   return getRequest(`https://dummyjson.com/products`)
     .then((response) => {
       if (response.status === 200) {
-        console.log("API Called Successfully", response.data);
+        console.log("Home API Called Successfully", response.data);
         dispatch(actions.productList(response.data.products));
         dispatch(endCall({}));
         return response;

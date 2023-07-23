@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Container } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductList } from "../../Redux/product/action";
 import {
@@ -28,26 +27,22 @@ const Home = () => {
     }
   }, [dispatch]);
   return (
-    <React.Fragment>
-      <div className="home">
-        {actionLoading ? (
-          <Loader />
-        ) : (
-          <React.Fragment>
-            <Container fluid={true} className="px-0">
-              <BackSlider />
-            </Container>
-            <OurServices />
-            <TrendingProducts productData={productData} />
-            <OfferImage />
-            <DealsProducts />
-            <NewsLetter />
-            <CustomerReview />
-            <FooterDetails />
-          </React.Fragment>
-        )}
-      </div>
-    </React.Fragment>
+    <div className="home">
+      {actionLoading ? (
+        <Loader />
+      ) : (
+        <React.Fragment>
+          <BackSlider />
+          <OurServices />
+          <TrendingProducts productData={productData} />
+          <OfferImage />
+          <DealsProducts />
+          <NewsLetter />
+          <CustomerReview />
+          <FooterDetails />
+        </React.Fragment>
+      )}
+    </div>
   );
 };
 
