@@ -4,12 +4,18 @@ import { NavLink } from "react-router-dom";
 import { Dropdown, DropdownMenu, DropdownToggle } from "reactstrap";
 import { logout } from "../../Redux/auth/authSlice";
 import CurrencyDropDown from "./CurrencyDropDown";
+import { CustomToast } from "../../utils/customToast";
 
 const ProfileDropDown = () => {
   const dispatch = useDispatch();
   const [isDropDownOpen, setDropDownOpen] = useState(false);
   const toggleProfileDrowDown = () => {
     setDropDownOpen(!isDropDownOpen);
+  };
+  const logoutUser = (e) => {
+    e.preventDefault();
+    dispatch(logout());
+    CustomToast({ title: "Logged out Successfully", icon: "success" });
   };
   return (
     <Dropdown
@@ -29,6 +35,11 @@ const ProfileDropDown = () => {
               </NavLink>
             </li>
             <li className="list-group-item">
+              <NavLink to="/cart" className="nav-link">
+                My Cart
+              </NavLink>
+            </li>
+            <li className="list-group-item">
               <NavLink to="/orders" className="nav-link">
                 My Orders
               </NavLink>
@@ -36,11 +47,6 @@ const ProfileDropDown = () => {
             <li className="list-group-item">
               <NavLink to="/wishlist" className="nav-link">
                 My Wishlist
-              </NavLink>
-            </li>
-            <li className="list-group-item">
-              <NavLink to="/cart" className="nav-link">
-                My Cart
               </NavLink>
             </li>
             <li className="list-group-item">
@@ -52,7 +58,7 @@ const ProfileDropDown = () => {
                 <button
                   type="button"
                   className="btn btn-primary btn-sm"
-                  onClick={(e) => dispatch(logout())}
+                  onClick={(e) => logoutUser(e)}
                 >
                   Logout
                 </button>

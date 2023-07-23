@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { CustomToast } from "../../utils/customToast";
 
 const CryptoJS = require("crypto-js");
 
@@ -20,6 +21,11 @@ export const AuthSlice = createSlice({
         JSON.stringify("loginToken"),
         "loginKey"
       ).toString();
+      CustomToast({
+        title: "Login Successfully",
+        icon: "success",
+        timer: 5000,
+      });
     },
     logout: (state, action) => {
       state.access_token = null;

@@ -2,14 +2,17 @@ import React, { useEffect } from "react";
 import { Container } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductList } from "../../Redux/product/action";
-import BackSlider from "../../Components/Home/BackSlider";
-import OurServices from "../../Components/Home/OurServices";
-import NewsLetter from "../../Components/Home/NewsLetter";
-import TrendingProducts from "../../Components/Home/TrendingProducts";
-import DealsProducts from "../../Components/Home/DealsProducts";
-import CustomerReview from "../../Components/Home/CustomerReview";
-import OfferImage from "../../Components/Home/OfferImage";
-import FooterDetails from "../../Components/Footer/FooterDetails";
+import {
+  BackSlider,
+  OurServices,
+  NewsLetter,
+  TrendingProducts,
+  DealsProducts,
+  CustomerReview,
+  OfferImage,
+  FooterDetails,
+} from "../../Components/Home";
+import Loader from "../../Components/Common/Loader";
 
 const Home = () => {
   document.title = "Home | Ecommerce";
@@ -27,16 +30,22 @@ const Home = () => {
   return (
     <React.Fragment>
       <div className="home">
-        <Container fluid={true} className="px-0">
-          <BackSlider />
-        </Container>
-        <OurServices />
-        <TrendingProducts productData={productData} />
-        <OfferImage />
-        <DealsProducts />
-        <NewsLetter />
-        <CustomerReview />
-        <FooterDetails />
+        {actionLoading ? (
+          <Loader />
+        ) : (
+          <React.Fragment>
+            <Container fluid={true} className="px-0">
+              <BackSlider />
+            </Container>
+            <OurServices />
+            <TrendingProducts productData={productData} />
+            <OfferImage />
+            <DealsProducts />
+            <NewsLetter />
+            <CustomerReview />
+            <FooterDetails />
+          </React.Fragment>
+        )}
       </div>
     </React.Fragment>
   );

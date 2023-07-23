@@ -1,19 +1,19 @@
 import React, { lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
-import Home from "../Pages/Home/Home";
+import Home from "../pages/Home/Home";
 import SuspensedView from "../Components/Common/SuspensedView";
 
-const Category = lazy(() => import("../Pages/Category/Category"));
+const Category = lazy(() => import("../pages/Category/Category"));
 const ShowProductDetail = lazy(() =>
-  import("../Pages/ProductDetail/ShowProductDetail")
+  import("../pages/ProductDetail/ShowProductDetail")
 );
-const Wishlist = lazy(() => import("../Pages/Wishlist/Wishlist"));
-const AllProducts = lazy(() => import("../Pages/AllProducts/AllProducts"));
-const Profile = lazy(() => import("../Pages/Profile/Profile"));
-const Cart = lazy(() => import("../Pages/Cart/Cart"));
-const Checkout = lazy(() => import("../Pages/Checkout.jsx/Checkout"));
-const Orders = lazy(() => import("../Pages/Orders/Orders"));
+const Wishlist = lazy(() => import("../pages/Wishlist/Wishlist"));
+const AllProducts = lazy(() => import("../pages/AllProducts/AllProducts"));
+const Profile = lazy(() => import("../pages/Profile/Profile"));
+const Cart = lazy(() => import("../pages/Cart/Cart"));
+const Checkout = lazy(() => import("../pages/Checkout.jsx/Checkout"));
+const Orders = lazy(() => import("../pages/Orders/Orders"));
 const OrderDetails = lazy(() => import("../Components/Orders/OrderDetails"));
 const OrderList = lazy(() => import("../Components/Orders/OrderList"));
 

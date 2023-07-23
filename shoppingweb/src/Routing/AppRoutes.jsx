@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import App from "../App";
-import ErrorPage from "../Pages/Error/ErrorPage";
+import ErrorPage from "../pages/Error/ErrorPage";
 import PrivateRoutes from "./PrivateRoutes";
-import Login from "../Pages/Login/Login";
+import Login from "../pages/Login/Login";
 import { useSelector } from "react-redux";
-import Register from "../Pages/Register/Register";
+import Register from "../pages/Register/Register";
 
 const AppRoutes = () => {
   const access_token = useSelector((state) => state.auth.access_token);
