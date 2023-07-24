@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import CommonProductCard from "../Common/CommonProductCard";
 import saleImg from "../../assets/images/category-img-widget.jpg";
+import { Slider } from "antd";
 
 const FilterCategory = () => {
   const { productData } = useSelector((state) => ({
@@ -35,6 +36,26 @@ const FilterCategory = () => {
     console.log("Selected", selectedCategoryProduct);
   }, [productData, selectedCategoryProduct]);
 
+  const [price, setPrice] = useState(30);
+  const handlePriceChange = (value) => {
+    setPrice(parseInt(value));
+  };
+  const filterByPrice = (productData, price) => {
+    const filterPriceData = productData.filter(
+      (items, index) => items.price >= price
+    );
+    // setSelectedCategoryProduct(filterByPrice);
+    console.log("inside FilterPrice Function", filterPriceData);
+  };
+  useEffect(() => {
+    const delay = 1000;
+    const debounce = setTimeout(() => {
+      filterByPrice(productData, price);
+    }, delay);
+    return () => {
+      clearTimeout(debounce);
+    };
+  }, [price]);
   return (
     <React.Fragment>
       <Row>
@@ -60,9 +81,33 @@ const FilterCategory = () => {
                 </React.Fragment>
               ))}
           </ul>
-          {/*  <div>
-            <img src={saleImg} alt="sale" className="img-fluid" />
-          </div> */}
+          <div className="border-top py-3">
+            <label htmlFor="price" className="form-label w-100">
+              Price
+            </label>
+            <Row>
+              <Col>
+                <input
+                  min={30}
+                  max={2000}
+                  type="number"
+                  className="form-control"
+                  value={price}
+                  onChange={(e) => handlePriceChange(e.target.value)}
+                />
+              </Col>
+              <Col lg={8}>
+                <Slider
+                  tooltip={{ open: true }}
+                  min={30}
+                  max={2000}
+                  step={100}
+                  value={typeof price === "number" ? price : 0}
+                  onChange={handlePriceChange}
+                />
+              </Col>
+            </Row>
+          </div>
         </Col>
         <Col lg={9}>
           <div className="d-flex justify-content-between align-items-center">
