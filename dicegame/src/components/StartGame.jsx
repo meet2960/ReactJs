@@ -1,5 +1,5 @@
 import React from "react";
-import homeDice from "../assets/images/dices_home.png";
+import homeDice from "../assets/images/dice_home.png";
 import { useNavigate } from "react-router";
 const StartGame = () => {
   const navigate = useNavigate();
