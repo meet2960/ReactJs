@@ -3,7 +3,6 @@ import { Col, Row } from "reactstrap";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import CommonProductCard from "../Common/CommonProductCard";
-import saleImg from "../../assets/images/category-img-widget.jpg";
 import { Slider } from "antd";
 
 const FilterCategory = () => {
@@ -16,10 +15,14 @@ const FilterCategory = () => {
   const [selectedCategoryProduct, setSelectedCategoryProduct] = useState([]);
   const handleCategoryChange = (e, selectedItem) => {
     e.preventDefault();
-    console.log("Items", selectedItem);
-    const filterProducts = productData.filter((items, index) => {
-      return items.category === selectedItem;
-    });
+    // console.log("handleCategoryChange Items", selectedItem);
+    if (selectedItem === "All") {
+      setSelectedCategoryProduct(productData);
+      return;
+    }
+    const filterProducts = productData.filter(
+      (items, index) => items.category === selectedItem
+    );
     setSelectedCategoryProduct(filterProducts);
   };
   const [activeIndex, setActiveIndex] = useState(null);
@@ -28,82 +31,135 @@ const FilterCategory = () => {
   };
   useEffect(() => {
     const findCategory = [
+      "All",
       ...new Set(
         productData && productData.map((items, index) => items.category)
       ),
     ];
     setUniqueCategory(findCategory);
+    setSelectedCategoryProduct(productData);
     console.log("Selected", selectedCategoryProduct);
-  }, [productData, selectedCategoryProduct]);
+  }, [productData]);
 
-  const [price, setPrice] = useState(30);
-  const handlePriceChange = (value) => {
-    setPrice(parseInt(value));
+  // ! Custom Filters
+  const [customFilters, setCustomFilters] = useState({
+    price: 30,
+    rating: 5,
+  });
+  const handleCustomFilters = (value, name) => {
+    setCustomFilters((prev) => ({ ...prev, [name]: value }));
   };
-  const filterByPrice = (productData, price) => {
+  const findUniqueCompany = (productData) => {
+    const uniqueCompany = productData.map((items, index) => items.brand);
+    console.log("UniqueCompany", uniqueCompany);
+  };
+
+  /*   const filterProducts = (productData, customFilters) => {
+    const { price, rating } = customFilters;
     const filterPriceData = productData.filter(
-      (items, index) => items.price >= price
+      (items, index) =>
+        items.price >= price && Math.round(items.rating) <= rating
     );
-    // setSelectedCategoryProduct(filterByPrice);
     console.log("inside FilterPrice Function", filterPriceData);
-  };
-  useEffect(() => {
+  }; */
+  /*   useEffect(() => {
+    console.log("Filterss", customFilters);
     const delay = 1000;
     const debounce = setTimeout(() => {
-      filterByPrice(productData, price);
+      filterProducts(productData, customFilters);
     }, delay);
     return () => {
       clearTimeout(debounce);
     };
-  }, [price]);
+  }, [customFilters]); */
   return (
     <React.Fragment>
       <Row>
         <Col lg={3} className="border-end">
-          <ul className="list-unstyled ">
-            {memoizedCategories &&
-              memoizedCategories.length !== 0 &&
-              memoizedCategories.map((items, index) => (
-                <React.Fragment key={index}>
-                  <li>
-                    <span
-                      className={`text-capitalize cursor-pointer ${
-                        index === activeIndex ? "border-bottom" : null
-                      }`}
-                      onClick={(e) => {
-                        handleCategoryChange(e, items);
-                        handleChangeIndex(index);
-                      }}
-                    >
-                      {items}
-                    </span>
-                  </li>
-                </React.Fragment>
-              ))}
-          </ul>
-          <div className="border-top py-3">
-            <label htmlFor="price" className="form-label w-100">
-              Price
-            </label>
-            <Row>
+          <div className="mb-5">
+            <h4 className="mb-3">Categories</h4>
+            <ul className="list-unstyled mb-0">
+              {memoizedCategories &&
+                memoizedCategories.length !== 0 &&
+                memoizedCategories.map((items, index) => (
+                  <React.Fragment key={index}>
+                    <li>
+                      <span
+                        className={`text-capitalize cursor-pointer ${
+                          index === activeIndex ? "border-bottom" : null
+                        }`}
+                        onClick={(e) => {
+                          handleCategoryChange(e, items);
+                          handleChangeIndex(index);
+                        }}
+                      >
+                        {items}
+                      </span>
+                    </li>
+                  </React.Fragment>
+                ))}
+            </ul>
+          </div>
+          <div className="mb-5">
+            <h4 className="mb-3">Filter by Price</h4>
+            <Row className="align-items-center">
               <Col>
                 <input
                   min={30}
                   max={2000}
                   type="number"
-                  className="form-control"
-                  value={price}
-                  onChange={(e) => handlePriceChange(e.target.value)}
+                  className="form-control form-control-sm"
+                  value={customFilters.price}
+                  onChange={(e) =>
+                    handleCustomFilters(parseInt(e.target.value), e.target.name)
+                  }
                 />
               </Col>
               <Col lg={8}>
                 <Slider
-                  tooltip={{ open: true }}
+                  tooltip={{ open: true, placement: "right" }}
                   min={30}
                   max={2000}
                   step={100}
-                  value={typeof price === "number" ? price : 0}
-                  onChange={handlePriceChange}
+                  value={
+                    typeof customFilters.price === "number"
+                      ? customFilters.price
+                      : 0
+                  }
+                  onChange={(e) => handleCustomFilters(e, "price")}
+                />
+              </Col>
+            </Row>
+          </div>
+          <div className="mb-4">
+            <h4 className="mb-3">Filter by Rating</h4>
+            <Row className="align-items-center">
+              <Col>
+                <input
+                  min={1}
+                  max={5}
+                  type="number"
+                  className="form-control form-control-sm"
+                  value={customFilters.rating}
+                  name="rating"
+                  onChange={(e) =>
+                    handleCustomFilters(parseInt(e.target.value), e.target.name)
+                  }
+                />
+              </Col>
+              <Col lg={8}>
+                <Slider
+                  tooltip={{ open: true, placement: "left" }}
+                  defaultValue={1}
+                  min={1}
+                  max={5}
+                  step={1}
+                  value={
+                    typeof customFilters.rating === "number"
+                      ? customFilters.rating
+                      : 0
+                  }
+                  onChange={(e) => handleCustomFilters(e, "rating")}
                 />
               </Col>
             </Row>

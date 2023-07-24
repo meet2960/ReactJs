@@ -2,6 +2,7 @@ import React from "react";
 import { Col, Row } from "reactstrap";
 
 const CommonHeading = ({ heading }) => {
+  console.log("Common Heading Rendered");
   return (
     <React.Fragment>
       <Row className="gx-0">

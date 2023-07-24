@@ -110,7 +110,7 @@
   left: 0;
   top: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 9999;
 }
 
 .logo {
@@ -493,9 +493,9 @@
 // * Category Page
 .category {
   ul li {
-    padding-bottom: 16px;
+    padding-bottom: 0.5rem;
     .border-bottom {
-      border-bottom: 3px solid $light-gray-900 !important;
+      border-bottom: 2px solid $light-gray-900 !important;
     }
   }
 }
