@@ -3,6 +3,7 @@ import { Card, CardBody, Col, Container, Row } from "reactstrap";
 import usePasswordGenerator from "../hooks/use-Password-Generator";
 import StrengthChecker from "./StrengthChecker";
 import Checkbox from "./Checkbox";
+import { Slider } from "antd";
 
 const PasswordGenerator = () => {
   const { password, errorMsg, generatePassword } = usePasswordGenerator();
@@ -36,7 +37,7 @@ const PasswordGenerator = () => {
     setCopied(true);
     setTimeout(() => {
       setCopied(false);
-    }, 2000);
+    }, 4000);
   };
   return (
     <Container>
@@ -63,13 +64,13 @@ const PasswordGenerator = () => {
                 )}
                 <Row className="mb-4 align-items-center">
                   <Col>
-                    <span className="fs-20">Character Length</span>
+                    <span className="fs-20">Password Length</span>
                   </Col>
                   <Col xs={"auto"}>
                     <span className="fs-20">{length}</span>
                   </Col>
                   <Col xs={12} className="mt-2">
-                    <input
+                    {/*              <input
                       type="range"
                       className="form-range"
                       id="customRange1"
@@ -77,6 +78,22 @@ const PasswordGenerator = () => {
                       max="20"
                       value={length}
                       onChange={(e) => setLength(e.target.value)}
+                    /> */}
+                    <Slider
+                      min={4}
+                      max={20}
+                      value={length}
+                      onChange={(value) => setLength(value)}
+                      railStyle={{
+                        backgroundColor: "#f2f6f7",
+                        height: "8px",
+                        borderRadius: "50px",
+                      }}
+                      trackStyle={{
+                        backgroundColor: "#2a8b8b",
+                        height: "8px",
+                        borderRadius: "50px",
+                      }}
                     />
                   </Col>
                 </Row>

@@ -43,6 +43,7 @@ const FilterCategory = () => {
 
   // ! Custom Filters
   const [customFilters, setCustomFilters] = useState({
+    category: "All",
     price: 30,
     rating: 5,
   });
@@ -178,7 +179,7 @@ const FilterCategory = () => {
               <h3 className="text-capitalize">
                 {selectedCategoryProduct && selectedCategoryProduct.length !== 0
                   ? selectedCategoryProduct[0].category
-                  : null}
+                  : "Null"}
               </h3>
               {selectedCategoryProduct &&
                 selectedCategoryProduct.length !== 0 &&

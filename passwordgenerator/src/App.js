@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import "./assets/customCommon.css";
+import "./assets/customCommon.scss";
 import PasswordGenerator from "./Components/PasswordGenerator";
 const App = () => {
   return (

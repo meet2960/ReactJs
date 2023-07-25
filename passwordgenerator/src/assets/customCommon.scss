@@ -5,6 +5,11 @@
 * {
   font-family: "Poppins", sans-serif;
 }
+
+body {
+  background-color: #e4e8e8;
+}
+
 .card {
   background-color: #24232b !important;
   color: #fff !important;
@@ -15,22 +20,44 @@
   border: var(--primary-color);
   background-color: var(--primary-color) !important;
 }
+
 .btn-primary:hover {
   background-color: #296c6c !important;
+}
+
+.text-success {
+  color: #25dc25 !important;
 }
 
 .password {
   font-weight: 700 !important;
 }
+
 .fs-20 {
   font-size: 20px;
 }
+
 .form-check-input:checked {
   background-color: var(--primary-color) !important;
   border-color: var(--primary-color) !important;
 }
+
 .form-check-input:focus {
   border-color: var(--primary-color);
   outline: 0;
   box-shadow: 0 0 0 0.1rem var(--primary-color);
+}
+
+.ant-slider-handle {
+  &::after {
+    height: 16px !important;
+    width: 16px !important;
+    box-shadow: 0 0 0 4px var(--primary-color) !important;
+  }
+  &:hover::after {
+    box-shadow: 0 0 0 4px #47aeae !important;
+    // height: 12px;
+    inset-inline-start: 0px !important;
+    inset-block-start: 0px !important;
+  }
 }

@@ -5,17 +5,17 @@ const StrengthChecker = ({ password }) => {
   const getPasswordStrength = () => {
     const passwordLength = password.length;
     if (passwordLength < 1) {
-      return "";
-    } else if (passwordLength < 4) {
-      return "Very Weak";
+      return <span></span>;
+    } else if (passwordLength <= 4) {
+      return <span className="text-danger">Very Weak</span>;
     } else if (passwordLength < 8) {
-      return "Poor";
+      return <span className="text-danger">Poor</span>;
     } else if (passwordLength < 12) {
-      return "Medium";
+      return <span className="text-warning">Medium</span>;
     } else if (passwordLength < 16) {
-      return "Strong";
+      return <span className="text-success">Strong</span>;
     } else {
-      return "Very Strong";
+      return <span className="text-success">Very Strong</span>;
     }
   };
   const passwordStrength = getPasswordStrength();
