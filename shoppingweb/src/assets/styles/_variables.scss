@@ -18,18 +18,17 @@ $danger: #eb320c;
 $light: #f3f6f9;
 $dark: #2e4056;
 $theme-colors: (
-        "primary": $primary,
-        "secondary": $secondary,
-        "success": $success,
-        "info": $info,
-        "warning": $warning,
-        "danger": $danger,
-        "light": $light,
-        "dark": $dark,
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
 );
 
 // * Dark Theme Colors
-$white: #fff;
 $light-gray-100: #f3f6f9;
 $light-gray-200: #eff2f7;
 $light-gray-300: #e9ebec;
@@ -39,7 +38,8 @@ $light-gray-600: #878a99;
 $light-gray-700: #495057;
 $light-gray-800: #343a40;
 $light-gray-900: #2e4056;
-$black: #000;
+$white: #ffffff;
+$black: #000000;
 
 // Body Color
 $body-color: $light-gray-900;
@@ -54,7 +54,7 @@ $body-bg: $light-gray-100;
 
 // For Dynamic Font Sizes
 $font-size-mixing: 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,
-25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 48;
+  25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 48;
 @each $font-size-mixing in $font-size-mixing {
   .fs-#{$font-size-mixing} {
     font-size: #{$font-size-mixing}px !important;
