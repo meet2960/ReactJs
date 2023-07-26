@@ -1,0 +1,84 @@
+/* * {
+  padding: 0;
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+}
+
+.bg {
+  background-size: cover;
+}
+
+.vh-100 {
+  min-height: 100vh;
+}
+
+.drop {
+  backdrop-filter: blur(30px);
+}
+
+.box {
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  background-color: transparent;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+}
+
+.bs {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+ */
+.tic-tac {
+  .back-bg {
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    background: url("./images//gradient_2.jpg") no-repeat center / cover;
+    display: grid;
+    place-items: center;
+  }
+  .sub-heading {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 1rem;
+    padding: 0.5rem 3rem;
+  }
+  .box-layout {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 2rem;
+    .box {
+      width: 90px;
+      height: 90px;
+      cursor: pointer;
+      font-size: 3rem;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #box1,
+    #box2,
+    #box4,
+    #box5 {
+      border-right: 2px solid white;
+      border-bottom: 2px solid white;
+    }
+    #box3,
+    #box6 {
+      border-bottom: 2px solid white;
+    }
+    #box7,
+    #box8 {
+      border-right: 2px solid white;
+    }
+  }
+}

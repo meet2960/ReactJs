@@ -66,7 +66,7 @@ const Header = () => {
                       className="nav-link"
                       aria-current="page"
                     >
-                      View All
+                      Products
                     </NavLink>
                   </li>
                 </ul>

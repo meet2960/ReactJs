@@ -6,7 +6,11 @@ const CryptoJS = require("crypto-js");
 const initialState = {
   access_token: "U2FsdGVkX187NoJ5/GpgzWgD+GHre+1unBlAj3v7rd8=",
   user: {
-    email: "abcdxyz@gmail.com",
+    name: "Meet",
+    email: "",
+    username: "meet2960",
+    phone: "1234567890",
+    profileImg: "",
   },
 };
 
@@ -30,6 +34,10 @@ export const AuthSlice = createSlice({
     logout: (state, action) => {
       state.access_token = null;
     },
+    updateUserData: (state, action) => {
+      console.log("Inside Redux", action.payload);
+      state.user = action.payload;
+    },
   },
 });
-export const { login, logout } = AuthSlice.actions;
+export const { login, logout, updateUserData } = AuthSlice.actions;

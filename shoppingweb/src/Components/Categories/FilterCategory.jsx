@@ -12,10 +12,10 @@ const FilterCategory = () => {
   // ? To Filter Unique Category from the API Response
   const [uniqueCategory, setUniqueCategory] = useState([]);
   const memoizedCategories = useMemo(() => uniqueCategory, [uniqueCategory]);
-  const [selectedCategoryProduct, setSelectedCategoryProduct] = useState([]);
+  const [selectedCategoryProduct, setSelectedCategoryProduct] =
+    useState(productData);
   const handleCategoryChange = (e, selectedItem) => {
     e.preventDefault();
-    // console.log("handleCategoryChange Items", selectedItem);
     if (selectedItem === "All") {
       setSelectedCategoryProduct(productData);
       return;
@@ -25,7 +25,7 @@ const FilterCategory = () => {
     );
     setSelectedCategoryProduct(filterProducts);
   };
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const handleChangeIndex = (index) => {
     setActiveIndex(index);
   };
@@ -179,7 +179,7 @@ const FilterCategory = () => {
               <h3 className="text-capitalize">
                 {selectedCategoryProduct && selectedCategoryProduct.length !== 0
                   ? selectedCategoryProduct[0].category
-                  : "Null"}
+                  : "All"}
               </h3>
               {selectedCategoryProduct &&
                 selectedCategoryProduct.length !== 0 &&
