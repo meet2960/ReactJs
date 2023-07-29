@@ -129,7 +129,7 @@ const ItemDetail = ({ selectedProduct }) => {
           <div>
             <button
               type="button"
-              className="btn btn-sm btn-primary"
+              className="btn btn-primary"
               onClick={(e) => handleAddToCart(e)}
             >
               ADD TO CART
@@ -138,7 +138,7 @@ const ItemDetail = ({ selectedProduct }) => {
           <div>
             <button
               type="button"
-              className="btn btn-sm btn-primary"
+              className="btn btn-primary"
               onClick={(e) => handleAddToWishlist(e)}
             >
               Wishlist
