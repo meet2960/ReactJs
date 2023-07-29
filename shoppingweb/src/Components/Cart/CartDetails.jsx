@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { useSortBy, useTable } from "react-table";
 import {
-  increaseQuantity,
   decreaseQuantity,
+  increaseQuantity,
   removeItem,
 } from "../../Redux/cart/cartSlice";
 import { useDispatch } from "react-redux";
@@ -10,6 +10,7 @@ import { CurrenctContext } from "../../Context/CurrencyContext";
 import { quantitySubTotal } from "../../utils/cartTotal";
 import { NavLink } from "react-router-dom";
 import { Skeleton } from "antd";
+
 const CartDetails = ({ cartItems }) => {
   const [imgLoading, setImgLoading] = useState(true);
   const { formatCurrency } = useContext(CurrenctContext);
@@ -138,7 +139,7 @@ const CartDetails = ({ cartItems }) => {
                             <td {...cell.getCellProps()}>
                               <button
                                 type="button"
-                                className="btn btn-primary"
+                                className="btn btn-sm btn-danger"
                                 onClick={() =>
                                   dispatch(removeItem(selectedItem))
                                 }

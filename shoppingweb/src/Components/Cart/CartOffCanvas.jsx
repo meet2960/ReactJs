@@ -6,6 +6,7 @@ import { cartTotal, quantitySubTotal } from "../../utils/cartTotal";
 import { CurrenctContext } from "../../Context/CurrencyContext";
 import { NavLink } from "react-router-dom";
 import { MdDeleteForever } from "react-icons/md";
+
 const CartOffCanvas = () => {
   const { formatCurrency } = useContext(CurrenctContext);
   const dispatch = useDispatch();
@@ -63,7 +64,7 @@ const CartOffCanvas = () => {
                             {formatCurrency(quantitySubTotal(items))}
                           </h6>
                           <button
-                            className="btn btn-link p-0"
+                            className="btn btn-link text-secondary p-1"
                             onClick={() => {
                               dispatch(removeItem(items));
                             }}
@@ -94,7 +95,7 @@ const CartOffCanvas = () => {
             </h5>
             <div>
               <NavLink to="/cart">
-                <button type="button" className="btn btn-sm btn-dark">
+                <button type="button" className="btn btn-success">
                   Checkout
                 </button>
               </NavLink>

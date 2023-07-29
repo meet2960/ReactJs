@@ -10,26 +10,26 @@ $heading-font-family: $font-family-primary;
 
 $heading-color: #343a40;
 // * Main Theme Colors
-$primary: #e97015;
+$primary: #736cc7;
 $secondary: #2e4056;
-$success: #0ab39c;
+$success: #02b3a9;
 $info: #4484ef;
-$warning: #f7b84b;
-$danger: #eb320c;
-$light: #f3f6f9;
-$dark: #2e4056;
+$warning: #f7a311;
+$danger: #dc3545;
+$light: #d7d7db;
+$dark: #3b3e42;
 $theme-colors: (
-  "primary": $primary,
-  "secondary": $secondary,
-  "success": $success,
-  "info": $info,
-  "warning": $warning,
-  "danger": $danger,
-  "light": $light,
-  "dark": $dark,
+        "primary": $primary,
+        "secondary": $secondary,
+        "success": $success,
+        "info": $info,
+        "warning": $warning,
+        "danger": $danger,
+        "light": $light,
+        "dark": $dark,
 );
 
-// * Dark Theme Colors
+// * Light Theme Colors
 $light-gray-100: #f3f6f9;
 $light-gray-200: #eff2f7;
 $light-gray-300: #e9ebec;
@@ -43,8 +43,8 @@ $white: #ffffff;
 $black: #000000;
 
 // Body Color
-$body-color: $light-gray-900;
 $body-bg: $light-gray-100;
+$body-color: $light-gray-900;
 // body
 :root {
   --#{$prefix}-body-color: #{$body-color};
@@ -68,19 +68,6 @@ $font-weight: 300, 400, 500, 600, 700, 800, 900;
     font-weight: #{$font-weight} !important;
   }
 }
-
-@each $color, $value in $theme-colors {
-  .text-#{$color} {
-    color: #{$value} !important;
-  }
-}
-
-@each $color, $value in $theme-colors {
-  .bg-#{$color} {
-    background-color: #{$value} !important;
-  }
-}
-
 // For Custom Heading Font Sizes
 $font-size-base: 0.9rem;
 $h1-font-size: $font-size-base * 2.5;

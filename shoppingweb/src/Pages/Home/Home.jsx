@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProductList } from "../../Redux/product/action";
 import {
   BackSlider,
-  OurServices,
-  NewsLetter,
-  TrendingProducts,
-  DealsProducts,
   CustomerReview,
-  OfferImage,
+  DealsProducts,
   FooterDetails,
+  NewsLetter,
+  OfferImage,
+  OurServices,
+  TrendingProducts,
 } from "../../Components/Home";
 import Loader from "../../Components/Common/Loader";
 
@@ -32,6 +32,7 @@ const Home = () => {
         <Loader />
       ) : (
         <React.Fragment>
+          {/* <AllButtons /> */}
           <BackSlider />
           <OurServices />
           <TrendingProducts productData={productData} />

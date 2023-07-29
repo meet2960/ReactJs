@@ -44,7 +44,7 @@ const Cart = () => {
                     <div className="d-flex justify-content-end mt-4 mt-lg-0">
                       <button
                         type="button"
-                        className="btn btn-primary"
+                        className="btn btn-success me-4"
                         onClick={(e) => handleCheckout(e)}
                       >
                         Checkout

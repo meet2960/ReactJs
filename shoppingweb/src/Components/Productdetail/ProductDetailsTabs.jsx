@@ -27,7 +27,7 @@ const ProductDetailsTabs = ({ selectedProduct }) => {
         <div className="product-custom-tabs">
           <Nav
             tabs
-            className="align-items-center justify-content-center justify-content-md-evenly flex-column flex-md-row"
+            className="align-items-center border-bottom justify-content-center justify-content-md-evenly flex-column flex-md-row"
           >
             <NavItem>
               <NavLink

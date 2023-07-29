@@ -1,9 +1,9 @@
-@import "~bootstrap/dist/css/bootstrap.min.css";
-@import "~bootstrap-icons/font/bootstrap-icons.css";
 @import "./variables";
+@import "~bootstrap/scss/bootstrap.scss";
+// @import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 @import "./reboot";
 @import "./theme-dark";
-@import "./buttons";
 @import "./helper";
 @import "./cutomCommon";
 @import "./avatar";

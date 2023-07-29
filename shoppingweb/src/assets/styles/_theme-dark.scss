@@ -12,6 +12,7 @@
   $body-dark-bg: $dark-gray-100;
   $body-dark-color: $dark-gray-600;
   $heading-dark-color: $dark-gray-900;
+
   --#{$prefix}-body-color: #{$body-dark-color};
   --#{$prefix}-body-bg: #{$body-dark-bg};
   --#{$prefix}-heading-color: #{$heading-dark-color};
@@ -20,12 +21,8 @@
     transition: all 0.3s linear;
   }
 
-  .secondary-bg {
-    background-color: #{$dark-gray-300};
-  }
-
   .text-muted {
-    color: #{$dark-gray-500} !important;
+    color: $dark-gray-500 !important;
   }
 
   // * Some Common CSS
@@ -35,14 +32,14 @@
   }
 
   .heading-title::after {
-    border-top: 3px solid #{$dark-gray-600};
+    border-top: 3px solid $dark-gray-600;
   }
 
   .border-bottom {
-    border-bottom: 1px solid #bfc8e2 !important;
+    border-bottom: 1px solid $dark-gray-600 !important;
   }
   .border-top {
-    border-top: 1px solid #bfc8e2 !important;
+    border-top: 1px solid $dark-gray-600 !important;
   }
   // * Navbar
   .navbar {
@@ -147,12 +144,12 @@
 
   // * Common Product Card For All
   .custom-productcard {
-    background-color: #{$dark-gray-300};
-    border: 1px solid #{$dark-gray-100};
+    background-color: $dark-gray-300;
+    border: 1px solid $dark-gray-100;
 
     &:hover {
       box-shadow: 0px 4px 10px rgba(1, 15, 28, 0.14);
-      border-color: #{$dark-gray-300};
+      border-color: $dark-gray-300;
     }
   }
   // * For React Select
@@ -169,8 +166,9 @@
   .order-list {
     table {
       color: inherit !important;
-      --bs-table-hover-color: #{$dark-gray-900};
-      --bs-table-hover-bg: #{$dark-gray-200};
+      --bs-table-hover-color: $dark-gray-900;
+      --bs-table-hover-bg: $dark-gray-200;
+
       td,
       th {
         padding: 1.5rem 1rem !important;

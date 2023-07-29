@@ -9,20 +9,34 @@ body {
   color: var(--ecm-body-color) !important;
   background-color: var(--ecm-body-bg) !important;
 }
+
+.btn-warning,
+.btn-primary,
+.btn-info,
+.btn-success,
+.btn-danger,
+.btn-dark {
+  color: #ffffff !important;
+}
+
 .modal-dialog {
   // width: 1000px !important;
   max-width: 700px !important;
 }
-.text-primary {
+
+/* .text-primary {
   color: var(--ecm-body-color) !important;
-}
+} */
+
 :is(.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6) {
   color: var(--ecm-heading-color);
   font-family: $heading-font-family;
 }
+
 .ant-tooltip {
   z-index: 25;
 }
+
 /* :is(
     .container,
     .container-lg,
@@ -38,6 +52,7 @@ body {
 .text-black {
   color: #000000 !important;
 }
+
 h1,
 .h1 {
   font-size: $h1-font-size;
@@ -79,10 +94,19 @@ a {
   color: inherit !important;
 }
 
+.border-bottom {
+  border-bottom: 1px solid $light-gray-600 !important;
+}
+
+.border-top {
+  border-top: 1px solid $light-gray-600 !important;
+}
+
 .form-control,
 .form-control:focus,
 .form-select:focus {
   color: var(--ecm-body-color) !important;
+
   &:focus {
     border-color: $light-gray-300;
     outline: 0;
@@ -99,14 +123,20 @@ a {
   width: 550px;
 }
 
-.form-control.is-valid:focus {
-  border-color: #0ab39c;
-  box-shadow: 0 0 0 0 rgba(10, 179, 156, 0.25);
-}
+.form-control {
+  &.is-valid {
+    border: 2px solid $success !important;
 
-.form-control.is-invalid:focus {
-  border-color: #eb320c;
-  box-shadow: 0 0 0 0 rgba(235, 50, 12, 0.25);
+    &:focus {
+      border: 2px solid $success !important;
+      // box-shadow: 0 0 0 2px rgba(10, 179, 156, 0.25);
+    }
+  }
+
+  &.is-invalid {
+    border: 2px solid $danger !important;
+    // box-shadow: 0 0 0 2px rgba(235, 50, 12, 0.25);
+  }
 }
 
 .card-title,
@@ -119,9 +149,11 @@ a {
 .nav-link.active {
   color: #{$primary} !important;
 }
+
 .card {
   .card-body {
     color: var(--ecm-body-color) !important;
+
     .heading-title {
       h3 {
         transition: all 0.3s linear !important;
@@ -130,6 +162,7 @@ a {
     }
   }
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -142,6 +175,7 @@ table,
     height: 5px !important;
   }
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

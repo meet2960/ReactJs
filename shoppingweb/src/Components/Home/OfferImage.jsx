@@ -13,7 +13,7 @@ const OfferImage = () => {
               <Col lg={6}>
                 <div className="banner-bg-1 p-4 text-md-end rounded-2">
                   <h5>New Arrivals</h5>
-                  <h3 className="py-3 border-bottom">Sports Outfit</h3>
+                  <h3 className="py-3">Sports Outfit</h3>
                   <div>
                     From <span>{formatCurrency(150)}</span>
                   </div>
@@ -22,9 +22,7 @@ const OfferImage = () => {
               <Col lg={6}>
                 <div className="banner-bg-2 p-4 text-white rounded-2">
                   <h5 className="text-white">SmartWatches</h5>
-                  <h3 className="py-3 border-bottom text-white">
-                    Sale up to 20% Off
-                  </h3>
+                  <h3 className="py-3 text-white">Sale up to 20% Off</h3>
                   <div>
                     Starting From <span>{formatCurrency(200)}</span>
                   </div>
