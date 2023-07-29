@@ -58,7 +58,7 @@ const OrderDetails = () => {
                     </Col>
                     <Col>
                       <div>
-                        <h6>{items.title}</h6>
+                        <h6 className="text-capitalize">{items.title}</h6>
                         <p className="mb-0"></p>
                         <span className="text-capitalize">
                           {items.category}
@@ -66,12 +66,12 @@ const OrderDetails = () => {
                       </div>
                     </Col>
                     <Col xs={"auto"}>
-                      <button type="button" className="btn btn-sm btn-dark">
+                      <button type="button" className="btn btn-secondary">
                         Track
                       </button>
                     </Col>
                     <Col xs={"auto"}>
-                      <button type="button" className="btn btn-sm btn-danger">
+                      <button type="button" className="btn btn-danger">
                         Cancel
                       </button>
                     </Col>

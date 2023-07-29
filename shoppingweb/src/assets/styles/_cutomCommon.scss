@@ -336,7 +336,7 @@
 
   .banner-bg-1 {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../images/extra-photos-1.jpg") no-repeat center center/cover;
+      url("../images/extra-photos-1.jpg") no-repeat center center/cover;
 
     h5,
     h3,
@@ -380,6 +380,7 @@
     .nav-tabs .nav-link,
     .nav-tabs .nav-link:focus,
     .nav-tabs .nav-link:hover {
+      cursor: pointer;
       border: none;
       background-color: transparent;
       position: relative;

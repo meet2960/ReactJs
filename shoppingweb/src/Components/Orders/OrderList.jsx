@@ -37,7 +37,7 @@ const OrderList = () => {
                           </span>
                         </td>
                         <td>
-                          <span className="text-capitalize badge bg-dark text-white">
+                          <span className="text-capitalize badge bg-secondary text-white">
                             {items.orderStatus}
                           </span>
                         </td>
@@ -50,7 +50,7 @@ const OrderList = () => {
                         <td>
                           <div className="d-flex justify-content-center">
                             <NavLink to={`${items.orderId}`}>
-                              <div className="avatar-xs bg-dark rounded-circle">
+                              <div className="avatar-xs bg-secondary rounded-circle d-flex justify-content-center align-items-center">
                                 <i className="bi bi-arrow-right-short text-white fs-25"></i>
                               </div>
                             </NavLink>
