@@ -1,0 +1,11 @@
+body {
+  font-family: "Montserrat", sans-serif;
+}
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.nav-links .active {
+  @apply border-b-4 border-green-500 text-green-500;
+}

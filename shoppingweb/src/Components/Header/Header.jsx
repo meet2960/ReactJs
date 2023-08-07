@@ -1,12 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { Col, Container } from "reactstrap";
-import Logo from "../../assets/images/NewLogo.png";
-import DarkLogo from "../../assets/images/NewDarkLogo.png";
+import { Container } from "reactstrap";
 import ProfileDropDown from "./ProfileDropDown";
 import ThemeChange from "./ThemeChange";
-import SearchField from "./SearchField";
+
 const Header = () => {
   const cart = useSelector((state) => state.cart.cartItems); // to get cart total item count
   // * To get currenct layout theme of Page for logo change
@@ -20,7 +18,14 @@ const Header = () => {
         <Container>
           <nav className="navbar navbar-expand-lg">
             <Container fluid className="px-0">
-              <Col xs={3} lg={2} xl={1}>
+              <div>
+                <NavLink to="/">
+                  <h1 className="d-inline-block mb-0 logo-text d-block d-lg-none">
+                    EBUY
+                  </h1>
+                </NavLink>
+              </div>
+              {/* <Col xs={3} lg={2} xl={1}>
                 <div className="logo">
                   <NavLink to="/" href="#">
                     {layoutType === "light" ? (
@@ -34,7 +39,7 @@ const Header = () => {
                     )}
                   </NavLink>
                 </div>
-              </Col>
+              </Col> */}
               <button
                 className="navbar-toggler"
                 type="button"
@@ -50,7 +55,12 @@ const Header = () => {
                 className="collapse navbar-collapse justify-content-between"
                 id="navbarTogglerDemo02"
               >
-                <ul className="navbar-nav mb-2 mb-lg-0">
+                <div className="order-1 order-lg-2 d-none d-lg-block">
+                  <NavLink to={"/"}>
+                    <h1 className="d-d-inline-block mb-0 logo-text">EBUY</h1>
+                  </NavLink>
+                </div>
+                <ul className="navbar-nav mb-2 mb-lg-0 order-3 order-lg-1">
                   <li className="nav-item">
                     <NavLink
                       to={"/category"}
@@ -70,10 +80,12 @@ const Header = () => {
                     </NavLink>
                   </li>
                 </ul>
-                <Col lg={4}>
+                {/*   <Col lg={4} className="text-center">
+                  <h1 className="d-d-inline-block mb-0 logo-text">EBUY</h1>
+
                   <SearchField />
-                </Col>
-                <div className="mt-3 mt-lg-0">
+                </Col> */}
+                <div className="mt-3 mt-lg-0 order-1 order-lg-3">
                   <ul className="navbar-nav align-items-center nav-icons flex-row justify-content-center">
                     <li className="nav-item">
                       <ProfileDropDown />
