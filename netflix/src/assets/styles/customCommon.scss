@@ -1,16 +1,19 @@
+// * Landing Page Section
 .landing-section {
   .back-bg {
     background: url("../images/banner.jpg") no-repeat center center;
     background-size: cover;
   }
 }
-.btn-primary {
-  @apply bg-[#e50914] rounded text-white px-4 py-1 font-medium text-sm inline-flex justify-center items-center;
+// *
+.list__all {
+  .poster {
+    max-height: 100px;
+    object-fit: contain;
+    width: 100%;
+  }
 }
-.container-fluid {
-  // @apply max-w-screen-xl mx-auto px-5;
-}
-
+// * Footer Section
 .footer {
   ul li {
     margin-bottom: 1rem;
@@ -40,6 +43,7 @@
   }
 }
 
+// * Home Banner Section
 .home__banner {
   position: relative;
   height: 100%;
@@ -58,26 +62,12 @@
     content: "";
     bottom: 0%;
     width: 100%;
-    height: 40%;
+    // height: 20%;
     background-image: linear-gradient(
       180deg,
       transparent,
       rgba(37, 37, 37, 0.61),
       #111
     );
-  }
-  .banner__button {
-    cursor: pointer;
-    outline: none;
-    border: none;
-    color: #fff;
-    font-weight: 700;
-    padding: 1rem 2rem;
-    background-color: rgba(51, 51, 51, 0.5);
-    &:hover {
-      color: #000;
-      background-color: #e6e6e6;
-      transition: all 0.2s;
-    }
   }
 }

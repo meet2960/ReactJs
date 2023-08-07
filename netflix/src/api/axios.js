@@ -6,8 +6,7 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   (config) => {
-    // Replace 'YOUR_BEARER_TOKEN' with your actual Bearer token
-    const token = import.meta.env.REACT_APP_AUTH_TOKEN;
+    const token = import.meta.env.VITE_REACT_APP_AUTH_TOKEN;
     config.headers.Authorization = `Bearer ${token}`;
     return config;
   },
