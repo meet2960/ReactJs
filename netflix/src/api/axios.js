@@ -16,3 +16,5 @@ instance.interceptors.request.use(
 );
 
 export default instance;
+
+export const baseImgUrl = "https://image.tmdb.org/t/p/original/";

@@ -1,12 +1,12 @@
 import React from "react";
 import HomeBanner from "../../components/Home/HomeBanner";
-import LatestMovies from "../../components/Home/LatestMovies";
+import TopRated from "../../components/Home/TopRated";
 
 const Home = () => {
   return (
     <React.Fragment>
       <HomeBanner />
-      <LatestMovies />
+      <TopRated />
     </React.Fragment>
   );
 };
