@@ -1,7 +1,8 @@
 import React from "react";
 import { Container } from "reactstrap";
-import CommonHeading from "../../Components/Common/CommonHeading";
-import ViewAllProducts from "../../Components/AllProducts/ViewAllProducts";
+import CommonHeading from "../../components/Common/CommonHeading";
+import ViewAllProducts from "../../components/AllProducts/ViewAllProducts";
+
 const AllProducts = () => {
   return (
     <section className="allproducts my-4">

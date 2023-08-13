@@ -1,11 +1,11 @@
 import React, { useMemo } from "react";
 import { Col, Container, Row } from "reactstrap";
-import CartDetails from "../../Components/Cart/CartDetails";
-import CartPrice from "../../Components/Cart/CartPrice";
+import CartDetails from "../../components/Cart/CartDetails";
+import CartPrice from "../../components/Cart/CartPrice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { cartTotal } from "../../utils/cartTotal";
-import CommonHeading from "../../Components/Common/CommonHeading";
+import CommonHeading from "../../components/Common/CommonHeading";
 
 const Cart = () => {
   document.title = "My Cart | Ecommerce";

@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Col, Container, Row } from "reactstrap";
-import LoginForm from "../../Components/Login/LoginForm";
+import LoginForm from "../../components/Login/LoginForm";
 import { NavLink } from "react-router-dom";
 
 const Login = () => {

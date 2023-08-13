@@ -11,8 +11,9 @@ import {
 } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Skeleton } from "antd";
-import { updateUserData } from "../../Redux/auth/authSlice";
+import { updateUserData } from "../../store/auth/authSlice";
 import { CustomToast } from "../../utils/customToast";
+
 const Profile = () => {
   document.title = "My Profile | Ecommerce";
   const dispatch = useDispatch();
@@ -51,15 +52,19 @@ const Profile = () => {
             <h2 className="text-center">Welcome Back {"User"}</h2>
             <Row className="justify-content-center mt-4">
               <Col xs={4} md={3} lg={3} xl={2}>
-                {imgLoading && (
-                  <Skeleton.Image active={true} className="card-skeleton" />
-                )}
-                <img
-                  src={modalForm.profileImg ? modalForm.profileImg : userImg}
-                  alt="userlogo"
-                  className={`img-fluid ${imgLoading ? "d-none" : "d-block"}`}
-                  onLoad={() => setImgLoading(false)}
-                />
+                <div className="d-flex justify-content-center align-items-center">
+                  {imgLoading && (
+                    <Skeleton.Image active={true} className="card-skeleton" />
+                  )}
+                  <img
+                    src={
+                      !modalForm?.profileImg ? modalForm?.profileImg : userImg
+                    }
+                    alt="userlogo"
+                    className={`img-fluid ${imgLoading ? "d-none" : "d-block"}`}
+                    onLoad={() => setImgLoading(false)}
+                  />
+                </div>
               </Col>
             </Row>
             <Row className="justify-content-center mt-4">

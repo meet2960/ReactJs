@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Col, Container, Row } from "reactstrap";
-import RegisterForm from "../../Components/Register/RegisterForm";
+import RegisterForm from "../../components/Register/RegisterForm";
 
 const Register = () => {
   document.title = "Register | Ecommerce";

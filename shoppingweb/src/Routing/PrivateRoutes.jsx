@@ -2,7 +2,7 @@ import React, { lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./Layout";
 import Home from "../pages/Home/Home";
-import SuspensedView from "../Components/Common/SuspensedView";
+import SuspensedView from "../components/Common/SuspensedView";
 
 const Category = lazy(() => import("../pages/Category/Category"));
 const ShowProductDetail = lazy(() =>
@@ -14,8 +14,8 @@ const Profile = lazy(() => import("../pages/Profile/Profile"));
 const Cart = lazy(() => import("../pages/Cart/Cart"));
 const Checkout = lazy(() => import("../pages/Checkout.jsx/Checkout"));
 const Orders = lazy(() => import("../pages/Orders/Orders"));
-const OrderDetails = lazy(() => import("../Components/Orders/OrderDetails"));
-const OrderList = lazy(() => import("../Components/Orders/OrderList"));
+const OrderDetails = lazy(() => import("../components/Orders/OrderDetails"));
+const OrderList = lazy(() => import("../components/Orders/OrderList"));
 
 const PrivateRoutes = () => {
   return (

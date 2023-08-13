@@ -1,14 +1,13 @@
-import React from "react";
-import { Col, Container, Row } from "reactstrap";
-import { getAllProducts } from "../../Redux/product/action";
+import React, { useMemo, useState } from "react";
+import { Col, Row } from "reactstrap";
+import { NavLink } from "react-router-dom";
+import { getAllProducts } from "../../store/product/action";
 import { useDispatch } from "react-redux";
 import { useQuery } from "@tanstack/react-query";
-import Loader from "../../Components/Common/Loader";
-import { useState } from "react";
+import Loader from "../../components/Common/Loader";
 import CustomPagination from "./CustomPagination";
-import { NavLink } from "react-router-dom";
 import CommonProductCard from "../Common/CommonProductCard";
-import { useMemo } from "react";
+
 const ViewAllProducts = () => {
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);

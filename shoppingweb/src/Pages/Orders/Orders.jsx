@@ -1,7 +1,8 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import { Container } from "reactstrap";
-import CommonHeading from "../../Components/Common/CommonHeading";
+import CommonHeading from "../../components/Common/CommonHeading";
+
 const Orders = () => {
   document.title = "My Orders | Ecommerce";
   return (

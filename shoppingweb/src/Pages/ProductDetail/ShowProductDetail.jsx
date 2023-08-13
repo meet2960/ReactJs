@@ -2,9 +2,9 @@ import React from "react";
 import { Container } from "reactstrap";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import SelectedProductDetail from "../../Components/Productdetail/SelectedProductDetail";
-import ProductDetailsTabs from "../../Components/Productdetail/ProductDetailsTabs";
-import RelatedProducts from "../../Components/Productdetail/RelatedProducts";
+import SelectedProductDetail from "../../components/Productdetail/SelectedProductDetail";
+import ProductDetailsTabs from "../../components/Productdetail/ProductDetailsTabs";
+import RelatedProducts from "../../components/Productdetail/RelatedProducts";
 
 const ShowProductDetail = () => {
   document.title = "Product | Ecommerce";

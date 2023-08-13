@@ -17,7 +17,7 @@
 
     .custom-react-select__single-value {
       /* Selected value styles */
-      color: inherit;
+      color: var(--ecm-body-color);
     }
 
     .custom-react-select__indicator-separator {

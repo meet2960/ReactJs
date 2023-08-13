@@ -35,7 +35,7 @@ export const AuthSlice = createSlice({
       state.access_token = null;
     },
     updateUserData: (state, action) => {
-      console.log("Inside Redux", action.payload);
+      console.log("Inside store", action.payload);
       state.user = action.payload;
     },
   },

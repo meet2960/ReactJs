@@ -1,11 +1,12 @@
-import BackSlider from "../../Components/Home/BackSlider";
-import OurServices from "../../Components/Home/OurServices";
-import NewsLetter from "../../Components/Home/NewsLetter";
-import TrendingProducts from "../../Components/Home/TrendingProducts";
-import DealsProducts from "../../Components/Home/DealsProducts";
-import CustomerReview from "../../Components/Home/CustomerReview";
-import OfferImage from "../../Components/Home/OfferImage";
-import FooterDetails from "../../Components/Footer/FooterDetails";
+import BackSlider from "../../components/Home/BackSlider";
+import OurServices from "../../components/Home/OurServices";
+import NewsLetter from "../../components/Home/NewsLetter";
+import TrendingProducts from "../../components/Home/TrendingProducts";
+import DealsProducts from "../../components/Home/DealsProducts";
+import CustomerReview from "../../components/Home/CustomerReview";
+import OfferImage from "../../components/Home/OfferImage";
+import FooterDetails from "../../components/Footer/FooterDetails";
+
 export {
   BackSlider,
   OurServices,

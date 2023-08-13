@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "reactstrap";
-import FilterCategory from "../../Components/Categories/FilterCategory";
-import CommonHeading from "../../Components/Common/CommonHeading";
+import FilterCategory from "../../components/Categories/FilterCategory";
+import CommonHeading from "../../components/Common/CommonHeading";
 
 const Category = () => {
   document.title = "Category | Ecommerce";

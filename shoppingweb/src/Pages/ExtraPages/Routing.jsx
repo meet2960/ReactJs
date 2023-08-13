@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Header from "../../Components/Header/Header";
+import Header from "../../components/Header/Header";
 import Home from "./Home";
-import Login from "../../Components/Login/Login";
-import Footer from "../../Components/Footer/Footer";
+import Login from "../../components/Login/Login";
+import Footer from "../../components/Footer/Footer";
 import ShowProductDetail from "./ShowProductDetail";
-import CartOffCanvas from "../../Components/Cart/CartOffCanvas";
+import CartOffCanvas from "../../components/Cart/CartOffCanvas";
 import Category from "./Category";
 
 const Routing = () => {

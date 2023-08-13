@@ -1,6 +1,6 @@
 import React from "react";
-import CheckoutForm from "../../Components/Checkout/CheckoutForm";
-import CommonHeading from "../../Components/Common/CommonHeading";
+import CheckoutForm from "../../components/Checkout/CheckoutForm";
+import CommonHeading from "../../components/Common/CommonHeading";
 import { Container } from "reactstrap";
 
 const Checkout = () => {

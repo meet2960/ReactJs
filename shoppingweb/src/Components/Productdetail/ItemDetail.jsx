@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import { CurrenctContext } from "../../Context/CurrencyContext";
+import { CurrenctContext } from "../../context/CurrencyContext";
 import { Col, Row } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../Redux/cart/cartSlice";
+import { addToCart } from "../../store/cart/cartSlice";
 import { CustomToast } from "../../utils/customToast";
-import RatingsStars from "../Common/RatingsStars";
+import { addToWishList } from "../../store/wishlist/wishlistSlice";
 import CustomReactSelect from "../Common/CustomReactSelect";
-import { addToWishList } from "../../Redux/wishlist/wishlistSlice";
+import RatingsStars from "../Common/RatingsStars";
 
 const ItemDetail = ({ selectedProduct }) => {
   const dispatch = useDispatch();

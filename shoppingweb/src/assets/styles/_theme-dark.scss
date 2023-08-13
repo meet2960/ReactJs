@@ -84,6 +84,7 @@
 
   .card {
     background-color: $dark-gray-300 !important;
+
     .card-body {
       .heading-title {
         h3 {
@@ -93,13 +94,20 @@
       }
     }
   }
-  .list-group {
-    // border: 1px solid white !important;
 
-    .list-group-item {
-      color: inherit !important;
-      border: 1px solid #464748 !important;
-      background-color: #272b30 !important;
+  .dropdown-menu {
+    border: 1px solid transparent !important;
+
+    .list-group {
+      // border: 1px solid white !important;
+      .list-group-item {
+        .nav-link {
+          color: #ffffff !important;
+        }
+
+        border: 1px solid #464748 !important;
+        background-color: #272b30 !important;
+      }
     }
   }
 

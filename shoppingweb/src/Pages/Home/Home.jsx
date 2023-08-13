@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProductList } from "../../Redux/product/action";
+import { getProductList } from "../../store/product/action";
 import {
   BackSlider,
   CustomerReview,
@@ -10,8 +10,8 @@ import {
   OfferImage,
   OurServices,
   TrendingProducts,
-} from "../../Components/Home";
-import Loader from "../../Components/Common/Loader";
+} from "../../components/Home";
+import Loader from "../../components/Common/Loader";
 
 const Home = () => {
   document.title = "Home | Ecommerce";

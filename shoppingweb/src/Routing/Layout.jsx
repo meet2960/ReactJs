@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "../Components/Header/Header";
-import CartOffCanvas from "../Components/Cart/CartOffCanvas";
+import Header from "../components/Header/Header";
+import CartOffCanvas from "../components/Cart/CartOffCanvas";
 import { Outlet } from "react-router-dom";
-import Footer from "../Components/Footer/Footer";
-import BackToTopButton from "../Components/Common/BackToTopButton";
+import Footer from "../components/Footer/Footer";
+import BackToTopButton from "../components/Common/BackToTopButton";
 
 const Layout = () => {
   return (

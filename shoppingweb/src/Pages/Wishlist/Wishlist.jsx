@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { Col, Container, Row } from "reactstrap";
 import { useSelector } from "react-redux";
-import CommonHeading from "../../Components/Common/CommonHeading";
-import CommonProductCard from "../../Components/Common/CommonProductCard";
+import CommonHeading from "../../components/Common/CommonHeading";
+import CommonProductCard from "../../components/Common/CommonProductCard";
 import { NavLink } from "react-router-dom";
+
 const Wishlist = () => {
   document.title = "Wishlist | Ecommerce";
   const wishListItems = useSelector((state) => state.wishlist.wishListItems);
