@@ -183,14 +183,23 @@
       }
     }
   }
+
   // * All Products Page
   .allproducts {
     .ant-pagination {
       color: inherit !important;
+
       .ant-pagination-item-active {
         background-color: $dark-gray-300 !important;
         border-color: $dark-gray-300 !important;
       }
+    }
+  }
+
+  .custom-file-button {
+    label {
+      color: $dark-gray-600;
+      background-color: $dark-gray-100 !important;
     }
   }
 }
