@@ -191,3 +191,9 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+// * Modal Reboot
+.modal-content {
+  background-color: var(--ecm-body-bg);
+  color: var(--ecm-body-color);
+}

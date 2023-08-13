@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
-import { Col, Row } from "reactstrap";
+import { Card, CardBody, Col, Row } from "reactstrap";
 import { CurrenctContext } from "../../context/CurrencyContext";
 import { quantitySubTotal } from "../../utils/cartTotal";
 import { formatDate } from "../../utils/formatDate";
@@ -17,10 +17,12 @@ const OrderDetails = () => {
   console.log("Selected Order", selectedOrder);
   return (
     <React.Fragment>
-      <div className="card fs-16">
-        <div className="card-body">
-          <h3 className="mb-3 text-center text-lg-start">Order Details</h3>
-          <div className="d-flex mb-3">
+      <Card>
+        <CardBody>
+          <h3 className="mb-3 fw-semibold text-center text-lg-start">
+            Order Details
+          </h3>
+          <div className="d-flex justify-content-between mb-3">
             <div className="me-3">
               <span>Ordered on {formatDate(selectedOrder.orderDate)}</span>
             </div>
@@ -28,13 +30,13 @@ const OrderDetails = () => {
               <span>Order# {selectedOrder.orderId}</span>
             </div>
           </div>
-          <h5>Items List</h5>
+          <h5 className="mb-0">Items List</h5>
           {selectedOrder &&
             selectedOrder.cart.length !== 0 &&
             selectedOrder.cart.map((items, index) => {
               return (
                 <React.Fragment key={index}>
-                  <Row className="align-items-center mb-3">
+                  <Row className="justify-content-between align-items-center mb-3 mb-md-0">
                     <Col xs={"auto"}>
                       <NavLink to={`/productdetails/${items.id}`}>
                         <div className="avatar-lg d-grid align-items-center">
@@ -46,8 +48,8 @@ const OrderDetails = () => {
                         </div>
                       </NavLink>
                     </Col>
-                    <Col>
-                      <div>
+                    <Col xs={"auto"}>
+                      <div className="text-center">
                         <span>{formatCurrency(items.price)}</span>
                         <span className="mx-2">x</span>
                         <span>{formatCurrency(items.quantity)}</span>
@@ -56,8 +58,8 @@ const OrderDetails = () => {
                         </p>
                       </div>
                     </Col>
-                    <Col>
-                      <div>
+                    <Col xs={"auto"}>
+                      <div className="text-center">
                         <h6 className="text-capitalize">{items.title}</h6>
                         <p className="mb-0"></p>
                         <span className="text-capitalize">
@@ -65,12 +67,10 @@ const OrderDetails = () => {
                         </span>
                       </div>
                     </Col>
-                    <Col xs={"auto"}>
-                      <button type="button" className="btn btn-secondary">
+                    <Col md={"auto"} className="d-flex justify-content-between">
+                      <button type="button" className="btn btn-secondary me-3">
                         Track
                       </button>
-                    </Col>
-                    <Col xs={"auto"}>
                       <button type="button" className="btn btn-danger">
                         Cancel
                       </button>
@@ -79,14 +79,14 @@ const OrderDetails = () => {
                 </React.Fragment>
               );
             })}
-        </div>
-      </div>
+        </CardBody>
+      </Card>
       <Row className="mt-3 fs-16 gy-3 gy-lg-0">
         <Col lg={6}>
-          <div className="card">
-            <div className="card-body">
-              <h5>Shipping Address</h5>
-              <div>
+          <Card>
+            <CardBody>
+              <h5 className="fw-semibold">Shipping Address</h5>
+              <div className="text-start justify-paragraph">
                 <p className="mb-0">{selectedOrder.address.name}</p>
                 <p className="mb-0">{selectedOrder.address.address}</p>
                 <p className="mb-0">{selectedOrder.address.locality}</p>
@@ -96,13 +96,13 @@ const OrderDetails = () => {
                   <span>{selectedOrder.address.postalcode}</span>
                 </p>
               </div>
-            </div>
-          </div>
+            </CardBody>
+          </Card>
         </Col>
         <Col lg={6}>
-          <div className="card">
-            <div className="card-body">
-              <h5>Total Summary</h5>
+          <Card>
+            <CardBody>
+              <h5 className="fw-semibold">Total Summary</h5>
               <Row className="gy-3">
                 <Col xs={6}>
                   <span>Sub Total</span>
@@ -136,8 +136,8 @@ const OrderDetails = () => {
               <div className="text-end mt-2">
                 <span>Paid by Credit/Debit Card</span>
               </div>
-            </div>
-          </div>
+            </CardBody>
+          </Card>
         </Col>
       </Row>
     </React.Fragment>

@@ -66,10 +66,15 @@
   }
 
   .form-control {
-    background-color: #{$dark-gray-200};
-    outline: #{$light-gray-600};
-    border: #{$light-gray-600};
-    color: #{$light-gray-200};
+    color: var(--ecm-body-color) !important;
+    background-color: $dark-gray-200;
+    border: $dark-gray-600;
+
+    &:focus {
+      border-color: $dark-gray-300;
+      outline: 0;
+      box-shadow: 0 0 0 0.25rem $dark-gray-300 !important;
+    }
   }
 
   .form-control::placeholder {

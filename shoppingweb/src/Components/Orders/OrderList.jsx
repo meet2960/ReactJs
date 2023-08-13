@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { CurrenctContext } from "../../context/CurrencyContext";
 import { formatDate } from "../../utils/formatDate";
+import { Card, CardBody } from "reactstrap";
 
 const OrderList = () => {
   const { formatCurrency } = useContext(CurrenctContext);
@@ -10,8 +11,8 @@ const OrderList = () => {
 
   return (
     <React.Fragment>
-      <div className="card">
-        <div className="card-body">
+      <Card>
+        <CardBody>
           <div className="table-responsive order-list">
             <table className="table align-middle text-center table-hover fs-16">
               <thead>
@@ -70,8 +71,8 @@ const OrderList = () => {
               </tbody>
             </table>
           </div>
-        </div>
-      </div>
+        </CardBody>
+      </Card>
     </React.Fragment>
   );
 };
