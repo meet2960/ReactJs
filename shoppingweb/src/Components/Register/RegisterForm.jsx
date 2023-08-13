@@ -5,7 +5,8 @@ import { FormikInput } from "../Login/FormikInput";
 import { Col, Label, Row } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { createUserList } from "../../Redux/auth/createUserAction";
+import { createUserList } from "../../store/auth/createUserAction";
+
 const RegisterForm = () => {
   const dispatch = useDispatch();
   // ? To Toggle Password Field

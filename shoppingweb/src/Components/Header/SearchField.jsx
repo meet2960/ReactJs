@@ -1,7 +1,5 @@
-import React from "react";
-import { getRequest } from "../../Redux/common/crud";
-import { useState } from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { getRequest } from "../../store/common/crud";
 import { Input } from "reactstrap";
 import { NavLink } from "react-router-dom";
 

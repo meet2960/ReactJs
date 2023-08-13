@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { Dropdown, DropdownMenu, DropdownToggle } from "reactstrap";
-import { logout } from "../../Redux/auth/authSlice";
+import { logout } from "../../store/auth/authSlice";
 import CurrencyDropDown from "./CurrencyDropDown";
 import { CustomToast } from "../../utils/customToast";
 
@@ -28,7 +28,7 @@ const ProfileDropDown = () => {
       </DropdownToggle>
       <DropdownMenu className="dropdown-menu-lg dropdown-menu-end p-0">
         <div>
-          <ul className="list-group fs-16 text-center">
+          <ul className="list-group header-dropdown fs-16 text-center">
             <li className="list-group-item">
               <NavLink to="/profile" className="nav-link">
                 My Profile
@@ -50,14 +50,14 @@ const ProfileDropDown = () => {
               </NavLink>
             </li>
             <li className="list-group-item">
-              <span className="fs-14 text-primary">Change Currency</span>
+              <span className="mb-1 nav-link">Currency</span>
               <CurrencyDropDown />
             </li>
             <li className="list-group-item">
               <div className="d-flex justify-content-center">
                 <button
                   type="button"
-                  className="btn btn-primary btn-sm"
+                  className="btn btn-primary"
                   onClick={(e) => logoutUser(e)}
                 >
                   Logout

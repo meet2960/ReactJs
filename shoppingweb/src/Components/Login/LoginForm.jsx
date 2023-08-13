@@ -5,7 +5,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { FormikInput } from "./FormikInput";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../Redux/auth/authSlice";
+import { login } from "../../store/auth/authSlice";
 
 const LoginForm = () => {
   const navigate = useNavigate();

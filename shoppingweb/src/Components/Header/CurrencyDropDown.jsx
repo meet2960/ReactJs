@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import Select from "react-select";
-import { CurrenctContext } from "../../Context/CurrencyContext";
+import { CurrenctContext } from "../../context/CurrencyContext";
+
 const CurrencyDropDown = () => {
   // * For Currency Change
   const { currency, handleCurrencyFormatChange } = useContext(CurrenctContext);
@@ -17,7 +18,7 @@ const CurrencyDropDown = () => {
   };
   return (
     <React.Fragment>
-      <div className="custom-select-container text-primary fs-14">
+      <div className="custom-select-container fs-14">
         <Select
           className="react-select-container"
           classNamePrefix="custom-react-select"

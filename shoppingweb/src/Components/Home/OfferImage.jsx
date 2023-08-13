@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Col, Container, Row } from "reactstrap";
-import { CurrenctContext } from "../../Context/CurrencyContext";
+import { CurrenctContext } from "../../context/CurrencyContext";
 
 const OfferImage = () => {
   const { formatCurrency } = useContext(CurrenctContext);

@@ -3,7 +3,7 @@ import { Card, CardBody } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import { Skeleton } from "antd";
 import { currencyFormat } from "../../utils/currencyFormat";
-import { addToCart } from "../../Redux/cart/cartSlice";
+import { addToCart } from "../../store/cart/cartSlice";
 import { useDispatch } from "react-redux";
 import RatingsStars from "../Common/RatingsStars";
 

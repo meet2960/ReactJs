@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
 import { Col, Row } from "reactstrap";
-import { CurrenctContext } from "../../Context/CurrencyContext";
+import { CurrenctContext } from "../../context/CurrencyContext";
 import { quantitySubTotal } from "../../utils/cartTotal";
 import { formatDate } from "../../utils/formatDate";
-import { useContext } from "react";
+
 const OrderDetails = () => {
   const { formatCurrency } = useContext(CurrenctContext);
   const orderList = useSelector((state) => state.order.orderItems);

@@ -1,16 +1,17 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { Col, Container, Row, Label } from "reactstrap";
+import React, { useMemo, useState } from "react";
+import { Col, Label, Row } from "reactstrap";
 import * as Yup from "yup";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { FormikInput } from "../Login/FormikInput";
 import Select from "react-select";
 import citiesData from "../../utils/cities.json";
 import Swal from "sweetalert2";
-import { addToOrders } from "../../Redux/orders/ordersSlice";
-import { deleteCart } from "../../Redux/cart/cartSlice";
+import { addToOrders } from "../../store/orders/ordersSlice";
+import { deleteCart } from "../../store/cart/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { qunatityTotal } from "../../utils/cartTotal";
+
 const CheckoutForm = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const navigate = useNavigate();

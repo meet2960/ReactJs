@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeLayoutMode } from "../../Redux/layouts/layout";
+import { changeLayoutMode } from "../../store/layouts/layout";
+
 const ThemeChange = () => {
   const dispatch = useDispatch();
   // * To get currenct layout theme of Page

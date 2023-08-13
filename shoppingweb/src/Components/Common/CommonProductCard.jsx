@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import RatingsStars from "./RatingsStars";
-import { CurrenctContext } from "../../Context/CurrencyContext";
+import { CurrenctContext } from "../../context/CurrencyContext";
 import { Skeleton } from "antd";
-import { useEffect } from "react";
+
 const CommonProductCard = ({ items }) => {
   const { formatCurrency } = useContext(CurrenctContext);
   const [imgLoading, setImgLoading] = useState(true); // For Image Loading

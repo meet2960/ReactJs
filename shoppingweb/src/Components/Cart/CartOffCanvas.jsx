@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Col, Row } from "reactstrap";
-import { removeItem } from "../../Redux/cart/cartSlice";
+import { removeItem } from "../../store/cart/cartSlice";
 import { cartTotal, quantitySubTotal } from "../../utils/cartTotal";
-import { CurrenctContext } from "../../Context/CurrencyContext";
+import { CurrenctContext } from "../../context/CurrencyContext";
 import { NavLink } from "react-router-dom";
 import { MdDeleteForever } from "react-icons/md";
 

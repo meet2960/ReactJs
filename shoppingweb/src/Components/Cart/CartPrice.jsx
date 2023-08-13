@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Col, Row } from "reactstrap";
-import { CurrenctContext } from "../../Context/CurrencyContext";
+import { CurrenctContext } from "../../context/CurrencyContext";
 import { cartTotal } from "../../utils/cartTotal";
-import CommonHeading from "../Common/CommonHeading";
+
 const CartPrice = ({
   cartItems,
   deliveryCharges,

@@ -4,9 +4,9 @@ import {
   decreaseQuantity,
   increaseQuantity,
   removeItem,
-} from "../../Redux/cart/cartSlice";
+} from "../../store/cart/cartSlice";
 import { useDispatch } from "react-redux";
-import { CurrenctContext } from "../../Context/CurrencyContext";
+import { CurrenctContext } from "../../context/CurrencyContext";
 import { quantitySubTotal } from "../../utils/cartTotal";
 import { NavLink } from "react-router-dom";
 import { Skeleton } from "antd";

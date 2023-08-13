@@ -1,6 +1,7 @@
 import React from "react";
 import { Pagination } from "antd";
-import { ITEM_PER_Page } from "../../Redux/product/action";
+import { ITEM_PER_Page } from "../../store/product/action";
+
 const CustomPagination = ({ page, setPage, totalProduct, onChange }) => {
   console.log("Inside Pagination Page Count", totalProduct);
   return (
